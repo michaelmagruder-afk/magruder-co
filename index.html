@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magruder & Company — AI Governance & Organizational Preparedness</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#1E3455;
+  --navy-dark:#131F33;
+  --navy-mid:#2C4A73;
+  --orange:#F86822;
+  --orange-light:#FEA96D;
+  --cream:#FAF8F5;
+  --off-white:#F2EFE9;
+  --slate:#4A5568;
+  --muted:#8A9BB0;
+  --rule:#D6DDE8;
+  --teal:#0F6E56;
+  --white:#FFFFFF;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 64px;
+  background:rgba(250,248,245,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-brand{
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;font-weight:700;
+  color:var(--navy);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  display:inline-block;
+  white-space:nowrap;
+}
+.nav-brand span{
+  color:var(--orange);
+  font-weight:700;
+  margin:0 0.05em;
+}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{
+  font-size:13px;font-weight:500;
+  color:var(--slate);text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{
+  background:var(--navy);color:var(--white)!important;
+  padding:9px 22px;border-radius:4px;
+  font-size:13px!important;font-weight:600!important;
+  transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--orange)!important}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--navy-dark);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 64px 80px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(248,104,34,0.08) 0%,transparent 70%);
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-80px;left:200px;
+  width:400px;height:400px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(44,74,115,0.4) 0%,transparent 70%);
+}
+.hero-label{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:28px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,5.5vw,72px);
+  font-weight:700;
+  color:var(--white);
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  max-width:760px;
+  margin-bottom:32px;
+  position:relative;z-index:1;
+}
+.hero h1 em{
+  color:var(--orange-light);
+  font-style:italic;
+}
+.hero-sub{
+  font-size:18px;font-weight:300;
+  color:rgba(255,255,255,0.65);
+  max-width:520px;
+  line-height:1.7;
+  margin-bottom:48px;
+  position:relative;z-index:1;
+}
+.hero-actions{
+  display:flex;gap:16px;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.btn-primary{
+  background:var(--orange);color:var(--white);
+  padding:15px 32px;border-radius:4px;
+  font-size:14px;font-weight:600;
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:background 0.2s,transform 0.15s;
+  display:inline-block;
+}
+.btn-primary:hover{background:#E05510;transform:translateY(-1px)}
+.btn-secondary{
+  border:1px solid rgba(255,255,255,0.3);
+  color:rgba(255,255,255,0.85);
+  padding:15px 32px;border-radius:4px;
+  font-size:14px;font-weight:400;
+  text-decoration:none;
+  transition:border-color 0.2s,color 0.2s;
+  display:inline-block;
+}
+.btn-secondary:hover{border-color:var(--orange);color:var(--orange)}
+.hero-rule{
+  width:56px;height:3px;
+  background:var(--orange);
+  border-radius:2px;
+  margin-top:64px;
+  position:relative;z-index:1;
+}
+
+/* ── SECTION COMMON ── */
+section{padding:96px 64px}
+.section-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;
+}
+.section-h{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,3.5vw,44px);
+  font-weight:700;
+  color:var(--navy);
+  line-height:1.15;
+  letter-spacing:-0.02em;
+  margin-bottom:20px;
+  max-width:640px;
+}
+.section-sub{
+  font-size:16px;font-weight:300;
+  color:var(--slate);
+  max-width:540px;
+  line-height:1.75;
+  margin-bottom:56px;
+}
+
+/* ── PROBLEM SECTION ── */
+.problem{background:var(--off-white)}
+.problem-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;align-items:start;
+  margin-top:48px;
+}
+.problem-stat{
+  padding:32px;
+  border-left:3px solid var(--orange);
+  background:var(--white);
+}
+.problem-stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:52px;font-weight:900;
+  color:var(--orange);
+  line-height:1;
+  margin-bottom:8px;
+}
+.problem-stat-text{
+  font-size:14px;color:var(--slate);
+  line-height:1.6;
+}
+.problem-stat-source{
+  font-size:11px;color:var(--muted);
+  margin-top:8px;letter-spacing:0.04em;
+}
+
+/* ── SERVICES ── */
+.services{background:var(--white)}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:56px;
+  border:2px solid var(--rule);
+}
+.service-card{
+  padding:40px 36px;
+  background:var(--white);
+  border-right:2px solid var(--rule);
+  transition:background 0.2s;
+}
+.service-card:last-child{border-right:none}
+.service-card:hover{background:var(--cream)}
+.service-num{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:20px;
+}
+.service-icon{
+  width:40px;height:40px;
+  border-radius:8px;
+  margin-bottom:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.si-navy{background:var(--navy)}
+.si-orange{background:var(--orange)}
+.si-teal{background:var(--teal)}
+.service-title{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;
+  color:var(--navy);margin-bottom:6px;
+}
+.service-sub{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;
+}
+.service-body{
+  font-size:14px;color:var(--slate);
+  line-height:1.7;margin-bottom:24px;
+}
+.service-phases{
+  display:flex;flex-direction:column;gap:6px;
+}
+.service-phase{
+  font-size:12px;color:var(--slate);
+  padding:6px 10px;
+  background:var(--cream);
+  border-radius:4px;
+  display:flex;align-items:center;gap:8px;
+}
+.service-phase::before{
+  content:'';width:6px;height:6px;
+  border-radius:50%;background:var(--navy);
+  flex-shrink:0;
+}
+.service-ring{
+  font-size:12px;padding:6px 10px;
+  background:var(--cream);border-radius:4px;
+  color:var(--slate);margin-top:4px;
+}
+.service-ring strong{color:var(--navy);font-weight:600}
+.service-level{
+  font-size:12px;padding:5px 10px;
+  background:var(--cream);border-radius:4px;
+  color:var(--slate);margin-top:4px;
+  display:flex;align-items:center;gap:8px;
+}
+.level-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--orange);flex-shrink:0;
+}
+
+/* ── PROOF ── */
+.proof{background:var(--navy)}
+.proof .section-label{color:var(--orange)}
+.proof .section-h{color:var(--white)}
+.proof .section-sub{color:rgba(255,255,255,0.6)}
+.proof-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:2px;
+  border:1px solid rgba(255,255,255,0.1);
+  margin-top:0;
+}
+.proof-stat{
+  padding:40px 32px;
+  border-right:1px solid rgba(255,255,255,0.1);
+}
+.proof-stat:last-child{border-right:none}
+.proof-stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:44px;font-weight:900;
+  color:var(--orange);line-height:1;
+  margin-bottom:8px;
+}
+.proof-stat-label{
+  font-size:13px;color:rgba(255,255,255,0.6);
+  line-height:1.5;
+}
+.proof-statement{
+  margin-top:56px;
+  padding:40px 48px;
+  border:1px solid rgba(248,104,34,0.3);
+  border-left:4px solid var(--orange);
+  background:rgba(248,104,34,0.04);
+}
+.proof-quote{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:400;font-style:italic;
+  color:rgba(255,255,255,0.85);
+  line-height:1.65;
+  max-width:680px;
+}
+.proof-attr{
+  font-size:12px;color:var(--orange);
+  font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  margin-top:16px;
+}
+
+/* ── ABOUT ── */
+.about{background:var(--cream)}
+.about-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.about-credentials{
+  display:flex;flex-direction:column;gap:16px;
+  margin-top:40px;
+}
+.credential{
+  padding:20px 24px;
+  background:var(--white);
+  border-left:3px solid var(--rule);
+  transition:border-color 0.2s;
+}
+.credential:hover{border-left-color:var(--orange)}
+.credential-title{
+  font-size:13px;font-weight:600;
+  color:var(--navy);margin-bottom:4px;
+}
+.credential-body{
+  font-size:13px;color:var(--slate);line-height:1.5;
+}
+.about-commitment{
+  margin-top:48px;
+  padding:32px;
+  background:var(--navy);
+  border-radius:2px;
+}
+.about-commitment-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:12px;
+}
+.about-commitment-text{
+  font-family:'Playfair Display',serif;
+  font-size:17px;font-style:italic;
+  color:var(--white);line-height:1.6;
+}
+
+/* ── CONTACT ── */
+.contact{
+  background:var(--navy-dark);
+  padding:96px 64px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.contact .section-h{color:var(--white);margin-bottom:16px}
+.contact .section-sub{color:rgba(255,255,255,0.55);margin-bottom:40px}
+.contact-details{display:flex;flex-direction:column;gap:20px}
+.contact-item{
+  display:flex;align-items:flex-start;gap:16px;
+}
+.contact-item-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--orange);min-width:72px;
+  padding-top:2px;
+}
+.contact-item-val{
+  font-size:15px;color:rgba(255,255,255,0.8);
+}
+.contact-item-val a{
+  color:rgba(255,255,255,0.8);text-decoration:none;
+  transition:color 0.2s;
+}
+.contact-item-val a:hover{color:var(--orange)}
+.contact-form-note{
+  font-size:13px;color:rgba(255,255,255,0.4);
+  line-height:1.6;margin-top:24px;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--navy-dark);
+  padding:24px 64px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-brand{
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;font-weight:700;
+  color:rgba(255,255,255,0.55);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+.footer-brand span{
+  color:var(--orange);
+  margin:0 0.05em;
+}
+.footer-links{display:flex;gap:32px}
+.footer-links a{
+  font-size:12px;color:rgba(255,255,255,0.35);
+  text-decoration:none;letter-spacing:0.04em;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--orange)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .nav-brand{font-size:12px;letter-spacing:0.14em}
+  .nav-links{display:none}
+  section{padding:64px 24px}
+  .hero{padding:100px 24px 64px}
+  .problem-grid,.services-grid,.proof-grid,.about-inner,.contact{
+    grid-template-columns:1fr;gap:24px;
+  }
+  footer{flex-direction:column;gap:16px;padding:24px}
+  .footer-brand{font-size:10px;letter-spacing:0.16em}
+}
+@media(max-width:480px){
+  .nav-brand{font-size:11px;letter-spacing:0.12em}
+}
+
+/* Buttons rendered as <button> need the same look as anchor btn-primary */
+button.btn-primary{border:none;cursor:pointer;font-family:inherit}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand" aria-label="Magruder and Company home">MAGRUDER <span>&amp;</span> COMPANY</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#proof">The Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="https://customercore.co" target="_blank">Customer Core™</a>
+    <a href="#contact" class="nav-cta">Start a Conversation</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Magruder & Company · Management Consulting</div>
+  <h1>Your AI investment needs a <em>foundation</em> before it can compound.</h1>
+  <div class="hero-sub">Most organizations deploy AI on top of knowledge that was never governed. We build GenGov OS — a governed intelligence operating layer — on your infrastructure. It runs continuously. You own it permanently.</div>
+  <div class="hero-actions">
+    <a href="#services" class="btn-primary">See How We Work</a>
+    <a href="https://customercore.co" class="btn-secondary" target="_blank">View the Framework →</a>
+  </div>
+  <div class="hero-rule"></div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="section-label">The Market Condition</div>
+  <div class="section-h">AI is being deployed. The foundation beneath it is not being built.</div>
+  <div class="section-sub">Every advisor owns a lane. The technology firms sell adoption. The consultancies sell strategy. The governance specialists sell policy. None of them holds the full problem. None of them was designed to.</div>
+  <div class="problem-grid">
+    <div class="problem-stat">
+      <div class="problem-stat-num">88%</div>
+      <div class="problem-stat-text">of organizations are deploying AI in some form — while 81% report no meaningful bottom-line impact.</div>
+      <div class="problem-stat-source">McKinsey State of AI, 2025</div>
+    </div>
+    <div class="problem-stat">
+      <div class="problem-stat-num">40%</div>
+      <div class="problem-stat-text">of agentic AI projects are predicted to be canceled due to escalating costs and unclear value.</div>
+      <div class="problem-stat-source">Gartner Strategic Predictions, 2026</div>
+    </div>
+    <div class="problem-stat">
+      <div class="problem-stat-num">73%</div>
+      <div class="problem-stat-text">of managers recognize the need for organizational change to support AI — while only 7% are taking meaningful action.</div>
+      <div class="problem-stat-source">Deloitte AI Adoption Study, 2025</div>
+    </div>
+    <div class="problem-stat">
+      <div class="problem-stat-num">42%</div>
+      <div class="problem-stat-text">cite integration with existing systems as the largest barrier to scaling AI — not the technology itself.</div>
+      <div class="problem-stat-source">McKinsey State of Organizations, 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-h">One system. Three visible layers.</div>
+  <div class="section-sub">GenGov OS is the operating foundation — deployed on your infrastructure, not licensed from ours. H2AI™ keeps a human in the governance loop at every step. Customer Core™ is where it leads at enterprise scale.</div>
+  <div class="services-grid">
+
+    <!-- GenGov -->
+    <div class="service-card">
+      <div class="service-num">01 · The Service</div>
+      <div class="service-icon si-navy">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="7" height="7" rx="1" fill="white" opacity="0.8"/><rect x="11" y="2" width="7" height="7" rx="1" fill="white" opacity="0.5"/><rect x="2" y="11" width="7" height="7" rx="1" fill="white" opacity="0.5"/><rect x="11" y="11" width="7" height="7" rx="1" fill="white" opacity="0.3"/></svg>
+      </div>
+      <div class="service-title">Generative Governance</div>
+      <div class="service-sub">GenGov OS · The operating service</div>
+      <div class="service-body">Takes the knowledge a function holds and builds it into a governed corpus your AI systems can operate on. Four phases. One continuous cycle. GenGov OS — the operating layer — deploys on your infrastructure and runs continuously. The corpus compounds with every session.</div>
+      <div class="service-phases">
+        <div class="service-phase">Curate · open reception</div>
+        <div class="service-phase">Assimilate · held breath</div>
+        <div class="service-phase">Codify · dual-format corpus</div>
+        <div class="service-phase">Institutionalize · transfer</div>
+      </div>
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
+        <div class="service-ring"><strong>Ring 1</strong> · Readiness Assessment · 30 days · $15,000</div>
+        <div class="service-ring"><strong>Ring 2</strong> · Governed Corpus Build · 60–90 days · $25–35K</div>
+        <div class="service-ring" style="color:var(--muted)"><strong>Ring 3</strong> · Capability Transfer · org operates independently</div>
+      </div>
+    </div>
+
+    <!-- H2AI -->
+    <div class="service-card">
+      <div class="service-num">02 · The Architecture</div>
+      <div class="service-icon si-teal">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5" opacity="0.8"/><circle cx="10" cy="10" r="3" fill="white" opacity="0.9"/><line x1="10" y1="3" x2="10" y2="6" stroke="white" stroke-width="1.5" opacity="0.6"/><line x1="10" y1="14" x2="10" y2="17" stroke="white" stroke-width="1.5" opacity="0.6"/><line x1="3" y1="10" x2="6" y2="10" stroke="white" stroke-width="1.5" opacity="0.6"/><line x1="14" y1="10" x2="17" y2="10" stroke="white" stroke-width="1.5" opacity="0.6"/></svg>
+      </div>
+      <div class="service-title">Human-to-AI Intermediation</div>
+      <div class="service-sub">H2AI™ · The governing principle</div>
+      <div class="service-body">Not AI-assisted work reviewed by a human. A named governance architecture in which the practitioner makes every substantive decision at every step. The AI amplifies. The human governs.</div>
+      <div class="service-phases">
+        <div class="service-phase">Human decides what matters in Curate</div>
+        <div class="service-phase">Human resolves every conflict in Assimilate</div>
+        <div class="service-phase">Human governs every claim in Codify</div>
+        <div class="service-phase">Human decides what transfers in Institutionalize</div>
+      </div>
+      <div style="margin-top:20px;padding:16px;background:var(--cream);border-radius:4px;font-size:13px;color:var(--slate);line-height:1.6">
+        Every word in the corpus is traceable to a human decision. That traceability is why the corpus holds under audit, under regulatory scrutiny, and under board accountability.
+      </div>
+    </div>
+
+    <!-- Customer Core -->
+    <div class="service-card">
+      <div class="service-num">03 · The Destination</div>
+      <div class="service-icon si-orange">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L10 4L16 16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><line x1="6" y1="12" x2="14" y2="12" stroke="white" stroke-width="1.5" opacity="0.6"/></svg>
+      </div>
+      <div class="service-title">Customer Core™</div>
+      <div class="service-sub">Earnings Quality Framework · The destination</div>
+      <div class="service-body">A seven-level progressive capability framework drawing the horizontal thread from data foundation to earnings quality. What an organization becomes when GenGov has run across its functions.</div>
+      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:16px">
+        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>1 · Data Foundation</div>
+        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>2 · Identity Resolution</div>
+        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>3 · Customer Intelligence</div>
+        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>4 · Operational Effectiveness</div>
+        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>5 · Customer Engagement</div>
+        <div class="service-level"><span class="level-dot" style="background:#D4A64A"></span>6 · Customer Equity</div>
+        <div class="service-level" style="background:var(--orange);border-radius:4px"><span class="level-dot" style="background:white"></span><span style="color:white;font-weight:600">7 · Earnings Quality</span></div>
+      </div>
+      <a href="https://customercore.co" target="_blank" style="font-size:12px;color:var(--orange);text-decoration:none;font-weight:600;letter-spacing:0.04em">Explore the framework →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="proof">
+  <div class="section-label">The Proof of Work</div>
+  <div class="section-h" style="color:var(--white)">The practice was built using its own methodology.</div>
+  <div class="section-sub">This is not a theoretical claim. GenGov OS runs on practitioner-owned infrastructure today. Every AI work session since launch is archived, indexed, and queryable in real time.</div>
+  <div class="proof-grid">
+    <div class="proof-stat">
+      <div class="proof-stat-num">1,100+</div>
+      <div class="proof-stat-label">Pages of governed intellectual property produced under H2AI™ governance</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">1,976+</div>
+      <div class="proof-stat-label">AI work sessions archived and queryable verbatim — the operational history of a practice built on its own system</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">200+</div>
+      <div class="proof-stat-label">Tier-1 research sources integrated from McKinsey, BCG, Gartner, HBR, MIT</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-stat-num">Live</div>
+      <div class="proof-stat-label">GenGov OS is deployed and running on practitioner-owned infrastructure today — the same system offered to clients</div>
+    </div>
+  </div>
+  <div class="proof-statement">
+    <div class="proof-quote">"If Magruder wrote it, it is current, it is honest, and it will not waste your time."</div>
+    <div class="proof-attr">The brand commitment · Magruder & Company</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="section-label">The Practitioner</div>
+      <div class="section-h">Michael Magruder</div>
+      <div class="section-sub" style="margin-bottom:0">30 years of cross-functional enterprise experience spanning customer experience, digital transformation, and AI integration. The practice was built on the belief that the best practices for organizational AI preparedness do not yet exist in published form — and that building them requires someone willing to do the foundational work.</div>
+      <div class="about-commitment">
+        <div class="about-commitment-label">Practice Positioning</div>
+        <div class="about-commitment-text">Magruder & Company occupies the space between AI strategic ambition and the organizational architecture required to deliver it. Where every other advisor owns a lane, this practice holds the full shape of the problem.</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:20px">Career Foundation</div>
+      <div class="about-credentials">
+        <div class="credential">
+          <div class="credential-title">Senior Strategy Director · Publicis Sapient</div>
+          <div class="credential-body">Led a $346M customer experience transformation portfolio for Verizon Consumer Group. Embedded practitioner, not independent contractor.</div>
+        </div>
+        <div class="credential">
+          <div class="credential-title">Business Strategies Director · Razorfish</div>
+          <div class="credential-body">Digital strategy and transformation at the intersection of customer experience and enterprise architecture.</div>
+        </div>
+        <div class="credential">
+          <div class="credential-title">Director of Integrated Digital · Lifeway</div>
+          <div class="credential-body">Enterprise digital integration across organizational functions and customer-facing channels.</div>
+        </div>
+        <div class="credential">
+          <div class="credential-title">Founder & Principal · Magruder & Company</div>
+          <div class="credential-body">Built Customer Core™ using the same methodology offered to clients. The practice is the proof of concept.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div>
+    <div class="section-label">Start a Conversation</div>
+    <div class="section-h">The right conversation begins with one question.</div>
+    <div class="section-sub">Before your next AI deployment, does the knowledge it will operate on exist in governed, auditable form that your organization owns?</div>
+    <button id="contact-cta" class="btn-primary" type="button" onclick="revealEmail()">Start a Conversation</button>
+    <div class="contact-form-note" style="margin-top:20px">Ring 1 Readiness Assessment starts at $15,000 and sits within most organizations' direct discretionary authority. No procurement cycle required.</div>
+  </div>
+  <div>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-item-label">Practice</div>
+        <div class="contact-item-val">magruder.co</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Framework</div>
+        <div class="contact-item-val"><a href="https://customercore.co" target="_blank">customercore.co</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Entry</div>
+        <div class="contact-item-val">Ring 1 Readiness Assessment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">MAGRUDER <span>&amp;</span> COMPANY</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#proof">The Work</a>
+    <a href="#about">About</a>
+    <a href="https://customercore.co" target="_blank">Customer Core™</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Email reveal — assembled at click time so the static HTML never contains the address.
+// Defeats simple regex-based scrapers; the user's mail client opens with subject prefilled.
+(function(){
+  function buildAddress(){
+    var u = String.fromCharCode(109,105,99,104,97,101,108);              // user
+    var d = String.fromCharCode(109,97,103,114,117,100,101,114,46,99,111); // domain
+    return u + String.fromCharCode(64) + d;
+  }
+  window.revealEmail = function(){
+    var addr = buildAddress();
+    var subj = encodeURIComponent('Inquiry — Magruder & Company');
+    window.location.href = 'mailto:' + addr + '?subject=' + subj;
+  };
+  // Make the nav-brand link return to top instead of jumping to "#"
+  document.addEventListener('DOMContentLoaded', function(){
+    var brand = document.querySelector('.nav-brand');
+    if(brand){ brand.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }); }
+  });
+})();
+</script>
+
+</body>
+</html>
