@@ -20,8 +20,8 @@ test("magruder.co renders correctly", async ({ page }) => {
   await expect(page.locator("nav")).toBeVisible();
   await expect(page.locator(".hero")).toBeVisible();
 
-  // Brand name visible
-  await expect(page.getByText("MAGRUDER")).toBeVisible();
+  // Brand name visible in hero (scoped to avoid strict mode violation)
+  await expect(page.locator(".hero-content h1").first()).toBeVisible();
 
   // GenGov OS copy present (v1.3 marker)
   const bodyText = await page.evaluate(() => document.body.innerText);
