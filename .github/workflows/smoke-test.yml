@@ -1,0 +1,31 @@
+name: Smoke Test — magruder.co
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  smoke:
+    name: Visual smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install --save-dev @playwright/test
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Wait for Netlify deploy (45s)
+        run: sleep 45
+      - name: Run smoke test
+        run: npx playwright test tests/smoke.spec.ts --config=playwright.config.ts
+      - name: Upload artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-failure
+          path: test-results/
