@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magruder & Company — Admin</title>
+<style>
+:root {
+  --navy: #1a3566;
+  --navy-mid: #233f77;
+  --navy-dark: #0f2040;
+  --orange: #F86822;
+  --bg: #F2F4F8;
+  --card: #ffffff;
+  --border: #E2E6EE;
+  --text: #0C0D14;
+  --muted: #6B7280;
+  --green: #065F46;
+  --green-bg: #D1FAE5;
+  --yellow-bg: #FEF3C7;
+  --yellow: #92400E;
+  --blue-bg: #DBEAFE;
+  --blue: #1E40AF;
+  --red-bg: #FEE2E2;
+  --red: #991B1B;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.6; min-height: 100vh; }
+
+/* ── TOP BAR ── */
+.top-bar { background: var(--navy); color: #fff; padding: 16px 24px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--orange); }
+.top-bar-left { display: flex; align-items: center; gap: 14px; }
+.logo { width: 36px; height: 36px; border-radius: 8px; background: var(--orange); color: #fff; font-size: 16px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.top-title { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+.top-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
+.top-right { display: flex; align-items: center; gap: 10px; }
+.status-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+.status-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #6B7280; display: inline-block; }
+.status-pill .dot.green { background: #34D399; }
+.status-pill .dot.red { background: #F87171; }
+.status-pill .dot.yellow { background: #FBBF24; }
+.last-refresh { font-size: 10px; color: rgba(255,255,255,0.4); }
+
+/* ── TABS ── */
+.tab-nav { background: #112650; display: flex; gap: 0; padding: 0 20px; overflow-x: auto; scrollbar-width: none; }
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-btn { padding: 10px 15px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.5); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; background: none; border-top: none; border-left: none; border-right: none; }
+.tab-btn:hover { color: rgba(255,255,255,0.8); }
+.tab-btn.active { color: #fff; border-bottom-color: var(--orange); font-weight: 600; }
+
+/* ── PANELS ── */
+.panels { padding: 18px 22px; }
+.panel { display: none; flex-direction: column; gap: 14px; }
+.panel.active { display: flex; }
+
+/* ── GRID LAYOUTS ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.four-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+/* ── CARD ── */
+.card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); overflow: hidden; }
+.card-head { padding: 9px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; }
+.card-head.navy { background: var(--navy); color: #fff; }
+.card-head.orange { background: var(--orange); color: #fff; }
+.card-head.dark { background: var(--navy-dark); color: #fff; }
+.card-head.slate { background: #374151; color: #fff; }
+.card-head.green-h { background: #065F46; color: #fff; }
+.card-body { padding: 14px 16px; }
+
+/* ── STAT CARDS ── */
+.stat-card { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.stat-val { font-size: 26px; font-weight: 800; color: var(--navy); line-height: 1; }
+.stat-val.orange { color: var(--orange); }
+.stat-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-sub { font-size: 11px; color: var(--muted); }
+
+/* ── KV PAIRS ── */
+.kv { display: flex; gap: 8px; margin-bottom: 6px; align-items: flex-start; }
+.kv:last-child { margin-bottom: 0; }
+.kl { font-size: 10px; font-weight: 700; color: var(--muted); min-width: 110px; flex-shrink: 0; text-transform: uppercase; letter-spacing: 0.04em; padding-top: 2px; }
+.kv-val { font-size: 12px; color: var(--text); }
+.kv-val a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted rgba(26,53,102,0.3); }
+.kv-val a:hover { color: var(--orange); }
+code { background: #F4F6F9; padding: 1px 5px; border-radius: 3px; font-size: 11px; font-family: 'SF Mono', Monaco, monospace; color: var(--navy); border: 1px solid var(--border); }
+
+/* ── BADGES ── */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 8px; font-size: 10px; font-weight: 700; }
+.badge.green { background: var(--green-bg); color: var(--green); }
+.badge.yellow { background: var(--yellow-bg); color: var(--yellow); }
+.badge.red { background: var(--red-bg); color: var(--red); }
+.badge.blue { background: var(--blue-bg); color: var(--blue); }
+.badge.navy { background: #EEF2FF; color: var(--navy); }
+.badge.fixed { background: var(--green-bg); color: var(--green); }
+.badge.note { background: var(--blue-bg); color: var(--blue); }
+
+/* ── HEALTH GRID ── */
+.health-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.health-item { background: #F8F9FB; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 9px; }
+.health-dot { width: 10px; height: 10px; border-radius: 50%; background: #d1d5db; flex-shrink: 0; }
+.health-dot.green { background: #34D399; }
+.health-dot.red { background: #F87171; }
+.health-dot.yellow { background: #FBBF24; }
+.health-label { font-size: 12px; font-weight: 600; color: var(--navy); }
+.health-val { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+/* ── LOG TABLE ── */
+.log-filter-bar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.log-filter-btn { padding: 4px 11px; border-radius: 15px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1.5px solid var(--border); background: var(--card); color: var(--muted); transition: all 0.15s; }
+.log-filter-btn:hover, .log-filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.log-table-wrap { overflow-x: auto; max-height: 380px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; }
+.log-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.log-table th { background: #F8F9FB; padding: 7px 10px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); position: sticky; top: 0; border-bottom: 1px solid var(--border); }
+.log-table td { padding: 6px 10px; border-bottom: 1px solid #F4F6F9; vertical-align: top; font-family: 'SF Mono', Monaco, monospace; }
+.log-table tr:last-child td { border-bottom: none; }
+.log-table tr.row-job { background: #fff; }
+.log-table tr.row-error { background: #FFF5F5; }
+.log-table tr.row-warn { background: #FFFBEB; }
+.log-table tr.row-idle { background: #F8F9FB; color: #9CA3AF; }
+.log-ts { color: var(--muted); white-space: nowrap; }
+.log-level { font-weight: 700; }
+.log-level.INFO { color: var(--navy); }
+.log-level.WARNING { color: #D97706; }
+.log-level.ERROR { color: #DC2626; }
+.log-msg { word-break: break-word; max-width: 520px; }
+.log-empty { text-align: center; padding: 30px; color: var(--muted); font-family: sans-serif; font-size: 12px; }
+
+/* ── PAGE CARDS ── */
+.page-card { background: #F8F9FB; border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; }
+.page-name { font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 2px; }
+.page-route { font-family: monospace; font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.page-desc { font-size: 12px; color: #374151; line-height: 1.5; }
+
+/* ── USER ROW ── */
+.user-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #F4F6F9; }
+.user-row:last-child { border-bottom: none; }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.avatar.orange { background: var(--orange); }
+.uname { font-size: 13px; font-weight: 600; color: var(--navy); }
+.uemail { font-size: 11px; color: var(--muted); }
+
+/* ── STEPS ── */
+.step { display: flex; gap: 10px; margin-bottom: 9px; }
+.step:last-child { margin-bottom: 0; }
+.snum { width: 20px; height: 20px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.snum.orange { background: var(--orange); }
+.scontent { font-size: 12px; color: #374151; line-height: 1.5; }
+.scontent strong { color: var(--navy); }
+
+/* ── CREDENTIALS ── */
+.cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cred { background: #F4F6F9; border: 1px solid var(--border); border-radius: 6px; padding: 9px 11px; }
+.cred-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+.cred-val { font-size: 11px; font-family: 'SF Mono', Monaco, monospace; color: var(--navy); word-break: break-all; }
+
+/* ── ISSUE ROWS ── */
+.issue { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid #F4F6F9; }
+.issue:last-child { border-bottom: none; }
+.itext { font-size: 12px; color: #374151; line-height: 1.5; }
+.itext strong { color: var(--navy); }
+
+/* ── CHANGELOG ── */
+.cl-row { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #F4F6F9; font-size: 12px; }
+.cl-row:last-child { border-bottom: none; }
+.cl-date { font-size: 11px; color: var(--muted); min-width: 88px; flex-shrink: 0; padding-top: 1px; }
+.cl-text { color: #374151; }
+.cl-text strong { color: var(--navy); }
+
+/* ── LINK ROWS ── */
+.link-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #F4F6F9; }
+.link-row:last-child { border-bottom: none; }
+.link-label { font-size: 12px; font-weight: 600; color: var(--navy); min-width: 170px; }
+.link-url a { font-size: 11px; color: var(--navy); text-decoration: none; border-bottom: 1px dotted rgba(26,53,102,0.3); }
+.link-url a:hover { color: var(--orange); }
+
+/* ── ARCH BLOCKS ── */
+.arch-block { background: #F8F9FB; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.arch-name { font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 4px; }
+.arch-desc { font-size: 12px; color: #374151; line-height: 1.5; }
+.arch-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.atag { font-size: 10px; background: #EEF2FF; color: #3730A3; padding: 2px 7px; border-radius: 8px; font-weight: 500; }
+.atag.orange { background: var(--yellow-bg); color: var(--yellow); }
+.atag.green { background: var(--green-bg); color: var(--green); }
+
+/* ── ARTIFACTS ── */
+.artifact-item { background: #F8F9FB; border: 1px solid var(--border); border-radius: 8px; padding: 11px 14px; display: flex; align-items: flex-start; gap: 12px; }
+.artifact-icon { width: 34px; height: 34px; border-radius: 7px; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.artifact-icon.orange { background: var(--orange); }
+.artifact-icon.slate { background: #374151; }
+.artifact-name { font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 2px; }
+.artifact-desc { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.artifact-path { font-size: 11px; font-family: 'SF Mono', Monaco, monospace; color: #374151; background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 3px 7px; display: inline-block; word-break: break-all; }
+
+/* ── ECOSYSTEM CYCLE ── */
+.caci-wrap { display: flex; gap: 0; align-items: stretch; border-radius: 8px; overflow: hidden; margin-bottom: 12px; }
+.caci-step { flex: 1; padding: 12px 14px; text-align: center; }
+.caci-label { font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.caci-desc { font-size: 11px; color: rgba(255,255,255,0.7); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <div class="logo">M</div>
+    <div>
+      <div class="top-title">Magruder &amp; Company</div>
+      <div class="top-sub">Admin Control Center · admin.magruder.co</div>
+    </div>
+  </div>
+  <div class="top-right">
+    <div class="status-pill"><span class="dot" id="api-dot"></span><span id="api-label">API —</span></div>
+    <div class="status-pill"><span class="dot" id="hub-dot"></span><span id="hub-label">Hub —</span></div>
+    <div class="last-refresh" id="refresh-ts">Fetching…</div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('live')">Live Ops</button>
+  <button class="tab-btn" onclick="showTab('sites')">Sites</button>
+  <button class="tab-btn" onclick="showTab('pages')">Pages</button>
+  <button class="tab-btn" onclick="showTab('ecosystem')">Ecosystem</button>
+  <button class="tab-btn" onclick="showTab('users')">Users</button>
+  <button class="tab-btn" onclick="showTab('deploy')">Deploy</button>
+  <button class="tab-btn" onclick="showTab('arch')">Architecture</button>
+  <button class="tab-btn" onclick="showTab('issues')">Issues &amp; Fixes</button>
+  <button class="tab-btn" onclick="showTab('changelog')">Changelog</button>
+  <button class="tab-btn" onclick="showTab('artifacts')">Artifacts</button>
+  <button class="tab-btn" onclick="showTab('gengov')">🗺 GenGov Map</button>
+</div>
+
+<!-- PANELS -->
+<div class="panels">
+
+  <!-- ═══════════════════════════════════════ LIVE OPS ═══════════ -->
+  <div id="tab-live" class="panel active">
+
+    <!-- Health row -->
+    <div class="health-grid" id="health-grid">
+      <div class="health-item"><div class="health-dot" id="h-api"></div><div><div class="health-label">Corpus API</div><div class="health-val" id="h-api-val">—</div></div></div>
+      <div class="health-item"><div class="health-dot" id="h-docker"></div><div><div class="health-label">Docker Container</div><div class="health-val" id="h-docker-val">—</div></div></div>
+      <div class="health-item"><div class="health-dot" id="h-hub"></div><div><div class="health-label">Dispatch Hub</div><div class="health-val" id="h-hub-val">—</div></div></div>
+      <div class="health-item"><div class="health-dot" id="h-db"></div><div><div class="health-label">SQLite DB</div><div class="health-val" id="h-db-val">—</div></div></div>
+      <div class="health-item"><div class="health-dot" id="h-corpus"></div><div><div class="health-label">Corpus Index</div><div class="health-val" id="h-corpus-val">—</div></div></div>
+      <div class="health-item"><div class="health-dot" id="h-mcp"></div><div><div class="health-label">MCP Server</div><div class="health-val" id="h-mcp-val">—</div></div></div>
+    </div>
+
+    <!-- Corpus stats -->
+    <div class="four-col" id="stats-row">
+      <div class="stat-card"><div class="stat-val" id="st-docs">—</div><div class="stat-label">Documents</div><div class="stat-sub">Total corpus</div></div>
+      <div class="stat-card"><div class="stat-val orange" id="st-words">—</div><div class="stat-label">Words Indexed</div><div class="stat-sub">Full-text FTS</div></div>
+      <div class="stat-card"><div class="stat-val" id="st-jobs">—</div><div class="stat-label">Hub Jobs (log)</div><div class="stat-sub">Last 300 log lines</div></div>
+      <div class="stat-card"><div class="stat-val" id="st-errs">—</div><div class="stat-label">Hub Errors</div><div class="stat-sub">Last 300 log lines</div></div>
+    </div>
+
+    <!-- Dispatch log -->
+    <div class="card">
+      <div class="card-head dark">
+        <span>Dispatch Hub — Utilization Log</span>
+        <button onclick="fetchAll()" style="background:rgba(255,255,255,0.15);color:#fff;border:none;border-radius:5px;padding:3px 10px;font-size:11px;cursor:pointer;font-weight:600;">↺ Refresh</button>
+      </div>
+      <div class="card-body">
+        <div class="log-filter-bar">
+          <button class="log-filter-btn active" onclick="setFilter('all',this)">All</button>
+          <button class="log-filter-btn" onclick="setFilter('jobs',this)">Jobs Created</button>
+          <button class="log-filter-btn" onclick="setFilter('errors',this)">Errors / Dead-letter</button>
+          <button class="log-filter-btn" onclick="setFilter('idempotent',this)">Idempotency</button>
+          <button class="log-filter-btn" onclick="setFilter('lifecycle',this)">Hub Lifecycle</button>
+        </div>
+        <div class="log-table-wrap">
+          <table class="log-table">
+            <thead><tr><th style="min-width:140px">Time</th><th style="min-width:60px">Level</th><th>Message</th></tr></thead>
+            <tbody id="log-tbody"><tr><td colspan="3" class="log-empty">Loading log…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ SITES ═══════════════ -->
+  <div id="tab-sites" class="panel">
+
+    <div class="card">
+      <div class="card-head navy">🌐 app.customercore.co — Full Platform Portal</div>
+      <div class="card-body">
+        <div class="kv"><span class="kl">Live URL</span><span class="kv-val"><a href="https://app.customercore.co/review/review2026cc" target="_blank">app.customercore.co/review/review2026cc</a></span></div>
+        <div class="kv"><span class="kl">Type</span><span class="kv-val">React SPA (Create React App 5, react-router-dom v6, React 19)</span></div>
+        <div class="kv"><span class="kl">Netlify Site</span><span class="kv-val"><a href="https://app.netlify.com/sites/cc-review-app" target="_blank">cc-review-app</a> · ID: <code>2683144e-38e0-4d6b-a41d-69c95d59ea4c</code></span></div>
+        <div class="kv"><span class="kl">Identity</span><span class="kv-val"><a href="https://app.netlify.com/sites/cc-review-app/identity" target="_blank">Identity dashboard</a> · Instance: <code>69e725b8f8c86620bcf616fd</code></span></div>
+        <div class="kv"><span class="kl">Access Token</span><span class="kv-val"><code>review2026cc</code> (validated client-side via REACT_APP_VALID_TOKENS env var)</span></div>
+        <div class="kv"><span class="kl">Gate</span><span class="kv-val">Google SSO via Netlify Identity + confidentiality checkbox. Invite-only mode.</span></div>
+        <div class="kv"><span class="kl">Protections</span><span class="kv-val">Copy, cut, print, right-click, PrintScreen blocked via inline script in public/index.html</span></div>
+        <div class="kv"><span class="kl">API Backend</span><span class="kv-val"><code>api.magruder.co/api/v1</code> proxied via Netlify Functions (api-proxy.mjs, ES module)</span></div>
+        <div class="kv"><span class="kl">Doug's Token</span><span class="kv-val"><code>dacker-review-2026</code></span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head orange">📖 review.customercore.co — Reader Portal</div>
+      <div class="card-body">
+        <div class="kv"><span class="kl">Live URL</span><span class="kv-val"><a href="https://review.customercore.co/review/dacker-review-2026?reader=1" target="_blank">review.customercore.co/review/dacker-review-2026?reader=1</a></span></div>
+        <div class="kv"><span class="kl">Type</span><span class="kv-val">Single-file inline portal (132KB index.html, all JS inline)</span></div>
+        <div class="kv"><span class="kl">Netlify Site</span><span class="kv-val"><a href="https://app.netlify.com/sites/cc-review" target="_blank">cc-review</a> · ID: <code>e5ed9b2d-0f9b-4137-9efe-022c1289e12c</code></span></div>
+        <div class="kv"><span class="kl">Identity</span><span class="kv-val"><a href="https://app.netlify.com/sites/cc-review/identity" target="_blank">Identity dashboard</a> · Instance: <code>69e1236bd68e1a814f2b0ff0</code></span></div>
+        <div class="kv"><span class="kl">Gate</span><span class="kv-val">Google SSO via Netlify Identity + confidentiality checkbox. Invite-only mode.</span></div>
+        <div class="kv"><span class="kl">Sidebar Docs</span><span class="kv-val">MASTER Framework Guide, E-Series Protocols, Research Bibliography (added Apr 20)</span></div>
+        <div class="kv"><span class="kl">Source Files</span><span class="kv-val"><code>/_Claude_CC2026/ops-environment.html</code>, <code>ops-threads.html</code>, <code>CC_Ecosystem_Map.html</code></span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head slate">🔗 All Live Links</div>
+      <div class="card-body">
+        <div class="link-row"><span class="link-label">App — Dashboard</span><span class="link-url"><a href="https://app.customercore.co/review/review2026cc" target="_blank">app.customercore.co/review/review2026cc</a></span></div>
+        <div class="link-row"><span class="link-label">App — Frameworks</span><span class="link-url"><a href="https://app.customercore.co/review/review2026cc/explore" target="_blank">app.customercore.co/review/review2026cc/explore</a></span></div>
+        <div class="link-row"><span class="link-label">App — Research</span><span class="link-url"><a href="https://app.customercore.co/review/review2026cc/search" target="_blank">app.customercore.co/review/review2026cc/search</a></span></div>
+        <div class="link-row"><span class="link-label">App — Explorer</span><span class="link-url"><a href="https://app.customercore.co/review/review2026cc/explorer" target="_blank">app.customercore.co/review/review2026cc/explorer</a></span></div>
+        <div class="link-row"><span class="link-label">Review Portal</span><span class="link-url"><a href="https://review.customercore.co/review/dacker-review-2026?reader=1" target="_blank">review.customercore.co/review/dacker-review-2026?reader=1</a></span></div>
+        <div class="link-row"><span class="link-label">Ops — Environment</span><span class="link-url"><a href="https://review.customercore.co/ops-environment.html" target="_blank">review.customercore.co/ops-environment.html</a></span></div>
+        <div class="link-row"><span class="link-label">Ops — Threads</span><span class="link-url"><a href="https://review.customercore.co/ops-threads.html" target="_blank">review.customercore.co/ops-threads.html</a></span></div>
+        <div class="link-row"><span class="link-label">Ecosystem Map</span><span class="link-url"><a href="https://review.customercore.co/CC_Ecosystem_Map.html" target="_blank">review.customercore.co/CC_Ecosystem_Map.html</a></span></div>
+        <div class="link-row"><span class="link-label">VPS Dashboard</span><span class="link-url"><a href="http://204.168.190.66/dashboard/" target="_blank">204.168.190.66/dashboard/</a></span></div>
+        <div class="link-row"><span class="link-label">Netlify Admin</span><span class="link-url"><a href="https://app.netlify.com" target="_blank">app.netlify.com</a></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ PAGES ══════════════ -->
+  <div id="tab-pages" class="panel">
+
+    <div class="card">
+      <div class="card-head navy">📄 app.customercore.co — React SPA Pages</div>
+      <div class="card-body">
+        <div class="two-col">
+          <div class="page-card">
+            <div class="page-name">Dashboard</div>
+            <div class="page-route">/review/:token</div>
+            <div class="page-desc">Live corpus stats — framework depth, MASTER doc count, research sources, total word count. Core thesis cards (Governance Overspeed, Binary Divergence, Amplification Paradox, 70% Threshold). Quick-nav to Frameworks and Research.</div>
+            <span class="badge green" style="margin-top:6px">✅ Live</span>
+          </div>
+          <div class="page-card">
+            <div class="page-name">Frameworks (Explore)</div>
+            <div class="page-route">/review/:token/explore</div>
+            <div class="page-desc">7-level Customer Core maturity model display. Sidebar document browser by series (MASTER, PIA, E-Series, SOURCE, CC_Reference, CC_Integration). Inline document viewer with Review Mode + comment panel.</div>
+            <span class="badge green" style="margin-top:6px">✅ Live</span>
+          </div>
+          <div class="page-card">
+            <div class="page-name">Research (Search)</div>
+            <div class="page-route">/review/:token/search</div>
+            <div class="page-desc">Full-text search across 200+ corpus documents. Supports AND, OR, NOT operators and quoted phrases. Series filter dropdown. Click result to open inline DocumentViewer.</div>
+            <span class="badge green" style="margin-top:6px">✅ Live</span>
+          </div>
+          <div class="page-card">
+            <div class="page-name">Explorer (Framework)</div>
+            <div class="page-route">/review/:token/explorer</div>
+            <div class="page-desc">Interactive framework visualization. Four Convergence Realities (R1–R4). Seven-level progressive capability model with investment totals ($5.75M, 68 months). Dependency constraint: max maturity level N ≤ 0.7 × level N−1.</div>
+            <span class="badge green" style="margin-top:6px">✅ Live</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head orange">📄 review.customercore.co — Standalone Pages</div>
+      <div class="card-body">
+        <div class="two-col">
+          <div class="page-card">
+            <div class="page-name">Reader Portal</div>
+            <div class="page-route">/review/dacker-review-2026?reader=1</div>
+            <div class="page-desc">Single-file tabbed reader. Sidebar with annotated guides: MASTER Framework Guide, E-Series Protocols, Research Bibliography. Reads corpus docs via VPS API (reader.magruder.co → Netlify edge function → VPS).</div>
+            <span class="badge green" style="margin-top:6px">✅ Live</span>
+          </div>
+          <div class="page-card">
+            <div class="page-name">Ops Environment</div>
+            <div class="page-route">/ops-environment.html</div>
+            <div class="page-desc">VPS infrastructure dashboard. Infra cards showing Docker, API, corpus status. Polls api.magruder.co/api/v1/health and /stats every 60s live.</div>
+            <span class="badge blue" style="margin-top:6px">🔵 Standalone</span>
+          </div>
+          <div class="page-card">
+            <div class="page-name">Thread Registry</div>
+            <div class="page-route">/ops-threads.html</div>
+            <div class="page-desc">Active thread dashboard. Shows all platform threads by tier with urgency flags. Contains link to CC_Ecosystem_Map.html.</div>
+            <span class="badge blue" style="margin-top:6px">🔵 Standalone</span>
+          </div>
+          <div class="page-card">
+            <div class="page-name">CC Ecosystem Map</div>
+            <div class="page-route">/CC_Ecosystem_Map.html</div>
+            <div class="page-desc">Full platform ecosystem visualization. 73KB standalone HTML. Accessible from Thread Registry dashboard nav.</div>
+            <span class="badge blue" style="margin-top:6px">🔵 Standalone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ ECOSYSTEM ══════════ -->
+  <div id="tab-ecosystem" class="panel">
+
+    <div class="card">
+      <div class="card-head navy">🗺 Platform Tier Architecture</div>
+      <div class="card-body">
+        <div class="two-col">
+          <div class="arch-block">
+            <div class="arch-name">Tier 1 — CCS (Claude.ai)</div>
+            <div class="arch-desc">Primary intelligence layer. IP development (PIA-010–015), framework governance (MASTER series, DPR rulings, WQ v4.9), market engagement (GenGov service offering, CFO diagnostic), career/identity, publication pipeline (HBR, MIT Sloan), customercore.co site.</div>
+            <div class="arch-tags"><span class="atag">Opus / Sonnet</span><span class="atag">Governance</span><span class="atag">Creative</span></div>
+          </div>
+          <div class="arch-block">
+            <div class="arch-name">Tier 2 — MB1C (Cowork)</div>
+            <div class="arch-desc">Execution layer. Admin/parity, research sweeps (E015, SOURCE files, 440+ doc corpus), PK management (Register v127, 270+ files), execution relay (Pattern E, handoff chain), usage monitoring ($50/mo API ceiling), Batch API dispatch.</div>
+            <div class="arch-tags"><span class="atag">Sonnet</span><span class="atag">Execution</span><span class="atag">Corpus</span></div>
+          </div>
+          <div class="arch-block">
+            <div class="arch-name">Tier 3 — MB2C / VPS Dispatch</div>
+            <div class="arch-desc">Adversarial review + infrastructure. Headless CLI DPR passes (Pass 12 complete, 130-item WQ queue), ChatGPT parallel audit, seven-agent build (VPS, Vertex AI, Mem0, architecture v0.5), 7 active cron jobs. Dispatch Hub at port 8100.</div>
+            <div class="arch-tags"><span class="atag orange">Opus for DPR</span><span class="atag">Infrastructure</span><span class="atag">Review</span></div>
+          </div>
+          <div class="arch-block">
+            <div class="arch-name">VPS Infrastructure</div>
+            <div class="arch-desc">204.168.190.66. Docker container: cc_mcp_server_cc-mcp_1. Corpus at /app/corpus/, DB at /app/cc_metadata.db. SSH key: ~/.ssh/cc_mcp_key. Pre-flight: cc_preflight.sh. REST API at api.magruder.co/api/v1 (/stats, /search, /list, /document, /comments, /health).</div>
+            <div class="arch-tags"><span class="atag" style="background:var(--green-bg);color:var(--green)">VPS</span><span class="atag" style="background:var(--green-bg);color:var(--green)">Docker</span><span class="atag" style="background:var(--green-bg);color:var(--green)">SQLite FTS</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head slate">🔄 C-A-C-I Cycle</div>
+      <div class="card-body">
+        <div class="caci-wrap">
+          <div class="caci-step" style="background:#1a3566"><div class="caci-label">Curate</div><div class="caci-desc">Cowork captures under pressure — web, Slack, browser</div></div>
+          <div class="caci-step" style="background:#233f77"><div class="caci-label">Assimilate</div><div class="caci-desc">CCS governs — every discovery reviewed before codification</div></div>
+          <div class="caci-step" style="background:#2d5299"><div class="caci-label">Codify</div><div class="caci-desc">MASTER docs + LL Registry + CLAUDE.md rules updated</div></div>
+          <div class="caci-step" style="background:#3665b3"><div class="caci-label">Institutionalize</div><div class="caci-desc">PK pushed, corpus indexed, available to all sessions</div></div>
+        </div>
+        <div style="font-size:12px;color:#374151">DPR findings from Tier 3 route upward to CCS governance — every quality finding becomes a governance ruling before entering canonical documents. LL Registry v2.2: 75+ lessons learned.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head dark">📊 Corpus Stats (live + static baseline)</div>
+      <div class="card-body">
+        <div class="three-col">
+          <div style="background:#F4F6F9;border-radius:8px;padding:12px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:24px;font-weight:800;color:var(--navy)" id="eco-docs">562</div>
+            <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Total Documents</div>
+          </div>
+          <div style="background:#F4F6F9;border-radius:8px;padding:12px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:24px;font-weight:800;color:var(--orange)" id="eco-words">1.27M</div>
+            <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Words Indexed</div>
+          </div>
+          <div style="background:#F4F6F9;border-radius:8px;padding:12px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:24px;font-weight:800;color:var(--navy)">25</div>
+            <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">MASTER Docs</div>
+          </div>
+          <div style="background:#F4F6F9;border-radius:8px;padding:12px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:24px;font-weight:800;color:var(--navy)">12</div>
+            <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">PIA Docs</div>
+          </div>
+          <div style="background:#F4F6F9;border-radius:8px;padding:12px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:24px;font-weight:800;color:var(--navy)">23</div>
+            <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">E-Series</div>
+          </div>
+          <div style="background:#F4F6F9;border-radius:8px;padding:12px;text-align:center;border:1px solid var(--border)">
+            <div style="font-size:24px;font-weight:800;color:var(--navy)">189</div>
+            <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">Research Sources</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ USERS ═══════════════ -->
+  <div id="tab-users" class="panel">
+
+    <div class="card">
+      <div class="card-head navy">👥 Authorized Users — Both Portals</div>
+      <div class="card-body">
+        <div style="margin-bottom:12px;font-size:12px;color:#374151;background:#EEF2FF;border-radius:6px;padding:8px 12px">Both portals run in <strong>invite-only mode</strong> — no self-registration. Only invited users can create accounts.</div>
+        <div class="user-row">
+          <div class="avatar">M</div>
+          <div><div class="uname">Michael Magruder</div><div class="uemail">michael.magruder@gmail.com</div></div>
+          <span class="badge green" style="margin-left:auto">✓ Confirmed</span>
+        </div>
+        <div class="user-row">
+          <div class="avatar">M</div>
+          <div><div class="uname">Michael (alt)</div><div class="uemail">michael@id-cxm.com</div></div>
+          <span class="badge green" style="margin-left:auto">✓ Confirmed</span>
+        </div>
+        <div class="user-row">
+          <div class="avatar orange">D</div>
+          <div><div class="uname">Douglas Acker</div><div class="uemail">douglas.acker@gmail.com</div></div>
+          <span class="badge yellow" style="margin-left:auto">⏳ Invite sent Apr 21</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head slate">➕ How to Invite a New User</div>
+      <div class="card-body">
+        <div class="step"><div class="snum">1</div><div class="scontent">Go to <a href="https://app.netlify.com/sites/cc-review/identity" target="_blank">cc-review Identity</a> → click <strong>"Invite users"</strong> → enter email → send</div></div>
+        <div class="step"><div class="snum">2</div><div class="scontent">Go to <a href="https://app.netlify.com/sites/cc-review-app/identity" target="_blank">cc-review-app Identity</a> → repeat for same email</div></div>
+        <div class="step"><div class="snum">3</div><div class="scontent">Verify user appears in the user list on both pages (API invite endpoint is unreliable — always confirm via dashboard)</div></div>
+        <div class="step"><div class="snum">4</div><div class="scontent">User receives invite email from <strong>no-reply@netlify.com</strong> — tell them to check spam. They sign in with Google after clicking the invite link.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ DEPLOY ══════════════ -->
+  <div id="tab-deploy" class="panel">
+
+    <div class="card">
+      <div class="card-head navy">🚀 app.customercore.co — React SPA Deploy</div>
+      <div class="card-body">
+        <div class="step"><div class="snum">1</div><div class="scontent"><strong>Build to /tmp</strong> (avoids EPERM on locked _redirects): <code>BUILD_PATH=/tmp/mac-cc-build npm --prefix [outputs-dir] run build</code></div></div>
+        <div class="step"><div class="snum">2</div><div class="scontent"><strong>Deploy via osascript</strong> from /tmp: <code>cd /tmp/mac-cc-build && npx netlify deploy --prod --dir=. --site=cc-review-app --auth=TOKEN</code></div></div>
+        <div class="step"><div class="snum">3</div><div class="scontent"><strong>Netlify PAT:</strong> <code>nfp_x6HDYTogZKhotuZrtZ36bx8EYYVPR2L55b51</code> — rotate if 401s appear</div></div>
+        <div class="step"><div class="snum">4</div><div class="scontent">Source files in: <code>/outputs/src/</code> — key files: App.js, Layout.js, pages/Dashboard.js, Explore.js, Search.js, FrameworkExplorer.js, components/DocumentViewer.js</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head orange">🚀 review.customercore.co — File Digest Deploy</div>
+      <div class="card-body">
+        <div class="step"><div class="snum orange">1</div><div class="scontent">Compute <strong>SHA1</strong> of every file to deploy: <code>hashlib.sha1(data).hexdigest()</code></div></div>
+        <div class="step"><div class="snum orange">2</div><div class="scontent">POST <code>{"files": {"/filename": "sha1hash"}}</code> to <code>api.netlify.com/api/v1/sites/{site_id}/deploys</code></div></div>
+        <div class="step"><div class="snum orange">3</div><div class="scontent">Upload only files in <code>required</code> array via PUT to <code>/deploys/{id}/files/{filename}</code> with <code>Content-Type: application/octet-stream</code></div></div>
+        <div class="step"><div class="snum orange">4</div><div class="scontent"><strong>⚠️ Always include ALL files</strong> in the manifest — omitting any file removes it from the live site. Required: <code>index.html</code> + <code>ops-environment.html</code> + <code>ops-threads.html</code> + <code>CC_Ecosystem_Map.html</code></div></div>
+        <div class="step"><div class="snum orange">5</div><div class="scontent">Source files saved in workspace: <code>/_Claude_CC2026/ops-environment.html</code>, <code>ops-threads.html</code>, <code>CC_Ecosystem_Map.html</code></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head slate">🔑 Credentials Reference</div>
+      <div class="card-body">
+        <div class="cred-grid">
+          <div class="cred"><div class="cred-label">Netlify PAT</div><div class="cred-val">nfp_x6HDYTogZKhotuZrtZ36bx8EYYVPR2L55b51</div></div>
+          <div class="cred"><div class="cred-label">API Backend</div><div class="cred-val">api.magruder.co/api/v1</div></div>
+          <div class="cred"><div class="cred-label">cc-review Site ID</div><div class="cred-val">e5ed9b2d-0f9b-4137-9efe-022c1289e12c</div></div>
+          <div class="cred"><div class="cred-label">cc-review-app Site ID</div><div class="cred-val">2683144e-38e0-4d6b-a41d-69c95d59ea4c</div></div>
+          <div class="cred"><div class="cred-label">cc-review Identity ID</div><div class="cred-val">69e1236bd68e1a814f2b0ff0</div></div>
+          <div class="cred"><div class="cred-label">cc-review-app Identity ID</div><div class="cred-val">69e725b8f8c86620bcf616fd</div></div>
+          <div class="cred"><div class="cred-label">VPS IP</div><div class="cred-val">204.168.190.66</div></div>
+          <div class="cred"><div class="cred-label">SSH Key</div><div class="cred-val">~/.ssh/cc_mcp_key</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ ARCHITECTURE ════════ -->
+  <div id="tab-arch" class="panel">
+
+    <div class="card">
+      <div class="card-head navy">⚙️ React SPA Architecture</div>
+      <div class="card-body">
+        <div class="step"><div class="snum" style="background:#374151">S</div><div class="scontent"><strong>Routing:</strong> BrowserRouter → /review/:token/* → ProtectedRoutes (validates token against REACT_APP_VALID_TOKENS env var) → Layout (sticky nav) → page routes</div></div>
+        <div class="step"><div class="snum" style="background:#374151">S</div><div class="scontent"><strong>Data fetching:</strong> All pages use direct <code>fetch()</code> in useEffect — NOT useApi() hook (stale reference bug in React 19 production). API params: document endpoint uses <code>name=</code>, comments uses <code>document=</code>.</div></div>
+        <div class="step"><div class="snum" style="background:#374151">S</div><div class="scontent"><strong>API proxy:</strong> Netlify Function <code>api-proxy.mjs</code> (ES module) proxies all /api/v1/* requests to api.magruder.co. Handles CORS.</div></div>
+        <div class="step"><div class="snum" style="background:#374151">S</div><div class="scontent"><strong>Document viewer:</strong> ReactMarkdown with custom components. Review mode: click paragraph to comment. Comment panel with per-reviewer color coding (Michael = #F86822, Doug = #1E3455).</div></div>
+        <div class="step"><div class="snum" style="background:#374151">S</div><div class="scontent"><strong>Series:</strong> MASTER, PIA, SOURCE, CC_Reference, CC_Integration, E-Series (search filters + Explore sidebar categories)</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head orange">⚙️ VPS / Corpus Architecture</div>
+      <div class="card-body">
+        <div class="step"><div class="snum orange">V</div><div class="scontent"><strong>Container:</strong> <code>cc_mcp_server_cc-mcp_1</code> — FastMCP server. Module-level DB init (not per-session lifespan — LL-076).</div></div>
+        <div class="step"><div class="snum orange">V</div><div class="scontent"><strong>Corpus DB:</strong> SQLite at <code>/app/cc_metadata.db</code>. Tables: <code>documents</code> (file_name, series, doc_class, title, word_count, file_size), <code>corpus_fts</code> (full-text search).</div></div>
+        <div class="step"><div class="snum orange">V</div><div class="scontent"><strong>Ingest pattern:</strong> SCP file to VPS → docker cp to container → INSERT/UPDATE documents table + INSERT OR REPLACE corpus_fts. Script template: ingest_eguide.py in outputs dir.</div></div>
+        <div class="step"><div class="snum orange">V</div><div class="scontent"><strong>Pre-flight:</strong> <code>ssh root@204.168.190.66 'bash /usr/local/bin/cc_preflight.sh'</code> via osascript. Checks Docker status, crash loops, OAuth endpoint, MCP auth gate, CC_STATE.md freshness.</div></div>
+        <div class="step"><div class="snum orange">V</div><div class="scontent"><strong>Dispatch Hub:</strong> FastAPI at port 8100. Routes via nginx at <code>/bridge/*</code>. Job log at <code>/opt/dispatch-hub/logs/dispatch_hub.log</code>. GET /log endpoint exposes structured log entries.</div></div>
+        <div class="step"><div class="snum orange">V</div><div class="scontent"><strong>Portal Sweep System:</strong> Three daily functional sweep scripts at <code>/opt/sweeps/</code>: <code>admin_sweep.py</code> (23 checks — links, APIs, services), <code>review_sweep.py</code> (12 checks — routes, OAuth, Identity), <code>reader_sweep.py</code> (7 checks — portal, API proxy). VPS cron daily 7am UTC. JSON reports at <code>/opt/sweeps/logs/</code>, 30-day retention. Weekly Cowork content sweep: Mondays 8am CT (portal-content-sweep scheduled task).</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head slate">⚙️ Admin Routing Architecture</div>
+      <div class="card-body">
+        <div class="step"><div class="snum" style="background:#374151">A</div><div class="scontent"><strong>admin.magruder.co</strong> → nginx on VPS → /opt/admin/index.html. Auth via cc-auth (api.customercore.co/auth/*), BASE_URL=https://admin.magruder.co. Authorized: michael@magruder.co, michael.magruder@gmail.com. Same-origin fetch to /bridge/* endpoints. This page.</div></div>
+        <div class="step"><div class="snum" style="background:#374151">A</div><div class="scontent"><strong>api.magruder.co/api/v1</strong> → nginx → Docker container port 8080 (cc-mcp FastMCP). Corpus REST API.</div></div>
+        <div class="step"><div class="snum" style="background:#374151">A</div><div class="scontent"><strong>reader.magruder.co</strong> → Netlify edge function (reader-router.mjs) → rewrites /* to /reader.html on Host match. Passes through /api/v1/* to Netlify proxy function.</div></div>
+        <div class="step"><div class="snum" style="background:#374151">A</div><div class="scontent"><strong>/bridge/*</strong> → nginx location block → proxy to Dispatch Hub at 127.0.0.1:8100. Exposes /bridge/health, /bridge/system, /bridge/log, /bridge/jobs.</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ ISSUES ══════════════ -->
+  <div id="tab-issues" class="panel">
+    <div class="card">
+      <div class="card-head navy">🔧 Known Issues &amp; Fixes</div>
+      <div class="card-body">
+        <div class="issue">
+          <span class="badge fixed">FIXED</span>
+          <div class="itext"><strong>useApi() stale reference:</strong> Hook creates new fn refs each render; useEffect([]) captures stale first-render ref → silent failures in production (React 19). Fix: replace all useApi() calls with direct fetch() in useEffect. Affects: Explore.js, DocumentViewer.js, Search.js.</div>
+        </div>
+        <div class="issue">
+          <span class="badge fixed">FIXED</span>
+          <div class="itext"><strong>Wrong API params:</strong> document endpoint needs <code>name=</code> (not <code>file=</code>), comments endpoint needs <code>document=</code> (not <code>file=</code>). Caused "Error: Failed to fetch" on document open.</div>
+        </div>
+        <div class="issue">
+          <span class="badge fixed">FIXED</span>
+          <div class="itext"><strong>Build EPERM:</strong> <code>build/_redirects</code> gets locked from prior sessions. Fix: always use <code>BUILD_PATH=/tmp/mac-cc-build</code> to build to /tmp.</div>
+        </div>
+        <div class="issue">
+          <span class="badge fixed">FIXED</span>
+          <div class="itext"><strong>JS apostrophe syntax error in gate:</strong> Apostrophes (you're, It's) inside single-quoted innerHTML JS strings crash page with parse error → white screen. Fix: replace with unicode escapes <code>’</code>. Applied Apr 21.</div>
+        </div>
+        <div class="issue">
+          <span class="badge fixed">FIXED</span>
+          <div class="itext"><strong>File digest deploy wipes unlisted files:</strong> ops-environment.html, ops-threads.html, CC_Ecosystem_Map.html disappeared after gate deploy. Fix: always include ALL files in every deploy manifest.</div>
+        </div>
+        <div class="issue">
+          <span class="badge fixed">FIXED</span>
+          <div class="itext"><strong>reader.magruder.co routing (Netlify conditions):</strong> <code>conditions = {Host = [...]}</code> in netlify.toml doesn't support Host matching. Sequential Reader loaded index.html instead of reader.html. Fix: edge function (reader-router.mjs) inspects Host header directly. Applied Apr 30.</div>
+        </div>
+        <div class="issue">
+          <span class="badge note">NOTE</span>
+          <div class="itext"><strong>Netlify Identity API invite unreliable:</strong> POST to /users/invite returns HTTP 204 but user doesn't always appear in user list. Always use the Netlify dashboard UI to invite and verify registration.</div>
+        </div>
+        <div class="issue">
+          <span class="badge note">NOTE</span>
+          <div class="itext"><strong>CLI deploy + netlify.toml conflict:</strong> Running npx netlify deploy from the outputs directory triggers a rebuild instead of deploying pre-built files. Always deploy from /tmp/mac-cc-build.</div>
+        </div>
+        <div class="issue">
+          <span class="badge note">NOTE</span>
+          <div class="itext"><strong>Sandbox SSH limitation:</strong> Cowork bash sandbox cannot reach ~/.ssh/cc_mcp_key. All SSH/SCP to VPS must go through osascript (Control_your_Mac). Never use Bash tool for remote VPS operations.</div>
+        </div>
+        <div class="issue">
+          <span class="badge note">NOTE</span>
+          <div class="itext"><strong>Apostrophe path rule in osascript:</strong> The workspace folder <code>'_Claude_CC2026</code> contains a literal single-quote. Cannot be escaped inline in AppleScript do shell script strings. Only working pattern: write a .sh script via Write tool, execute via <code>do shell script "bash " & quote & "/path/to/script.sh" & quote</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ CHANGELOG ══════════ -->
+  <div id="tab-changelog" class="panel">
+    <div class="card">
+      <div class="card-head navy">📋 Session Changelog</div>
+      <div class="card-body">
+        <div class="cl-row"><span class="cl-date">May 1, 2026</span><span class="cl-text"><strong>Auth fixes + portal sweep system.</strong> Fixed cc-auth BASE_URL (was routing post-auth to review.customercore.co instead of admin.magruder.co). Updated Netlify Identity Google OAuth secret (rotated credential → active GOCSPX-YG6y…). Invited michael@magruder.co and doug@magruder.co as Netlify Identity users — Google SSO now working for both on review.customercore.co. Deployed three-portal functional sweep system at /opt/sweeps/: admin_sweep.py (23 checks), review_sweep.py (12 checks), reader_sweep.py (7 checks). VPS cron daily 7am UTC; JSON reports with 30-day retention at /opt/sweeps/logs/. Weekly Cowork content sweep scheduled Mondays 8am CT (portal-content-sweep task). All 42 checks passed on first run.</span></div><div class="cl-row"><span class="cl-date">Apr 30, 2026</span><span class="cl-text"><strong>Unified admin.magruder.co dashboard launched.</strong> Absorbed cc-portal-master + cc-admin-dashboard into single VPS-hosted page. Fixed reader.magruder.co routing via Netlify edge function (reader-router.mjs). VPS dashboard rebranded "Magruder & Company — Control Center." Dispatch Hub /log endpoint added to dispatch-hub main.py; filterable log table added to VPS dashboard. Admin subdomain admin.magruder.co configured on VPS nginx.</span></div>
+        <div class="cl-row"><span class="cl-date">Apr 21, 2026</span><span class="cl-text">Portal master v1.0 created. Fixed gate JS apostrophe syntax error (white screen). Redeployed ops-environment, ops-threads, CC_Ecosystem_Map (lost in prior deploy). Invited douglas.acker@gmail.com via Netlify dashboard. All 4 SPA nav routes verified working.</span></div>
+        <div class="cl-row"><span class="cl-date">Apr 20, 2026</span><span class="cl-text">Added Google SSO + confidentiality gate to both portals. Added copy/print/screenshot protection to app.customercore.co. Added MASTER Framework Guide, E-Series Protocols, Research Bibliography to review portal TRACK1 sidebar. Fixed document fetch: useApi → direct fetch(), corrected API params. Forced HTTPS on app portal.</span></div>
+        <div class="cl-row"><span class="cl-date">Apr 19, 2026</span><span class="cl-text">ops-environment.html and ops-threads.html deployed to review portal. CC_Ecosystem_Map.html created and deployed. Netlify Identity enabled on both portals (invite-only mode). michael.magruder@gmail.com and michael@id-cxm.com confirmed users.</span></div>
+        <div class="cl-row"><span class="cl-date">Apr 18, 2026</span><span class="cl-text">Initial React SPA (Phases 1–3) deployed to app.customercore.co. Dashboard, Explore, Search, Explorer pages live. REST API at api.magruder.co/api/v1 connected. Netlify Function api-proxy.mjs wired up. Token gate (review2026cc, dacker-review-2026) active.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ ARTIFACTS ══════════ -->
+  <div id="tab-artifacts" class="panel">
+
+    <div class="card">
+      <div class="card-head navy">🗂 Local Cowork Artifacts</div>
+      <div class="card-body">
+        <div style="margin-bottom:12px;font-size:12px;color:#374151;background:#FEF3C7;border:1px solid #FDE68A;border-radius:6px;padding:8px 12px">
+          <strong>To open:</strong> Copy a path below and paste into Chrome address bar (file:// links require same-machine access; not clickable from remote). Or open from Finder at the path shown.
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+
+          <div class="artifact-item">
+            <div class="artifact-icon">📊</div>
+            <div>
+              <div class="artifact-name">Admin Dashboard</div>
+              <div class="artifact-desc">This page's Cowork artifact counterpart. System Status, Ecosystem, Portals, Dispatch Hub, Knowledge Base, Outstanding Actions, Artifact Launchpad.</div>
+              <code class="artifact-path">file:///Users/michaelmagruder/'_Claude_CC2026/cc-admin-dashboard.html</code>
+            </div>
+          </div>
+
+          <div class="artifact-item">
+            <div class="artifact-icon orange">📖</div>
+            <div>
+              <div class="artifact-name">Portal Master Reference</div>
+              <div class="artifact-desc">Original reference artifact (now absorbed here). Sites, pages, ecosystem, users, deploy, architecture, issues, changelog.</div>
+              <code class="artifact-path">file:///Users/michaelmagruder/Documents/Claude/Artifacts/cc-portal-master/index.html</code>
+            </div>
+          </div>
+
+          <div class="artifact-item">
+            <div class="artifact-icon slate">🌍</div>
+            <div>
+              <div class="artifact-name">Ops Environment</div>
+              <div class="artifact-desc">VPS infrastructure dashboard. Also live at review.customercore.co/ops-environment.html.</div>
+              <code class="artifact-path">file:///Users/michaelmagruder/'_Claude_CC2026/ops-environment.html</code>
+            </div>
+          </div>
+
+          <div class="artifact-item">
+            <div class="artifact-icon slate">🗓</div>
+            <div>
+              <div class="artifact-name">Thread Registry</div>
+              <div class="artifact-desc">Active platform threads by tier with urgency flags. Also live at review.customercore.co/ops-threads.html.</div>
+              <code class="artifact-path">file:///Users/michaelmagruder/'_Claude_CC2026/ops-threads.html</code>
+            </div>
+          </div>
+
+          <div class="artifact-item">
+            <div class="artifact-icon">🗺</div>
+            <div>
+              <div class="artifact-name">CC Ecosystem Map</div>
+              <div class="artifact-desc">73KB full platform ecosystem visualization. Also live at review.customercore.co/CC_Ecosystem_Map.html.</div>
+              <code class="artifact-path">file:///Users/michaelmagruder/'_Claude_CC2026/CC_Ecosystem_Map.html</code>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head slate">🔗 Admin Portals</div>
+      <div class="card-body">
+        <div class="link-row"><span class="link-label">Admin (this page)</span><span class="link-url"><a href="https://admin.magruder.co" target="_blank">admin.magruder.co</a></span></div>
+        <div class="link-row"><span class="link-label">VPS Control Center</span><span class="link-url"><a href="http://204.168.190.66/dashboard/" target="_blank">204.168.190.66/dashboard/</a></span></div>
+        <div class="link-row"><span class="link-label">Netlify Admin</span><span class="link-url"><a href="https://app.netlify.com" target="_blank">app.netlify.com</a></span></div>
+        <div class="link-row"><span class="link-label">cc-review Identity</span><span class="link-url"><a href="https://app.netlify.com/sites/cc-review/identity" target="_blank">app.netlify.com/sites/cc-review/identity</a></span></div>
+        <div class="link-row"><span class="link-label">cc-review-app Identity</span><span class="link-url"><a href="https://app.netlify.com/sites/cc-review-app/identity" target="_blank">app.netlify.com/sites/cc-review-app/identity</a></span></div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /panels -->
+
+<script>
+// ── TAB NAVIGATION ──────────────────────────────────────────────
+function showTab(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── LOG STATE ────────────────────────────────────────────────────
+let logEntries = [];
+let activeFilter = 'all';
+
+function classifyEntry(e) {
+  const msg = (e.message || '').toLowerCase();
+  const lvl = (e.level || '').toLowerCase();
+  if (lvl === 'error' || msg.includes('dead') || msg.includes('fail')) return 'error';
+  if (lvl === 'warning') return 'warn';
+  if (msg.includes('job created') || msg.includes('job completed') || msg.includes('job started')) return 'job';
+  if (msg.includes('idempoten') || msg.includes('duplicate')) return 'idempotent';
+  if (msg.includes('startup') || msg.includes('shutdown') || msg.includes('started on') || msg.includes('application startup')) return 'lifecycle';
+  return 'idle';
+}
+
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.log-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderLog();
+}
+
+function renderLog() {
+  const tbody = document.getElementById('log-tbody');
+  if (!logEntries.length) {
+    tbody.innerHTML = '<tr><td colspan="3" class="log-empty">No log entries available.</td></tr>';
+    return;
+  }
+  const filtered = logEntries.filter(e => {
+    const c = classifyEntry(e);
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'jobs') return c === 'job';
+    if (activeFilter === 'errors') return c === 'error';
+    if (activeFilter === 'idempotent') return c === 'idempotent';
+    if (activeFilter === 'lifecycle') return c === 'lifecycle';
+    return true;
+  });
+  if (!filtered.length) {
+    tbody.innerHTML = '<tr><td colspan="3" class="log-empty">No entries match this filter.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = filtered.map(e => {
+    const c = classifyEntry(e);
+    const rowClass = c === 'error' ? 'row-error' : c === 'warn' ? 'row-warn' : c === 'idle' ? 'row-idle' : 'row-job';
+    const ts = (e.ts || '').replace('T', ' ').substring(0, 19);
+    const lvl = e.level || '';
+    return `<tr class="${rowClass}"><td class="log-ts">${ts}</td><td class="log-level ${lvl}">${lvl}</td><td class="log-msg">${esc(e.message || '')}</td></tr>`;
+  }).join('');
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── DATA FETCH ───────────────────────────────────────────────────
+async function fetchHealth() {
+  try {
+    const r = await fetch('/bridge/health', { signal: AbortSignal.timeout(6000) });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    setDot('h-api', d.api_status === 'ok' || d.status === 'ok' ? 'green' : 'red', d.api_status || d.status || '?');
+    setDot('h-docker', d.docker_status === 'running' || d.docker === 'running' ? 'green' : 'red', d.docker_status || d.docker || '?');
+    setDot('h-db', d.db_status === 'ok' || d.db === 'ok' ? 'green' : 'yellow', d.db_status || d.db || '?');
+    setDot('h-mcp', d.mcp_status === 'ok' || d.mcp === 'ok' ? 'green' : 'yellow', d.mcp_status || d.mcp || '?');
+    setDot('h-corpus', d.corpus_status === 'ok' || d.corpus === 'ok' ? 'green' : 'yellow', d.corpus_status || d.corpus || '?');
+    setTopPill('api-dot', 'api-label', 'API OK', 'green');
+  } catch(err) {
+    ['h-api','h-docker','h-db','h-mcp','h-corpus'].forEach(id => setDot(id, 'red', 'fetch error'));
+    setTopPill('api-dot', 'api-label', 'API ERR', 'red');
+  }
+}
+
+async function fetchSystem() {
+  try {
+    const r = await fetch('/bridge/system', { signal: AbortSignal.timeout(6000) });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    const docs = d.doc_count || d.total_docs || d.documents || '—';
+    const words = d.word_count || d.total_words || d.words || '—';
+    document.getElementById('st-docs').textContent = typeof docs === 'number' ? docs.toLocaleString() : docs;
+    document.getElementById('st-words').textContent = typeof words === 'number' ? (words > 999999 ? (words/1000000).toFixed(2)+'M' : words.toLocaleString()) : words;
+    document.getElementById('eco-docs').textContent = typeof docs === 'number' ? docs.toLocaleString() : docs;
+    document.getElementById('eco-words').textContent = typeof words === 'number' ? (words > 999999 ? (words/1000000).toFixed(2)+'M' : words.toLocaleString()) : words;
+  } catch(err) {
+    // leave static fallbacks
+  }
+}
+
+async function fetchLog() {
+  try {
+    const r = await fetch('/bridge/log?lines=300', { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    logEntries = d.entries || [];
+    const jobs = logEntries.filter(e => classifyEntry(e) === 'job').length;
+    const errs = logEntries.filter(e => classifyEntry(e) === 'error').length;
+    document.getElementById('st-jobs').textContent = jobs;
+    document.getElementById('st-errs').textContent = errs;
+    renderLog();
+    setTopPill('hub-dot', 'hub-label', 'Hub OK', 'green');
+  } catch(err) {
+    document.getElementById('log-tbody').innerHTML = '<tr><td colspan="3" class="log-empty">Could not load log — ' + err.message + '</td></tr>';
+    setTopPill('hub-dot', 'hub-label', 'Hub ERR', 'red');
+  }
+}
+
+// ── DISPATCH HUB HEALTH (separate endpoint) ──────────────────────
+async function fetchHubHealth() {
+  try {
+    const r = await fetch('/bridge/health', { signal: AbortSignal.timeout(6000) });
+    if (r.ok) setDot('h-hub', 'green', 'running');
+    else setDot('h-hub', 'red', 'error ' + r.status);
+  } catch { setDot('h-hub', 'red', 'unreachable'); }
+}
+
+function setDot(id, color, val) {
+  const el = document.getElementById(id);
+  if (el) { el.className = 'health-dot ' + color; }
+  const vEl = document.getElementById(id + '-val');
+  if (vEl) vEl.textContent = val;
+}
+
+function setTopPill(dotId, labelId, text, color) {
+  const dot = document.getElementById(dotId);
+  const lbl = document.getElementById(labelId);
+  if (dot) dot.className = 'dot ' + color;
+  if (lbl) lbl.textContent = text;
+}
+
+async function fetchAll() {
+  await Promise.allSettled([fetchHealth(), fetchSystem(), fetchLog()]);
+  const now = new Date();
+  document.getElementById('refresh-ts').textContent = 'Updated ' + now.toLocaleTimeString('en-US', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+
+// ── INIT ─────────────────────────────────────────────────────────
+fetchAll();
+setInterval(fetchAll, 60000);
+</script>
+
+  <!-- ═══════════════════════════════════════ GENGOV MAP ════════ -->
+  <div id="tab-gengov" class="panel">
+    <iframe
+      src="/gengov/"
+      style="width:100%;height:calc(100vh - 118px);border:none;border-radius:8px;display:block;"
+      title="GenGov Architectural Ecosystem Map">
+    </iframe>
+  </div>
+</body>
+</html>
