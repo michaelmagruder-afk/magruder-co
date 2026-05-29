@@ -450,6 +450,27 @@ footer{
 
 /* Buttons rendered as <button> need the same look as anchor btn-primary */
 button.btn-primary{border:none;cursor:pointer;font-family:inherit}
+
+/* ── CONTACT FORM ── */
+.contact-form{display:flex;flex-direction:column;gap:18px}
+.form-row{display:flex;flex-direction:column;gap:6px}
+.form-row label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.form-row input,.form-row textarea{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:4px;
+  padding:11px 14px;
+  color:rgba(255,255,255,0.9);
+  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
+  font-size:14px;
+  line-height:1.5;
+  transition:border-color 0.2s,background 0.2s;
+  resize:vertical;
+  width:100%;
+}
+.form-row input::placeholder,.form-row textarea::placeholder{color:rgba(255,255,255,0.22)}
+.form-row input:focus,.form-row textarea:focus{outline:none;border-color:rgba(248,104,34,0.55);background:rgba(255,255,255,0.09)}
+.form-optional{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;text-transform:uppercase;margin-left:6px}
 </style>
 </head>
 <body>
@@ -722,11 +743,7 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
     <div class="section-label">Start a Conversation</div>
     <div class="section-h">The right conversation begins with one question.</div>
     <div class="section-sub">Before your next AI deployment, does the knowledge it will operate on exist in governed, auditable form that your organization owns?</div>
-    <button id="contact-cta" class="btn-primary" type="button" onclick="revealEmail()">Start a Conversation</button>
-    <div class="contact-form-note" style="margin-top:20px">The Readiness Assessment is a two-week engagement within most organizations' direct discretionary authority. No procurement cycle required.</div>
-    <div class="contact-form-note" style="margin-top:14px">Or read <a href="./q2-imperative.html" style="color:var(--orange);font-weight:600">The Q2 Imperative</a> first. A thirty-minute diagnostic scoping conversation. An initial constraint identification specific to your function and your operating context.</div>
-  </div>
-  <div>
+    <div class="contact-form-note" style="margin-top:0;margin-bottom:32px">The Readiness Assessment is a two-week engagement within most organizations' direct discretionary authority. No procurement cycle required. Or read <a href="./q2-imperative.html" style="color:var(--orange);font-weight:600">The Q2 Imperative</a> first.</div>
     <div class="contact-details">
       <div class="contact-item">
         <div class="contact-item-label">Practice</div>
@@ -736,11 +753,30 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
         <div class="contact-item-label">Framework</div>
         <div class="contact-item-val"><a href="https://customercore.co" target="_blank">customercore.co</a></div>
       </div>
-      <div class="contact-item">
-        <div class="contact-item-label">Entry</div>
-        <div class="contact-item-val">Readiness Assessment</div>
-      </div>
     </div>
+  </div>
+  <div>
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
+      <input type="hidden" name="form-name" value="contact" />
+      <p style="display:none"><input name="bot-field" /></p>
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+      </div>
+      <div class="form-row">
+        <label for="cf-company">Company</label>
+        <input type="text" id="cf-company" name="company" placeholder="Your organization" required />
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="Your work email" required />
+      </div>
+      <div class="form-row">
+        <label for="cf-context">What brings you here? <span class="form-optional">(optional)</span></label>
+        <textarea id="cf-context" name="context" rows="3" placeholder="Brief context — your role, what you're working on, what you're trying to figure out."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="align-self:flex-start;margin-top:4px">Start a Conversation</button>
+    </form>
   </div>
 </section>
 
@@ -759,25 +795,10 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
 </footer>
 
 <script>
-// Email reveal — assembled at click time so the static HTML never contains the address.
-// Defeats simple regex-based scrapers; the user's mail client opens with subject prefilled.
-(function(){
-  function buildAddress(){
-    var u = String.fromCharCode(109,105,99,104,97,101,108);              // user
-    var d = String.fromCharCode(109,97,103,114,117,100,101,114,46,99,111); // domain
-    return u + String.fromCharCode(64) + d;
-  }
-  window.revealEmail = function(){
-    var addr = buildAddress();
-    var subj = encodeURIComponent('Inquiry · Magruder & Company');
-    window.location.href = 'mailto:' + addr + '?subject=' + subj;
-  };
-  // Make the nav-brand link return to top instead of jumping to "#"
-  document.addEventListener('DOMContentLoaded', function(){
-    var brand = document.querySelector('.nav-brand');
-    if(brand){ brand.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }); }
-  });
-})();
+document.addEventListener('DOMContentLoaded', function(){
+  var brand = document.querySelector('.nav-brand');
+  if(brand){ brand.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }); }
+});
 </script>
 
 </body>
