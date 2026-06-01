@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advisory Hours — Magruder &amp; Company</title>
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:       #0f1117;
-      --ink-soft:  #4a4f5e;
+      --navy:      #1E3455;
+      --navy-dk:   #162840;
+      --orange:    #F86822;
+      --orange-dk: #d95a18;
+      --near-blk:  #0C0D14;
+      --slate:     #BFC9D8;
+      --lt-gray:   #F5F5F5;
       --line:      #e4e6ec;
-      --bg:        #f9f9fb;
+      --ink-soft:  #4a4f5e;
       --white:     #ffffff;
-      --accent:    #1a56db;
-      --accent-dk: #1240b0;
       --gold:      #b8860b;
       --gold-bg:   #fffbf0;
       --gold-line: #e8d38a;
@@ -24,59 +30,101 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--lt-gray);
+      color: var(--near-blk);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* ── Header ── */
-    header {
+    /* ── Nav bar ── */
+    .nav {
       width: 100%;
-      padding: 48px 24px 40px;
-      text-align: center;
-      border-bottom: 1px solid var(--line);
-      background: var(--white);
+      background: var(--navy);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      border-bottom: 3px solid var(--orange);
     }
-    header .eyebrow {
+    .nav-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-mark svg {
+      height: 32px;
+      width: auto;
+    }
+    .nav-wordmark {
+      font-size: 15px;
+      font-weight: 600;
+      color: #F6F4EF;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .nav-tag {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      width: 100%;
+      background: var(--navy);
+      padding: 56px 32px 52px;
+      text-align: center;
+    }
+    .hero .eyebrow {
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 12px;
+      color: var(--orange);
+      margin-bottom: 14px;
     }
-    header h1 {
-      font-size: clamp(28px, 5vw, 42px);
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 46px);
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: var(--ink);
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      color: #F6F4EF;
+      margin-bottom: 16px;
     }
-    header p.sub {
-      margin-top: 14px;
-      font-size: 16px;
-      color: var(--ink-soft);
+    .hero p {
+      font-size: 17px;
+      color: var(--slate);
       max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
+      margin: 0 auto;
+      line-height: 1.65;
+      font-weight: 400;
+    }
+    .hero-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--orange);
+      margin: 28px auto 0;
+      border-radius: 2px;
     }
 
     /* ── Main ── */
     main {
       width: 100%;
-      max-width: 900px;
+      max-width: 960px;
       padding: 52px 24px 80px;
     }
 
     .section-label {
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-soft);
       margin-bottom: 24px;
@@ -85,8 +133,8 @@
     /* ── Cards ── */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
       margin-bottom: 52px;
     }
 
@@ -94,28 +142,29 @@
       background: var(--white);
       border: 1.5px solid var(--line);
       border-radius: 12px;
-      padding: 32px 28px 28px;
+      padding: 30px 24px 26px;
       display: flex;
       flex-direction: column;
-      transition: box-shadow 0.15s, border-color 0.15s;
+      transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
     }
     .card:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-color: #c8ccd8;
+      box-shadow: 0 6px 24px rgba(30,52,85,0.10);
+      border-color: #c0c8d8;
+      transform: translateY(-2px);
     }
     .card-tier {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 8px;
+      color: var(--orange);
+      margin-bottom: 10px;
     }
     .card-hours {
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--ink);
+      letter-spacing: -0.025em;
+      color: var(--navy);
       line-height: 1;
       margin-bottom: 4px;
     }
@@ -126,29 +175,31 @@
       letter-spacing: 0;
     }
     .card-rate {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--ink-soft);
       margin-bottom: 20px;
+      font-weight: 500;
     }
     .card-total {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
-      color: var(--ink);
+      color: var(--near-blk);
       letter-spacing: -0.01em;
       margin-bottom: 4px;
     }
     .card-divider {
       border: none;
       border-top: 1px solid var(--line);
-      margin-bottom: 24px;
+      margin: 16px 0 20px;
     }
 
+    /* ── Buttons ── */
     .btn {
       display: block;
       width: 100%;
       padding: 13px 20px;
       border-radius: 8px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       text-align: center;
       text-decoration: none;
@@ -156,13 +207,23 @@
       border: none;
       transition: background 0.15s, transform 0.1s;
       margin-top: auto;
+      font-family: inherit;
+      letter-spacing: 0.01em;
     }
     .btn-primary {
-      background: var(--accent);
-      color: #fff;
+      background: var(--navy);
+      color: #F6F4EF;
     }
     .btn-primary:hover {
-      background: var(--accent-dk);
+      background: var(--navy-dk);
+      transform: translateY(-1px);
+    }
+    .btn-orange {
+      background: var(--orange);
+      color: #fff;
+    }
+    .btn-orange:hover {
+      background: var(--orange-dk);
       transform: translateY(-1px);
     }
     .btn-gold {
@@ -172,93 +233,6 @@
     .btn-gold:hover {
       background: #9a700a;
       transform: translateY(-1px);
-    }
-
-    /* ── How it works ── */
-    .how {
-      background: var(--white);
-      border: 1.5px solid var(--line);
-      border-radius: 12px;
-      padding: 32px 28px;
-      margin-bottom: 52px;
-    }
-    .how h2 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-    .steps {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .steps li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      font-size: 15px;
-      color: var(--ink-soft);
-      line-height: 1.5;
-    }
-    .step-num {
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-    }
-
-    /* ── FAQ ── */
-    .faq { margin-bottom: 52px; }
-    .faq h2 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-    details {
-      border: 1.5px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-      padding: 16px 20px;
-      margin-bottom: 8px;
-    }
-    details[open] { padding-bottom: 16px; }
-    summary {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--ink);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary::after {
-      content: "+";
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--ink-soft);
-      transition: transform 0.15s;
-    }
-    details[open] summary::after {
-      content: "−";
-    }
-    details p {
-      margin-top: 12px;
-      font-size: 14px;
-      color: var(--ink-soft);
-      line-height: 1.7;
     }
 
     /* ── Readiness deposit section ── */
@@ -280,16 +254,16 @@
     .deposit-section h2 {
       font-size: 22px;
       font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 10px;
+      color: var(--near-blk);
+      margin-bottom: 12px;
       letter-spacing: -0.01em;
     }
-    .deposit-section p {
+    .deposit-section > p {
       font-size: 15px;
       color: var(--ink-soft);
-      line-height: 1.65;
-      margin-bottom: 24px;
-      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 26px;
+      max-width: 580px;
     }
     .deposit-meta {
       font-size: 13px;
@@ -298,34 +272,157 @@
       line-height: 1.6;
     }
     .deposit-meta a {
-      color: var(--accent);
+      color: var(--navy);
       text-decoration: none;
+      font-weight: 500;
     }
     .deposit-meta a:hover { text-decoration: underline; }
+
+    /* ── How it works ── */
+    .how {
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 32px 28px;
+      margin-bottom: 52px;
+    }
+    .how h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+    .steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ── FAQ ── */
+    .faq { margin-bottom: 52px; }
+    .faq h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    details {
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 16px 20px;
+      margin-bottom: 8px;
+    }
+    details[open] { padding-bottom: 16px; }
+    summary {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--near-blk);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--orange);
+      transition: transform 0.15s;
+    }
+    details[open] summary::after { content: "−"; }
+    details p {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
 
     /* ── Footer ── */
     footer {
       width: 100%;
+      background: var(--navy);
       text-align: center;
-      padding: 24px;
-      border-top: 1px solid var(--line);
+      padding: 28px 24px;
       font-size: 13px;
-      color: var(--ink-soft);
+      color: var(--slate);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-mark {
+      opacity: 0.7;
+    }
+    .footer-tagline {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: #7a8fa8;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .cards { grid-template-columns: 1fr; }
-      header { padding: 36px 20px 28px; }
+      .nav { padding: 0 20px; }
+      .hero { padding: 40px 20px 36px; }
       main { padding: 36px 16px 60px; }
+      .deposit-section { padding: 28px 20px; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <p class="eyebrow">Private link — not publicly listed</p>
-  <h1>Advisory Hours</h1>
-  <p class="sub">Purchase a block of advisory time. Scheduling access opens after payment is confirmed.</p>
+<!-- Nav -->
+<nav class="nav">
+  <a class="nav-mark" href="https://magruder.co">
+    <!-- M-Co mark — reversed (white on navy) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" height="36" width="36" aria-label="M-Co mark">
+      <g transform="translate(-1.3, 0)">
+        <path fill="#F6F4EF" d="M0.530 128L0.530 62.528L20.682 62.528L28.866 89.808Q29.746 92.888 30.626 96.848Q31.506 100.808 32.210 104.504L32.210 104.504Q33.090 108.728 33.794 113.128L33.794 113.128L34.058 113.128Q34.762 108.728 35.554 104.504L35.554 104.504Q36.258 100.808 37.094 96.848Q37.930 92.888 38.898 89.808L38.898 89.808L46.906 62.528L67.322 62.528L67.322 128L53.506 128L53.506 98.696Q53.506 95.616 53.682 91.568Q53.858 87.520 54.034 83.824L54.034 83.824Q54.298 79.600 54.562 75.112L54.562 75.112L54.386 75.112Q53.594 79.160 52.714 83.120L52.714 83.120Q52.010 86.464 51.086 90.204Q50.162 93.944 49.282 96.848L49.282 96.848L39.954 128L27.634 128L18.218 96.848Q17.338 93.944 16.414 90.204Q15.490 86.464 14.786 83.120L14.786 83.120Q13.906 79.160 13.114 75.112L13.114 75.112L12.938 75.112Q13.202 79.600 13.466 83.824L13.466 83.824Q13.642 87.520 13.818 91.568Q13.994 95.616 13.994 98.696L13.994 98.696L13.994 128L0.530 128Z"></path>
+        <path fill="#F86822" d="M73.238 106.264L73.238 91.744L87.934 91.744L87.934 106.264L73.238 106.264Z"></path>
+        <path fill="#F6F4EF" d="M123.330 129.496L123.330 129.496Q116.202 129.496 110.262 126.944Q104.322 124.392 100.098 119.860Q95.874 115.328 93.542 109.080Q91.210 102.832 91.210 95.528L91.210 95.528Q91.210 88.224 93.498 81.976Q95.786 75.728 99.966 71.152Q104.146 66.576 110.086 63.980Q116.026 61.384 123.330 61.384L123.330 61.384Q128.786 61.384 133.362 62.660Q137.938 63.936 141.282 66.488L141.282 66.488Q145.770 69.744 148.278 74.408Q150.786 79.072 151.402 84.616L151.402 84.616L136.442 84.616Q135.738 79.952 132.262 76.916Q128.786 73.880 123.242 73.880L123.242 73.880Q119.018 73.880 115.894 75.508Q112.770 77.136 110.702 80.040Q108.634 82.944 107.578 86.904Q106.522 90.864 106.522 95.528L106.522 95.528Q106.522 100.192 107.710 104.152Q108.898 108.112 111.054 110.972Q113.210 113.832 116.334 115.460Q119.458 117.088 123.330 117.088L123.330 117.088Q129.402 117.088 132.922 113.656Q136.442 110.224 136.970 105.120L136.970 105.120L152.018 105.120Q151.666 110.048 149.554 114.404Q147.442 118.760 144.098 122.104L144.098 122.104Q140.402 125.800 135.298 127.648Q130.194 129.496 123.330 129.496Z"></path>
+        <path fill="#F6F4EF" d="M177.998 129.496L177.998 129.496Q172.366 129.496 167.790 127.604Q163.214 125.712 159.958 122.368Q156.702 119.024 154.942 114.492Q153.182 109.960 153.182 104.680L153.182 104.680Q153.182 99.400 154.942 94.868Q156.702 90.336 159.958 86.992Q163.214 83.648 167.790 81.756Q172.366 79.864 177.998 79.864L177.998 79.864Q183.542 79.864 188.118 81.756Q192.694 83.648 195.906 86.992Q199.118 90.336 200.878 94.868Q202.638 99.400 202.638 104.680L202.638 104.680Q202.638 109.960 200.878 114.492Q199.118 119.024 195.906 122.368Q192.694 125.712 188.118 127.604Q183.542 129.496 177.998 129.496ZM177.910 119.464L177.910 119.464Q183.102 119.464 185.874 115.372Q188.646 111.280 188.646 104.680L188.646 104.680Q188.646 97.992 185.874 93.856Q183.102 89.720 177.910 89.720L177.910 89.720Q172.630 89.720 169.902 93.856Q167.174 97.992 167.174 104.680L167.174 104.680Q167.174 111.280 169.902 115.372Q172.630 119.464 177.910 119.464Z"></path>
+      </g>
+    </svg>
+    <span class="nav-wordmark">Magruder &amp; Company</span>
+  </a>
+  <span class="nav-tag">Private</span>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <p class="eyebrow">Advisory Hours</p>
+  <h1>Work directly with Michael.</h1>
+  <p>Purchase a block of advisory time. Scheduling access opens immediately after payment is confirmed.</p>
+  <div class="hero-rule"></div>
 </header>
 
 <main>
@@ -337,41 +434,41 @@
     <!-- Hourly -->
     <div class="card">
       <p class="card-tier">Hourly</p>
-      <p class="card-hours">1–4 <span>hours</span></p>
-      <p class="card-rate">$350 / hr</p>
+      <p class="card-hours">1&ndash;4 <span>hours</span></p>
+      <p class="card-rate">$350 / hr &mdash; no commitment</p>
       <p class="card-total">$350</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/cNi9AVece89l6kv0uP24003" class="btn btn-primary">Purchase — $350 / hr</a>
+      <a href="https://buy.stripe.com/cNi9AVece89l6kv0uP24003" class="btn btn-primary">Purchase &mdash; $350 / hr</a>
     </div>
 
     <!-- Standard -->
     <div class="card">
       <p class="card-tier">Standard</p>
       <p class="card-hours">5 <span>hours</span></p>
-      <p class="card-rate">$250 / hr</p>
+      <p class="card-rate">$250 / hr &mdash; save 29%</p>
       <p class="card-total">$1,250</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/6oU5kFece75hdMX3H124000" class="btn btn-primary">Purchase — $1,250</a>
+      <a href="https://buy.stripe.com/6oU5kFece75hdMX3H124000" class="btn btn-primary">Purchase &mdash; $1,250</a>
     </div>
 
     <!-- Mid -->
     <div class="card">
       <p class="card-tier">Mid</p>
       <p class="card-hours">10 <span>hours</span></p>
-      <p class="card-rate">$225 / hr</p>
+      <p class="card-rate">$225 / hr &mdash; save 36%</p>
       <p class="card-total">$2,250</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/aFafZj9VYahtbEP5P924001" class="btn btn-primary">Purchase — $2,250</a>
+      <a href="https://buy.stripe.com/aFafZj9VYahtbEP5P924001" class="btn btn-primary">Purchase &mdash; $2,250</a>
     </div>
 
     <!-- Full -->
     <div class="card">
       <p class="card-tier">Full</p>
       <p class="card-hours">20 <span>hours</span></p>
-      <p class="card-rate">$200 / hr</p>
+      <p class="card-rate">$200 / hr &mdash; save 43%</p>
       <p class="card-total">$4,000</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/7sY3cx7NQ2Pl8sDb9t24002" class="btn btn-primary">Purchase — $4,000</a>
+      <a href="https://buy.stripe.com/7sY3cx7NQ2Pl8sDb9t24002" class="btn btn-orange">Purchase &mdash; $4,000</a>
     </div>
 
   </div>
@@ -380,9 +477,9 @@
   <div class="deposit-section">
     <p class="deposit-eyebrow">Readiness Assessment</p>
     <h2>Reserve your engagement</h2>
-    <p>The Readiness Assessment is a fixed-fee engagement ($15,000–$25,000) that maps your organization's AI constraints and produces a scoping memo for next steps. A $3,500 deposit secures your start date and credits in full against the total fee. If you decide not to proceed after the scoping session, the unused portion is refunded.</p>
-    <a href="https://buy.stripe.com/3CIbJ33xA75hbEPgtN24004" class="btn btn-gold" style="max-width:280px;">Pay Deposit — $3,500</a>
-    <p class="deposit-meta">Prefer to pay by invoice or ACH? <a href="mailto:michael@magruder.co">Email us</a> and we'll send one directly.</p>
+    <p>The Readiness Assessment is a fixed-fee engagement ($15,000&ndash;$25,000) that maps your organization&rsquo;s AI constraints and produces a scoping memo for next steps. A $3,500 deposit secures your start date and credits in full against the total fee. If you decide not to proceed after the scoping session, the unused portion is refunded.</p>
+    <a href="https://buy.stripe.com/3CIbJ33xA75hbEPgtN24004" class="btn btn-gold" style="max-width:280px; display:inline-block; width:auto; padding: 14px 28px;">Pay Deposit &mdash; $3,500</a>
+    <p class="deposit-meta">Prefer to pay by invoice or ACH? <a href="mailto:michael@magruder.co">Email us</a> and we&rsquo;ll send one directly.</p>
   </div>
 
   <!-- How it works -->
@@ -390,8 +487,9 @@
     <h2>How it works</h2>
     <ol class="steps">
       <li><span class="step-num">1</span> Select a block that fits your needs. Hourly works for focused sessions; Standard and above lock in a lower rate.</li>
-      <li><span class="step-num">2</span> After payment is confirmed, you'll receive a scheduling link by email to book your sessions.</li>
-      <li><span class="step-num">3</span> Schedule sessions at your pace within your purchased block.</li>
+      <li><span class="step-num">2</span> Complete checkout via Stripe &mdash; card, Apple Pay, and ACH all accepted.</li>
+      <li><span class="step-num">3</span> After payment is confirmed, you&rsquo;ll receive a scheduling link by email to book your sessions.</li>
+      <li><span class="step-num">4</span> Schedule sessions at your pace within your purchased block.</li>
     </ol>
   </div>
 
@@ -405,26 +503,41 @@
     </details>
 
     <details>
-      <summary>Can I purchase additional hours once I've used my block?</summary>
-      <p>Yes — you can return to this link at any time to purchase another block at the applicable rate.</p>
+      <summary>Can I purchase additional hours once I&rsquo;ve used my block?</summary>
+      <p>Yes &mdash; you can return to this link at any time to purchase another block at the applicable rate.</p>
     </details>
 
     <details>
-      <summary>What's the refund policy?</summary>
+      <summary>What&rsquo;s the refund policy?</summary>
       <p>Unused hours may be refunded within 30 days of purchase. Hours that have been scheduled or completed are non-refundable.</p>
     </details>
 
     <details>
       <summary>How do I book sessions?</summary>
-      <p>After payment, you'll receive a confirmation email with a scheduling link. Use it to pick times that work for you.</p>
+      <p>After payment, you&rsquo;ll receive a confirmation email with a scheduling link. Use it to pick times that work for you.</p>
+    </details>
+
+    <details>
+      <summary>What is the Readiness Assessment?</summary>
+      <p>The Readiness Assessment is a structured two-week engagement that maps your organization&rsquo;s specific AI constraints using the Constraint Map&trade; diagnostic. It produces a scoping memo that defines exactly what the follow-on engagement covers and what it costs. The $3,500 deposit secures your slot and credits against the total fee.</p>
     </details>
 
   </div>
 
 </main>
 
+<!-- Footer -->
 <footer>
-  &copy; 2026 Magruder &amp; Company &nbsp;·&nbsp; Sent to you directly — not publicly listed
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" height="28" width="28" class="footer-mark" aria-hidden="true">
+    <g transform="translate(-1.3, 0)">
+      <path fill="#F6F4EF" d="M0.530 128L0.530 62.528L20.682 62.528L28.866 89.808Q29.746 92.888 30.626 96.848Q31.506 100.808 32.210 104.504L32.210 104.504Q33.090 108.728 33.794 113.128L33.794 113.128L34.058 113.128Q34.762 108.728 35.554 104.504L35.554 104.504Q36.258 100.808 37.094 96.848Q37.930 92.888 38.898 89.808L38.898 89.808L46.906 62.528L67.322 62.528L67.322 128L53.506 128L53.506 98.696Q53.506 95.616 53.682 91.568Q53.858 87.520 54.034 83.824L54.034 83.824Q54.298 79.600 54.562 75.112L54.562 75.112L54.386 75.112Q53.594 79.160 52.714 83.120L52.714 83.120Q52.010 86.464 51.086 90.204Q50.162 93.944 49.282 96.848L49.282 96.848L39.954 128L27.634 128L18.218 96.848Q17.338 93.944 16.414 90.204Q15.490 86.464 14.786 83.120L14.786 83.120Q13.906 79.160 13.114 75.112L13.114 75.112L12.938 75.112Q13.202 79.600 13.466 83.824L13.466 83.824Q13.642 87.520 13.818 91.568Q13.994 95.616 13.994 98.696L13.994 98.696L13.994 128L0.530 128Z"></path>
+      <path fill="#F86822" d="M73.238 106.264L73.238 91.744L87.934 91.744L87.934 106.264L73.238 106.264Z"></path>
+      <path fill="#F6F4EF" d="M123.330 129.496L123.330 129.496Q116.202 129.496 110.262 126.944Q104.322 124.392 100.098 119.860Q95.874 115.328 93.542 109.080Q91.210 102.832 91.210 95.528L91.210 95.528Q91.210 88.224 93.498 81.976Q95.786 75.728 99.966 71.152Q104.146 66.576 110.086 63.980Q116.026 61.384 123.330 61.384L123.330 61.384Q128.786 61.384 133.362 62.660Q137.938 63.936 141.282 66.488L141.282 66.488Q145.770 69.744 148.278 74.408Q150.786 79.072 151.402 84.616L151.402 84.616L136.442 84.616Q135.738 79.952 132.262 76.916Q128.786 73.880 123.242 73.880L123.242 73.880Q119.018 73.880 115.894 75.508Q112.770 77.136 110.702 80.040Q108.634 82.944 107.578 86.904Q106.522 90.864 106.522 95.528L106.522 95.528Q106.522 100.192 107.710 104.152Q108.898 108.112 111.054 110.972Q113.210 113.832 116.334 115.460Q119.458 117.088 123.330 117.088L123.330 117.088Q129.402 117.088 132.922 113.656Q136.442 110.224 136.970 105.120L136.970 105.120L152.018 105.120Q151.666 110.048 149.554 114.404Q147.442 118.760 144.098 122.104L144.098 122.104Q140.402 125.800 135.298 127.648Q130.194 129.496 123.330 129.496Z"></path>
+      <path fill="#F6F4EF" d="M177.998 129.496L177.998 129.496Q172.366 129.496 167.790 127.604Q163.214 125.712 159.958 122.368Q156.702 119.024 154.942 114.492Q153.182 109.960 153.182 104.680L153.182 104.680Q153.182 99.400 154.942 94.868Q156.702 90.336 159.958 86.992Q163.214 83.648 167.790 81.756Q172.366 79.864 177.998 79.864L177.998 79.864Q183.542 79.864 188.118 81.756Q192.694 83.648 195.906 86.992Q199.118 90.336 200.878 94.868Q202.638 99.400 202.638 104.680L202.638 104.680Q202.638 109.960 200.878 114.492Q199.118 119.024 195.906 122.368Q192.694 125.712 188.118 127.604Q183.542 129.496 177.998 129.496ZM177.910 119.464L177.910 119.464Q183.102 119.464 185.874 115.372Q188.646 111.280 188.646 104.680L188.646 104.680Q188.646 97.992 185.874 93.856Q183.102 89.720 177.910 89.720L177.910 89.720Q172.630 89.720 169.902 93.856Q167.174 97.992 167.174 104.680L167.174 104.680Q167.174 111.280 169.902 115.372Q172.630 119.464 177.910 119.464Z"></path>
+    </g>
+  </svg>
+  <span>&copy; 2026 Magruder &amp; Company &nbsp;&middot;&nbsp; Sent to you directly &mdash; not publicly listed</span>
+  <span class="footer-tagline">The unbreakable thread from data to earnings</span>
 </footer>
 
 </body>
