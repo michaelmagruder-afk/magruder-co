@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{var j=[];var x=false;var S=30000;var f=3000;document.addEventListener("DOMContentLoaded",()=>{const H=window.Babel;const G="om-src-id";if(H&&H.registerPlugin&&!(H.availablePlugins&&H.availablePlugins[G])){H.registerPlugin(G,({types:Y})=>({visitor:{JSXOpeningElement(U,Q){const J=U.node;if(J.name&&J.name.type==="JSXMemberExpression")return;for(let V=0;V<J.attributes.length;V++){const L=J.attributes[V];if(L.type==="JSXAttribute"&&L.name&&L.name.name==="data-om-id")return}const W=Q.file&&Q.file.opts&&Q.file.opts.filename||"?";const Z=J.loc&&J.loc.start;const z=`jsx:${W}:${J.start??0}:${Z?Z.line:0}:${Z?Z.column+1:0}`;J.attributes.push(Y.jsxAttribute(Y.jsxIdentifier("data-om-id"),Y.stringLiteral(z)))}}}))}const k="om-text-extract";let A=false;if(x&&H&&H.registerPlugin&&!(H.availablePlugins&&H.availablePlugins[k])){const Y=window.React;if(Y&&Y.useSyncExternalStore&&Y.createElement){A=true;const U={};const Q=new Set;let J=0;window.__omTextO=U;window.__omTextSet=(z)=>{for(const V in z){const L=z[V];if(L==null)delete U[V];else U[V]=L}J++;Q.forEach((V)=>V())};const W=(z)=>{Q.add(z);return()=>Q.delete(z)};const Z=()=>J;window.__OmT=function z(V){Y.useSyncExternalStore(W,Z,Z);return Y.createElement("span",{"data-om-text":V.i,className:"__om-t"},V.i in U?U[V.i]:V.children)};H.registerPlugin(k,({types:z})=>{const V={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const L={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const _=($,C)=>z.logicalExpression("??",z.memberExpression(z.logicalExpression("||",z.memberExpression(z.identifier("window"),z.identifier("__omTextO")),z.objectExpression([])),z.stringLiteral($),true),C);const E=($)=>$.file&&$.file.opts&&$.file.opts.filename||"?";const B=($)=>$.file&&$.file.code||"";const b=($,C)=>{const X=(F)=>F&&F.start!=null&&F.end!=null&&(F.type==="StringLiteral"||F.type==="TemplateLiteral"&&F.expressions.length===0)?[F.start,F.end]:null;const N=X(C);if(N)return N;if(C&&C.type==="Identifier"){const F=$.scope.getBinding(C.name);if(F&&F.constant&&F.path.node.type==="VariableDeclarator"){return X(F.path.node.init)}}return null};const M=($,C,X)=>{const N=$.node;let F=false;const w=(K,q)=>{F=true;return z.jsxElement(z.jsxOpeningElement(z.jsxIdentifier("__OmT"),[z.jsxAttribute(z.jsxIdentifier("i"),z.stringLiteral(K))],false),z.jsxClosingElement(z.jsxIdentifier("__OmT")),[q],false)};const D=N.children.map((K)=>{if(K.type==="JSXText"){if(K.start==null||K.end==null)return K;const q=X.slice(K.start,K.end);const R=q.length-q.trimStart().length;const m=q.length-q.trimEnd().length;if(R+m>=q.length)return K;return w(`txt:${C}:${K.start+R}:${K.end-m}`,K)}if(K.type==="JSXExpressionContainer"){const q=b($,K.expression);if(q)return w(`str:${C}:${q[0]}:${q[1]}`,K)}return K});if(F)N.children=D};return{visitor:{JSXOpeningElement($,C){const X=$.node;const N=E(C);const F={};for(let w=0;w<X.attributes.length;w++){const D=X.attributes[w];if(D.type!=="JSXAttribute"||!D.name)continue;const K=D.name.name;if(!L[K])continue;if(!D.value||D.value.type!=="StringLiteral")continue;if(D.value.start==null||D.value.end==null)continue;const q=`txt:${N}:${D.value.start}:${D.value.end}`;F[K]=q;D.value=z.jsxExpressionContainer(_(q,z.stringLiteral(D.value.value)))}if(Object.keys(F).length){X.attributes.push(z.jsxAttribute(z.jsxIdentifier("data-om-text-attrs"),z.stringLiteral(JSON.stringify(F))))}},JSXElement($,C){const X=$.node.openingElement;const N=X&&X.name&&X.name.name;if(N==="__OmT")return;if(typeof N==="string"&&V[N])return;M($,E(C),B(C))},JSXFragment($,C){M($,E(C),B(C))}}}})}}const u=A?["transform-react-jsx-source",G,k]:["transform-react-jsx-source",G];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((Y,U)=>{const Q=Y.getAttribute("data-plugins")||"";const J=u.filter((W)=>Q.indexOf(W)<0);if(J.length){Y.setAttribute("data-plugins",Q?`${Q},${J.join(",")}`:J.join(","))}if(!Y.hasAttribute("data-filename")){Y.setAttribute("data-filename",Y.getAttribute("src")||`inline-${U}`)}})});var y=window.parent;if(y&&y!==window){const H=(Q,J)=>{try{y.postMessage({__omelette_log:true,type:Q,data:J},"*")}catch{}};["log","warn","error"].forEach((Q)=>{const J=console[Q];console[Q]=(...W)=>{const Z=W.map((z)=>{try{return typeof z==="object"?JSON.stringify(z):String(z)}catch{try{return String(z)}catch{return"[unstringifiable]"}}}).join(" ");H(Q,Z);J.apply(console,W)}});window.addEventListener("error",(Q)=>{const J=Q.target;if(J&&J!==window&&J.tagName){const W=J.src||J.href||"";H("resource_error",`${J.tagName} failed to load: ${W}`)}else{H("error",`${Q.message||"Unknown error"} at ${Q.filename||"?"}:${Q.lineno||0}:${Q.colno||0}`)}},true);window.addEventListener("unhandledrejection",(Q)=>{const J=Q.reason;const W=J instanceof Error?`${J.message} ${J.stack}`:String(J);H("error",`Unhandled rejection: ${W}`)});const G=()=>{try{y.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")G();else window.addEventListener("load",G);if(window.ResizeObserver)new ResizeObserver(G).observe(document.documentElement);const k={};let A=0;window.claude={complete(Q){return new Promise((J,W)=>{if(!j.length){W(new Error("claude.complete: no parent origin"));return}const Z=`c${++A}`;const z=()=>setTimeout(()=>{delete k[Z];W(new Error(`claude.complete: no data for ${S/1000}s`))},S);const V=z();k[Z]={resolve:J,reject:W,text:"",t:V,arm:z};try{for(const L of j){y.postMessage({__om_api:true,id:Z,body:Q},L)}}catch(L){clearTimeout(V);delete k[Z];W(L)}})}};const u={};let Y=0;window.omelette={writeFile:(Q,J)=>new Promise((W,Z)=>{if(!j.length){W();return}const z=`f${++Y}`;const V=setTimeout(()=>{delete u[z];W()},f);u[z]={resolve:W,reject:Z,t:V};try{for(const L of j){y.postMessage({__om_file:true,id:z,op:"write",path:Q,content:J},L)}}catch{clearTimeout(V);delete u[z];W()}})};const U=(Q)=>{try{return JSON.stringify(Q)}catch{return JSON.stringify(String(Q))}};window.addEventListener("message",(Q)=>{if(j.indexOf(Q.origin)<0)return;if(Q.source!==y)return;const J=Q.data;if(!J)return;if(J.type==="omelette-preview-refresh"){if(typeof J.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(J.token))return;const z=Math.max(1,Math.floor((J.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+J.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+z;return}if(J.__om_file_r){const z=u[J.id];if(!z)return;clearTimeout(z.t);delete u[J.id];if(J.ok)z.resolve();else z.reject(new Error(J.error||"write failed"));return}if(J.__om_api_r){const z=k[J.id];if(!z)return;if(J.error!=null){clearTimeout(z.t);delete k[J.id];z.reject(new Error(J.error));return}if(J.chunk!=null){clearTimeout(z.t);z.t=z.arm();z.text+=J.chunk;return}if(J.done){clearTimeout(z.t);delete k[J.id];z.resolve(J.text!=null?J.text:z.text);return}return}if(!J.__om_eval)return;const W=J;const Z=(z)=>{Q.source.postMessage({...z,__om_eval_r:1,id:W.id},Q.origin)};try{const z=(0,eval)(W.code);if(z&&typeof z.then==="function"){z.then((V)=>Z({ok:1,v:U(V)}),(V)=>Z({ok:0,e:String(V)}))}else{Z({ok:1,v:U(z)})}}catch(z){Z({ok:0,e:String(z)})}})}})();
+</script>
+
+<meta charset="utf-8"/>
+<title>The Q2 Imperative — Magruder & Company</title>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+    <rect width="1920" height="1080" fill="#1E3455"/>
+    <text x="960" y="520" font-family="Helvetica,Arial,sans-serif" font-size="200" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="-6">Q2</text>
+    <text x="960" y="660" font-family="Helvetica,Arial,sans-serif" font-size="72" text-anchor="middle" fill="#F86822" letter-spacing="4">IMPERATIVE</text>
+  </svg>
+</template>
+<style>
+/* review-page standalone font fallback */
+body,h1,h2,h3,p,div,span{font-family:'NHG','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif;}
+@font-face {
+  font-family: 'NHG';
+  src: url('../../fonts/NeueHaasGroteskTextPro-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'NHG';
+  src: url('../../fonts/NeueHaasGroteskTextPro-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal;
+}
+
+:root {
+  --navy:    #1E3455;
+  --orange:  #F86822;
+  --black:   #0C0D14;
+  --white:   #FFFFFF;
+  --gray:    #F5F5F5;
+  --mgray:   #888888;
+  --slate:   #BFC9D8;
+  --panel:   #2E4870;
+  --rule:    #DDDDDD;
+  --rulem:   #E0E0E0;
+  --f: 'NHG','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:100%; height:100%; background:#111; font-family:var(--f); }
+
+/* Deck shell */
+.stage {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: #111;
+  overflow: hidden;
+}
+.scaler {
+  width: 1920px; height: 1080px;
+  transform-origin: center center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Slide */
+.slide {
+  position: absolute; inset: 0;
+  width: 1920px; height: 1080px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  font-family: var(--f);
+  color: var(--black);
+  background: var(--white);
+}
+.slide.bg-navy { background: var(--navy); color: var(--white); }
+.slide.bg-gray { background: var(--gray); }
+
+/* Nav */
+.nav-btn {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.12); border: none; color: #fff;
+  font-size: 28px; width: 48px; height: 80px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; border-radius: 4px;
+  transition: background 0.15s;
+}
+.nav-btn:hover { background: rgba(255,255,255,0.25); }
+.nav-prev { left: 8px; }
+.nav-next { right: 8px; }
+.pg-count { position:fixed; bottom:8px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.4); font-size:12px; font-family:var(--f); z-index:100; }
+
+/* Shared slide atoms */
+.bar-left { position:absolute; left:0; top:0; bottom:0; width:12px; background:var(--orange); z-index:2; }
+
+.eyebrow { font-size:16px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--orange); }
+.eyebrow-muted { font-size:16px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--mgray); }
+
+.footer {
+  height: 88px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 120px;
+  font-size: 14px; color: var(--mgray);
+  border-top: 1px solid var(--rulem);
+  letter-spacing: 0.02em;
+}
+.footer.dark { border-top-color: rgba(255,255,255,0.12); color: var(--slate); background: var(--navy); }
+.footer .pg { font-weight:700; color:var(--navy); letter-spacing:0.12em; }
+.footer.dark .pg { color:var(--orange); }
+
+.callout { padding:20px 28px; background:var(--gray); border-left:3px solid var(--orange); font-size:17px; color:var(--black); }
+.callout strong { color:var(--navy); }
+
+.section-num {
+  flex:0 0 640px;
+  background:var(--navy); color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  font-size:340px; font-weight:700; line-height:0.9; letter-spacing:-0.04em;
+}
+.section-num-label {
+  position:absolute; top:64px; left:64px;
+  font-size:16px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--orange);
+}
+.section-body {
+  flex:1; padding:0 120px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <div class="scaler" id="scaler">
+
+    <!-- 01 Title -->
+    <div class="slide bg-navy" id="s01">
+      <div class="bar-left"></div>
+      <div style="position:absolute;top:80px;left:120px;">
+        <div style="font-size:20px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#fff;">Magruder &amp; Company</div>
+        <div style="font-size:15px;color:var(--slate);margin-top:6px;">Strategic advisory for AI-preparedness</div>
+      </div>
+      <div style="position:absolute;top:80px;right:120px;text-align:right;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);">A Living Practice of</div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;">AI Preparedness</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 120px 64px;">
+        <div class="eyebrow" style="margin-bottom:32px;">Q2 2026 &nbsp;·&nbsp; Executive Briefing &nbsp;·&nbsp; Confidential</div>
+        <h1 style="font-size:120px;font-weight:700;letter-spacing:-0.03em;line-height:0.92;color:#fff;max-width:1500px;">The Q2<br/>Imperative.</h1>
+        <div style="margin-top:40px;font-size:32px;color:var(--slate);line-height:1.4;max-width:1200px;font-weight:400;">Why AI-preparedness is not optional,<br/>and why the window is now.</div>
+        <div style="width:240px;height:3px;background:var(--orange);margin-top:60px;"></div>
+      </div>
+      <div class="footer dark">
+        <span>magruder.co &nbsp;·&nbsp; customercore.co</span>
+        <span class="pg">01 / 12</span>
+      </div>
+    </div>
+
+    <!-- 02 Section: The Gap -->
+    <div class="slide bg-gray" id="s02">
+      <div style="display:flex;flex:1;overflow:hidden;">
+        <div class="section-num">
+          <div class="section-num-label">Section One</div>
+          01
+        </div>
+        <div class="section-body">
+          <div class="eyebrow-muted" style="margin-bottom:28px;">The Gap</div>
+          <h2 style="font-size:52px;font-weight:700;letter-spacing:-0.01em;line-height:1.1;color:var(--navy);margin-bottom:36px;max-width:940px;">The market has not failed<br/>to produce AI advice.</h2>
+          <div style="width:120px;height:3px;background:var(--orange);margin-bottom:36px;"></div>
+          <p style="font-size:26px;line-height:1.55;color:var(--black);max-width:860px;margin-bottom:24px;">It has failed to produce AI preparedness. The problem is not a shortage of vendors, frameworks, or platforms. It is a shortage of integrated thinking about what AI requires of an enterprise before it can compound rather than consume.</p>
+          <p style="font-size:22px;line-height:1.55;color:var(--mgray);max-width:860px;">Technology firms sell adoption. Management consultancies sell strategy. IT advisors sell integration. None integrates the full scope of the change. None was designed to.</p>
+        </div>
+      </div>
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">02 / 12</span>
+      </div>
+    </div>
+
+    <!-- 03 Evidence -->
+    <div class="slide" id="s03">
+      <div class="bar-left"></div>
+      <div style="padding:64px 120px 0;">
+        <div class="eyebrow" style="margin-bottom:16px;">The Evidence</div>
+        <h2 style="font-size:52px;font-weight:700;letter-spacing:-0.01em;color:var(--navy);margin-bottom:12px;">88% deploy AI. 6% perform.</h2>
+        <p style="font-size:20px;color:var(--mgray);">The performance gap is not a technology problem. It is a preparedness problem.</p>
+      </div>
+      <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;padding:24px 120px 0;align-items:center;">
+        <div>
+          <div style="font-size:260px;font-weight:700;color:var(--navy);letter-spacing:-0.04em;line-height:0.85;">88<span style="color:var(--orange);">%</span></div>
+          <div style="font-size:26px;font-weight:600;color:var(--navy);margin-top:16px;max-width:560px;line-height:1.3;">of organizations now use AI in at least one business function</div>
+          <div style="font-size:13px;color:var(--mgray);margin-top:10px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">McKinsey State of AI, 2025</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px;">
+          <div style="border-left:3px solid var(--orange);padding-left:28px;">
+            <div style="display:flex;align-items:baseline;gap:18px;">
+              <span style="font-size:48px;font-weight:700;color:var(--navy);line-height:1;">6%</span>
+              <span style="font-size:20px;color:var(--black);line-height:1.35;">qualify as AI high performers (5% or more of EBIT from AI)</span>
+            </div>
+            <div style="font-size:12px;color:var(--mgray);margin-top:6px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">McKinsey, 2025</div>
+          </div>
+          <div style="border-left:3px solid var(--orange);padding-left:28px;">
+            <div style="display:flex;align-items:baseline;gap:18px;">
+              <span style="font-size:48px;font-weight:700;color:var(--navy);line-height:1;">12%</span>
+              <span style="font-size:20px;color:var(--black);line-height:1.35;">of CEOs say AI has delivered both cost and revenue benefits</span>
+            </div>
+            <div style="font-size:12px;color:var(--mgray);margin-top:6px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">PwC 29th Global CEO Survey, 2026</div>
+          </div>
+          <div style="border-left:3px solid var(--orange);padding-left:28px;">
+            <div style="display:flex;align-items:baseline;gap:18px;">
+              <span style="font-size:48px;font-weight:700;color:var(--navy);line-height:1;">56%</span>
+              <span style="font-size:20px;color:var(--black);line-height:1.35;">of CEOs report no significant financial benefit from AI at all</span>
+            </div>
+            <div style="font-size:12px;color:var(--mgray);margin-top:6px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">PwC 29th Global CEO Survey, 2026</div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:20px 120px 0;">
+        <div class="callout"><strong>The gap between AI adoption and AI performance</strong> is where preparedness lives. The organizations closing that gap are not buying better tools. They are building better foundations.</div>
+      </div>
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">03 / 12</span>
+      </div>
+    </div>
+
+    <!-- 04 Section: Constraint Map -->
+    <div class="slide bg-gray" id="s04">
+      <div style="display:flex;flex:1;overflow:hidden;">
+        <div class="section-num">
+          <div class="section-num-label">Section Two</div>
+          02
+        </div>
+        <div class="section-body">
+          <div class="eyebrow-muted" style="margin-bottom:28px;">The Constraint Map<sup style="font-size:60%;vertical-align:0.5em;">&#8480;</sup></div>
+          <h2 style="font-size:52px;font-weight:700;letter-spacing:-0.01em;line-height:1.1;color:var(--navy);margin-bottom:36px;max-width:940px;">What is blocking you,<br/>by name.</h2>
+          <div style="width:120px;height:3px;background:var(--orange);margin-bottom:36px;"></div>
+          <p style="font-size:26px;line-height:1.55;color:var(--black);max-width:860px;margin-bottom:24px;">Every organization carries constraints it cannot see in itself. Not because the people are incapable. Because the observer and the observed are the same.</p>
+          <p style="font-size:22px;line-height:1.55;color:var(--mgray);max-width:860px;">The Constraint Map<sup style="font-size:60%;vertical-align:0.5em;">&#8480;</sup> names those impediments. Not a readiness score. Named constraints, with recognition signals you can verify against your own experience and remediation patterns that direct the work.</p>
+        </div>
+      </div>
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">04 / 12</span>
+      </div>
+    </div>
+
+    <!-- 05 Five Constraints -->
+    <div class="slide" id="s05" style="justify-content:space-between;">
+      <div class="bar-left"></div>
+      <div style="padding:40px 120px 0;">
+        <div class="eyebrow" style="margin-bottom:10px;">Constraint Map<sup style="font-size:60%;vertical-align:0.5em;">&#8480;</sup> &nbsp;·&nbsp; Five Named Impediments</div>
+        <h2 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;color:var(--navy);">Not a readiness score. Named constraints, verifiable against your own data.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:0 120px;align-items:stretch;">
+
+        <div style="border:1px solid var(--rulem);border-top:4px solid var(--orange);padding:28px 24px;display:flex;flex-direction:column;">
+          <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:14px;">Constraint 01</div>
+          <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px;">Strategy Without Validation</div>
+          <div style="font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-0.02em;line-height:1;">95%</div>
+          <div style="font-size:15px;color:var(--mgray);margin:8px 0 18px;line-height:1.4;">of companies fail to achieve measurable financial impact from gen AI</div>
+          <div style="font-size:18px;color:var(--black);line-height:1.55;">The strategy exists as a document, not a working instrument. No measurable connection to what the organization is actually doing with AI day to day.</div>
+          <div style="font-size:14px;color:var(--orange);margin-top:16px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">MIT Project NANDA, 2025</div>
+        </div>
+
+        <div style="border:1px solid var(--rulem);border-top:4px solid var(--orange);padding:28px 24px;display:flex;flex-direction:column;">
+          <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:14px;">Constraint 02</div>
+          <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px;">Competence Theater</div>
+          <div style="font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-0.02em;line-height:1;">88% &rarr; 42%</div>
+          <div style="font-size:15px;color:var(--mgray);margin:8px 0 18px;line-height:1.4;">of agent pilots never reach production; abandonment up from 17% to 42% year over year</div>
+          <div style="font-size:18px;color:var(--black);line-height:1.55;">Training produced awareness, not capability. Workshops produced enthusiasm, not competence. The organization is performing readiness rather than building it.</div>
+          <div style="font-size:14px;color:var(--orange);margin-top:16px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">S&amp;P Global / 451 Research, 2025</div>
+        </div>
+
+        <div style="border:1px solid var(--rulem);border-top:4px solid var(--orange);padding:28px 24px;display:flex;flex-direction:column;">
+          <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:14px;">Constraint 03</div>
+          <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px;">The Governance Gap</div>
+          <div style="font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-0.02em;line-height:1;">23% vs 2%</div>
+          <div style="font-size:15px;color:var(--mgray);margin:8px 0 18px;line-height:1.4;">are running agentic AI somewhere; only 2% have actually scaled it</div>
+          <div style="font-size:18px;color:var(--black);line-height:1.55;">AI is in production. The governance that should surround it is not. Deployed faster than governed, and the gap is where risk accumulates.</div>
+          <div style="font-size:14px;color:var(--orange);margin-top:16px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">Capgemini, 2025</div>
+        </div>
+
+        <div style="border:1px solid var(--rulem);border-top:4px solid var(--orange);padding:28px 24px;display:flex;flex-direction:column;">
+          <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:14px;">Constraint 04</div>
+          <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px;">Invisible Spend</div>
+          <div style="font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-0.02em;line-height:1;">47%</div>
+          <div style="font-size:15px;color:var(--mgray);margin:8px 0 18px;line-height:1.4;">of shadow AI runs through personal accounts, entirely outside the enterprise's view</div>
+          <div style="font-size:18px;color:var(--black);line-height:1.55;">The visible AI investment is the number on the budget line. The actual AI investment includes every unauthorized tool, untracked call, and shadow workflow.</div>
+          <div style="font-size:14px;color:var(--orange);margin-top:16px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">ITPro / Netskope, 2026</div>
+        </div>
+
+        <div style="border:1px solid var(--rulem);border-top:4px solid var(--orange);padding:28px 24px;display:flex;flex-direction:column;">
+          <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:14px;">Constraint 05</div>
+          <div style="font-size:22px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px;">Accountability Vacuum</div>
+          <div style="font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-0.02em;line-height:1;">76%</div>
+          <div style="font-size:15px;color:var(--mgray);margin:8px 0 18px;line-height:1.4;">of organizations now have a Chief AI Officer, up from 26% in 2025</div>
+          <div style="font-size:18px;color:var(--black);line-height:1.55;">Titles multiplied. Accountability did not follow. The gaps between CIO, CDO, CHRO, and CFO are where the most consequential failures are forming.</div>
+          <div style="font-size:14px;color:var(--orange);margin-top:16px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">IBM, 2026</div>
+        </div>
+
+      </div>
+      <div style="padding:16px 120px;">
+        <div class="callout" style="font-size:15px;"><strong>The diagnostic conversation</strong> applies these recognition signals to your own function and surfaces the constraint operating between your AI strategy and its results, within the conversation itself.</div>
+      </div>
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">05 / 12</span>
+      </div>
+    </div>
+
+    <!-- 06 Section: Three Outcomes -->
+    <div class="slide bg-gray" id="s06">
+      <div style="display:flex;flex:1;overflow:hidden;">
+        <div class="section-num">
+          <div class="section-num-label">Section Three</div>
+          03
+        </div>
+        <div class="section-body">
+          <div class="eyebrow-muted" style="margin-bottom:28px;">What Our Practice Delivers</div>
+          <h2 style="font-size:56px;font-weight:700;letter-spacing:-0.01em;line-height:1.05;color:var(--navy);margin-bottom:0;max-width:880px;">Three outcomes.</h2>
+          <h2 style="font-size:56px;font-weight:400;letter-spacing:-0.01em;line-height:1.05;color:var(--orange);margin-bottom:36px;max-width:880px;">One operating model.</h2>
+          <div style="width:120px;height:3px;background:var(--orange);margin-bottom:36px;"></div>
+          <p style="font-size:26px;line-height:1.55;color:var(--black);max-width:860px;margin-bottom:24px;">Built for the executive team, before Q3 budget decisions are made. Each outcome builds on what the last made possible.</p>
+          <p style="font-size:22px;line-height:1.55;color:var(--mgray);max-width:860px;">The ideal state curated toward: Customer Core&#8482;, an operating model organized by value stream rather than functional verticals.</p>
+        </div>
+      </div>
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">06 / 12</span>
+      </div>
+    </div>
+
+    <!-- 07 Three Outcomes Framework -->
+    <div class="slide" id="s07" style="justify-content:space-between;">
+      <div class="bar-left"></div>
+      <div style="padding:36px 120px 0;">
+        <div class="eyebrow" style="margin-bottom:10px;">The Engagement, by Outcome</div>
+        <h2 style="font-size:40px;font-weight:700;letter-spacing:-0.01em;color:var(--navy);">Three outcomes. One operating model.</h2>
+      </div>
+
+      <div style="display:flex;padding:0 120px;gap:0;align-items:stretch;">
+
+        <div style="flex:1;display:flex;flex-direction:column;border:1px solid var(--rulem);border-top:4px solid var(--navy);">
+          <div style="padding:22px 24px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rulem);">
+            <div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--mgray);text-transform:uppercase;">Outcome 01</div>
+              <div style="font-size:26px;font-weight:700;color:var(--navy);margin-top:4px;letter-spacing:-0.005em;">Readiness Assessment</div>
+            </div>
+            <div style="background:var(--orange);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:6px 14px;text-transform:uppercase;white-space:nowrap;">2 Weeks</div>
+          </div>
+          <div style="padding:22px 24px;font-size:20px;line-height:1.6;color:var(--black);">The Constraint Map&#8480; names the specific impediments operating between your AI strategy and its results. The assessment locates the organization against Customer Core&#8482;, the ideal state, and identifies where AI investment will close a gap rather than amplify one.</div>
+          <div style="padding:20px 24px;border-top:1px solid var(--rulem);background:var(--gray);">
+            <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:8px;">You leave with</div>
+            <div style="font-size:18px;font-weight:700;color:var(--navy);line-height:1.5;">An operating picture, an evaluation framework, and a conversation guide. The executive team enters Q3 planning able to say what to fund, what to pause, and what to stop.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;flex-shrink:0;padding:0 6px;">
+          <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:16px solid var(--orange);"></div>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;border:1px solid var(--rulem);border-top:4px solid var(--navy);">
+          <div style="padding:22px 24px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rulem);">
+            <div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--mgray);text-transform:uppercase;">Outcome 02</div>
+              <div style="font-size:26px;font-weight:700;color:var(--navy);margin-top:4px;letter-spacing:-0.005em;">Governed Corpus</div>
+            </div>
+            <div style="background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:6px 14px;text-transform:uppercase;white-space:nowrap;">9&ndash;12 Weeks</div>
+          </div>
+          <div style="padding:22px 24px;font-size:20px;line-height:1.6;color:var(--black);">Through GenGov&#8482;, the practice curates and codifies what a function already knows into a governed corpus your AI systems can operate on. Two formats at once: a narrative your people read and audit, and a machine-readable reference any agent you deploy can act on.</div>
+          <div style="padding:20px 24px;border-top:1px solid var(--rulem);background:var(--gray);">
+            <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:8px;">You leave with</div>
+            <div style="font-size:18px;font-weight:700;color:var(--navy);line-height:1.5;">One governed corpus, kept current without us. The difference between governance as a policy document and governance that operates where decisions are made.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;flex-shrink:0;padding:0 6px;">
+          <div style="width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:16px solid var(--orange);"></div>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;border:1px solid var(--rulem);border-top:4px solid var(--navy);">
+          <div style="padding:22px 24px 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rulem);">
+            <div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--mgray);text-transform:uppercase;">Outcome 03</div>
+              <div style="font-size:26px;font-weight:700;color:var(--navy);margin-top:4px;letter-spacing:-0.005em;">Capability Transfer</div>
+            </div>
+            <div style="background:var(--navy);color:#fff;font-size:12px;font-weight:700;letter-spacing:0.12em;padding:6px 14px;text-transform:uppercase;white-space:nowrap;">Ownership</div>
+          </div>
+          <div style="padding:22px 24px;font-size:20px;line-height:1.6;color:var(--black);">The corpus transfers to your team with H2AI&#8482; in three parts: an Assessment that maps where human-to-AI intermediation is required; a Playbook that defines how your people stage judgment against AI execution; and an H2AI Office that runs intermediation as institutional practice.</div>
+          <div style="padding:20px 24px;border-top:1px solid var(--rulem);background:var(--gray);">
+            <div style="font-size:14px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:8px;">You leave with</div>
+            <div style="font-size:18px;font-weight:700;color:var(--navy);line-height:1.5;">A self-governing capability your organization owns. Not awareness training programs produce. Competence built by running the cycle itself.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="padding:14px 120px 0;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:8px;">The Literacy &amp; Capability Thread</div>
+        <div style="display:flex;align-items:center;gap:0;">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>
+          <div style="flex:1;height:2px;background:var(--navy);"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px;">
+          <div style="font-size:12px;font-weight:700;color:var(--navy);">Begins as contextual AI literacy</div>
+          <div style="font-size:12px;font-weight:700;color:var(--navy);">Ends as capability your people own</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">07 / 12</span>
+      </div>
+    </div>
+
+    <!-- 08 Destination -->
+    <div class="slide" id="s08">
+      <div class="bar-left"></div>
+      <div style="flex:1;display:grid;grid-template-columns:1fr 520px;overflow:hidden;">
+        <div style="padding:56px 80px 0 120px;display:flex;flex-direction:column;justify-content:center;">
+          <div class="eyebrow" style="margin-bottom:20px;">The Destination</div>
+          <h2 style="font-size:56px;font-weight:700;letter-spacing:-0.01em;color:var(--navy);margin-bottom:20px;">Customer Core&#8482;, realized.</h2>
+          <p style="font-size:20px;line-height:1.55;color:var(--black);max-width:780px;margin-bottom:24px;">Not a measurement report appended to the work. The shape the organization takes once the practice has landed: an operating model organized around value streams, where each layer of AI investment connects to the next through the Seven Levels.</p>
+          <p style="font-size:18px;line-height:1.55;color:var(--mgray);max-width:780px;margin-bottom:28px;">An organization that runs the practice through to that state has stopped needing to coordinate AI initiatives, because they were built connected from the start.</p>
+          <div style="padding:18px 24px;background:var(--navy);color:#fff;border-left:4px solid var(--orange);max-width:740px;">
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;">The proof a CFO can audit</div>
+            <div style="font-size:17px;line-height:1.5;">AI capability organized by value stream, not functional verticals, measured through the Seven Levels, from raw data to earnings quality.</div>
+          </div>
+        </div>
+        <div style="background:var(--navy);padding:48px 36px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;">The Seven Levels</div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);padding:11px 14px;opacity:0.65;"><div style="width:30px;height:30px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;">L1</div><div style="font-size:15px;font-weight:700;color:#fff;">Data Foundation</div></div>
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);padding:11px 14px;opacity:0.70;"><div style="width:30px;height:30px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;">L2</div><div style="font-size:15px;font-weight:700;color:#fff;">Identity Resolution</div></div>
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);padding:11px 14px;opacity:0.75;"><div style="width:30px;height:30px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;">L3</div><div style="font-size:15px;font-weight:700;color:#fff;">Customer Intelligence</div></div>
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);padding:11px 14px;opacity:0.80;"><div style="width:30px;height:30px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;">L4</div><div style="font-size:15px;font-weight:700;color:#fff;">Operational Effectiveness</div></div>
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);padding:11px 14px;opacity:0.85;"><div style="width:30px;height:30px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;">L5</div><div style="font-size:15px;font-weight:700;color:#fff;">Customer Engagement</div></div>
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.06);padding:11px 14px;opacity:0.92;"><div style="width:30px;height:30px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;">L6</div><div style="font-size:15px;font-weight:700;color:#fff;">Customer Equity</div></div>
+            <div style="display:flex;align-items:center;gap:12px;background:var(--orange);padding:11px 14px;"><div style="width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--orange);flex-shrink:0;">L7</div><div style="font-size:15px;font-weight:700;color:#fff;">Earnings Quality</div><div style="margin-left:auto;font-size:11px;color:var(--navy);letter-spacing:0.12em;text-transform:uppercase;font-weight:700;">Destination</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">08 / 12</span>
+      </div>
+    </div>
+
+    <!-- 09 Quote -->
+    <div class="slide bg-navy" id="s09">
+      <div class="bar-left"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 180px;">
+        <div style="font-size:200px;line-height:1;color:var(--orange);font-weight:700;margin-bottom:-24px;">&ldquo;</div>
+        <p style="font-size:52px;font-weight:400;line-height:1.3;letter-spacing:-0.005em;color:#fff;max-width:1500px;margin:0;">The Q2 Imperative is not a sales argument. It is a <span style="color:var(--orange);font-weight:700;">timing observation</span>. The organizations that will be prepared for what arrives in Q3 and into 2027 are making that decision now. The window between systematic preparation and episodic reaction is not permanently open.</p>
+        <div style="width:120px;height:3px;background:var(--orange);border:0;margin:48px 0 24px;"></div>
+        <div style="font-size:18px;color:var(--slate);letter-spacing:0.04em;">The Q2 Imperative &nbsp;·&nbsp; Magruder &amp; Company, May 2026</div>
+      </div>
+      <div class="footer dark">
+        <span>Magruder &amp; Company</span>
+        <span class="pg">09 / 12</span>
+      </div>
+    </div>
+
+    <!-- 9B Separator: Magruder & Company -->
+    <div class="slide bg-navy" id="s09b" style="justify-content:center;align-items:center;text-align:center;">
+      <div class="bar-left"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 120px;">
+        <div style="width:64px;height:4px;background:var(--orange);margin-bottom:40px;"></div>
+        <div style="font-size:104px;font-weight:700;line-height:1.04;letter-spacing:-0.02em;color:#fff;margin:0;">Magruder &amp; Company</div>
+        <div style="font-size:24px;color:var(--slate);letter-spacing:0.02em;margin-top:24px;max-width:1000px;line-height:1.5;">What the engagement actually is, and what June buys you.</div>
+        <div style="width:64px;height:4px;background:var(--orange);margin-top:40px;"></div>
+      </div>
+      <div class="footer dark">
+        <span>Magruder &amp; Company</span>
+        <span class="pg">12 / 12</span>
+      </div>
+    </div>
+
+    <!-- 9C The Readiness Assessment engagement -->
+    <div class="slide" id="s09c">
+      <div class="bar-left"></div>
+      <div style="flex:1;display:flex;flex-direction:column;padding:48px 120px 0;overflow:hidden;">
+        <div class="eyebrow" style="margin-bottom:14px;">The First Engagement</div>
+        <h2 style="font-size:48px;font-weight:700;letter-spacing:-0.01em;color:var(--navy);margin-bottom:8px;">The AI Readiness Assessment</h2>
+        <p style="font-size:19px;line-height:1.5;color:var(--mgray);max-width:1180px;margin-bottom:28px;">A focused two-week engagement. It does not start with our instruments. It starts with how your organization actually operates, and ends with a number you can act on and a conversation you can take to the board.</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+
+          <div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;">How it works</div>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;">1</div><div style="font-size:17px;line-height:1.45;color:var(--black);"><strong>Four domains measured:</strong> Adoption, Workforce, Value, Resilience. Each scored on objective evidence, not a self-graded maturity model.</div></div>
+              <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;">2</div><div style="font-size:17px;line-height:1.45;color:var(--black);"><strong>The readiness gap surfaced:</strong> what your organization believes about its readiness, against what the evidence shows. The distance between the two is the finding.</div></div>
+              <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;">3</div><div style="font-size:17px;line-height:1.45;color:var(--black);"><strong>The binding constraint named:</strong> a single weak domain caps the whole. We name which one is capping you, and what lifting it is worth.</div></div>
+            </div>
+            <div style="margin-top:22px;padding:16px 20px;background:#f4f1ec;border-left:4px solid var(--orange);">
+              <div style="font-size:14px;line-height:1.5;color:var(--black);"><strong>Why it multiplies, not averages.</strong> Four domains at &ldquo;pretty good&rdquo; do not add up to pretty good. They multiply. Four domains at 70 produce roughly 24% effective readiness. The gap is the math made visible, not a verdict imposed.</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;">What you walk away with</div>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="border:1px solid var(--rulem);border-left:4px solid var(--navy);padding:14px 18px;"><div style="font-size:17px;font-weight:700;color:var(--navy);">An operating picture</div><div style="font-size:15px;color:var(--mgray);line-height:1.45;margin-top:3px;">Where AI spend and dependency actually sit across the business, mapped.</div></div>
+              <div style="border:1px solid var(--rulem);border-left:4px solid var(--navy);padding:14px 18px;"><div style="font-size:17px;font-weight:700;color:var(--navy);">An evaluation framework</div><div style="font-size:15px;color:var(--mgray);line-height:1.45;margin-top:3px;">A defensible readiness number and the constraint driving it, in terms the board can follow.</div></div>
+              <div style="border:1px solid var(--rulem);border-left:4px solid var(--navy);padding:14px 18px;"><div style="font-size:17px;font-weight:700;color:var(--navy);">A conversation guide</div><div style="font-size:15px;color:var(--mgray);line-height:1.45;margin-top:3px;">What to fund, what to pause, what to stop, going into Q3 planning.</div></div>
+            </div>
+            <div style="margin-top:18px;padding:18px 22px;background:var(--navy);color:#fff;">
+              <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;">The deposit buys clarity, before the build</div>
+              <div style="font-size:16px;line-height:1.5;">This is the entry engagement. It is deliberately small, deliberately fast, and deliberately decision-grade. The larger GenGov&#8482; and H2AI&#8482; delivery is funded only once the assessment has shown where it will hold.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <span>Magruder &amp; Company &nbsp;·&nbsp; Q2 2026</span>
+        <span class="pg">11 / 12</span>
+      </div>
+    </div>
+
+    <!-- 10 Back Cover -->
+    <div class="slide bg-navy" id="s10">
+      <div class="bar-left"></div>
+      <div style="position:absolute;top:80px;left:120px;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#fff;">Magruder &amp; Company</div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 180px;">
+        <div class="eyebrow" style="margin-bottom:28px;">The window</div>
+        <h1 style="font-size:96px;font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:#fff;max-width:1400px;margin:0 0 24px;">June is the window.</h1>
+        <p style="font-size:26px;color:var(--slate);max-width:1100px;line-height:1.5;margin-bottom:48px;">The two-week Readiness Assessment runs in June. It produces the operating picture, the evaluation framework, and the conversation guide that allow Q3 to open from a position of readiness rather than exposure.</p>
+        <div style="display:flex;align-items:center;gap:36px;">
+          <div style="padding:20px 32px;background:var(--orange);display:inline-flex;flex-direction:column;flex-shrink:0;">
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;opacity:0.85;">Begin with</div>
+            <div style="font-size:20px;font-weight:700;color:#fff;margin-top:4px;">A 30-minute diagnostic conversation</div>
+          </div>
+          <div style="font-size:17px;color:var(--slate);line-height:1.5;">Produces an initial constraint identification<br/>specific to your function and operating context.</div>
+        </div>
+        <div style="width:220px;height:2px;background:var(--orange);margin:48px 0 20px;"></div>
+        <div style="font-size:18px;color:var(--slate);">Generative Governance&#8482; &nbsp;·&nbsp; H2AI&#8482; &nbsp;·&nbsp; Customer Core&#8482;</div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.12);padding:28px 120px 16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;flex-shrink:0;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;">Practice</div>
+          <div style="font-size:15px;color:#fff;line-height:1.5;">Magruder &amp; Company<br/><span style="color:var(--slate);">Strategic advisory for AI-preparedness</span></div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;">Contact</div>
+          <div style="font-size:15px;color:#fff;line-height:1.5;">michael@magruder.co &nbsp;·&nbsp; doug@magruder.co<br/><span style="color:var(--slate);">magruder.co &nbsp;·&nbsp; customercore.co</span></div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;">Classification</div>
+          <div style="font-size:15px;color:#fff;line-height:1.5;">Confidential<br/><span style="color:var(--slate);">Not for Distribution</span></div>
+        </div>
+      </div>
+      <div style="padding:12px 120px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--slate);flex-shrink:0;">
+        <span>The unbreakable thread from data to earnings.</span>
+        <span style="letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);font-weight:700;">12 / 12</span>
+      </div>
+    </div>
+
+  </div><!-- /scaler -->
+</div><!-- /stage -->
+
+<!-- Nav buttons -->
+<button class="nav-btn nav-prev" id="prev">&#8592;</button>
+<button class="nav-btn nav-next" id="next">&#8594;</button>
+<div class="pg-count" id="pgcount"></div>
+
+<script>
+(function() {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const scaler = document.getElementById('scaler');
+  let idx = +(localStorage.getItem('q2imp_slide') || 0);
+
+  function scale() {
+    const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    scaler.style.transform = 'scale(' + s + ')';
+  }
+
+  function show() {
+    slides.forEach(function(sl, i) {
+      sl.style.display = (i === idx) ? 'flex' : 'none';
+    });
+    document.getElementById('pgcount').textContent = (idx + 1) + ' / ' + slides.length;
+    localStorage.setItem('q2imp_slide', idx);
+    document.title = '[' + (idx+1) + '/' + slides.length + '] The Q2 Imperative';
+  }
+
+  function goTo(n) {
+    idx = Math.max(0, Math.min(slides.length - 1, n));
+    show();
+  }
+
+  window.goTo = goTo;
+
+  scale();
+  show();
+  window.addEventListener('resize', scale);
+
+  document.getElementById('prev').addEventListener('click', function(e) { e.stopPropagation(); goTo(idx - 1); });
+  document.getElementById('next').addEventListener('click', function(e) { e.stopPropagation(); goTo(idx + 1); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(idx + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(idx - 1);
+  });
+
+  document.getElementById('stage').addEventListener('click', function() { goTo(idx + 1); });
+})();
+</script>
+
+</body>
+</html>
