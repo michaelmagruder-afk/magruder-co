@@ -691,7 +691,7 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
       <div class="section-label" style="margin-bottom:16px">The Executive Brief</div>
       <div class="section-h" style="margin-bottom:20px;font-size:32px;line-height:1.2">The Q2 Imperative</div>
       <div style="font-size:14px;font-weight:600;color:var(--orange);letter-spacing:0.04em;margin-bottom:24px">Why AI-Preparedness Is Not Optional, and Why the Window Is Now</div>
-      <a href="./q2-imperative.html" class="btn-primary" style="display:inline-block">Read the Brief</a>
+      <a class='btn-primary' href='/q2-imperative' style='display:inline-block'>Read the Brief</a>
     </div>
     <div style="font-size:16px;line-height:1.7;color:var(--slate)">
       <p style="margin-bottom:18px">The market is flooded with AI advice. Organizations remain paralyzed by invisible internal constraints. True AI preparedness is not a matter of better strategy decks. It is an execution problem.</p>
@@ -707,6 +707,7 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
     <div>
       <div class="section-label">The Practitioner</div>
       <div class="section-h">Michael Magruder</div>
+      <a href="https://www.linkedin.com/in/michaeljmagruder" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--orange);text-decoration:none;margin-bottom:20px">Connect on LinkedIn &#8599;</a>
       <div class="section-sub" style="margin-bottom:0">30 years of cross-functional enterprise experience spanning customer experience, digital transformation, and AI integration. The practice was built on the belief that the best practices for organizational AI preparedness do not yet exist in published form, and that building them requires someone willing to do the foundational work.</div>
       <div class="about-commitment">
         <div class="about-commitment-label">Practice Positioning</div>
@@ -735,6 +736,43 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
       </div>
     </div>
   </div>
+
+  <!-- divider between practitioners -->
+  <div style="max-width:1200px;margin:72px auto;height:1px;background:var(--rule)"></div>
+
+  <div class="about-inner">
+    <div>
+      <div class="section-label">The Practitioner</div>
+      <div class="section-h">Doug Acker</div>
+      <a href="https://www.linkedin.com/in/digitalsensei/" target="_blank" rel="noopener" style="display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--orange);text-decoration:none;margin-bottom:20px">Connect on LinkedIn &#8599;</a>
+      <div class="section-sub" style="margin-bottom:0">Over 30 years of visionary yet pragmatic approaches to foundational business challenges, Mr. Acker now emphasizes AI preparedness to address the rapid pace of technological change, helping enterprises and institutions prepare for competitive landscapes in the coming decades.</div>
+      <div class="about-commitment">
+        <div class="about-commitment-label">Practice Positioning</div>
+        <div class="about-commitment-text">A disciplined approach always returns value. Doug brings decades of enterprise IT leadership and business development to the practice, advancing client preparedness through Customer Core&#x2122; and the surrounding methodologies.</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:20px">Career Foundation</div>
+      <div class="about-credentials">
+        <div class="credential">
+          <div class="credential-title">Chief Information Officer &middot; Mission Essential</div>
+          <div class="credential-body">Managed the IT team for a billion-dollar defense contractor when certainty was a must. Modernized digital strategy and transformational undertakings.</div>
+        </div>
+        <div class="credential">
+          <div class="credential-title">Sr. Program Manager &middot; Northrop Grumman</div>
+          <div class="credential-body">Led a team to create what we now call social media, based on socio-technical systems theory and cognitive science. Rolled it out across the DOD and Intelligence Community.</div>
+        </div>
+        <div class="credential">
+          <div class="credential-title">Sales Leader &middot; Many Companies</div>
+          <div class="credential-body">Developed, supported, and advanced many business development models for IT product and service portfolios.</div>
+        </div>
+        <div class="credential">
+          <div class="credential-title">Co-founder &amp; Sr. Partner &middot; Magruder &amp; Company</div>
+          <div class="credential-body">Influencer for Customer Core&#x2122; and surrounding methodologies to advance client preparedness. A disciplined approach always returns value.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -743,7 +781,7 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
     <div class="section-label">Start a Conversation</div>
     <div class="section-h">The right conversation begins with one question.</div>
     <div class="section-sub">Before your next AI deployment, does the knowledge it will operate on exist in governed, auditable form that your organization owns?</div>
-    <div class="contact-form-note" style="margin-top:0;margin-bottom:32px">The Readiness Assessment is a two-week engagement within most organizations' direct discretionary authority. No procurement cycle required. Or read <a href="./q2-imperative.html" style="color:var(--orange);font-weight:600">The Q2 Imperative</a> first.</div>
+    <div class="contact-form-note" style="margin-top:0;margin-bottom:32px">The Readiness Assessment is a two-week engagement within most organizations' direct discretionary authority. No procurement cycle required. Or read <a href='/q2-imperative' style='color:var(--orange);font-weight:600'>The Q2 Imperative</a> first.</div>
     <div class="contact-details">
       <div class="contact-item">
         <div class="contact-item-label">Practice</div>
@@ -756,7 +794,7 @@ button.btn-primary{border:none;cursor:pointer;font-family:inherit}
     </div>
   </div>
   <div>
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
+    <form class='contact-form' method='POST' name='contact'>
       <input type="hidden" name="form-name" value="contact" />
       <p style="display:none"><input name="bot-field" /></p>
       <div class="form-row">
