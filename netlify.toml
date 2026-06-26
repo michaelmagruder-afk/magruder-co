@@ -2,11 +2,21 @@
   publish = "."
 
 [[headers]]
-  for = "/*"
+  for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=UTF-8"
 
 [[headers]]
-  for = "/*.html"
+  for = "/*.svg"
   [headers.values]
-    Content-Type = "text/html; charset=UTF-8"
+    Content-Type = "image/svg+xml"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Content-Type = "image/png"
+
+[[headers]]
+  for = "/*.ico"
+  [headers.values]
+    Content-Type = "image/x-icon"
