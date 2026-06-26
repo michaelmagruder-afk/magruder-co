@@ -20,3 +20,8 @@
   for = "/*.ico"
   [headers.values]
     Content-Type = "image/x-icon"
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/images/favicon.png"
+  status = 200
