@@ -199,6 +199,7 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
     padding-left:0;
   }
   .constraint-sidebar{
+    display:block;
     position:sticky;
     top:88px;
     padding-top:56px;
@@ -310,14 +311,14 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
 
 <article>
 <div class="constraint-layout">
-<nav class="constraint-sidebar" aria-label="The Five Constraints">
+<div class="constraint-sidebar" role="navigation" aria-label="The Five Constraints">
   <span class="constraint-sidebar-label">The Five Constraints</span>
   <a href="/constraint-01"><span class="c-num">01</span><span class="c-title">The Board Deck Is Not a Strategy</span></a>
   <a href="/constraint-02"><span class="c-num">02</span><span class="c-title">Competence Theater</span></a>
   <a href="/constraint-03"><span class="c-num">03</span><span class="c-title">Why Your AI Program Cannot Account for Itself</span></a>
   <div class="c-current"><span class="c-num">04</span><span class="c-title">The AI Budget You Don’t Know You Have</span></div>
   <a href="/constraint-05"><span class="c-num">05</span><span class="c-title">Nobody Owns the AI Failure, and You Are Paying for It</span></a>
-</nav>
+</div>
 <div class="article-body">
 
   <p class="article-lede">A financial services firm preparing for an IPO discovered, mid-process, that its deal team had been feeding sensitive transaction data into personal ChatGPT accounts for months. No IT approval. No data classification review. No line item in the technology budget. The activity was invisible to every governance function in the organization until an external audit forced it into the open. That firm&#8217;s story is not an edge case. It is a preview of what finance leaders will find when they look carefully at how AI is actually being purchased and used inside their organizations.</p>
@@ -393,7 +394,6 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
     </div>
     <a href="https://magruderco.substack.com" target="_blank" style="background:var(--navy);color:var(--white);padding:10px 22px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.02em;white-space:nowrap;flex-shrink:0;">Subscribe &#x2192;</a>
   </div>
-</div>
 </div>
 </div>
 </article>
