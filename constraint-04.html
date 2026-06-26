@@ -182,6 +182,101 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
   .series-nav{padding:40px 20px}
   footer{flex-direction:column;gap:16px;padding:24px}
 }
+
+  /* ─── CONSTRAINT SIDEBAR LAYOUT ─── */
+  .constraint-layout{
+    max-width:960px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:196px 1fr;
+    gap:48px;
+    align-items:start;
+    padding:0 32px;
+  }
+  .constraint-layout > .article-body{
+    max-width:none;
+    margin:0;
+    padding-left:0;
+  }
+  .constraint-sidebar{
+    position:sticky;
+    top:88px;
+    padding-top:56px;
+  }
+  .constraint-sidebar-label{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:12px;
+    display:block;
+  }
+  .constraint-sidebar a,
+  .constraint-sidebar .c-current{
+    display:block;
+    text-decoration:none;
+    padding:10px 0;
+    border-bottom:1px solid var(--rule);
+    line-height:1.35;
+  }
+  .constraint-sidebar a:last-of-type,
+  .constraint-sidebar .c-current:last-of-type{border-bottom:none}
+  .constraint-sidebar a:hover .c-title{color:var(--orange)}
+  .constraint-sidebar .c-num{
+    font-size:9.5px;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--orange);
+    display:block;
+    margin-bottom:3px;
+  }
+  .constraint-sidebar .c-title{
+    font-size:12.5px;
+    color:var(--navy);
+    font-weight:500;
+    transition:color 0.15s;
+  }
+  .constraint-sidebar .c-current{
+    border-left:2px solid var(--orange);
+    padding-left:10px;
+  }
+  .constraint-sidebar .c-current .c-title{color:var(--orange)}
+  @media(max-width:900px){
+    .constraint-layout{
+      grid-template-columns:1fr;
+      gap:0;
+      padding:0 20px;
+    }
+    .constraint-layout > .article-body{padding-left:0}
+    .constraint-sidebar{
+      position:static;
+      padding-top:0;
+      padding-bottom:24px;
+      border-bottom:2px solid var(--rule);
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 6px;
+    }
+    .constraint-sidebar-label{flex:0 0 100%;margin-bottom:8px}
+    .constraint-sidebar a,
+    .constraint-sidebar .c-current{
+      border-bottom:none;
+      border:1px solid var(--rule);
+      border-radius:4px;
+      padding:5px 10px;
+      display:inline-flex;
+      flex-direction:column;
+    }
+    .constraint-sidebar .c-current{
+      border-color:var(--orange);
+      border-left-width:1px;
+      padding-left:10px;
+    }
+    .constraint-sidebar .c-num{margin-bottom:1px}
+    .constraint-sidebar .c-title{font-size:11.5px}
+  }
 </style>
 </head>
 <body>
@@ -214,6 +309,15 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
 </div>
 
 <article>
+<div class="constraint-layout">
+<nav class="constraint-sidebar" aria-label="The Five Constraints">
+  <span class="constraint-sidebar-label">The Five Constraints</span>
+  <a href="/constraint-01"><span class="c-num">01</span><span class="c-title">The Board Deck Is Not a Strategy</span></a>
+  <a href="/constraint-02"><span class="c-num">02</span><span class="c-title">Competence Theater</span></a>
+  <a href="/constraint-03"><span class="c-num">03</span><span class="c-title">Why Your AI Program Cannot Account for Itself</span></a>
+  <div class="c-current"><span class="c-num">04</span><span class="c-title">The AI Budget You Don’t Know You Have</span></div>
+  <a href="/constraint-05"><span class="c-num">05</span><span class="c-title">Nobody Owns the AI Failure, and You Are Paying for It</span></a>
+</nav>
 <div class="article-body">
 
   <p class="article-lede">A financial services firm preparing for an IPO discovered, mid-process, that its deal team had been feeding sensitive transaction data into personal ChatGPT accounts for months. No IT approval. No data classification review. No line item in the technology budget. The activity was invisible to every governance function in the organization until an external audit forced it into the open. That firm&#8217;s story is not an edge case. It is a preview of what finance leaders will find when they look carefully at how AI is actually being purchased and used inside their organizations.</p>
@@ -290,31 +394,7 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
     <a href="https://magruderco.substack.com" target="_blank" style="background:var(--navy);color:var(--white);padding:10px 22px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.02em;white-space:nowrap;flex-shrink:0;">Subscribe &#x2192;</a>
   </div>
 </div>
-
-<div class="series-nav">
-  <div class="series-nav-label">In this series</div>
-  <div class="series-nav-list">
-    <div class="series-nav-item">
-      <span class="series-nav-num">01</span>
-      <a href="/constraint-01" style="color:inherit;text-decoration:none;">Strategy Without Validation</a>
-    </div>
-    <div class="series-nav-item">
-      <span class="series-nav-num">02</span>
-      <a href="/constraint-02" style="color:inherit;text-decoration:none;">Competence Theater</a>
-    </div>
-    <div class="series-nav-item">
-      <span class="series-nav-num">03</span>
-      <a href="/constraint-03" style="color:inherit;text-decoration:none;">The Governance Gap</a>
-    </div>
-    <div class="series-nav-item current">
-      <span class="series-nav-num">04</span>
-      Invisible Spend
-    </div>
-    <a href="/constraint-05" class="series-nav-item">
-      <span class="series-nav-num">05</span>
-      The Accountability Vacuum
-    </a>
-  </div>
+</div>
 </div>
 </article>
 
