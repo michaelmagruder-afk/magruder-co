@@ -1,5 +1,11 @@
-/*
-  Content-Type: text/html; charset=UTF-8
-
 /*.html
   Content-Type: text/html; charset=UTF-8
+
+/*.svg
+  Content-Type: image/svg+xml
+
+/*.png
+  Content-Type: image/png
+
+/*.ico
+  Content-Type: image/x-icon
