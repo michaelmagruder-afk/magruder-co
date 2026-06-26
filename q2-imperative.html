@@ -630,6 +630,83 @@
       display: flex !important;
     }
   }
+
+  /* ─── CONSTRAINT SIDEBAR LAYOUT ─── */
+  .constraint-wrapper {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 196px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .constraint-sidebar {
+    position: sticky;
+    top: 88px;
+    padding-top: 56px;
+  }
+  .constraint-sidebar-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .constraint-sidebar a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.35;
+  }
+  .constraint-sidebar a:last-of-type { border-bottom: none; }
+  .constraint-sidebar a:hover .c-title { color: var(--orange); }
+  .constraint-sidebar .c-num {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .constraint-sidebar .c-title {
+    font-size: 12.5px;
+    color: var(--navy);
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  @media (max-width: 900px) {
+    .constraint-wrapper {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 0 20px;
+    }
+    .constraint-sidebar {
+      position: static;
+      padding-top: 0;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--rule);
+      margin-bottom: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 6px;
+    }
+    .constraint-sidebar-label { flex: 0 0 100%; margin-bottom: 8px; }
+    .constraint-sidebar a {
+      border-bottom: none;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 5px 10px;
+      display: inline-flex;
+      flex-direction: column;
+    }
+    .constraint-sidebar .c-num { margin-bottom: 1px; }
+    .constraint-sidebar .c-title { font-size: 11.5px; }
+  }
 </style>
 </head>
 <body>
@@ -729,7 +806,15 @@
   </div>
 
   <!-- SECTION 03 -->
-  <div class="content-wrap">
+  <div class="constraint-wrapper">
+    <nav class="constraint-sidebar" aria-label="The Five Constraints">
+      <span class="constraint-sidebar-label">The Five Constraints</span>
+      <a href="/constraint-01"><span class="c-num">01</span><span class="c-title">The Board Deck Is Not a Strategy</span></a>
+      <a href="/constraint-02"><span class="c-num">02</span><span class="c-title">Competence Theater</span></a>
+      <a href="/constraint-03"><span class="c-num">03</span><span class="c-title">Why Your AI Program Cannot Account for Itself</span></a>
+      <a href="/constraint-04"><span class="c-num">04</span><span class="c-title">The AI Budget You Don&#8217;t Know You Have</span></a>
+      <a href="/constraint-05"><span class="c-num">05</span><span class="c-title">Nobody Owns the AI Failure, and You Are Paying for It</span></a>
+    </nav>
     <article class="article-section" id="section-03">
       <span class="section-kicker">03 &middot; Named Constraints</span>
       <h2>03 &middot; What is blocking you, by name.</h2>
