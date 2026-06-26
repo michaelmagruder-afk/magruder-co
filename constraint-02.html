@@ -199,6 +199,7 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
     padding-left:0;
   }
   .constraint-sidebar{
+    display:block;
     position:sticky;
     top:88px;
     padding-top:56px;
@@ -310,14 +311,14 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
 
 <article>
 <div class="constraint-layout">
-<nav class="constraint-sidebar" aria-label="The Five Constraints">
+<div class="constraint-sidebar" role="navigation" aria-label="The Five Constraints">
   <span class="constraint-sidebar-label">The Five Constraints</span>
   <a href="/constraint-01"><span class="c-num">01</span><span class="c-title">The Board Deck Is Not a Strategy</span></a>
   <div class="c-current"><span class="c-num">02</span><span class="c-title">Competence Theater</span></div>
   <a href="/constraint-03"><span class="c-num">03</span><span class="c-title">Why Your AI Program Cannot Account for Itself</span></a>
   <a href="/constraint-04"><span class="c-num">04</span><span class="c-title">The AI Budget You Don’t Know You Have</span></a>
   <a href="/constraint-05"><span class="c-num">05</span><span class="c-title">Nobody Owns the AI Failure, and You Are Paying for It</span></a>
-</nav>
+</div>
 <div class="article-body">
 
   <p class="article-lede">A mid-size manufacturer completes a company-wide AI literacy rollout. Two hundred employees earn certifications. The AI Center of Excellence publishes a framework. The governance committee holds its quarterly meeting. Twelve months later, the CFO asks a simple question: where is the productivity gain? No one can answer.</p>
@@ -394,7 +395,6 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
     </div>
     <a href="https://magruderco.substack.com" target="_blank" style="background:var(--navy);color:var(--white);padding:10px 22px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.02em;white-space:nowrap;flex-shrink:0;">Subscribe &#x2192;</a>
   </div>
-</div>
 </div>
 </div>
 </article>
