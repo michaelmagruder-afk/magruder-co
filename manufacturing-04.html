@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<title>IT and OT Have Been Living in Separate Houses. The Merge Can’t Wait for 2040. &middot; Magruder &amp; Company</title>
+<meta name="description" content="Factory operations are expected to be 54% AI-augmented by 2030, up from 34% today. The infrastructure required takes years to design, procure, and deploy.">
+<meta property="og:title" content="IT and OT Have Been Living in Separate Houses. The Merge Can’t Wait for 2040.">
+<meta property="og:description" content="Factory operations are expected to be 54% AI-augmented by 2030, up from 34% today. The infrastructure required takes years to design, procure, and deploy.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://magruder.co/manufacturing-04">
+<meta property="og:site_name" content="Magruder &amp; Company">
+<meta property="og:image" content="https://magruder.co/images/og-manufacturing-04.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@magruderco_">
+<meta name="twitter:image" content="https://magruder.co/images/og-manufacturing-04.png">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#1E3455;
+  --navy-dark:#131F33;
+  --navy-mid:#2C4A73;
+  --orange:#F86822;
+  --orange-light:#FEA96D;
+  --cream:#FAF8F5;
+  --off-white:#F2EFE9;
+  --slate:#4A5568;
+  --muted:#8A9BB0;
+  --rule:#D6DDE8;
+  --teal:#0F6E56;
+  --white:#FFFFFF;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;overflow-x:hidden}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 64px;
+  background:rgba(250,248,245,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-brand{
+  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
+  font-size:14px;font-weight:700;
+  color:var(--navy);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  display:inline-block;
+  white-space:nowrap;
+}
+.nav-brand span{color:var(--orange);font-weight:700;margin:0 0.05em}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{
+  font-size:13px;font-weight:500;
+  color:var(--slate);text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{
+  background:var(--navy);color:var(--white)!important;
+  padding:9px 22px;border-radius:4px;
+  font-size:13px!important;font-weight:600!important;
+  transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--orange)!important}
+
+.article-header{
+  background:var(--navy-dark);
+  padding:140px 32px 80px;
+  position:relative;
+  overflow:hidden;
+}
+.article-header::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(248,104,34,0.07) 0%,transparent 70%);
+}
+.article-header-inner{
+  max-width:680px;
+  margin:0 auto;
+  position:relative;z-index:1;
+}
+.article-series{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.article-series-divider{
+  width:24px;height:1px;background:var(--orange);opacity:0.5;display:inline-block;
+}
+.article-header h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4.5vw,60px);
+  font-weight:700;
+  color:var(--white);
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  margin-bottom:24px;
+}
+.article-header h1 em{
+  color:var(--orange-light);
+  font-style:italic;
+}
+.article-byline{
+  font-size:14px;font-weight:400;
+  color:rgba(255,255,255,0.45);
+  letter-spacing:0.04em;
+}
+.article-byline strong{
+  color:rgba(255,255,255,0.7);
+  font-weight:600;
+}
+
+.article-body{
+  max-width:680px;
+  margin:0 auto;
+  padding:72px 32px 96px;
+}
+.article-lede{
+  font-size:19px;font-weight:400;
+  color:var(--slate);
+  line-height:1.75;
+  margin-bottom:48px;
+  padding-bottom:48px;
+  border-bottom:1px solid var(--rule);
+}
+.article-section{
+  margin-bottom:52px;
+}
+.article-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:26px;font-weight:700;
+  color:var(--navy);
+  line-height:1.2;
+  letter-spacing:-0.01em;
+  margin-bottom:20px;
+}
+.article-section p{
+  font-size:17px;font-weight:300;
+  color:var(--slate);
+  line-height:1.8;
+  margin-bottom:20px;
+}
+.article-section p:last-child{margin-bottom:0}
+.article-section p strong{
+  color:var(--navy);
+  font-weight:600;
+}
+.sources-section{
+  margin-top:64px;
+  padding-top:32px;
+  border-top:1px solid var(--rule);
+}
+.sources-section h2{
+  font-size:13px;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+.sources-section ol{
+  list-style:decimal;
+  padding-left:20px;
+}
+.sources-section li{
+  font-size:13px;font-weight:300;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:12px;
+}
+.series-cta{
+  margin-top:64px;
+  padding:40px;
+  background:var(--navy);
+  border-radius:2px;
+}
+.series-cta-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;
+}
+.series-cta-text{
+  font-size:16px;font-weight:300;
+  color:rgba(255,255,255,0.75);
+  line-height:1.7;
+  margin-bottom:24px;
+}
+.series-cta-text strong{color:var(--white);font-weight:600;}
+.series-cta-actions{
+  display:flex;gap:16px;flex-wrap:wrap;align-items:center;
+}
+.btn-primary{
+  background:var(--orange);color:var(--white);
+  padding:12px 28px;border-radius:4px;
+  font-size:13px;font-weight:600;
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:background 0.2s;
+  display:inline-block;
+}
+.btn-primary:hover{background:#E05510}
+.btn-ghost{
+  color:rgba(255,255,255,0.65);
+  font-size:13px;font-weight:500;
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.2s;
+  display:inline-block;
+}
+.btn-ghost:hover{color:var(--orange)}
+
+.manufacturing-layout{
+  max-width:960px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:196px 1fr;
+  gap:48px;
+  align-items:start;
+  padding:0 32px;
+}
+.manufacturing-layout > .article-body{
+  max-width:none;
+  margin:0;
+  padding-left:0;
+}
+.manufacturing-sidebar{
+  display:block;
+  position:sticky;
+  top:88px;
+  padding-top:56px;
+}
+.manufacturing-sidebar-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:12px;
+  display:block;
+}
+.manufacturing-sidebar a,
+.manufacturing-sidebar .c-current{
+  display:block;
+  text-decoration:none;
+  padding:10px 0;
+  border-bottom:1px solid var(--rule);
+  line-height:1.35;
+}
+.manufacturing-sidebar a:last-of-type,
+.manufacturing-sidebar .c-current:last-of-type{border-bottom:none}
+.manufacturing-sidebar a:hover .c-title{color:var(--orange)}
+.manufacturing-sidebar .c-num{
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--orange);
+  display:block;
+  margin-bottom:3px;
+}
+.manufacturing-sidebar .c-title{
+  font-size:12.5px;
+  color:var(--navy);
+  font-weight:500;
+  transition:color 0.15s;
+}
+.manufacturing-sidebar .c-current{
+  border-left:2px solid var(--orange);
+  padding-left:10px;
+}
+.manufacturing-sidebar .c-current .c-title{color:var(--orange)}
+
+footer{
+  background:var(--navy-dark);
+  padding:24px 64px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-brand{
+  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
+  font-size:11px;font-weight:700;
+  color:rgba(255,255,255,0.55);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+.footer-brand span{color:var(--orange);margin:0 0.05em}
+.footer-links{display:flex;gap:32px}
+.footer-links a{
+  font-size:12px;color:rgba(255,255,255,0.35);
+  text-decoration:none;letter-spacing:0.04em;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--orange)}
+
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .nav-brand{font-size:12px;letter-spacing:0.14em}
+  .nav-links{display:none}
+  .article-header{padding:110px 24px 60px}
+  .manufacturing-layout{grid-template-columns:1fr;gap:0;padding:0 20px;}
+  .manufacturing-layout > .article-body{padding-left:0}
+  .manufacturing-sidebar{
+    position:static;padding-top:0;padding-bottom:24px;
+    border-bottom:2px solid var(--rule);
+    display:flex;flex-wrap:wrap;gap:8px 6px;
+  }
+  .manufacturing-sidebar-label{flex:0 0 100%;margin-bottom:8px}
+  .manufacturing-sidebar a,
+  .manufacturing-sidebar .c-current{
+    border-bottom:none;border:1px solid var(--rule);
+    border-radius:4px;padding:5px 10px;
+    display:inline-flex;flex-direction:column;
+  }
+  .manufacturing-sidebar .c-current{border-color:var(--orange);border-left-width:1px;padding-left:10px;}
+  .manufacturing-sidebar .c-num{margin-bottom:1px}
+  .manufacturing-sidebar .c-title{font-size:11.5px}
+  footer{flex-direction:column;gap:16px;padding:24px}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand" aria-label="Magruder and Company home">MAGRUDER <span>&amp;</span> COMPANY</a>
+  <div class="nav-links">
+    <a href="/#services">Services</a>
+    <a href="/#proof">The Work</a>
+    <a href="/#about">About</a>
+    <a href="/#contact">Contact</a>
+    <a href="https://customercore.co" target="_blank">Customer Core&#x2122;</a>
+    <a href="/#contact" class="nav-cta">Start a Conversation</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-series">
+      <span>Manufacturing Series</span>
+      <span class="article-series-divider"></span>
+      <span>Article 04 of 4</span>
+    </div>
+    <h1>IT and OT Have Been Living in Separate Houses.<br><em>The Merge Can’t Wait for 2040.</em></h1>
+    <div class="article-byline">
+      <strong>Manufacturing Series</strong> &nbsp;&middot;&nbsp; Magruder &amp; Company
+    </div>
+  </div>
+</div>
+
+<article>
+<div class="manufacturing-layout">
+<div class="manufacturing-sidebar" role="navigation" aria-label="Manufacturing Series">
+  <span class="manufacturing-sidebar-label">Manufacturing Series</span>
+  <a href="/manufacturing-01"><span class="c-num">01</span><span class="c-title">The 2030 Decision Window</span></a>
+  <a href="/manufacturing-02"><span class="c-num">02</span><span class="c-title">The Balance Sheet of IT/OT Convergence</span></a>
+  <a href="/manufacturing-03"><span class="c-num">03</span><span class="c-title">The Workforce Gap No One Is Budgeting For</span></a>
+  <div class="c-current"><span class="c-num">04</span><span class="c-title">IT and OT: The Merge Can’t Wait</span></div>
+</div>
+
+<div class="article-body">
+
+  <p class="article-lede">For most of manufacturing history, information technology and operational technology lived in parallel worlds that rarely intersected.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">IT handled the business layer: planning, finance, procurement, analytics. OT handled the factory floor: machinery, sensors, controllers, production systems. The two operated in silos, sharing data slowly and incompletely, coordinated by human handoffs rather than system integration.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">That arrangement worked, more or less, when the pace of change was slow enough for manual coordination to keep up.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">It won't work in 2030.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">Rockwell Automation's 2025 State of Smart Manufacturing, a global survey of more than 1,500 manufacturers across 17 countries, found that factory operations are expected to be 54% AI-augmented by 2030, up from 34% today.¹ That is four years away. The infrastructure that enables AI at scale (unified IT/OT platforms with real-time data flowing between the production floor and the business layer) takes years to design, procure, and deploy.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">The most competitive factories of the next decade will run on fully converged IT/OT systems. A rush order entered in an ERP system will prompt the production line to accelerate automatically. A sensor detecting an anomaly on the packaging line will trigger an upstream adjustment without a human in the loop. Energy consumption will be optimized continuously against price signals and sustainability targets.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">This convergence is not optional for manufacturers who intend to compete. It is the infrastructure on which everything else depends: AI analytics, digital twins, predictive maintenance, supply chain synchronization. None of those capabilities function without integrated data.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">The CFO and CTO who start that conversation today are building toward 2030, and that's when the factory of 2040 either becomes achievable or becomes a missed opportunity.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)">The merge is coming. The question is which side of it you'll be standing on.</p>
+  <p class="article-lede" style="font-size:16px;padding-bottom:0;border-bottom:none;margin-bottom:20px;color:var(--slate)"><em>Magruder & Company is a practitioner-led management consulting firm specializing in organizational AI preparedness. magruder.co</em></p>
+
+
+  <div class="sources-section">
+    <h2>Sources</h2>
+    <ol>
+      <li>Rockwell Automation, <em>State of Smart Manufacturing 2025</em> (10th annual). Global survey of more than 1,500 manufacturers across 17 leading manufacturing countries, fielded March 2025. Figures cited: 90% of manufacturers say digital transformation is essential to remaining competitive; factory operations expected to be 54% AI-augmented by 2030, up from 34% at time of survey.</li>
+    </ol>
+  </div>
+
+
+  <div class="series-cta">
+    <div class="series-cta-label">Manufacturing Series &middot; Article 04 of 4</div>
+    <p class="series-cta-text">This is part of Magruder &amp; Company's four-part manufacturing series on physical AI preparedness. <strong>Follow the full series</strong> for analysis on IT/OT convergence, workforce transformation, and the decisions that define competitive position before 2030.</p>
+    <div class="series-cta-actions">
+      <a href="/#contact" class="btn-primary">Start a Conversation</a>
+      <a href="/manufacturing-01" class="btn-ghost">Read Article 1 &rarr;</a>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
+<div style="max-width:680px;margin:0 auto;padding:0 32px 32px;">
+  <div style="border:1px solid var(--rule);padding:28px 32px;border-radius:2px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;">The Observation Deck</div>
+      <p style="font-size:14px;font-weight:300;color:var(--slate);line-height:1.6;margin:0;">Field notes on manufacturing AI are published in The Observation Deck, our newsletter.</p>
+    </div>
+    <a href="https://magruderco.substack.com" target="_blank" style="background:var(--navy);color:var(--white);padding:10px 22px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.02em;white-space:nowrap;flex-shrink:0;">Subscribe &#x2192;</a>
+  </div>
+</div>
+
+</article>
+
+<footer>
+  <div class="footer-brand">MAGRUDER <span>&amp;</span> COMPANY</div>
+  <div class="footer-links">
+    <a href="/#services">Services</a>
+    <a href="/#proof">The Work</a>
+    <a href="/#about">About</a>
+    <a href="https://www.linkedin.com/company/magruder-and-company" target="_blank">LinkedIn</a>
+    <a href="https://customercore.co" target="_blank">Customer Core&#x2122;</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
