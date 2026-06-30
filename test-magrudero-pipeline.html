@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<title>Pipeline Verification Test (Disposable) | Magruder &amp; Company</title>
+<meta name="description" content="This is a disposable test article published to verify the magrudero_article skill end-to-end pipeline. It should never appear in search results.">
+<meta property="og:title" content="Pipeline Verification Test (Disposable)">
+<meta property="og:description" content="Test article for the magrudero_article skill pipeline. Not intended for any audience.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://magruder.co/test-magrudero-pipeline">
+<meta property="og:site_name" content="Magruder &amp; Company">
+<meta property="og:image" content="https://raw.githubusercontent.com/michaelmagruder-afk/magruder-co/main/images/test_og_cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@magruderco_">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/michaelmagruder-afk/magruder-co/main/images/test_og_cover.png">
+<link rel="canonical" href="https://magruder.co/test-magrudero-pipeline">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#1E3455;
+  --navy-dark:#131F33;
+  --navy-mid:#2C4A73;
+  --orange:#F86822;
+  --orange-light:#FEA96D;
+  --cream:#FAF8F5;
+  --off-white:#F2EFE9;
+  --slate:#4A5568;
+  --muted:#8A9BB0;
+  --rule:#D6DDE8;
+  --teal:#0F6E56;
+  --white:#FFFFFF;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;overflow-x:hidden}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 64px;
+  background:rgba(250,248,245,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-brand{
+  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
+  font-size:14px;font-weight:700;
+  color:var(--navy);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  display:inline-block;
+  white-space:nowrap;
+}
+.nav-brand span{color:var(--orange);font-weight:700;margin:0 0.05em}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{
+  font-size:13px;font-weight:500;
+  color:var(--slate);text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{
+  background:var(--navy);color:var(--white)!important;
+  padding:9px 22px;border-radius:4px;
+  font-size:13px!important;font-weight:600!important;
+  transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--orange)!important}
+
+.article-header{
+  background:var(--navy-dark);
+  padding:140px 32px 80px;
+  position:relative;
+  overflow:hidden;
+}
+.article-header::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(248,104,34,0.07) 0%,transparent 70%);
+}
+.article-header-inner{max-width:680px;margin:0 auto;position:relative;z-index:1;}
+.article-series{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.article-series-divider{width:24px;height:1px;background:var(--orange);opacity:0.5;display:inline-block;}
+.article-header h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4.5vw,60px);
+  font-weight:700;
+  color:var(--white);
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  margin-bottom:24px;
+}
+.article-byline{font-size:14px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:0.04em;}
+.article-byline strong{color:rgba(255,255,255,0.7);font-weight:600;}
+
+.article-body{max-width:680px;margin:0 auto;padding:72px 32px 96px;}
+.article-lede{
+  font-size:19px;font-weight:400;
+  color:var(--slate);
+  line-height:1.75;
+  margin-bottom:48px;
+  padding-bottom:48px;
+  border-bottom:1px solid var(--rule);
+}
+.article-section{margin-bottom:52px;}
+.article-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:26px;font-weight:700;
+  color:var(--navy);
+  line-height:1.2;
+  letter-spacing:-0.01em;
+  margin-bottom:20px;
+}
+.article-section p{font-size:17px;font-weight:300;color:var(--slate);line-height:1.8;margin-bottom:20px;}
+.article-section p:last-child{margin-bottom:0}
+.article-section p strong{color:var(--navy);font-weight:600;}
+
+.test-banner{
+  background:#fff3cd;
+  border:1px solid #ffc107;
+  border-left:4px solid #ffc107;
+  padding:16px 20px;
+  margin-bottom:40px;
+  border-radius:2px;
+  font-size:13px;
+  color:#856404;
+  font-weight:600;
+  letter-spacing:0.02em;
+}
+
+footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:0.18em;text-transform:uppercase;}
+.footer-brand span{color:var(--orange);margin:0 0.05em}
+.footer-links{display:flex;gap:32px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;}
+.footer-links a:hover{color:var(--orange)}
+
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .nav-brand{font-size:12px;letter-spacing:0.14em}
+  .nav-links{display:none}
+  .article-header{padding:110px 24px 60px}
+  .article-body{padding:48px 20px 64px}
+  footer{flex-direction:column;gap:16px;padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand" aria-label="Magruder and Company home">MAGRUDER <span>&amp;</span> COMPANY</a>
+  <div class="nav-links">
+    <a href="/#services">Services</a>
+    <a href="/#proof">The Work</a>
+    <a href="/#about">About</a>
+    <a href="/#contact">Contact</a>
+    <a href="https://customercore.co" target="_blank">Customer Core&#x2122;</a>
+    <a href="/#contact" class="nav-cta">Start a Conversation</a>
+  </div>
+</nav>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-series">
+      <span>Pipeline Verification</span>
+      <span class="article-series-divider"></span>
+      <span>Disposable Test</span>
+    </div>
+    <h1>This Is a Pipeline Test</h1>
+    <div class="article-byline">
+      <strong>Eval 4 fixture</strong> &nbsp;&middot;&nbsp; Magruder &amp; Company &nbsp;&middot;&nbsp; 2026-06-30
+    </div>
+  </div>
+</div>
+
+<article>
+<div class="article-body">
+
+  <div class="test-banner">
+    TEST ARTICLE &mdash; DISPOSABLE &mdash; DO NOT SHARE &mdash; NOINDEX
+  </div>
+
+  <p class="article-lede">This article exists only to verify the magrudero_article skill end-to-end pipeline. It is not intended for any audience and must be removed after the eval run completes.</p>
+
+  <div class="article-section">
+    <p>This page was generated as a disposable test fixture for Eval 4 of the magrudero_article skill pipeline verification. It confirms the full sequence from gate check through Playwright verification without touching a real article.</p>
+    <p>It is not a real article. It contains no proprietary insight. It should not be indexed, shared, or promoted. The <code>noindex,nofollow</code> directive in the head block prevents indexing.</p>
+    <p>The full five-constraint series starts with Constraint 01. That article is live at <a href="https://magruder.co/constraint-01?utm_source=test&amp;utm_medium=pipeline&amp;utm_campaign=eval4&amp;utm_content=internal-link-test">magruder.co/constraint-01</a>.</p>
+  </div>
+
+</div>
+</article>
+
+<footer>
+  <div class="footer-brand">MAGRUDER <span>&amp;</span> COMPANY</div>
+  <div class="footer-links">
+    <a href="/#services">Services</a>
+    <a href="/#proof">The Work</a>
+    <a href="/#about">About</a>
+    <a href="https://www.linkedin.com/company/magruder-and-company" target="_blank">LinkedIn</a>
+    <a href="https://customercore.co" target="_blank">Customer Core&#x2122;</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
