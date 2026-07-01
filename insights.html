@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<title>Insights &#8212; Magruder &amp; Company</title>
+<meta name="description" content="Research, analysis, and practitioner insight from Magruder &amp; Company on AI preparedness, organizational readiness, and the decisions that matter before 2030.">
+<meta property="og:title" content="Insights &#8212; Magruder &amp; Company">
+<meta property="og:description" content="Research, analysis, and practitioner insight on AI preparedness and organizational readiness.">
+<meta property="og:url" content="https://magruder.co/insights">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://magruder.co/insights">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1E3455;
+  --navy-dark:#131F33;
+  --navy-mid:#2C4A73;
+  --orange:#F86822;
+  --orange-light:#FEA96D;
+  --cream:#FAF8F5;
+  --off-white:#F2EFE9;
+  --slate:#4A5568;
+  --muted:#8A9BB0;
+  --rule:#D6DDE8;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(250,248,245,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);}
+.nav-brand{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;font-size:14px;font-weight:700;color:var(--navy);letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;display:inline-block;white-space:nowrap;}
+.nav-brand span{color:var(--orange);font-weight:700;margin:0 0.05em}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--slate);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-links a.active{font-weight:600;}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:9px 22px;border-radius:4px;font-size:13px!important;font-weight:600!important;transition:background 0.2s!important;letter-spacing:0.01em!important;}
+.nav-cta:hover{background:var(--orange)!important}
+
+/* HEADER */
+.page-header{background:var(--navy-dark);padding:140px 64px 72px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(248,104,34,0.07) 0%,transparent 70%);}
+.page-header-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+.page-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;}
+.page-title{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,60px);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px;}
+.page-subtitle{font-size:17px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.7;max-width:560px;}
+
+/* BODY */
+.main-body{max-width:860px;margin:0 auto;padding:72px 64px 96px;}
+
+/* SERIES SECTIONS */
+.series-section{margin-bottom:72px;}
+.series-label{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;display:flex;align-items:center;gap:16px;}
+.series-label::after{content:'';flex:1;height:1px;background:var(--rule);}
+.series-desc{font-size:14px;font-weight:300;color:var(--slate);line-height:1.7;margin-bottom:28px;max-width:600px;}
+
+/* ARTICLE CARDS */
+.article-list{display:flex;flex-direction:column;gap:2px;}
+.article-card{display:flex;align-items:stretch;text-decoration:none;background:var(--white);border:1px solid var(--rule);transition:border-color 0.2s,transform 0.15s;}
+.article-card:hover{border-color:var(--orange);transform:translateX(3px);}
+.article-card:hover .article-arrow{color:var(--orange);}
+.article-num{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);background:var(--cream);padding:20px 18px;display:flex;align-items:flex-start;border-right:1px solid var(--rule);min-width:60px;justify-content:center;padding-top:22px;flex-shrink:0;}
+.article-body{padding:20px 24px;flex:1;}
+.article-meta{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.article-title{font-size:15px;font-weight:600;color:var(--navy);line-height:1.35;margin-bottom:4px;}
+.article-desc{font-size:13px;font-weight:300;color:var(--slate);line-height:1.55;}
+.article-arrow{padding:20px 20px;display:flex;align-items:center;color:var(--muted);font-size:16px;transition:color 0.2s;flex-shrink:0;}
+
+/* FOOTER */
+footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;}
+.footer-brand{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:0.18em;text-transform:uppercase;}
+.footer-brand span{color:var(--orange);margin:0 0.05em}
+.footer-links{display:flex;gap:32px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;}
+.footer-links a:hover{color:var(--orange)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .nav-brand{font-size:12px;letter-spacing:0.14em}
+  .nav-links{display:none}
+  .page-header{padding:110px 24px 56px}
+  .main-body{padding:48px 24px 72px}
+  footer{flex-direction:column;gap:16px;padding:24px;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand" aria-label="Magruder and Company home">MAGRUDER <span>&amp;</span> COMPANY</a>
+  <div class="nav-links">
+    <a href="/#services">Services</a>
+    <a href="/#proof">The Work</a>
+    <a href="/insights" class="active">Insights</a>
+    <a href="/#about">About</a>
+    <a href="/#contact">Contact</a>
+    <a href="https://customercore.co" target="_blank" rel="noopener">Customer Core&#x2122;</a>
+    <a href="/#contact" class="nav-cta">Start a Conversation</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="page-eyebrow">Published Research &amp; Analysis</div>
+    <h1 class="page-title">Insights</h1>
+    <p class="page-subtitle">Practitioner research on AI preparedness, organizational readiness, and the decisions that compound before 2030.</p>
+  </div>
+</header>
+
+<main class="main-body">
+
+  <!-- QUARTERLY ANALYSIS -->
+  <section class="series-section">
+    <div class="series-label">Quarterly Analysis</div>
+    <div class="article-list">
+
+      <a href="/q3-imperative" class="article-card">
+        <span class="article-num">NEW</span>
+        <div class="article-body">
+          <div class="article-meta">July 2026 &nbsp;&middot;&nbsp; Q3 Analysis</div>
+          <div class="article-title">The Q3 AI Budget Trap</div>
+          <div class="article-desc">Why organizations are funding transformation before building the foundation, and what to do before Q3 budget decisions close.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/q2-imperative" class="article-card">
+        <span class="article-num">Q2</span>
+        <div class="article-body">
+          <div class="article-meta">Q2 2026 &nbsp;&middot;&nbsp; Executive Brief</div>
+          <div class="article-title">The Q2 Imperative: Why AI-Preparedness Is Not Optional</div>
+          <div class="article-desc">The case for AI preparedness as an execution problem, not a strategy problem. 95% of companies fail to achieve measurable financial impact from generative AI.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FIVE CONSTRAINTS SERIES -->
+  <section class="series-section">
+    <div class="series-label">Five Constraints Series</div>
+    <p class="series-desc">A diagnostic series mapping the five organizational constraints that block AI-preparedness before a single dollar of AI investment is made.</p>
+    <div class="article-list">
+
+      <a href="/constraint-01" class="article-card">
+        <span class="article-num">01</span>
+        <div class="article-body">
+          <div class="article-meta">Five Constraints Series</div>
+          <div class="article-title">The Board Deck Is Not a Strategy</div>
+          <div class="article-desc">Why the AI slide in your board deck does not constitute a strategy, and what the distinction costs when implementation begins.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/constraint-02" class="article-card">
+        <span class="article-num">02</span>
+        <div class="article-body">
+          <div class="article-meta">Five Constraints Series</div>
+          <div class="article-title">Competence Theater</div>
+          <div class="article-desc">82% of companies provide AI training; 59% still report a skills gap. The credential is not the capability.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/constraint-03" class="article-card">
+        <span class="article-num">03</span>
+        <div class="article-body">
+          <div class="article-meta">Five Constraints Series</div>
+          <div class="article-title">Why Your AI Program Cannot Account for Itself</div>
+          <div class="article-desc">78% of executives cannot pass an independent AI governance audit within 90 days. The accountability vacuum hiding inside most AI programs.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/constraint-04" class="article-card">
+        <span class="article-num">04</span>
+        <div class="article-body">
+          <div class="article-meta">Five Constraints Series</div>
+          <div class="article-title">The AI Budget You Don&#x2019;t Know You Have</div>
+          <div class="article-desc">The invisible AI spend most organizations are already making, and the governance decisions that determine whether it compounds or dissipates.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/constraint-05" class="article-card">
+        <span class="article-num">05</span>
+        <div class="article-body">
+          <div class="article-meta">Five Constraints Series</div>
+          <div class="article-title">Nobody Owns the AI Failure, and You Are Paying for It</div>
+          <div class="article-desc">When 59% of IT claims ownership of AI outcomes and 61% of Operations makes the same claim simultaneously, the accountability vacuum is structural.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MANUFACTURING SERIES -->
+  <section class="series-section">
+    <div class="series-label">Manufacturing Series</div>
+    <p class="series-desc">A four-part series for CFOs and CTOs on the architectural and workforce decisions that determine competitive position in AI-integrated manufacturing before 2030.</p>
+    <div class="article-list">
+
+      <a href="/manufacturing" class="article-card">
+        <span class="article-num">01</span>
+        <div class="article-body">
+          <div class="article-meta">Manufacturing Series &nbsp;&middot;&nbsp; Article 01 of 4</div>
+          <div class="article-title">The 2030 Decision Window: A Manufacturing Agenda for CFOs and CTOs</div>
+          <div class="article-desc">58% of enterprises are deploying physical AI. Only 16% are hitting their targets. The architectural commitments that close that gap will largely be made in the next four years.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/insights/manufacturing-02" class="article-card">
+        <span class="article-num">02</span>
+        <div class="article-body">
+          <div class="article-meta">Manufacturing Series &nbsp;&middot;&nbsp; Article 02 of 4</div>
+          <div class="article-title">The Balance Sheet of IT/OT Convergence: The CFO&#x2019;s 2030 Deadline</div>
+          <div class="article-desc">IT/OT convergence is the foundational decision behind every AI initiative in manufacturing. The CFO case for starting before the urgency becomes obvious.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/insights/manufacturing-03" class="article-card">
+        <span class="article-num">03</span>
+        <div class="article-body">
+          <div class="article-meta">Manufacturing Series &nbsp;&middot;&nbsp; Article 03 of 4</div>
+          <div class="article-title">The Workforce Gap No One Is Budgeting For: Why 2030 Is the Deadline</div>
+          <div class="article-desc">Factory operations will be 54% AI-augmented by 2030. The workforce investment to make it work is the gap most manufacturing organizations are not treating as a deadline.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+      <a href="/insights/manufacturing-04" class="article-card">
+        <span class="article-num">04</span>
+        <div class="article-body">
+          <div class="article-meta">Manufacturing Series &nbsp;&middot;&nbsp; Article 04 of 4</div>
+          <div class="article-title">IT and OT: The Merge Can&#x2019;t Wait</div>
+          <div class="article-desc">IT and OT operated as separate domains for most of manufacturing history. The infrastructure required for AI at scale requires convergence that takes years to build. 2030 is four years away.</div>
+        </div>
+        <span class="article-arrow">&#x2192;</span>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">MAGRUDER <span>&amp;</span> COMPANY</div>
+  <div class="footer-links">
+    <a href="/#services">Services</a>
+    <a href="/#proof">The Work</a>
+    <a href="/insights">Insights</a>
+    <a href="/#about">About</a>
+    <a href="https://www.linkedin.com/company/magruder-and-company" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://customercore.co" target="_blank" rel="noopener">Customer Core&#x2122;</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
