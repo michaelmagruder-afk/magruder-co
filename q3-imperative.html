@@ -1,21 +1,945 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-&lt;meta charset="UTF-8"&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-&lt;link rel="icon" type="image/svg+xml" href="/images/favicon.svg"&gt;
-&lt;link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png"&gt;
-&lt;title&gt;The Q3 AI Budget Trap &middot; Magruder &amp; Company&lt;/title&gt;
-&lt;meta name="description" content="80% of enterprise AI projects fail to deliver promised value. The trap is being funded right now, in active Q3 budget reviews. Why the window to act is measured in weeks, not quarters."&gt;
-&lt;meta property="og:title" content="The Q3 AI Budget Trap: Why Organizations Are Funding Transformation Before Building the Foundation"&gt;
-&lt;meta property="og:description" content="80% of enterprise AI projects fail to deliver promised value. The trap is being funded right now, in active Q3 budget reviews. Why the window to act is measured in weeks, not quarters."&gt;
-&lt;meta property="og:type" content="article"&gt;
-&lt;meta property="og:url" content="https://magruder.co/q3-imperative"&gt;
-&lt;meta property="og:site_name" content="Magruder &amp; Company"&gt;
-&lt;meta property="og:image" content="https://magruder.co/images/q3-imperative-linkedin-cover.png"&gt;
-&lt;meta property="og:image:width" content="1920"&gt;
-&lt;meta property="og:image:height" content="1080"&gt;
-&lt;meta name="twitter:card" content="summary_large_image"&gt;
-&lt;meta name="twitter:site" content="@magruderco_"&gt;
-&lt;meta name="twitter:image" content="https://magruder.co/images/q3-imperative-linkedin-cover.png"&gt;
-PLACEHOLDER_REST_OF_FILE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<title>The Q3 AI Budget Trap &middot; Magruder &amp; Company</title>
+<meta name="description" content="80% of enterprise AI projects fail to deliver promised value. The trap is being funded right now, in active Q3 budget reviews. Why the window to act is measured in weeks, not quarters.">
+<meta property="og:title" content="The Q3 AI Budget Trap: Why Organizations Are Funding Transformation Before Building the Foundation">
+<meta property="og:description" content="80% of enterprise AI projects fail to deliver promised value. The trap is being funded right now, in active Q3 budget reviews. Why the window to act is measured in weeks, not quarters.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://magruder.co/q3-imperative">
+<meta property="og:site_name" content="Magruder &amp; Company">
+<meta property="og:image" content="https://magruder.co/images/q3-imperative-linkedin-cover.png">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@magruderco_">
+<meta name="twitter:image" content="https://magruder.co/images/q3-imperative-linkedin-cover.png">
+<link rel="canonical" href="https://magruder.co/q3-imperative">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1E3455;
+    --navy-dark: #131F33;
+    --navy-mid: #2C4A73;
+    --orange: #F86822;
+    --orange-light: #FEA96D;
+    --cream: #FAF8F5;
+    --off-white: #F2EFE9;
+    --slate: #4A5568;
+    --muted: #8A9BB0;
+    --rule: #D6DDE8;
+    --teal: #0F6E56;
+    --font-main: "Neue Haas Grotesk","Helvetica Neue","Hanken Grotesk",Helvetica,Arial,sans-serif;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-main);
+    background-color: var(--cream);
+    color: var(--navy);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ─── NAV ─── */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--navy-dark);
+    border-bottom: 1px solid rgba(214,221,232,0.12);
+    height: 64px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-logo .amp {
+    color: var(--orange);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.72);
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-cta {
+    background: var(--orange) !important;
+    color: #ffffff !important;
+    padding: 7px 16px !important;
+    border-radius: 5px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: #d9581a !important;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    padding: 120px 32px 80px;
+    text-align: center;
+  }
+
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 2.2vw, 20px);
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-byline {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .hero-date {
+    font-size: 11.5px;
+    color: rgba(138,155,176,0.7);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .content-wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ─── ARTICLE SECTIONS ─── */
+  .article-section {
+    padding: 64px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .article-section:first-of-type {
+    margin-top: 56px;
+  }
+
+  .section-kicker {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .article-section h2 {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--navy-dark);
+    margin-bottom: 32px;
+  }
+
+  .article-section p {
+    font-size: 17.5px;
+    line-height: 1.75;
+    color: var(--slate);
+    margin-bottom: 24px;
+  }
+
+  .article-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .article-section h3 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin-top: 44px;
+    margin-bottom: 14px;
+    padding-left: 16px;
+    border-left: 3px solid var(--orange);
+  }
+
+  .article-section h3:first-of-type {
+    margin-top: 36px;
+  }
+
+  .article-section p strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ─── ABOUT SECTION (instruments list) ─── */
+  .about-section {
+    padding: 64px 0;
+    border-top: 1px solid var(--rule);
+    background: var(--cream);
+  }
+
+  .about-section h2 {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--navy-dark);
+    margin-bottom: 32px;
+  }
+
+  .about-section p {
+    font-size: 17.5px;
+    line-height: 1.75;
+    color: var(--slate);
+    margin-bottom: 24px;
+  }
+
+  .about-section h3 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin-top: 36px;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    border-left: 3px solid var(--orange);
+  }
+
+  .about-section h3:first-of-type {
+    margin-top: 28px;
+  }
+
+  .about-section p strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ─── STAT CALLOUT ─── */
+  .stat-pull {
+    background: var(--off-white);
+    border-left: 4px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .stat-pull p {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--slate);
+    margin: 0 !important;
+  }
+
+  .stat-pull strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ─── CTA BLOCK ─── */
+  .cta-block {
+    background: var(--navy-dark);
+    border-radius: 8px;
+    padding: 52px 52px;
+    margin: 64px 0;
+    text-align: center;
+    border-top: 3px solid var(--orange);
+  }
+
+  .cta-block p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.82);
+    max-width: 560px;
+    margin: 0 auto 32px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 5px;
+    transition: background 0.2s;
+    margin-bottom: 28px;
+  }
+
+  .cta-btn:hover {
+    background: #d9581a;
+  }
+
+  /* ─── SOURCES ─── */
+  .sources-section {
+    padding: 48px 0 64px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .sources-section h2 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .sources-list {
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--muted);
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sources-list li {
+    padding-left: 32px;
+    position: relative;
+  }
+
+  .sources-list li .endnote-num {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+    color: var(--orange);
+    font-size: 11px;
+    min-width: 22px;
+  }
+
+  .sources-list a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .sources-list a:hover {
+    color: var(--slate);
+  }
+
+  /* ─── FOOTER ─── */
+  .site-footer {
+    background: var(--navy-dark);
+    padding: 48px 32px;
+    border-top: 1px solid rgba(214,221,232,0.1);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+  }
+
+  .footer-brand .amp {
+    color: var(--orange);
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    padding: 4px 10px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .footer-links a:hover {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .footer-links .sep {
+    color: rgba(255,255,255,0.15);
+    font-size: 11px;
+    padding: 0 2px;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    .nav-inner {
+      padding: 0 20px;
+      gap: 12px;
+    }
+
+    .nav-links {
+      gap: 0;
+    }
+
+    .nav-links a {
+      font-size: 11.5px;
+      padding: 5px 7px;
+    }
+
+    .nav-logo {
+      font-size: 11.5px;
+    }
+
+    .hero {
+      padding: 100px 20px 64px;
+    }
+
+    .content-wrap {
+      padding: 0 20px;
+    }
+
+    .article-section {
+      padding: 48px 0;
+    }
+
+    .about-section {
+      padding: 48px 0;
+    }
+
+    .cta-block {
+      padding: 40px 28px;
+      margin: 48px 0;
+    }
+
+    .sources-section {
+      padding: 40px 0 52px;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .nav-links li:not(:last-child):not(:nth-last-child(2)) {
+      display: none;
+    }
+
+    .article-section h3 {
+      font-size: 17px;
+    }
+
+    .about-section h3 {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-cta {
+      display: flex !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Magruder <span class="amp">&amp;</span> Company</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#proof">The Work</a></li>
+      <li><a href="/insights">Insights</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="https://customercore.co" target="_blank" rel="noopener">Customer Core&#x2122;</a></li>
+      <li><a href="/#contact" class="nav-cta">Start a Conversation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero" role="banner">
+  <div class="hero-inner">
+    <span class="section-label">Q3 Analysis &middot; July 2026</span>
+    <h1>The Q3 AI Budget Trap</h1>
+    <p class="hero-subtitle">Why Organizations Are Funding Transformation Before Building the Foundation</p>
+    <p class="hero-byline">Michael Magruder &middot; Magruder &amp; Company &middot; magruder.co</p>
+    <p class="hero-date">July 2026</p>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+  <!-- SECTION 01 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-01">
+      <span class="section-kicker">01 &middot; The Imperative Window</span>
+      <h2>Why Q3 is the imperative window.</h2>
+
+      <p>The case for Q3 is not about the calendar quarter. It is about the critical decisions that must be made within Q3, and the consequences if this foundational work is not completed.</p>
+
+      <p>Q3 is budget season. Regardless of when a company&rsquo;s fiscal year begins, June and July are the months when VP-level leaders review their teams, reforecast their numbers, and make the resource decisions that govern the back half of the year. The board asks about Q4 readiness. Leadership evaluates what is working. AI spend&mdash;already protected through the capital review (Gartner, 2025)&mdash;gets allocated to specific initiatives, vendors, and timelines.</p>
+
+      <p>Every AI initiative that runs in Q4 was funded in Q3.</p>
+
+      <p>Organizations that enter Q3 with an operating foundation&mdash;an understanding of where their earnings quality chain is intact and where it is broken, criteria for evaluating AI against their actual operating requirements, a playbook for which initiatives will return value and which will amplify existing problems&mdash;make Q3 budget decisions that are grounded in organizational reality.</p>
+
+      <p>Organizations that enter Q3 without that foundation make Q3 budget decisions that are grounded in vendor pitches, competitive pressure, and whatever the CEO heard at the last conference.</p>
+
+      <p>The evidence of what follows is consistent. HBR Analytic Services found in April 2026 that only 10 percent of organizations feel &ldquo;completely ready&rdquo; to adopt AI&mdash;with data silos, security and privacy, and insufficient data governance as the top blockers. These are not technology problems. They are operating foundation problems. They do not resolve when the Q3 initiative begins. They surface when implementation starts and the organization discovers that the AI system requires organizational capabilities it does not have.</p>
+
+      <p>The window is now. It is measured in weeks, not quarters.</p>
+    </article>
+  </div>
+
+  <!-- SECTION 02 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-02">
+      <span class="section-kicker">02 &middot; Budget Accountability</span>
+      <h2>The budget that&rsquo;s already broken.</h2>
+
+      <p>Right now, across most mid-market and enterprise organizations, the same conversation is happening in the same conference room.</p>
+
+      <p>A CFO is protecting the AI budget. Every other capital line is under review&mdash;37 percent of finance leaders have already paused some capital spending in response to cost pressures and economic uncertainty (Gartner, 2025). But the AI line stays. The board asked about it last quarter. The CEO came back from a conference talking about it. A competitor announced something last month. The AI budget survives the cut.</p>
+
+      <p>This protected budget comes with a critical accountability gap. Research by CrossCountry Consulting and the Financial Executives Research Foundation (FERF) found that 9 in 10 finance leaders say the CFO should own AI outcomes in finance, yet only 2 in 10 currently do (2026, n=197). KPMG&rsquo;s 2025 CFO-CIO Collaboration Survey corroborates the structural gap: 59 percent of CFOs and 61 percent of CIOs simultaneously claim AI accountability, meaning in practice no one holds it with clarity (KPMG, 2025). That ownership gap is now under regulatory pressure: the EU AI Act Article 50 activates August 2, 2026, and SEC AI-Washing Enforcement is active now, with inaccurate AI ROI claims triggering enforcement action.</p>
+
+      <p>What does not survive is any honest reckoning with what that budget is actually buying.</p>
+
+      <p>Organizations are currently allocating significant resources to AI with almost no framework for evaluating what those resources will produce. CMOs, for instance, are directing an average of 15.3 percent of their marketing budgets to AI&mdash;yet only 30 percent of those same organizations have the readiness infrastructure to use it effectively (Gartner, May 2026). Seventy percent have declared AI leadership a critical goal for 2026. Thirty percent are actually positioned to execute on it.</p>
+
+      <p>The other seventy percent are writing checks for a foundation they have not built.</p>
+
+      <p>Here is what the research says happens when they cash those checks. According to RAND Corporation&rsquo;s analysis of 65 documented enterprise AI initiatives, 80.3 percent of enterprise AI projects fail to deliver their promised business value&mdash;roughly twice the failure rate of comparable non-AI technology investments (RAND, 2024). MIT&rsquo;s 2025 NANDA research found an even sharper split: about 5 percent of enterprise AI pilots achieve rapid revenue impact, while the rest stall with little to no measurable effect on the P&amp;L (MIT NANDA, 2025). BCG found that 60 percent of organizations generate no material value from AI despite continued investment. Gartner had predicted 30 percent of generative AI projects would be abandoned after proof of concept. The actual number, once results came in, was over 50 percent.</p>
+
+      <p>None of this is happening because AI doesn&rsquo;t work. It is happening because organizations are deploying AI into operating environments that were not designed to receive it. As Deloitte&rsquo;s 2026 Human Capital Trends research puts it directly: &ldquo;As organizations expand AI-enabled decision-making, many find AI to be amplifying existing deficiencies instead of solving them. There&rsquo;s a risk of layering agents onto broken processes&mdash;doing so doesn&rsquo;t fix those processes; instead, it amplifies challenges.&rdquo;</p>
+
+      <p>That is the trap. And the trap is being funded right now, in active Q3 budget reviews.</p>
+
+      <p>There is a moment to act on it. It is Q3. It is now.</p>
+    </article>
+  </div>
+
+  <!-- SECTION 03 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-03">
+      <span class="section-kicker">03 &middot; Sequencing Failure</span>
+      <h2>The planning season myth meets the amplification reality.</h2>
+
+      <p>Right now, in Q3 budget season, the same comfortable assumption recurs across organizations of every size. Leaders tell themselves that the AI initiative being funded in Q3 will sort itself out during implementation. The vendor will help. The team will figure it out. The foundation will get built as the work unfolds.</p>
+
+      <p>The assumption has a name: sequencing failure. And research documents it with unusual precision.</p>
+
+      <p>McKinsey&rsquo;s 2025 State of AI survey&mdash;drawing on responses from nearly 2,000 participants across 105 countries&mdash;found that among the 6 percent of organizations generating meaningful EBIT impact from AI, the single strongest differentiator was workflow redesign. Organizations that fundamentally redesigned workflows before deploying AI were 3.6 times more likely to achieve financial returns than those that did not. The majority of organizations deploying AI are doing the opposite: deploying first and hoping the workflows catch up.</p>
+
+      <p>BCG frames this as the 10/20/70 rule. Ten percent of AI value comes from algorithms. Twenty percent comes from technology and data infrastructure. Seventy percent comes from people and processes&mdash;the organizational operating foundation. Most organizations are currently investing heavily in the 10 and 20, and systematically neglecting the 70.</p>
+
+      <p>The consequence is not that AI fails in some abstract sense. The consequence is specific. Deloitte&rsquo;s research shows that 57 percent of organizations operate at low decision-making maturity&mdash;few teach decision skills, and fewer still provide tools to support consistent decision-making. AI deployed on top of this foundation does not fix the decision-making problem. It inherits it and scales it.</p>
+
+      <p>An AI system trained on fabricated pipeline data generates better-looking fabricated pipeline data. An AI system built on marketing metrics that have never connected to revenue produces more compelling reports that prove even less. An AI governance model built on periodic reviews and gut instinct does not become a continuous governance model because AI is now involved. It becomes a faster periodic review with higher confidence.</p>
+
+      <p>The mistake is not the AI investment. The mistake is the sequence. Organizations planning their Q3 AI spend right now are making Q4 commitments without answering the foundational question: is our operating system capable of receiving what we are about to fund?</p>
+
+      <p>Most are not. The answer to that question does not require months of analysis. It requires a few weeks of structured diagnosis before Q3 budget decisions lock in.</p>
+    </article>
+  </div>
+
+  <!-- SECTION 04 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-04">
+      <span class="section-kicker">04 &middot; Strategic Advantage</span>
+      <h2>The counter-cyclical strategic advantage.</h2>
+
+      <p>There is a version of this problem that resolves itself. It is not the version most organizations are on.</p>
+
+      <p>The organizations generating real AI returns&mdash;the 6 percent in McKinsey&rsquo;s survey, the 40 percent of BCG&rsquo;s sample creating some value, the early movers Gartner tracks&mdash;share a specific behavioral pattern. They diagnosed before they deployed. They mapped their operating foundation before they handed it to a vendor. They asked the question most organizations defer: where will AI close a real gap, and where will it amplify a constraint we have been living with for years?</p>
+
+      <p>That diagnosis is not a six-month initiative. It is not a transformation program. It is two to three weeks of focused, structured engagement with the right levels of the organization&mdash;executive sponsor, functional leads, and the directors and managers who absorb pressure from both directions and who know, with precision, exactly what is broken.</p>
+
+      <p>Most organizations are not doing this work during budget season. They are doing budget reviews, vendor evaluations, and competitive benchmarking. Which means the organizations that do this work now&mdash;during active Q3 planning&mdash;are not working harder than their competitors. They are working smarter, during the moment when budget decisions can still be influenced.</p>
+
+      <p>This is the counter-cyclical advantage. Not the advantage of moving faster, but the advantage of moving while decisions are still being made.</p>
+
+      <p>The window closes when Q3 budget decisions lock in. Once the AI initiative is funded, the vendor is selected, and the implementation is scheduled, the operating foundation question becomes a retrofit&mdash;expensive, disruptive, and frequently abandoned when Q4 pressure arrives. The organizations that answer the question before the budget is committed have a structural advantage that is difficult to replicate afterward.</p>
+
+      <p>The question is not whether your organization will invest in AI in 2026. That decision is already made. The question is whether the investment lands on a foundation designed to receive it or into the operating environment that already exists&mdash;with all its misalignments, its disconnected metrics, and its people at maximum capacity who will absorb one more &ldquo;drop everything&rdquo; initiative without the cognitive space to engage with it strategically.</p>
+    </article>
+  </div>
+
+  <!-- SECTION 05 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-05">
+      <span class="section-kicker">05 &middot; Operating Foundation</span>
+      <h2>The operating foundation: what you need to lock in Q3.</h2>
+
+      <p>The work that makes AI investments return value is not the AI work. It is the organizational work that precedes it. It is the work of understanding how value actually moves through the organization, where the gaps are concentrated, and which AI applications will close those gaps versus which will accelerate existing dysfunction.</p>
+
+      <p>That work has a structure.</p>
+
+      <h3>The Full-Stack Vertical System</h3>
+      <p>The solution is not a technology framework. It is an organizational one. It connects data quality at the foundation of the organization to earnings quality at the top&mdash;tracing every layer between those two points, from process design and people alignment through functional discipline integration and revenue mapping, in a single connected system.</p>
+
+      <p>Most AI transformation programs fail before they start because they address one layer in isolation. A data governance initiative improves data quality without connecting to how that quality affects process decisions. A sales AI tool improves pipeline visibility without addressing the metrics that make pipeline numbers unreliable in the first place. A marketing automation investment accelerates content production without asking whether the content is producing the outcomes the CMO reports and the CEO cannot verify.</p>
+
+      <p>A full-stack vertical system reveals the connections that isolated initiatives miss. It shows where the organization&rsquo;s earnings quality chain is intact and where it is broken. It shows where AI will accelerate something worth accelerating and where it will accelerate a problem the organization has been living with for so long it no longer sees it.</p>
+
+      <p>This is the operating picture that makes Q3 budget decisions grounded rather than instinctual.</p>
+
+      <h3>The Meniscus Effect</h3>
+      <p>Every organization has a layer of directors and managers who function as organizational shock absorbers. They receive pressure from above&mdash;every executive initiative, every strategic priority, every &ldquo;drop everything&rdquo; mandate&mdash;and pressure from below&mdash;every team escalation, every resource constraint, every tool failure. They absorb all of it, continuously, without relief.</p>
+
+      <p>This is the meniscus, that critical absorption layer separating the top-down pressure of the leg and the bottom-up impact from beneath. It is the same injury that ends in surgery and a long, debilitating recovery once it tears, unless something addresses it upstream. It is already at maximum compression.</p>
+
+      <p>The meniscus matters for AI transformation because these are the people who know exactly what is broken. They know which processes generate the reports that look right but mean nothing. They know which vendor relationships are not delivering. They know which AI pilots are theater and which ones solved something real. They are never asked.</p>
+
+      <p>When an AI initiative arrives from above without their input, it does not land on a prepared surface. It lands on a meniscus already absorbing everything else. The initiative stalls. The executive team interprets the stall as execution failure. It is an architecture failure&mdash;the failure to engage the people with the answers before the initiative was funded.</p>
+
+      <p>Two to three weeks of structured assessment during Q3 budget meetings creates the space to engage the meniscus while Q3 funding decisions are still being made. It does not require removing these people from their other obligations. It requires focused, structured access to what they already know.</p>
+
+      <h3>The Amplification Paradox</h3>
+      <p>The most predictable AI failure in 2026 is not a technology failure. It is the decision to deploy AI into a broken operating environment and expect the technology to fix what the organization could not.</p>
+
+      <p>This is the Amplification Paradox. AI does not repair broken processes. It amplifies them. A sales process that produces fabricated pipeline metrics does not become a more reliable sales process when AI is layered on top of it&mdash;it produces fabricated pipeline metrics with more velocity and greater apparent confidence.</p>
+
+      <p>McKinsey&rsquo;s research is specific on this point. Among high-performing AI organizations, the common factor is not the sophistication of the AI model. It is the quality of the workflow redesign that preceded deployment. Organizations that deploy AI into workflows that were never redesigned are statistically unlikely to realize meaningful financial returns regardless of the AI investment level.</p>
+
+      <p>The Amplification Paradox resolves with sequence. The resolution is not complicated. Diagnose the operating environment. Identify the gaps. Design the workflows before deploying the AI. Then fund and execute from a foundation that is built to receive the investment.</p>
+
+      <p>That sequence requires acting now. Waiting until after Q3 budget decisions means starting after the funding decision has been made and the vendor relationship has begun.</p>
+
+      <h3>Fabricated Causation</h3>
+      <p>There is a specific organizational pattern that makes the Amplification Paradox nearly invisible until it is too late. Most functional discipline metrics are not connected to revenue. They are associated with revenue&mdash;loosely, plausibly, in ways that are difficult to refute in a board meeting but equally difficult to demonstrate in a financial audit.</p>
+
+      <p>McKinsey&rsquo;s joint research with the Association of National Advertisers puts this in stark terms. Seventy percent of CEOs measure marketing&rsquo;s impact by year-over-year revenue growth and margin. Only 35 percent of CMOs rank those same outcomes among their top metrics. The gap between what the CEO expects marketing to prove and what the CMO actually reports has grown by 20 percent since 2023.</p>
+
+      <p>This is not a marketing problem alone. It is the structural condition of most functional disciplines. Operations tracks efficiency ratios. Sales tracks pipeline multiples. Marketing tracks MQL counts. None of these metrics have a verified, traceable connection to earnings quality. They have associations&mdash;plausible narratives that explain why the metric is related to revenue&mdash;but not traceable causation.</p>
+
+      <p>When AI gets deployed into this environment, it does not fix the causal relationship between the metric and the outcome. It produces more of the same metrics faster and with greater analytical depth. The CMO gets a better dashboard. The CEO still cannot connect it to the revenue line. The gap widens.</p>
+
+      <h3>An Enterprise Performance Corpus&#x2122;</h3>
+      <p>The full-stack vertical framework exists specifically to replace fabricated causation with traceable causation. Every layer connects upward. Every metric has a home in the earnings quality chain. For the first time, the functional discipline leader and the CFO are looking at the same number from opposite ends of the same system&mdash;and both can see how their decisions affect it.</p>
+
+      <p>This is the operating foundation that makes AI investment meaningful rather than theatrical.</p>
+    </article>
+  </div>
+
+  <!-- SECTION 06 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-06">
+      <span class="section-kicker">06 &middot; The Four Traps</span>
+      <h2>The four traps that get funded without a foundation.</h2>
+
+      <p>Understanding the Q3 imperative requires understanding specifically what happens when this window closes unused. These are not theoretical risks. They are the predictable, documented consequences of funding AI in Q3 without building the operating foundation beforehand.</p>
+
+      <h3>The Vendor Selection Trap</h3>
+      <p>Without evaluation criteria, vendor selection defaults to reference checking and demo performance. Both are designed by vendors to produce a favorable outcome. Organizations commit to multi-year contracts for AI capabilities they cannot assess against their own operating requirements, because those requirements have never been defined.</p>
+
+      <p>RAND&rsquo;s research identified this as one of the primary root causes of AI project failure: organizations begin vendor selection before they have defined what success looks like in their own operating context. The vendor defines success. The vendor&rsquo;s definition of success aligns with the vendor&rsquo;s product.</p>
+
+      <p>Once the contract is signed, the evaluation framework question becomes a retrofit&mdash;and retrofits are expensive, disruptive, and frequently abandoned when Q4 execution pressure arrives.</p>
+
+      <h3>The Initiative Proliferation Trap</h3>
+      <p>When no integrated framework governs AI adoption, every functional leader pursues AI independently. Marketing acquires its AI stack. Sales acquires a different one. Operations a third. Each selection is rational in isolation and incoherent in combination.</p>
+
+      <p>Gartner&rsquo;s research on AI initiative failure identified this pattern directly&mdash;inadequate governance and fragmented ownership are among the top five reasons generative AI projects fail. The fragmentation is not a technology problem. It is an operating architecture problem. You cannot build connected AI capabilities on a foundation of disconnected functional silos pursuing independent AI strategies.</p>
+
+      <p>The Amplification Paradox applies here with particular force: the fragmentation that existed before AI is now accelerating, with each system amplifying its corner of the organization independently and with no connection to the whole.</p>
+
+      <h3>The Meniscus Trap</h3>
+      <p>AI initiatives that arrive at the director and manager layer without preparation land on the meniscus at maximum compression. The people who would actually implement the new system were not consulted in the design, did not define the requirements, and cannot engage strategically with a new mandate because they are already absorbing everything else.</p>
+
+      <p>Deloitte&rsquo;s research finds that 57 percent of organizations operate at low decision-making maturity&mdash;the condition that makes the meniscus trap predictable. The initiative stalls. The executive team escalates. The directors and managers absorb the escalation on top of everything else. The initiative either quietly fails or gets forced through with enough pressure to produce outputs that nobody trusts.</p>
+
+      <p>This is not a failure of people. It is a failure of sequencing&mdash;the failure to engage the people with the answers before the initiative was funded.</p>
+
+      <h3>The 2027 Planning Trap</h3>
+      <p>Q4 AI performance becomes the evidence base for 2027 planning. Organizations that entered Q4 with AI investments built on vendor pitches and undefined requirements produce Q4 results that are difficult to interpret&mdash;not clearly successful, not clearly failed, full of ambiguity that makes 2027 decisions equally ambiguous.</p>
+
+      <p>The organizations that entered Q4 with a grounded operating foundation produce Q4 results that are traceable: these investments connected to the earnings quality chain and returned value, these did not. 2027 planning proceeds from evidence rather than hope.</p>
+
+      <p>This is the compounding advantage of this foundational work. It does not just improve Q4. It determines whether 2027 planning is grounded or another round of informed guesswork.</p>
+    </article>
+  </div>
+
+  <!-- SECTION 07 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-07">
+      <span class="section-kicker">07 &middot; Overcoming Objections</span>
+      <h2>Overcoming &ldquo;we&rsquo;re already mid-planning.&rdquo;</h2>
+
+      <p>The most common objection to Q3 foundation work is timing. Budget reviews are already underway. Plans are already forming. There is not time to build a foundation before the decisions are made.</p>
+
+      <p>This objection misunderstands what the foundation work produces.</p>
+
+      <p>The foundation work does not require stopping the planning cycle. It runs alongside it. The deliverable&mdash;the connected operating picture, the evaluation framework, the Q3 conversation guide&mdash;is specifically designed to inform the planning decisions that are currently being made without it. Organizations that begin this work in June or July have the framework ready before Q3 budget conversations move from planning to commitment. Organizations that begin in August have it ready in time to inform the final vendor conversations. Organizations that begin in September have triage only.</p>
+
+      <p>The planning cycle is not the obstacle. It is the deadline.</p>
+
+      <p>The second objection is resource constraints. Teams are already stretched across Q3 obligations, and adding a foundation-building engagement to the plate seems impossible.</p>
+
+      <p>The meniscus is already at capacity. This is precisely why the foundation work is structured to engage the meniscus efficiently&mdash;not to extract everything they know in an open-ended process, but to surface the operating picture that they hold and have never been asked to articulate in a structured framework. The process creates cognitive relief rather than cognitive load, because it gives the people at the middle layer a vehicle for surfacing what they have been absorbing in silence.</p>
+
+      <p>The organizations that object to this foundation work on the grounds that they are too busy are the same organizations that will spend Q4 troubleshooting AI initiatives that stalled at exactly the layer they were too busy to engage.</p>
+    </article>
+  </div>
+
+  <!-- SECTION 08 -->
+  <div class="content-wrap">
+    <article class="article-section" id="section-08">
+      <span class="section-kicker">08 &middot; In Practice</span>
+      <h2>What this looks like in practice.</h2>
+
+      <p>The organizations generating real AI returns in 2026 are not the ones with the largest AI budgets. They are the ones that built their operating foundation before they committed the budget.</p>
+
+      <p>A mid-market professional services firm enters Q3 budget planning with an enterprise performance corpus and operating picture in hand. They know which functional disciplines have earnings quality chains that are intact and which are producing fabricated causation. They use this to evaluate three competing AI vendors against specific operating requirements rather than against each other&rsquo;s demos. They fund two initiatives and defer one. The two they fund are connected to the earnings quality chain. Q4 results are traceable and defensible at the board level.</p>
+
+      <p>A regional healthcare system enters Q3 without an operating foundation. They fund an AI initiative in their patient communication function based on a compelling vendor demo and competitive benchmarking. Implementation reveals that the data infrastructure the AI requires does not exist in the form the vendor assumed. The implementation team escalates. The directors managing the escalation are already at capacity. The initiative is extended twice and ultimately runs at 40 percent of projected scope. The vendor relationship continues because the contract does not allow for exit.</p>
+
+      <p>These are not different organizations with different AI capabilities. They are the same type of organization making different sequencing decisions. One built the foundation. One funded the initiative.</p>
+
+      <p>The difference between those two outcomes is what happens now, before the budget locks.</p>
+    </article>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <div class="content-wrap">
+    <section class="about-section" id="about-mco" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Magruder &amp; Company</h2>
+
+      <p>Magruder &amp; Company is a living practice of AI preparedness, working at the intersection of organizational architecture and AI readiness. The firm operates five integrated instruments that together build and sustain an organization&rsquo;s operating foundation.</p>
+
+      <h3>Enterprise Performance Corpus&#x2122;</h3>
+      <p>The connective architecture underlying all five instruments&mdash;a governed, CFO-owned record of the performance logic behind organizational spend, savings, business cases, and AI investments that compounds in value over time. The firm&rsquo;s flagship engagement, the CFO Performance Logic and Savings Review, is the structured entry point for building it. The Enterprise Performance Corpus framework predates the current AI boardroom conversation and is built to outlast any specific technology cycle.</p>
+
+      <h3>Constraint Map&#x2120;</h3>
+      <p>The diagnostic entry point. It surfaces where the organization&rsquo;s operating architecture is intact and where it is broken, revealing which AI investments will close real gaps and which will amplify existing problems. The Constraint Map is the prerequisite to any AI investment decision made with organizational evidence rather than vendor confidence.</p>
+
+      <h3>Compliance Core&#x2122;</h3>
+      <p>The regulatory and governance readiness framework, purpose-built for the current compliance environment. With the EU AI Act Article 50 active as of August 2026 and SEC AI-Washing Enforcement ongoing, Compliance Core gives organizations a governed, auditable record of AI decisions, data provenance, and accountability structures that satisfy regulatory scrutiny.</p>
+
+      <h3>GenGov&#x2122;</h3>
+      <p>The governance and operating system layer of the practice, delivered in two forms: GenGov&#x2122; as a client engagement service that installs operating governance into the organization, and GenGov OS&#x2122; as the internal platform that runs the firm&rsquo;s own operations and serves as the proof-of-concept for what the service delivers. GenGov ensures that AI adoption is governed, traceable, and connected to earnings quality at every layer.</p>
+
+      <h3>H2AI&#x2122;</h3>
+      <p>Human-to-AI Intermediation. The change management and adoption framework that moves organizations from AI experimentation to AI-embedded operations. It maps the intermediation curve&mdash;the arc from full human oversight to AI-augmented decision-making&mdash;and provides the structured pathway for moving along it without losing organizational control or accountability.</p>
+
+      <h3>Customer Core&#x2122;</h3>
+      <p>The living reference system at the center of the practice&mdash;a continuously updated corpus of the organization&rsquo;s performance logic, earnings quality chain, and operating architecture. It is the spine from which all other instruments draw and to which all findings return.</p>
+    </section>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="content-wrap">
+    <div class="cta-block" id="cta-contact">
+      <p>The foundation work does not require stopping the planning cycle. It runs alongside it&mdash;and it produces the operating picture, the evaluation framework, and the conversation guide that allow Q3 to close from a position of readiness rather than exposure.</p>
+      <a href="/#contact" class="cta-btn">Start a Conversation</a>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="content-wrap">
+    <section class="sources-section" aria-label="References">
+      <h2>References</h2>
+      <ol class="sources-list">
+        <li>
+          <span class="endnote-num">1</span>
+          RAND Corporation. Ryseff, J., De Bruhl, B., &amp; Newberry, S. J. (2024). <em>The Root Causes of Failure for Artificial Intelligence Projects and How They Can Succeed: Avoiding the Anti-Patterns of AI</em> (Research Report RRA2680-1). <a href="https://www.rand.org/pubs/research_reports/RRA2680-1.html" target="_blank" rel="noopener">rand.org</a>
+        </li>
+        <li>
+          <span class="endnote-num">2</span>
+          MIT NANDA (Project NANDA). Challapally, A., Pease, C., Raskar, R., &amp; Chari, P. (2025, July). <em>The GenAI Divide: State of AI in Business 2025</em>. <a href="https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf" target="_blank" rel="noopener">mlq.ai</a>
+        </li>
+        <li>
+          <span class="endnote-num">3</span>
+          BCG. (2025, September/October). <em>The Widening AI Value Gap</em>. <a href="https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap" target="_blank" rel="noopener">bcg.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">4</span>
+          McKinsey &amp; Company. (2025, November). <em>The State of AI: Global Survey 2025</em>. <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">mckinsey.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">5</span>
+          Deloitte. (2026). <em>Decision-making with AI</em> (Human Capital Trends 2026). <a href="https://www.deloitte.com/us/en/insights/topics/talent/human-capital-trends/2026/decision-making-with-ai.html" target="_blank" rel="noopener">deloitte.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">6</span>
+          Harvard Business Review Analytic Services. (2026, April). <em>Bridging the Readiness Gap to the Agentic Enterprise</em>. <a href="https://www.prnewswire.com/news-releases/new-harvard-business-review-analytic-services-research-exposes-the-gap-between-ai-ambition-and-enterprise-readiness-302755128.html" target="_blank" rel="noopener">prnewswire.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">7</span>
+          Gartner. (2025, July). <em>Gartner Survey Shows 37% of Finance Leaders Have Already Paused Some Capital Spending, Yet AI Investments Remain a Top Priority for 2H25</em>. <a href="https://www.gartner.com/en/newsroom/press-releases/2025-07-17-gartner-survey-shows-37-percent-of-finance-leaders-have-already-paused-some-capital-spending-yet-ai-investments-remain-a-top-priority-for-2h25" target="_blank" rel="noopener">gartner.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">8</span>
+          Gartner. (2026, May). <em>Gartner 2026 CMO Spend Survey</em>. <a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-2026-cmo-spend-survey-finds-cmos-allocate-15-point-3-percent-of-marketing-budgets-to-ai-but-only-30-percent-are-ready-to-scale-ai-capabilities" target="_blank" rel="noopener">gartner.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">9</span>
+          Gartner. (2024, July). <em>Gartner Predicts 30 Percent of Generative AI Projects Will Be Abandoned After Proof of Concept By End of 2025</em>. <a href="https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025" target="_blank" rel="noopener">gartner.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">10</span>
+          Gartner. (2026). Confirmed update: actual generative AI project abandonment rate exceeded 50 percent by end of 2025, revising the prediction above. <a href="https://www.gartner.com/en/articles/genai-project-failure" target="_blank" rel="noopener">gartner.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">11</span>
+          Gartner. (2026, May). <em>CFOs Must Stop Mistaking Finance AI Deployment for Value Creation</em>. <a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-28-gartner-says-cfos-must-stop-mistaking-finance-ai-deployment-for-value-creation" target="_blank" rel="noopener">gartner.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">12</span>
+          McKinsey &amp; Company / ANA. (2025). <em>The CMO&rsquo;s Comeback: Aligning the C-Suite to Drive Customer-Centric Growth</em>. <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-cmos-comeback-aligning-the-c-suite-to-drive-customer-centric-growth" target="_blank" rel="noopener">mckinsey.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">13</span>
+          BCG. (2025). <em>Beyond AI Adoption: Full Potential</em>. <a href="https://www.bcg.com/press/26june2025-beyond-ai-adoption-full-potential" target="_blank" rel="noopener">bcg.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">14</span>
+          CrossCountry Consulting / Financial Executives Research Foundation (FERF). (2026). <em>Evolution of the Finance Function: The CFO&rsquo;s Role in AI Ownership</em>. <a href="https://www.crosscountry-consulting.com/insights/blog/the-defining-leadership-moment-why-cfos-must-own-ai-strategy/" target="_blank" rel="noopener">crosscountry-consulting.com</a>
+        </li>
+        <li>
+          <span class="endnote-num">15</span>
+          KPMG. (2025, March). <em>The CFO-CIO Partnership: Key to Driving AI Innovation</em> (2025 CFO &amp; CIO Collaboration Survey). <a href="https://kpmg.com/us/en/media/news/cfo-cio-partnership-innovation.html" target="_blank" rel="noopener">kpmg.com</a>
+        </li>
+      </ol>
+    </section>
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <a href="/" class="footer-brand">Magruder <span class="amp">&amp;</span> Company</a>
+    <ul class="footer-links">
+      <li><a href="/#services">Services</a></li>
+      <li><span class="sep">&middot;</span></li>
+      <li><a href="/#proof">The Work</a></li>
+      <li><span class="sep">&middot;</span></li>
+      <li><a href="/insights">Insights</a></li>
+      <li><span class="sep">&middot;</span></li>
+      <li><a href="/#about">About</a></li>
+      <li><span class="sep">&middot;</span></li>
+      <li><a href="https://www.linkedin.com/company/magruder-and-company" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><span class="sep">&middot;</span></li>
+      <li><a href="https://customercore.co" target="_blank" rel="noopener">Customer Core&#x2122;</a></li>
+      <li><span class="sep">&middot;</span></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
