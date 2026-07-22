@@ -132,6 +132,12 @@
       margin-bottom: 24px;
     }
 
+    .section-note {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin: -16px 0 24px;
+    }
+
     /* ── Cards ── */
     .cards {
       display: grid;
@@ -179,8 +185,13 @@
     .card-rate {
       font-size: 13px;
       color: var(--ink-soft);
-      margin-bottom: 20px;
+      margin-bottom: 8px;
       font-weight: 500;
+    }
+    .card-people {
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
     }
     .card-total {
       font-size: 26px;
@@ -430,57 +441,62 @@
 <main>
 
   <p class="section-label">Select a block</p>
+  <p class="section-note">Every session includes two Magruder &amp; Company practitioners.</p>
 
   <div class="cards">
 
     <!-- Hourly -->
     <div class="card">
       <p class="card-tier">Hourly</p>
-      <p class="card-hours">1&ndash;4 <span>hours</span></p>
-      <p class="card-rate">$350 / hr &mdash; no commitment</p>
-      <p class="card-total">$350</p>
+      <p class="card-hours">Up to 4 <span>hours</span></p>
+      <p class="card-rate">$500 / hr</p>
+      <p class="card-people">2 practitioners, no commitment</p>
+      <p class="card-total">$500</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/cNi9AVece89l6kv0uP24003" class="btn btn-primary">Purchase &mdash; $350 / hr</a>
+      <a href="https://buy.stripe.com/8x26oJ0lo75h6kv4L524006" class="btn btn-primary">Purchase, $500 / hr</a>
     </div>
 
     <!-- Standard -->
     <div class="card">
       <p class="card-tier">Standard</p>
-      <p class="card-hours">5 <span>hours</span></p>
-      <p class="card-rate">$250 / hr &mdash; save 29%</p>
-      <p class="card-total">$1,250</p>
+      <p class="card-hours">10 <span>hours</span></p>
+      <p class="card-rate">$475 / hr, save 5%</p>
+      <p class="card-people">2 practitioners</p>
+      <p class="card-total">$4,750</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/6oU5kFece75hdMX3H124000" class="btn btn-primary">Purchase &mdash; $1,250</a>
+      <a href="https://buy.stripe.com/6oUfZjd8adtF4cn6Td24007" class="btn btn-primary">Purchase, $4,750</a>
     </div>
 
     <!-- Mid -->
     <div class="card">
       <p class="card-tier">Mid</p>
-      <p class="card-hours">10 <span>hours</span></p>
-      <p class="card-rate">$225 / hr &mdash; save 36%</p>
-      <p class="card-total">$2,250</p>
+      <p class="card-hours">20 <span>hours</span></p>
+      <p class="card-rate">$450 / hr, save 10%</p>
+      <p class="card-people">2 practitioners</p>
+      <p class="card-total">$9,000</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/aFafZj9VYahtbEP5P924001" class="btn btn-primary">Purchase &mdash; $2,250</a>
+      <a href="https://buy.stripe.com/8x23cx5FI89l8sDgtN24008" class="btn btn-primary">Purchase, $9,000</a>
     </div>
 
     <!-- Full -->
     <div class="card">
       <p class="card-tier">Full</p>
-      <p class="card-hours">20 <span>hours</span></p>
-      <p class="card-rate">$200 / hr &mdash; save 43%</p>
-      <p class="card-total">$4,000</p>
+      <p class="card-hours">40 <span>hours</span></p>
+      <p class="card-rate">$425 / hr, save 15%</p>
+      <p class="card-people">2 practitioners</p>
+      <p class="card-total">$17,000</p>
       <hr class="card-divider" />
-      <a href="https://buy.stripe.com/7sY3cx7NQ2Pl8sDb9t24002" class="btn btn-orange">Purchase &mdash; $4,000</a>
+      <a href="https://buy.stripe.com/cNibJ30lo0GT10b1yT24009" class="btn btn-orange">Purchase, $17,000</a>
     </div>
 
   </div>
 
-  <!-- Readiness Assessment Deposit -->
+  <!-- Readiness Assessment / EPC Deposit -->
   <div class="deposit-section">
-    <p class="deposit-eyebrow">Readiness Assessment</p>
+    <p class="deposit-eyebrow">Readiness Assessment &amp; Enterprise Performance Corpus</p>
     <h2>Reserve your engagement</h2>
-    <p>The Readiness Assessment is a fixed-fee engagement ($15,000&ndash;$25,000) that maps your organization&rsquo;s AI constraints and produces a scoping memo for next steps. A $3,500 deposit secures your start date and credits in full against the total fee. If you decide not to proceed after the scoping session, the unused portion is refunded.</p>
-    <a href="https://buy.stripe.com/3CIbJ33xA75hbEPgtN24004" class="btn btn-gold" style="max-width:280px; display:inline-block; width:auto; padding: 14px 28px;">Pay Deposit &mdash; $3,500</a>
+    <p>Each entry engagement, the AI Readiness Assessment or the Enterprise Performance Corpus, is a fixed-fee engagement priced $25,000 to $33,000 by scope. A $7,500 deposit secures your start date and credits in full against the total fee. Booking both engagements? Select quantity 2 at checkout, one deposit per engagement. If you decide not to proceed after the scoping session, the unused portion is refunded.</p>
+    <a href="https://buy.stripe.com/8x28wR0locpBbEPgtN24005" class="btn btn-gold" style="max-width:280px; display:inline-block; width:auto; padding: 14px 28px;">Pay Deposit, $7,500</a>
     <p class="deposit-meta">Prefer to pay by invoice or ACH? <a href="mailto:michael@magruder.co">Email us</a> and we&rsquo;ll send one directly.</p>
   </div>
 
@@ -520,8 +536,18 @@
     </details>
 
     <details>
+      <summary>Why do sessions include two practitioners?</summary>
+      <p>Every advisory session is staffed by two Magruder &amp; Company practitioners, so you get paired expertise and continuity of coverage in every block.</p>
+    </details>
+
+    <details>
       <summary>What is the Readiness Assessment?</summary>
-      <p>The Readiness Assessment is a structured two-week engagement that maps your organization&rsquo;s specific AI constraints using the Constraint Map&trade; diagnostic. It produces a scoping memo that defines exactly what the follow-on engagement covers and what it costs. The $3,500 deposit secures your slot and credits against the total fee.</p>
+      <p>The Readiness Assessment is a structured two-week engagement that maps your organization&rsquo;s specific AI constraints using the Constraint Map&trade; diagnostic. It produces a scoping memo that defines exactly what the follow-on engagement covers and what it costs. The $7,500 deposit secures your slot and credits against the total fee.</p>
+    </details>
+
+    <details>
+      <summary>What if I&rsquo;m booking both the Readiness Assessment and the Enterprise Performance Corpus?</summary>
+      <p>Select quantity 2 on the deposit link. Each engagement is deposited and priced separately, $7,500 per engagement, credited against that engagement&rsquo;s own total fee.</p>
     </details>
 
   </div>
