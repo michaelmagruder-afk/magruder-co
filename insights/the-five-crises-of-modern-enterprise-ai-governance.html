@@ -1304,6 +1304,20 @@
   }
 
 </style>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 
@@ -1611,7 +1625,12 @@
 <ul class="article-bullets">
 <li><strong>Customer Lifetime Value (CLV) Calculation:</strong> Calculates the net present value (NPV) of future cash flows for every account, incorporating deterministic churn probabilities and empirical cost-to-serve data:</li>
 </ul>
-<p style="text-align:center;font-size:18px;margin:24px 0;font-weight:600;">$$\text{CLV}_i = \sum_{t=0}^{T} \frac{(R_{i,t} - C_{i,t}) \cdot P(\text{Retention}_{i,t})}{(1 + d)^t}$$</p>
+<div class="equation-card" style="background:#FAF8F5;border:1px solid #D6DDE8;border-left:4px solid var(--navy);padding:18px 24px;border-radius:4px;margin:20px 0;font-family:'JetBrains Mono',monospace;text-align:center;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;">Deterministic Customer Lifetime Value (CLV)</div>
+  <div style="font-size:16px;color:var(--navy-dark);font-weight:600;letter-spacing:0.02em;">
+    $$\text{CLV}_i = \sum_{t=0}^{T} \frac{(R_{i,t} - C_{i,t}) \cdot P(\text{Retention}_{i,t})}{(1 + d)^t}$$
+  </div>
+</div>
 <ul class="article-bullets">
 <li><strong>Dynamic Capital Reallocation:</strong> Shifts 20% to 30% of sales, marketing, and service expenditure away from value-destroying tiers and re-invests directly into top-tier customer expansion and defensive retention.</li>
 <li><strong>Economic Value Realization:</strong> In enterprise implementations, this systematic reallocation generates <strong>$8 million to $12 million in annual recurring EBITDA improvement</strong> for mid-market and enterprise firms without requiring an increase in total operating budget.</li>
