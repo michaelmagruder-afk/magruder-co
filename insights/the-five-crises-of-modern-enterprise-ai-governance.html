@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="icon" type="image/svg+xml" href="../images/insights/../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/insights/../favicon.png">
 <title>The Five Crises of Modern Enterprise AI Governance &middot; Magruder &amp; Company</title>
 <meta name="description" content="Why 88% of enterprises deploying AI see zero bottom-line return. An empirical deconstruction of the five structural crises destroying enterprise AI value.">
 <meta property="og:title" content="The Five Crises of Modern Enterprise AI Governance">
@@ -12,18 +12,18 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance">
 <meta property="og:site_name" content="Magruder &amp; Company">
-<meta property="og:image" content="https://magruder.co/images/insights/og-the-five-crises-1200x627.png">
+<meta property="og:image" content="../images/insights/og-the-five-crises-1200x627.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@magruderco_">
 <meta name="twitter:title" content="The Five Crises of Modern Enterprise AI Governance">
 <meta name="twitter:description" content="Why 88% of enterprises deploying AI see zero bottom-line return. An empirical deconstruction of the five structural crises destroying enterprise AI value.">
-<meta name="twitter:image" content="https://magruder.co/images/insights/og-the-five-crises-1200x627.png">
+<meta name="twitter:image" content="../images/insights/og-the-five-crises-1200x627.png">
 <link rel="canonical" href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <!-- Google Analytics tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPMDYQ5YBL"></script>
 <script>
@@ -41,12 +41,16 @@
     --orange-light: #FEA96D;
     --cream: #FAF8F5;
     --off-white: #F2EFE9;
+    --ft-bg: #FFF1E5;
+    --ft-border: #D6BBA8;
     --slate: #4A5568;
     --muted: #8A9BB0;
     --rule: #D6DDE8;
     --teal: #0F6E56;
+    --red: #C53030;
     --font-main: "Neue Haas Grotesk","Helvetica Neue","Hanken Grotesk",Helvetica,Arial,sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   *, *::before, *::after {
@@ -64,7 +68,7 @@
     background-color: var(--cream);
     color: var(--navy);
     font-size: 17px;
-    line-height: 1.7;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -141,17 +145,12 @@
     border-radius: 5px !important;
     font-weight: 600 !important;
     letter-spacing: 0.03em !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover {
-    background: #d9581a !important;
   }
 
   /* HERO */
   .hero {
     background: var(--navy-dark);
-    padding: 130px 32px 80px;
+    padding: 130px 32px 60px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -160,16 +159,13 @@
   .hero::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 50% 30%, rgba(44,74,115,0.3) 0%, rgba(19,31,51,0) 70%);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(44,74,115,0.35) 0%, rgba(19,31,51,0) 70%);
     pointer-events: none;
   }
 
   .hero-inner {
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -198,7 +194,7 @@
   .hero-subtitle {
     font-size: clamp(16px, 2.2vw, 19px);
     line-height: 1.55;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.82);
     margin-bottom: 28px;
     font-weight: 300;
     max-width: 780px;
@@ -210,6 +206,7 @@
     font-size: 13px;
     color: var(--muted);
     letter-spacing: 0.04em;
+    margin-bottom: 32px;
   }
 
   .hero-byline strong {
@@ -217,13 +214,77 @@
     font-weight: 600;
   }
 
-  /* CONTENT WRAP */
-  .content-wrap {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 60px 24px 100px;
+  /* DUAL-MODE SWITCHER PILL BAR */
+  .edition-switcher-bar {
+    display: inline-flex;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 30px;
+    padding: 4px;
+    gap: 4px;
+    margin-top: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
   }
 
+  .mode-pill-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.75);
+    font-family: var(--font-main);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 10px 22px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mode-pill-btn:hover {
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .mode-pill-btn.active {
+    background: var(--orange);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(248,104,34,0.35);
+  }
+
+  .mode-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    background: rgba(0,0,0,0.25);
+    padding: 2px 7px;
+    border-radius: 12px;
+    text-transform: uppercase;
+  }
+
+  /* CONTENT WRAP */
+  .content-wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 50px 24px 100px;
+  }
+
+  .edition-panel {
+    display: none;
+  }
+
+  .edition-panel.active {
+    display: block;
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ARTICLE STYLING */
   .article-section {
     margin-bottom: 56px;
   }
@@ -261,14 +322,6 @@
     border-left: 3px solid var(--orange);
   }
 
-  .article-section h4 {
-    font-size: 16.5px;
-    font-weight: 700;
-    color: var(--navy-mid);
-    margin-top: 28px;
-    margin-bottom: 12px;
-  }
-
   .article-section p {
     font-size: 17px;
     line-height: 1.8;
@@ -296,32 +349,247 @@
     color: var(--navy);
   }
 
-  .section-rule {
-    border: 0;
-    height: 1px;
-    background: var(--rule);
-    margin: 48px 0;
+  /* RISOGRAPH ARTICLE EXHIBIT FIGURE */
+  .riso-article-figure {
+    margin: 44px 0;
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(19,31,51,0.06);
   }
 
-  /* STAT CALLOUT */
-  .stat-pull {
-    background: var(--off-white);
-    border-left: 4px solid var(--orange);
-    border-radius: 0 4px 4px 0;
+  .riso-fig-header {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    padding: 16px 24px;
+    border-bottom: 3px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .riso-fig-eyebrow {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 2px;
+  }
+
+  .riso-fig-title {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .riso-fig-code {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--muted);
+    background: rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  .riso-fig-img-box {
+    background: #F4EDE2;
+    padding: 16px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: center;
+  }
+
+  .riso-fig-img-box img {
+    width: 100%;
+    max-width: 820px;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+  }
+
+  .riso-fig-caption {
     padding: 20px 24px;
-    margin: 28px 0;
+    background: #FFFFFF;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--slate);
   }
 
-  .stat-pull p {
-    font-size: 16px;
-    line-height: 1.65;
+  .riso-fig-caption strong {
+    color: var(--navy-dark);
+  }
+
+  /* FT BROADSHEET INSET CARD */
+  .ft-inset-card {
+    background: var(--ft-bg);
+    border: 1px solid var(--ft-border);
+    border-top: 4px solid var(--navy-dark);
+    padding: 28px;
+    margin: 36px 0;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .ft-inset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--ft-border);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .ft-inset-h4 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy-dark);
+  }
+
+  .ft-inset-meta {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #665042;
+  }
+
+  .ft-inset-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 700px) {
+    .ft-inset-grid { grid-template-columns: 1fr; }
+  }
+
+  .ft-inset-box {
+    background: rgba(255,255,255,0.65);
+    border: 1px solid #E6D2C4;
+    padding: 16px;
+    border-radius: 3px;
+  }
+
+  .ft-box-tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+
+  .ft-box-tag.sov { color: var(--teal); }
+
+  .ft-box-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 6px;
+  }
+
+  .ft-box-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #4A3B32;
+    margin: 0 !important;
+  }
+
+  /* STAT GRID 4 */
+  .stat-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  @media (max-width: 860px) {
+    .stat-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .stat-card-editorial {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--navy);
+    border-radius: 4px;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .stat-card-editorial.accent-orange { border-top-color: var(--orange); }
+  .stat-card-editorial.accent-red { border-top-color: var(--red); }
+
+  .stat-card-num {
+    font-family: var(--font-serif);
+    font-size: clamp(32px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .stat-card-num.red { color: var(--red); }
+  .stat-card-num.orange { color: var(--orange); }
+
+  .stat-card-label {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .stat-card-sub {
+    font-size: 12px;
+    line-height: 1.5;
     color: var(--slate);
     margin: 0 !important;
   }
 
-  .stat-pull strong {
+  /* TABLES */
+  .editorial-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 32px 0;
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .editorial-table th {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .editorial-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  .editorial-table tr:nth-child(even) td {
+    background: #F8FAFC;
+  }
+
+  .editorial-table td strong {
     color: var(--navy);
-    font-weight: 700;
   }
 
   /* CTA BLOCK */
@@ -430,383 +698,6 @@
   .footer-links .sep {
     color: rgba(255,255,255,0.25);
   }
-
-  
-  /* ==========================================================================
-     MCo EDITORIAL DESIGN SYSTEM (AUTHENTIC BESPOKE ARCHITECTURE)
-     ========================================================================== */
-  
-  :root {
-    --mc-navy: #1E3455;
-    --mc-navy-dk: #131F33;
-    --mc-navy-lt: #2C4A73;
-    --mc-orange: #F86822;
-    --mc-orange-lt: #FEA96D;
-    --mc-cream: #FAF8F5;
-    --mc-offwhite: #F4F1EA;
-    --mc-slate: #4A5568;
-    --mc-slate-lt: #718096;
-    --mc-teal: #0F6E56;
-    --mc-rule: #D6DDE8;
-    --mc-border: #E2E8F0;
-    --mc-card-bg: #FFFFFF;
-    --mc-tint: #F8FAFC;
-    --mc-red: #C53030;
-  }
-
-  /* Editorial Container */
-  .mco-editorial-block {
-    background: var(--mc-card-bg);
-    border: 1px solid var(--mc-border);
-    border-radius: 6px;
-    margin: 40px 0;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(19, 31, 51, 0.04);
-  }
-
-  .mco-block-header {
-    background: var(--mc-navy-dk);
-    color: #FFFFFF;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .mco-block-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-  }
-
-  .mco-block-tag {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mc-orange-lt);
-    background: rgba(248, 104, 34, 0.15);
-    padding: 4px 10px;
-    border-radius: 3px;
-  }
-
-  .mco-block-body {
-    padding: 24px;
-    background: var(--mc-card-bg);
-  }
-
-  /* High-Impact Stat Grid */
-  .stat-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin: 32px 0;
-  }
-
-  @media (max-width: 860px) {
-    .stat-grid-4 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .stat-grid-4 {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .stat-card-editorial {
-    background: #FFFFFF;
-    border: 1px solid var(--mc-border);
-    border-top: 4px solid var(--mc-navy);
-    border-radius: 4px;
-    padding: 20px 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .stat-card-editorial.accent-orange {
-    border-top-color: var(--mc-orange);
-  }
-
-  .stat-card-editorial.accent-red {
-    border-top-color: var(--mc-red);
-  }
-
-  .stat-card-editorial.accent-teal {
-    border-top-color: var(--mc-teal);
-  }
-
-  .stat-card-num {
-    font-family: var(--font-serif);
-    font-size: clamp(32px, 3.5vw, 42px);
-    font-weight: 700;
-    line-height: 1;
-    color: var(--mc-navy);
-    margin-bottom: 8px;
-  }
-
-  .stat-card-num.red { color: var(--mc-red); }
-  .stat-card-num.orange { color: var(--mc-orange); }
-  .stat-card-num.teal { color: var(--mc-teal); }
-
-  .stat-card-label {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: var(--mc-navy);
-    margin-bottom: 6px;
-    line-height: 1.35;
-  }
-
-  .stat-card-sub {
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--mc-slate);
-    margin: 0 !important;
-  }
-
-  /* Two-Rail Structural Breakdown */
-  .structural-rail-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  @media (max-width: 768px) {
-    .structural-rail-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .structural-rail-card {
-    background: var(--mc-tint);
-    border: 1px solid var(--mc-border);
-    border-radius: 4px;
-    padding: 20px;
-  }
-
-  .structural-rail-card.left-orange {
-    border-left: 4px solid var(--mc-orange);
-  }
-
-  .structural-rail-card.left-navy {
-    border-left: 4px solid var(--mc-navy);
-  }
-
-  .structural-rail-card.left-red {
-    border-left: 4px solid var(--mc-red);
-  }
-
-  .structural-rail-card.left-teal {
-    border-left: 4px solid var(--mc-teal);
-  }
-
-  .rail-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mc-orange);
-    margin-bottom: 6px;
-  }
-
-  .rail-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--mc-navy);
-    margin-bottom: 10px;
-  }
-
-  .rail-body {
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: var(--mc-slate);
-    margin: 0 !important;
-  }
-
-  /* Timeline & Stepped Sequences */
-  .stepped-timeline-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-
-  @media (max-width: 768px) {
-    .stepped-timeline-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .step-node {
-    background: var(--mc-tint);
-    border: 1px solid var(--mc-border);
-    border-radius: 4px;
-    padding: 16px;
-    position: relative;
-  }
-
-  .step-node.alert-step {
-    border-color: #FEB2B2;
-    background: #FFF5F5;
-  }
-
-  .step-badge {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mc-navy);
-    margin-bottom: 4px;
-  }
-
-  .step-val {
-    font-family: var(--font-serif);
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--mc-navy);
-    margin-bottom: 6px;
-  }
-
-  .step-val.red { color: var(--mc-red); }
-  .step-val.teal { color: var(--mc-teal); }
-
-  .step-desc {
-    font-size: 12px;
-    line-height: 1.45;
-    color: var(--mc-slate);
-    margin: 0 !important;
-  }
-
-  /* Ascending Architecture Stack */
-  .asc-tier-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .asc-tier-item {
-    background: #FFFFFF;
-    border: 1px solid var(--mc-border);
-    border-radius: 4px;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    transition: background 0.15s;
-  }
-
-  .asc-tier-item:hover {
-    background: var(--mc-tint);
-  }
-
-  .asc-tier-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .asc-tier-badge {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--mc-orange);
-    background: rgba(248, 104, 34, 0.08);
-    padding: 4px 8px;
-    border-radius: 3px;
-    min-width: 68px;
-    text-align: center;
-  }
-
-  .asc-tier-name {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--mc-navy);
-  }
-
-  .asc-tier-desc {
-    font-size: 12.5px;
-    color: var(--mc-slate);
-    margin-top: 2px;
-  }
-
-  .asc-tier-metric {
-    font-family: var(--font-serif);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--mc-navy);
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  /* Editorial Data Tables */
-  .editorial-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    text-align: left;
-  }
-
-  .editorial-table th {
-    background: var(--mc-navy-dk);
-    color: #FFFFFF;
-    padding: 12px 16px;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border: none;
-  }
-
-  .editorial-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--mc-border);
-    color: var(--mc-slate);
-    line-height: 1.55;
-  }
-
-  .editorial-table tr:nth-child(even) td {
-    background: var(--mc-tint);
-  }
-
-  .editorial-table tr:last-child td {
-    border-bottom: none;
-  }
-
-  .editorial-table td strong {
-    color: var(--mc-navy);
-  }
-
-  /* Inset Synthesis Banner */
-  .editorial-callout-banner {
-    background: var(--mc-cream);
-    border-left: 4px solid var(--mc-orange);
-    border-top: 1px solid var(--mc-rule);
-    border-right: 1px solid var(--mc-rule);
-    border-bottom: 1px solid var(--mc-rule);
-    border-radius: 0 4px 4px 0;
-    padding: 18px 22px;
-    margin: 24px 0;
-  }
-
-  .editorial-callout-banner p {
-    font-size: 14.5px;
-    line-height: 1.65;
-    color: var(--mc-navy);
-    margin: 0 !important;
-  }
-
-  .editorial-callout-banner strong {
-    color: var(--mc-navy);
-    font-weight: 700;
-  }
-
 </style>
 </head>
 <body>
@@ -834,24 +725,38 @@
     <div class="hero-byline">
       <strong>Magruder &amp; Company</strong> &nbsp;&middot;&nbsp; Master Practice Architecture &nbsp;&middot;&nbsp; August 2026
     </div>
+
+    <!-- DUAL-MODE SWITCHER -->
+    <div class="edition-switcher-bar">
+      <button class="mode-pill-btn active" id="btn-mode-journal" onclick="switchEdition('journal')">
+        <span>Full Master Journal Edition</span>
+        <span class="mode-badge">UNABRIDGED</span>
+      </button>
+      <button class="mode-pill-btn" id="btn-mode-exec" onclick="switchEdition('executive')">
+        <span>Executive Field Edition</span>
+        <span class="mode-badge">5 MIN READ</span>
+      </button>
+    </div>
   </div>
 </section>
 
-<!-- MAIN ARTICLE CONTENT -->
+<!-- MAIN CONTENT WRAP -->
 <main class="content-wrap">
 
-  <!-- Cover Card Hero Figure -->
-  <figure class="article-figure" style="margin-top:40px;border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.04);">
+  <!-- Cover Hero Figure -->
+  <figure class="article-figure" style="margin-bottom:48px;border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.04);">
     <div style="width:100%;background:var(--navy-dark);text-align:center;padding:8px;">
-      <img src="/images/insights/og-the-five-crises-1200x627.png" alt="The Five Crises of Modern Enterprise AI Governance Master Cover" style="width:100%;height:auto;display:block;border-radius:4px;">
+      <img src="../images/insights/og-the-five-crises-1200x627.png" alt="The Five Crises of Modern Enterprise AI Governance Master Cover" style="width:100%;height:auto;display:block;border-radius:4px;">
     </div>
     <figcaption class="figure-caption" style="padding:14px 20px;font-size:13px;color:var(--slate);background:#ffffff;border-top:1px solid var(--rule);">
       <strong>Master Treatise:</strong> The Five Crises of Modern Enterprise AI Governance &middot; Customer Core&#x2122; Framework Series (MASTER-01 v3.9 / FCR-00 v2.1).
     </figcaption>
   </figure>
 
-  <section class="article-section">
-  <p><strong>Architectural Mismatch, Capital Misallocation, and the Imperative for Sovereign Enterprise Infrastructure</strong></p>
+  <!-- PANEL 1: FULL MASTER JOURNAL EDITION (UNABRIDGED) -->
+  <div id="edition-journal" class="edition-panel active">
+    <section class="article-section">
+      <p><strong>Architectural Mismatch, Capital Misallocation, and the Imperative for Sovereign Enterprise Infrastructure</strong></p>
 <p><strong>Author:</strong> Magruder & Company</p>
 <p><strong>Date:</strong> August 2026</p>
 <p><strong>Classification:</strong> Master Practice Architecture (v2026.1)</p>
@@ -860,30 +765,21 @@
 </section><section class="article-section"><span class="section-kicker">MCo Research</span><h2>Executive Summary: The Structural Pathology of the Modern Firm</h2>
 <p>Enterprise leadership faces a fundamental architectural disconnect. Across the Fortune 500 and mid-market private equity portfolios, organizations are deploying unprecedented capital into artificial intelligence, cloud data platforms, and automated workflow engines. Yet the financial return on these investments remains overwhelmingly negative or unmeasurable.</p>
 <p>This condition does not reflect a failure of algorithmic capability. It reflects an architectural mismatch: the attempt to deploy twenty-first-century generative and agentic technologies on top of twentieth-century product-centric, siloed organizational structures.</p>
-<!-- COMPONENT_1 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">The Architectural Mismatch: Root-Cause Structural Pathology</span></p>
-<p><span class="mco-block-tag">Structural Synthesis</span></p>
-  </div>
-  <div class="mco-block-body">
-    <div class="structural-rail-grid">
-      <div class="structural-rail-card left-orange">
-        <div class="rail-eyebrow">Modern AI Capabilities</div>
-        <div class="rail-title">Horizontal, Autonomous, Dynamic</div>
-<p><p class="rail-body">Autonomous multi-agent workflows, probabilistic reasoning, and customer-centric predictive models executing at machine speed across the enterprise perimeter.</p></p>
-      </div>
-      <div class="structural-rail-card left-navy">
-        <div class="rail-eyebrow">Legacy Operating Structures</div>
-        <div class="rail-title">Vertical, Siloed, Departmental</div>
-<p><p class="rail-body">Twentieth-century product divisions, isolated SaaS databases, uncoordinated quarterly incentives, and manual cross-functional reconciliation meetings.</p></p>
-      </div>
+<figure class="riso-article-figure">
+  <div class="riso-fig-header">
+    <div>
+      <div class="riso-fig-eyebrow">Exhibit 1.0 · Systemic Dynamics</div>
+      <div class="riso-fig-title">The Amplification Paradox: Dispersion into Sovereign Alignment</div>
     </div>
-    <div class="editorial-callout-banner">
-<p><p><strong>Systemic Impact:</strong> When machine-speed automation collides with fragmented departmental silos, it does not fix the business. It accelerates underlying operational entropy into five distinct balance-sheet crises.</p></p>
-    </div>
+<p><span class="riso-fig-code">CRISIS 1 // FIG. 1.0</span></p>
   </div>
-</div>
+  <div class="riso-fig-img-box">
+<p><img src="../images/insights/MCo_Five_Crises_Risograph_Print.png" alt="The Amplification Paradox Risograph"></p>
+  </div>
+<p><figcaption class="riso-fig-caption"></p>
+<p><strong>Exhibit 1.0:</strong> Deconstruction of the AI Implementation Crisis. Chaotic, un-governed silo records on the left accelerate into machine-speed noise (\(	ext{Dysfunction}_{	ext{Automated}} = 	ext{Dysfunction}_{	ext{Base}} 	imes 	ext{Velocity}_{	ext{AI}}\)), refracted through the Customer Core sovereign operating lens into aligned, deterministic balance-sheet value.</p>
+  </figcaption>
+</figure>
 <p>Modern enterprises face five interrelated structural crises that erode enterprise value, stall digital modernization, and depress valuation multiples:</p>
 <ol class="article-numbered">
 <li><strong>The AI Implementation Crisis:</strong> 88% of organizations are actively deploying artificial intelligence, yet 81% report zero measurable bottom-line financial impact. Billions in capital expenditure produce localized science projects rather than enterprise cash flow.</li>
@@ -905,166 +801,61 @@
 <li><strong>Only 1%</strong> of United States C-suite respondents describe their generative AI rollouts as mature.</li>
 <li><strong>Only 19%</strong> report AI-accelerated revenue growth exceeding 5%.</li>
 </ul>
-<!-- COMPONENT_2 -->
 <div class="stat-grid-4">
   <div class="stat-card-editorial accent-orange">
-    <div>
-      <div class="stat-card-num orange">88%</div>
-      <div class="stat-card-label">Active AI Deployment</div>
-    </div>
-<p><p class="stat-card-sub">Organizations actively piloting or deploying artificial intelligence tools.</p></p>
+    <div class="stat-card-num orange">88%</div>
+    <div class="stat-card-label">Active AI Deployment</div>
+<p><p class="stat-card-sub">Organizations actively experimenting with or deploying AI tools.</p></p>
   </div>
   <div class="stat-card-editorial accent-red">
-    <div>
-      <div class="stat-card-num red">81%</div>
-      <div class="stat-card-label">Zero Bottom-Line Gain</div>
-    </div>
+    <div class="stat-card-num red">81%</div>
+    <div class="stat-card-label">Zero Bottom-Line Gain</div>
 <p><p class="stat-card-sub">Enterprises reporting zero measurable EBITDA margin expansion from AI.</p></p>
   </div>
   <div class="stat-card-editorial accent-red">
-    <div>
-      <div class="stat-card-num red">86%</div>
-      <div class="stat-card-label">Operationally Unprepared</div>
-    </div>
+    <div class="stat-card-num red">86%</div>
+    <div class="stat-card-label">Operationally Unprepared</div>
 <p><p class="stat-card-sub">Executive leaders stating their organizations are unready for day-to-day AI operations.</p></p>
   </div>
-  <div class="stat-card-editorial accent-navy">
-    <div>
-      <div class="stat-card-num">1%</div>
-      <div class="stat-card-label">Mature Enterprise Rollouts</div>
-    </div>
+  <div class="stat-card-editorial">
+    <div class="stat-card-num">1%</div>
+    <div class="stat-card-label">Mature Rollouts</div>
 <p><p class="stat-card-sub">United States C-suite respondents describing their generative AI stack as mature.</p></p>
   </div>
 </div>
 <p>This dynamic is replicated across corporate finance functions. Deloitte's <em>Finance Trends 2026</em> survey of more than 1,300 finance leaders reveals that only 21% of finance departments actively utilizing AI report clear, measurable value delivery. Simultaneously, Deloitte's <em>State of AI in the Enterprise (8th Edition, 2026)</em> reveals a severe 64-point governance gap: 85% of enterprise leaders plan to deploy customized autonomous agents within 12 months, yet only 21% possess mature agent governance frameworks.</p>
 <p>Gartner research confirms the operational consequence: 60% of enterprise AI projects will be abandoned through 2026 due to the absence of AI-ready data infrastructure. Furthermore, 63% of organizations lack the data management and identity resolution practices required to support autonomous inference.</p>
 <h3>The Amplification Paradox</h3>
-<figure class="article-figure in-article-figure" style="margin:44px 0;border:1px solid #D6DDE8;border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(19,31,51,0.06);">
-  <div style="background:#131F33;color:#FFFFFF;padding:18px 24px;border-bottom:3px solid #F86822;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-    <div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FEA96D;margin-bottom:4px;">Exhibit 1.0 &middot; Structural Deconstruction</div>
-      <div style="font-family:var(--font-serif);font-size:20px;font-weight:700;letter-spacing:-0.01em;">The Amplification Paradox vs. Sovereign AI Governance Architecture</div>
-    </div>
-    <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#8A9BB0;background:rgba(255,255,255,0.08);padding:5px 12px;border-radius:3px;">MCo Framework: ARCH-5CRISES-2026</div>
-  </div>
-  <div style="background:#FAF8F5;padding:28px 24px;">
-    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:stretch;">
-      
-      <!-- Left: Failure Mode -->
-      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-top:4px solid #C53030;border-radius:4px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;">
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C53030;margin-bottom:6px;">Failure Mode &middot; The Amplification Paradox</div>
-          <div style="font-size:16px;font-weight:700;color:#1E3455;margin-bottom:10px;">Fragmented Departmental AI Point Solutions</div>
-          <p style="font-size:13px;line-height:1.6;color:#4A5568;margin-bottom:16px;">Deploying disconnected LLM bots and automation on top of legacy silos accelerates misalignment, burns compute budget, and destroys enterprise equity.</p>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#1E3455;">
-            <strong>1. Local Silo Optimization:</strong> Departmental bots optimize local KPIs while destroying customer enterprise equity.
-          </div>
-          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#1E3455;">
-            <strong>2. Sequential Lag (57+ Mo):</strong> Slow waterfall IT cycles guarantee technological obsolescence prior to release.
-          </div>
-          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#1E3455;">
-            <strong>3. Arbitrary Allocation:</strong> Peanut-butter spending subsidizes value-destroying bottom 20% accounts.
-          </div>
-          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#1E3455;">
-            <strong>4. Valuation Discount (30-50%):</strong> Volatile customer churn and opaque unit economics depress PE multiples.
-          </div>
-        </div>
-      </div>
-
-      <!-- Center Divider -->
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 8px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#F86822;writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);padding:8px 0;">TRANSFORMATION</div>
-        <div style="color:#F86822;font-size:24px;font-weight:900;margin-top:8px;">&rarr;</div>
-      </div>
-
-      <!-- Right: Sovereign Resolution -->
-      <div style="background:#131F33;border:1px solid #23354E;border-top:4px solid #F86822;border-radius:4px;padding:22px;color:#FFFFFF;display:flex;flex-direction:column;justify-content:space-between;">
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FEA96D;margin-bottom:6px;">Sovereign Resolution &middot; Customer Core™</div>
-          <div style="font-size:16px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">Single-Source-of-Truth Operating System</div>
-          <p style="font-size:13px;line-height:1.6;color:#CBD5E1;margin-bottom:16px;">Deterministic multi-agent governance aligning front-door commercial execution directly with balance-sheet EBITDA and valuation defense.</p>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div style="background:#1A293F;border:1px solid #283F5E;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#FFFFFF;">
-            <strong style="color:#FEA96D;">1. Milestone-Gated Diagnostic:</strong> Deterministic root-cause audits executed under corporate procurement limits ($24,500).
-          </div>
-          <div style="background:#1A293F;border:1px solid #283F5E;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#FFFFFF;">
-            <strong style="color:#FEA96D;">2. Constrained Parallelism:</strong> Autonomous multi-agent workflows executing simultaneous audit passes governed by 70% gates.
-          </div>
-          <div style="background:#1A293F;border:1px solid #283F5E;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#FFFFFF;">
-            <strong style="color:#FEA96D;">3. Customer Equity Precision (CBCV):</strong> Concentrated resource allocation on top 20% value drivers with 100% data sovereignty.
-          </div>
-          <div style="background:#1A293F;border:1px solid #283F5E;border-radius:4px;padding:10px 12px;font-size:12.5px;color:#FFFFFF;">
-            <strong style="color:#FEA96D;">4. Balance Sheet EBITDA Accretion:</strong> Audit-ready operating logic delivering tangible multiple expansion and valuation defense.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <figcaption class="figure-caption" style="background:#FFFFFF;border-top:1px solid #E2E8F0;padding:14px 24px;font-size:12.5px;color:#4A5568;">
-    <strong>Exhibit 1.0:</strong> Structural Comparison of Fragmented Point Solutions vs. Sovereign Customer Core™ Living Blueprints &middot; Magruder &amp; Company Master Operating Series.
-  </figcaption>
-</figure>
 <p>The root cause of AI implementation failure is the "AI-first" fallacy: purchasing software tools, foundation model access, and specialized compute before establishing the governed data architecture and operating logic.</p>
 <p>When an enterprise introduces machine-speed automation into an uncoordinated operating model, it triggers the <strong>Amplification Paradox</strong>:</p>
-<p style="text-align:center;font-size:18px;margin:24px 0;">$$\text{Dysfunction}_{\text{Automated}} = \text{Dysfunction}_{\text{Base}} \times \text{Velocity}_{\text{AI}}$$</p>
+<p style="text-align:center;font-size:18px;margin:24px 0;font-weight:600;">$$\text{Dysfunction}_{\text{Automated}} = \text{Dysfunction}_{\text{Base}} \times \text{Velocity}_{\text{AI}}$$</p>
 <p>Artificial intelligence does not remediate bad data, contradictory metrics, or fragmented customer records. It amplifies them. It generates hallucinated customer interactions, automates contradictory customer messaging across departments, and burns compute budget generating conflicting analytical outputs.</p>
-<!-- COMPONENT_3 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">The Amplification Paradox: System Dynamics Mechanism</span></p>
-<p><span class="mco-block-tag">Operational Formula</span></p>
-  </div>
-  <div class="mco-block-body">
-    <div class="structural-rail-grid">
-      <div class="structural-rail-card left-navy">
-        <div class="rail-eyebrow">Baseline Operational Input</div>
-        <div class="rail-title">Fragmented Data &amp; Silo Logic</div>
-<p><p class="rail-body">Un-reconciled CRM/ERP records, conflicting departmental customer IDs, and subjective sales pipeline metrics moving at human speed.</p></p>
-      </div>
-      <div class="structural-rail-card left-orange">
-        <div class="rail-eyebrow">Machine-Speed Multiplier</div>
-        <div class="rail-title">Automated Dysfunction at Scale</div>
-<p><p class="rail-body">Foundation models and autonomous agents execute flawed logic instantaneously, burning compute budget and creating contradictory customer messaging.</p></p>
-      </div>
-    </div>
-    <div class="editorial-callout-banner">
-<p><p><strong>The Operational Invariant:</strong> \(	ext{Dysfunction}_{	ext{Automated}} = 	ext{Dysfunction}_{	ext{Base}} 	imes 	ext{Velocity}_{	ext{AI}}\). Automation multiplies baseline defects rather than curing them.</p></p>
-    </div>
-  </div>
-</div>
 <p>Longitudinal tracking from KPMG (<em>AI Quarterly Pulse Survey, Q4 2025</em>, tracking 130 C-suite leaders at $1B+ revenue enterprises) demonstrates this exact dynamic in practice. Enterprise agent deployment rose rapidly from 11% in Q1 2025 to 37% in Q2 and peaked at 42% in Q3. In Q4 2025, deployment dropped 16 percentage points down to 26%. Enterprise leaders were forced to pull back active deployments because 65% encountered insurmountable agentic complexity and 82% ran into severe data quality barriers.</p>
-<!-- COMPONENT_4 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">KPMG Longitudinal C-Suite Deployment Tracker ($1B+ Enterprises)</span></p>
-<p><span class="mco-block-tag">Longitudinal Study (n=130)</span></p>
+<div class="ft-inset-card">
+  <div class="ft-inset-header">
+    <div class="ft-inset-h4">KPMG Longitudinal C-Suite Deployment Tracker ($1B+ Enterprises)</div>
+<p><span class="ft-inset-meta">n=130 C-Suite</span></p>
   </div>
-  <div class="mco-block-body">
-    <div class="stepped-timeline-grid">
-      <div class="step-node">
-        <div class="step-badge">Q1 2025</div>
-        <div class="step-val">11%</div>
-<p><p class="step-desc">Initial exploratory deployment of autonomous agentic workflows.</p></p>
-      </div>
-      <div class="step-node">
-        <div class="step-badge">Q2 2025</div>
-        <div class="step-val">37%</div>
-<p><p class="step-desc">Rapid corporate adoption across departmental pilot programs.</p></p>
-      </div>
-      <div class="step-node">
-        <div class="step-badge">Q3 2025</div>
-        <div class="step-val teal">42%</div>
-<p><p class="step-desc">Peak adoption phase prior to data infrastructure testing.</p></p>
-      </div>
-      <div class="step-node alert-step">
-        <div class="step-badge" style="color:var(--mc-red);">Q4 2025</div>
-        <div class="step-val red">26%</div>
-<p><p class="step-desc"><strong>16-Point Retreat:</strong> Enterprises forced to pause rollouts due to complexity (65%) and data deficits (82%).</p></p>
-      </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;">
+    <div style="background:#fff;padding:12px;border:1px solid #D6BBA8;border-radius:3px;">
+      <div style="font-size:11px;font-weight:700;color:#665042;">Q1 2025</div>
+      <div style="font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--navy);">11%</div>
+      <div style="font-size:11.5px;color:var(--slate);">Initial exploration</div>
+    </div>
+    <div style="background:#fff;padding:12px;border:1px solid #D6BBA8;border-radius:3px;">
+      <div style="font-size:11px;font-weight:700;color:#665042;">Q2 2025</div>
+      <div style="font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--navy);">37%</div>
+      <div style="font-size:11.5px;color:var(--slate);">Pilot acceleration</div>
+    </div>
+    <div style="background:#fff;padding:12px;border:1px solid #D6BBA8;border-radius:3px;">
+      <div style="font-size:11px;font-weight:700;color:#665042;">Q3 2025</div>
+      <div style="font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--teal);">42%</div>
+      <div style="font-size:11.5px;color:var(--slate);">Peak deployment</div>
+    </div>
+    <div style="background:#FFF5F5;padding:12px;border:1px solid #FEB2B2;border-radius:3px;">
+      <div style="font-size:11px;font-weight:700;color:var(--red);">Q4 2025</div>
+      <div style="font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--red);">26%</div>
+      <div style="font-size:11.5px;color:var(--red);font-weight:600;">16-Point Retreat</div>
     </div>
   </div>
 </div>
@@ -1080,49 +871,57 @@
 <h3>The Anatomy of the $1.8 Trillion Productivity Drag</h3>
 <p>Modern corporations remain structured around functional specialization: Marketing, Sales, Customer Success, Professional Services, Operations, and Finance. Each department operates its own software stack, maintains its own data store, and optimizes its own localized key performance indicators.</p>
 <p>This functional balkanization generates an estimated <strong>$1.8 trillion annual productivity drag</strong> across the enterprise economy (HubSpot Workforce Productivity Research; E013 Practitioner Synthesis).</p>
-<!-- COMPONENT_5 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">The Departmental Conflict Matrix: Local Optimization vs. Systemic Drag</span></p>
-<p><span class="mco-block-tag">Organizational Economics</span></p>
+<figure class="riso-article-figure">
+  <div class="riso-fig-header">
+    <div>
+      <div class="riso-fig-eyebrow">Exhibit 2.0 · Organizational Economics</div>
+      <div class="riso-fig-title">Departmental Conflict Vectors vs. Unified Momentum</div>
+    </div>
+<p><span class="riso-fig-code">CRISIS 2 // FIG. 2.0</span></p>
   </div>
-  <table class="editorial-table">
+  <div class="riso-fig-img-box">
+<p><img src="../images/insights/MCo_Risograph_Silo_Friction.png" alt="Departmental Silo Friction Risograph"></p>
+  </div>
+<p><figcaption class="riso-fig-caption"></p>
+<p><strong>Exhibit 2.0:</strong> Visualization of Departmental Friction Drag. Five isolated departments (Marketing, Sales, Customer Support, Operations, IT) pulling in conflicting diagonal directions, passing through the Customer Core Operating Matrix and emerging on the right as a single, unified horizontal vector of balance-sheet momentum.</p>
+  </figcaption>
+</figure>
+<table class="editorial-table">
 <p><thead></p>
 <p><tr></p>
-<p><th style="width:20%;">Function</th></p>
-<p><th style="width:38%;">Local Optimization Target</th></p>
-<p><th style="width:42%;">Systemic Enterprise Value Damage</th></p>
-<p></tr></p>
-<p></thead></p>
+<p><th>Department</th></p>
+<p><th>Local Optimization Goal</th></p>
+<p><th>Systemic Enterprise Damage</th></p>
+    </tr>
+  </thead>
 <p><tbody></p>
 <p><tr></p>
 <p><td><strong>Marketing</strong></td></p>
-<p><td>Maximize Lead Volume &amp; Minimize Cost Per Lead (CPL)</td></p>
-<p><td>Delivers low-intent, unqualified accounts to Sales; inflates blended Customer Acquisition Cost (CAC).</td></p>
-<p></tr></p>
+<p><td>Maximize Lead Volume &amp; Minimize CPL</td></p>
+<p><td>Delivers low-intent leads to Sales; inflates blended customer acquisition cost.</td></p>
+    </tr>
 <p><tr></p>
 <p><td><strong>Sales</strong></td></p>
-<p><td>Maximize Bookings &amp; Quarterly Quota Attainment</td></p>
-<p><td>Discounts contract terms and promises bespoke engineering; triggers downstream delivery churn.</td></p>
-<p></tr></p>
+<p><td>Maximize Bookings &amp; Quarterly Quota</td></p>
+<p><td>Discounts terms and promises custom engineering; triggers downstream delivery churn.</td></p>
+    </tr>
 <p><tr></p>
 <p><td><strong>Customer Service</strong></td></p>
 <p><td>Minimize Average Handle Time (AHT)</td></p>
-<p><td>Terminates calls prematurely to hit efficiency metrics; alienates top-tier enterprise accounts.</td></p>
-<p></tr></p>
+<p><td>Prematurely ends calls; accelerates account churn among high-equity clients.</td></p>
+    </tr>
 <p><tr></p>
 <p><td><strong>Operations</strong></td></p>
-<p><td>Minimize Unit Service &amp; Fulfillment Cost</td></p>
-<p><td>Standardizes fulfillment; degrades service quality and delivery velocity for high-equity accounts.</td></p>
-<p></tr></p>
+<p><td>Minimize Unit Service Cost</td></p>
+<p><td>Standardizes delivery; degrades service quality for top-tier enterprise accounts.</td></p>
+    </tr>
 <p><tr></p>
 <p><td><strong>Information Tech</strong></td></p>
 <p><td>Minimize SaaS License Expense</td></p>
-<p><td>Restricts cross-departmental API data pipelines required for real-time customer intelligence.</td></p>
-<p></tr></p>
-<p></tbody></p>
-  </table>
-</div>
+<p><td>Restricts cross-departmental API data pipelines required for customer intelligence.</td></p>
+    </tr>
+  </tbody>
+</table>
 <p>McKinsey's <em>State of Organizations 2026</em> confirms the internal friction created by these vertical walls:</p>
 <ul class="article-bullets">
 <li><strong>Two-thirds (67%)</strong> of senior executives state their organizations are overly complex and inefficient.</li>
@@ -1134,217 +933,6 @@
 <p>When individual departments optimize their local efficiency, the enterprise as a whole loses value.</p>
 <p>For example, a marketing department incentivized purely on Cost Per Acquisition (CPA) will aggressively acquire low-margin, high-churn customers. The sales team, compensated on total contract value (TCV) regardless of gross margin, books customized terms that operational teams cannot deliver profitably. Customer support, evaluated on Average Handle Time (AHT), terminates client calls rapidly, driving dissatisfaction among the firm's most lucrative enterprise accounts.</p>
 <p>Every department hits its quarterly bonus targets while enterprise EBITDA and net revenue retention (NRR) decline.</p>
-<!-- COMPONENT_6 -->
-<div class="structural-rail-grid" style="margin: 28px 0;">
-  <div class="structural-rail-card left-navy">
-    <div class="rail-eyebrow">Localized Departmental Success</div>
-    <div class="rail-title">All Functional KPIs Met</div>
-<p><p class="rail-body">Marketing hits MQL targets, Sales achieves bookings quota, Support reduces handle times, and IT controls licensing expense. Every department qualifies for quarterly bonuses.</p></p>
-  </div>
-  <div class="structural-rail-card left-red">
-    <div class="rail-eyebrow">Enterprise Reality</div>
-    <div class="rail-title">Margin Contraction &amp; Churn Surge</div>
-<p><p class="rail-body">Uncoordinated execution acquires toxic customer cohorts, degrades high-value relationship retention, and burns $1.8 trillion in cross-functional reconciliation meetings.</p></p>
-  </div>
-</div>
-<h3>The Architectural Solution</h3>
-<p>Customer Core™ replaces ad-hoc inter-departmental negotiations with a unified horizontal governance layer:</p>
-<ul class="article-bullets">
-<li><strong>The Value Council:</strong> A cross-functional governance body with supreme decision authority over customer portfolio investments, overriding individual departmental vetoes.</li>
-<li><strong>The Unified Customer Ledger:</strong> A single mathematical record of truth that attributes revenue, cost-to-serve, and margin contributions to individual customer cohorts rather than departmental budgets.</li>
-<li><strong>Mathematical Constraint Equations:</strong> Formulaic allocation models that prevent any department from expanding expenditure unless the investment produces measurable enterprise customer equity expansion.</li>
-</ul>
-<hr class="section-rule">
-</section><section class="article-section"><span class="section-kicker">MCo Research</span><h2>Crisis 3: The Transformation Failure Crisis</h2>
-<h3>The Historical Failure Rate of Enterprise Modernization</h3>
-<p>Over the past decade, global enterprises have invested more than $2.3 trillion annually in digital transformation initiatives. Despite this massive expenditure, academic and management research (McKinsey, BCG, Bain, and Standish Group longitudinal studies) demonstrates that <strong>70% to 84% of corporate transformations fail</strong> to achieve their stated financial or operational goals.</p>
-<!-- COMPONENT_7 -->
-<div class="stat-grid-4" style="grid-template-columns: 1fr 1fr; margin: 32px 0;">
-  <div class="stat-card-editorial accent-red">
-    <div>
-      <div class="stat-card-num red">70% &ndash; 84%</div>
-      <div class="stat-card-label">Transformation Failure Rate</div>
-    </div>
-<p><p class="stat-card-sub">Corporate digital and AI transformations that fail to achieve their stated financial objectives (McKinsey, BCG, Bain, Standish Group).</p></p>
-  </div>
-  <div class="stat-card-editorial accent-teal">
-    <div>
-      <div class="stat-card-num teal">16% &ndash; 30%</div>
-      <div class="stat-card-label">Sustained Goal Attainment</div>
-    </div>
-<p><p class="stat-card-sub">Initiatives that successfully deliver sustainable, auditable operating value to the enterprise balance sheet.</p></p>
-  </div>
-</div>
-<p>The underlying cause of this chronic failure is structural. Organizations consistently trap themselves in one of two flawed execution paradigms:</p>
-<!-- COMPONENT_8 -->
-<div class="structural-rail-grid" style="margin: 32px 0;">
-  <div class="structural-rail-card left-navy">
-    <div class="rail-eyebrow">Approach 1: Linear Waterfall</div>
-    <div class="rail-title">The 57-Month Sequential Lag</div>
-<p><p class="rail-body">Building Level 1 to 100% before initiating Level 2 guarantees a 5-year timeline. Executive turnover (average tenure 3.5 years) and market obsolescence strand millions in un-capitalized code.</p></p>
-  </div>
-  <div class="structural-rail-card left-orange">
-    <div class="rail-eyebrow">Approach 2: Big-Bang Execution</div>
-    <div class="rail-title">Unconstrained Parallel Chaos</div>
-<p><p class="rail-body">Deploying autonomous tools across all business units simultaneously without foundational data governance triggers severe data pollution, change fatigue, and catastrophic rollout collapse.</p></p>
-  </div>
-</div>
-<h3>The 57-Month Sequential Lag</h3>
-<p>In the traditional sequential transformation model, an enterprise attempts to perfect each technical layer before initiating the next:</p>
-<ol class="article-numbered">
-<li>Enterprise Data Warehouse & Lakehouse (Months 1 to 18)</li>
-<li>Master Data Management & Identity Resolution (Months 19 to 30)</li>
-<li>Advanced Predictive Analytics (Months 31 to 42)</li>
-<li>Workflow Automation & AI Engine (Months 43 to 50)</li>
-<li>Customer Experience & Front-Office Execution (Months 51 to 57+)</li>
-</ol>
-<p>This 57-month timeline is lethal in modern markets. During a five-year execution cycle:</p>
-<ul class="article-bullets">
-<li>Average corporate C-suite tenure is 3.5 years (the executive who funded the project departs before value realization).</li>
-<li>Market conditions and technological architectures fundamentally evolve.</li>
-<li>Strategic clarity decays rapidly across organizational tiers. As quantified in McKinsey's 2026 data, strategic clarity drops from 56% among top executives to 44% among senior managers, collapsing to just 27% at the middle-management level.</li>
-<li>The Board of Directors develops transformation fatigue and cancels funding during month 24, stranding millions in un-capitalized infrastructure.</li>
-</ul>
-<!-- COMPONENT_9 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Strategic Clarity Decay Across Organizational Tiers (McKinsey 2026)</span></p>
-<p><span class="mco-block-tag">Hierarchical Friction</span></p>
-  </div>
-  <div class="mco-block-body">
-    <div class="stepped-timeline-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-      <div class="step-node">
-        <div class="step-badge">Top Tier</div>
-        <div class="step-val teal">56%</div>
-        <div class="stat-card-label">C-Suite Executives</div>
-<p><p class="step-desc">Possess clear understanding of enterprise transformation strategy.</p></p>
-      </div>
-      <div class="step-node">
-        <div class="step-badge">Middle Tier</div>
-        <div class="step-val">44%</div>
-        <div class="stat-card-label">Senior Management</div>
-<p><p class="step-desc">Strategic alignment drops by 12 percentage points across division heads.</p></p>
-      </div>
-      <div class="step-node alert-step">
-        <div class="step-badge" style="color:var(--mc-red);">Operational Break</div>
-        <div class="step-val red">27%</div>
-        <div class="stat-card-label">Middle Managers</div>
-<p><p class="step-desc">Operational line managers attempting execution without strategic clarity.</p></p>
-      </div>
-    </div>
-  </div>
-</div>
-<h3>The Architectural Solution: Constrained Parallelism</h3>
-<p>Customer Core™ resolves the transformation dilemma through <strong>Constrained Parallelism</strong>, governed by a strict mathematical maturity gating formula.</p>
-<p>Instead of waiting for Level 1 to reach 100% completion before initiating Level 2, work begins across all seven levels simultaneously on Day 1. However, the maximum allowable maturity of any given level is mathematically constrained by the verified maturity of the foundational level beneath it:</p>
-<p style="text-align:center;font-size:18px;margin:24px 0;">$$\text{Maturity}_{\text{Max}}(\text{Level } N) = \text{Maturity}_{\text{Verified}}(\text{Level } N-1) \times 0.70$$</p>
-<!-- COMPONENT_10 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Constrained Parallelism: Mathematical Maturity Progression Stack</span></p>
-<p><span class="mco-block-tag">MCo Governance Formula</span></p>
-  </div>
-  <div class="mco-block-body">
-    <div class="asc-tier-list">
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 1</span></p>
-          <div>
-            <div class="asc-tier-name">Enterprise Data Foundation</div>
-            <div class="asc-tier-desc">Governed baseline data quality threshold across accuracy, freshness, and completeness.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric" style="color:var(--mc-teal);">100% Maturity</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 2</span></p>
-          <div>
-            <div class="asc-tier-name">Deterministic Identity Resolution</div>
-            <div class="asc-tier-desc">Bounded by 0.70x Level 1 verified maturity (\(100\% 	imes 0.70\)).</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">70.0% Max</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 3</span></p>
-          <div>
-            <div class="asc-tier-name">Customer Intelligence &amp; Predictive Analytics</div>
-            <div class="asc-tier-desc">Bounded by 0.70x Level 2 verified maturity (\(70\% 	imes 0.70\)).</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">49.0% Max</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 4</span></p>
-          <div>
-            <div class="asc-tier-name">Autonomous Workflow Execution</div>
-            <div class="asc-tier-desc">Bounded by 0.70x Level 3 verified maturity (\(49\% 	imes 0.70\)).</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric" style="color:var(--mc-slate);">34.3% Max</div>
-      </div>
-    </div>
-    <div class="editorial-callout-banner" style="margin-bottom:0;">
-<p><p><strong>Timeline Compression:</strong> Constrained Parallelism allows work across all seven tiers to begin simultaneously on Day 1, compressing total delivery from <strong>57+ months down to 24-36 months</strong> while preventing upper layers from over-engineering on unverified data.</p></p>
-    </div>
-  </div>
-</div>
-<p>By enforcing the <strong>70% Maturity Threshold</strong>, no upper layer is permitted to over-engineer capabilities that the underlying data foundation cannot support. This mechanism compresses the total transformation timeline from <strong>57+ months down to 24-36 months</strong> while eliminating the systemic risk of uncoordinated execution.</p>
-<hr class="section-rule">
-</section><section class="article-section"><span class="section-kicker">MCo Research</span><h2>Crisis 4: The Equity Misallocation Crisis</h2>
-<h3>The Hidden Skew of Customer Profitability</h3>
-<p>Enterprise marketing, sales, and service budgets are routinely allocated using arbitrary, undifferentiated methods (the "peanut-butter approach"). Budgets are spread evenly across accounts, sales territories are drawn purely by geographic boundaries, and customer support service levels are dictated by legacy product tiers rather than customer economic value.</p>
-<p>Empirical research across B2B and enterprise portfolios reveals extreme profitability skew:</p>
-<!-- COMPONENT_11 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Customer Portfolio Value Dynamics: Asymmetric Profit Distribution</span></p>
-<p><span class="mco-block-tag">Portfolio Empirical Skew</span></p>
-  </div>
-  <table class="editorial-table">
-<p><thead></p>
-<p><tr></p>
-<p><th style="width:25%;">Customer Tier</th></p>
-<p><th style="width:25%;">Share of Total Accounts</th></p>
-<p><th style="width:50%;">Share of Enterprise Net Operating Profit</th></p>
-<p></tr></p>
-<p></thead></p>
-<p><tbody></p>
-<p><tr></p>
-<p><td><strong>Top Tier (Lucrative Core)</strong></td></p>
-<p><td>Top 20%</td></p>
-<p><td><strong style="color:var(--mc-teal);">+80% to +120%</strong> of total enterprise net profit. Subsidizes entire firm.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>Middle Tier (Neutral Volume)</strong></td></p>
-<p><td>Middle 60%</td></p>
-<p><td><strong>Breakeven</strong> (0% to +10% marginal profit). Covers fixed costs.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>Bottom Tier (Value-Destroying)</strong></td></p>
-<p><td>Bottom 20%</td></p>
-<p><td><strong style="color:var(--mc-red);">-20% to -30%</strong> (Actively destroys net profit and cash flow).</td></p>
-<p></tr></p>
-<p></tbody></p>
-  </table>
-</div>
-<p>In almost every large enterprise, a small cohort of highly engaged, low-friction customers generates more than 100% of the company's net operating income. Simultaneously, the bottom 20% of customer accounts actively destroy value because their bespoke operational demands, constant support overhead, and excessive discounting exceed their gross margin contribution.</p>
-<!-- COMPONENT_12 -->
-<div class="structural-rail-grid" style="margin: 28px 0;">
-  <div class="structural-rail-card left-teal">
-    <div class="rail-eyebrow">Peak Cumulative Profit</div>
-    <div class="rail-title">Top 20% Accounts = 120% of Net Income</div>
-<p><p class="rail-body">A concentrated cohort of high-equity, low-friction customers generates all corporate earnings and funds company expansion.</p></p>
-  </div>
-  <div class="structural-rail-card left-red">
-    <div class="rail-eyebrow">Cumulative Value Destruction</div>
-    <div class="rail-title">Bottom 20% Accounts = -20% Profit Drag</div>
-<p><p class="rail-body">High-maintenance, heavily discounted accounts consume excessive support and custom engineering, dragging total profit down from 120% to 100%.</p></p>
-  </div>
-</div>
 <h3>The Inertia of Resource Misallocation</h3>
 <p>Despite this economic reality, corporate resource allocation remains blind to customer equity. Enterprises spend equal sums to acquire and service toxic, low-tier accounts as they do to defend their top-tier relationships.</p>
 <p>McKinsey's <em>State of Organizations 2026</em> highlights this systemic inertia:</p>
@@ -1358,7 +946,7 @@
 <ul class="article-bullets">
 <li><strong>Customer Lifetime Value (CLV) Calculation:</strong> Calculates the net present value (NPV) of future cash flows for every account, incorporating deterministic churn probabilities and empirical cost-to-serve data:</li>
 </ul>
-<p style="text-align:center;font-size:18px;margin:24px 0;">$$\text{CLV}_i = \sum_{t=0}^{T} \frac{(R_{i,t} - C_{i,t}) \cdot P(\text{Retention}_{i,t})}{(1 + d)^t}$$</p>
+<p style="text-align:center;font-size:18px;margin:24px 0;font-weight:600;">$$\text{CLV}_i = \sum_{t=0}^{T} \frac{(R_{i,t} - C_{i,t}) \cdot P(\text{Retention}_{i,t})}{(1 + d)^t}$$</p>
 <ul class="article-bullets">
 <li><strong>Dynamic Capital Reallocation:</strong> Shifts 20% to 30% of sales, marketing, and service expenditure away from value-destroying tiers and re-invests directly into top-tier customer expansion and defensive retention.</li>
 <li><strong>Economic Value Realization:</strong> In enterprise implementations, this systematic reallocation generates <strong>$8 million to $12 million in annual recurring EBITDA improvement</strong> for mid-market and enterprise firms without requiring an increase in total operating budget.</li>
@@ -1367,86 +955,6 @@
 </section><section class="article-section"><span class="section-kicker">MCo Research</span><h2>Crisis 5: The Valuation Discount Crisis</h2>
 <h3>The Market Penalty for Unpredictable Revenue</h3>
 <p>Public equity markets and institutional private equity sponsors penalize uncertainty. Companies exhibiting erratic revenue growth, volatile customer churn, and unpredictable sales pipelines trade at a <strong>30% to 50% valuation discount</strong> relative to peers with high earnings predictability.</p>
-<!-- COMPONENT_13 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Valuation Multiple Comparison: The Cost of Churn Volatility</span></p>
-<p><span class="mco-block-tag">Private Equity Multiple Spread</span></p>
-  </div>
-  <div class="mco-block-body">
-    <div class="structural-rail-grid">
-      <div class="structural-rail-card left-teal">
-        <div class="rail-eyebrow">Predictable Customer Revenue</div>
-        <div class="stat-card-num teal" style="margin: 8px 0;">14.0x &ndash; 18.0x</div>
-        <div class="rail-title">Enterprise EV/EBITDA Valuation</div>
-<p><p class="rail-body">High earnings quality backed by transparent Net Revenue Retention (NRR), deterministic cohort predictability, and verifiable customer lifetime value.</p></p>
-      </div>
-      <div class="structural-rail-card left-red">
-        <div class="rail-eyebrow">Unpredictable / Churn-Volatile</div>
-        <div class="stat-card-num red" style="margin: 8px 0;">7.0x &ndash; 10.0x</div>
-        <div class="rail-title">Discounted Multiple Range</div>
-<p><p class="rail-body">Transactional customer volatility, unforecastable retention, and opaque cohort metrics trigger steep private equity valuation discounts.</p></p>
-      </div>
-    </div>
-    <div class="editorial-callout-banner">
-<p><p><strong>The Capital Markets Penalty:</strong> Private equity sponsors and institutional buyers impose a <strong>30% to 50% multiple discount</strong> on enterprises with volatile customer cohorts and opaque retention telemetry.</p></p>
-    </div>
-  </div>
-</div>
-<p>Traditional financial forecasting relies on lagging accounting indicators and subjective sales pipeline stages:</p>
-<ul class="article-bullets">
-<li>Historical quarterly revenue run-rates (backward-looking).</li>
-<li>Subjective CRM sales pipeline stages (notoriously inaccurate).</li>
-<li>Macroeconomic industry growth assumptions (decoupled from customer cohort dynamics).</li>
-</ul>
-<p>None of these legacy approaches model forward cash flows based on actual customer behavior. Consequently, CFOs struggle to forecast performance beyond 90 days, boards cannot defend long-term earnings durability, and investors price the resulting risk into depressed valuation multiples.</p>
-<h3>Customer-Based Corporate Valuation (CBCV)</h3>
-<p>The academic foundation of Customer-Based Corporate Valuation (pioneered by Peter Fader, Bruce Hardie, and Daniel McCarthy) proves that the market capitalization of an enterprise is the direct sum of the discounted cash flows generated by its existing and future customer cohorts:</p>
-<p style="text-align:center;font-size:18px;margin:24px 0;">$$\text{Enterprise Value} = \sum \text{NPV}(\text{Existing Customer Cohort Cash Flows}) + \sum \text{NPV}(\text{Future Acquired Cohort Cash Flows}) - \text{NPV}(\text{Corporate Overhead})$$</p>
-<!-- COMPONENT_14 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Customer-Based Corporate Valuation (CBCV) Architecture</span></p>
-<p><span class="mco-block-tag">Fader / Hardie / McCarthy Model</span></p>
-  </div>
-  <div class="mco-block-body">
-    <div class="asc-tier-list">
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge" style="color:var(--mc-teal);background:rgba(15,110,86,0.1);">+ NPV</span></p>
-          <div>
-            <div class="asc-tier-name">Existing Customer Cohort Cash Flows</div>
-            <div class="asc-tier-desc">Discounted present value of recurring cash flows generated by existing customer base.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric" style="color:var(--mc-teal);">Baseline Cash Engine</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge" style="color:var(--mc-orange);background:rgba(248,104,34,0.1);">+ NPV</span></p>
-          <div>
-            <div class="asc-tier-name">Future Acquired Customer Cohort Cash Flows</div>
-            <div class="asc-tier-desc">Projected net cash flows from newly acquired cohorts minus customer acquisition cost.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">Growth Value</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge" style="color:var(--mc-red);background:rgba(197,48,48,0.1);">&minus; NPV</span></p>
-          <div>
-            <div class="asc-tier-name">Corporate Overhead, Capital Expenditures &amp; Net Debt</div>
-            <div class="asc-tier-desc">Non-customer fixed overhead, debt obligations, and structural corporate expense.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric" style="color:var(--mc-red);">Structural Deductions</div>
-      </div>
-    </div>
-    <div class="editorial-callout-banner" style="margin-bottom:0;text-align:center;">
-<p><p><strong>\(	ext{Enterprise Value} = \sum 	ext{NPV}(	ext{Existing}) + \sum 	ext{NPV}(	ext{Future}) - 	ext{NPV}(	ext{Overhead})\)</strong></p></p>
-    </div>
-  </div>
-</div>
 <p>When an enterprise cannot track cohort retention, expansion velocity, or customer-level margins, the capital markets classify its revenue as low-quality. A company generating $100 million in revenue with 25% annual customer churn and zero cohort transparency will trade at a massive discount compared to a firm generating identical revenue with 115% Net Revenue Retention and predictable cohort expansion.</p>
 <h3>The Architectural Solution: Earnings Quality & Valuation Premium</h3>
 <p>Level 7 of Customer Core™ (Earnings Quality & Investor Confidence) bridges customer behavioral data directly into corporate financial reporting:</p>
@@ -1459,265 +967,27 @@
 </section><section class="article-section"><span class="section-kicker">MCo Research</span><h2>The Structural Bridge: Connecting What Is Broken to Why Fix It Now</h2>
 <p>The Five Crises provide a structural diagnosis of what is broken inside the modern enterprise operating structure. Diagnostic understanding alone, however, is insufficient. Enterprise leadership requires operational urgency.</p>
 <p>This urgency is provided by the <strong>Four Convergence Realities</strong>.</p>
-<!-- COMPONENT_15 -->
-<div class="structural-rail-grid" style="margin: 32px 0;">
-  <div class="structural-rail-card left-orange">
-    <div class="rail-eyebrow">The Five Crises</div>
-    <div class="rail-title">What Is Broken (Internal Pathology)</div>
-<p><p class="rail-body">Data unreadiness, silo productivity drag, sequential transformation decay, resource misallocation, and valuation discount.</p></p>
-  </div>
-  <div class="structural-rail-card left-navy">
-    <div class="rail-eyebrow">The Four Realities</div>
-    <div class="rail-title">Why Fix It Now (External Urgency)</div>
-<p><p class="rail-body">Convergence of disruption vectors, closing window of time, accelerating agentic disruption, and valuation arbitrage opportunities.</p></p>
-  </div>
-</div>
 <blockquote class="stat-pull"><p><strong>The Structural Invariant:</strong></p></blockquote>
 <blockquote class="stat-pull"><p><em>The Five Crises answer what is broken; The Four Convergence Realities answer why fix it now.</em></p></blockquote>
 <p>Without the Four Convergence Realities, leadership might treat the Five Crises as chronic legacy defects that can be addressed at a comfortable, gradual pace. The Four Realities prove that gradual resolution is structurally impossible. The rapid advancement of autonomous agentic systems, combined with exponential costs of delay, makes inaction an existential risk.</p>
-<!-- COMPONENT_16 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Crisis-to-Reality Convergence Mapping Matrix</span></p>
-<p><span class="mco-block-tag">Structural Connection</span></p>
-  </div>
-  <table class="editorial-table">
-<p><thead></p>
-<p><tr></p>
-<p><th style="width:30%;">Five Crises (What Is Broken)</th></p>
-<p><th style="width:30%;">Four Realities (Why Fix It Now)</th></p>
-<p><th style="width:40%;">Structural Connection</th></p>
-<p></tr></p>
-<p></thead></p>
-<p><tbody></p>
-<p><tr></p>
-<p><td><strong>Crisis 1: AI Implementation Crisis</strong></td></p>
-<p><td>Reality 3: Forecast of Massive Disruption</td></p>
-<p><td>Unprepared data foundations cause agentic AI to fracture the enterprise operating model.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>Crisis 2: Silo Cost Drag ($1.8T)</strong></td></p>
-<p><td>The Amplification Paradox</td></p>
-<p><td>Machine-speed AI accelerates silo friction, stripping out human buffering mechanisms.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>Crisis 3: Transformation Failure Crisis</strong></td></p>
-<p><td>Reality 2: The Constraint of Time</td></p>
-<p><td>High failure rates mean firms cannot afford 5-year trials in a closing 12-to-24 month window.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>Crisis 4: Equity Misallocation Crisis</strong></td></p>
-<p><td>Reality 1: Convergence of Importance</td></p>
-<p><td>Misallocated capital becomes fatal when multiple disruption vectors strike simultaneously.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>Crisis 5: Valuation Discount Crisis</strong></td></p>
-<p><td>Reality 4: Opportunity to Prepare &amp; Run</td></p>
-<p><td>Governed architectures command premium multiples while un-governed peers are discounted.</td></p>
-<p></tr></p>
-<p></tbody></p>
-  </table>
-</div>
 <hr class="section-rule">
 </section><section class="article-section"><span class="section-kicker">MCo Research</span><h2>Architectural Synthesis: The Customer Core™ Operating Remedy</h2>
-<figure class="article-figure in-article-figure" style="margin:44px 0;border:1px solid #D6DDE8;border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(19,31,51,0.06);">
-  <div style="background:#131F33;color:#FFFFFF;padding:18px 24px;border-bottom:3px solid #0F6E56;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+<p>To overcome the Five Crises, modern enterprises must discard superficial technology procurement and adopt a seven-level sovereign architecture:</p>
+<figure class="riso-article-figure">
+  <div class="riso-fig-header">
     <div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#34D399;margin-bottom:4px;">Exhibit 2.0 &middot; Architecture Specification</div>
-      <div style="font-family:var(--font-serif);font-size:20px;font-weight:700;letter-spacing:-0.01em;">Customer Core™ Sovereign Operating Architecture &amp; Valuation Spine</div>
+      <div class="riso-fig-eyebrow">Exhibit 6.0 · Sovereign Blueprint</div>
+      <div class="riso-fig-title">The Seven-Level Sovereign Operating Stack</div>
     </div>
-    <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#8A9BB0;background:rgba(255,255,255,0.08);padding:5px 12px;border-radius:3px;">Seven-Level Maturity Stack</div>
+<p><span class="riso-fig-code">MASTER BLUEPRINT // FIG. 6.0</span></p>
   </div>
-  <div style="background:#FAF8F5;padding:28px 24px;">
-    <div style="display:grid;grid-template-columns:220px 1fr 1fr;gap:16px;align-items:stretch;">
-      
-      <!-- Left Leader Rail -->
-      <div style="background:#131F33;color:#FFFFFF;border-radius:4px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;">
-        <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FEA96D;margin-bottom:8px;">Governance Spine</div>
-          <div style="font-size:18px;font-weight:700;line-height:1.25;margin-bottom:10px;">Seven Levels of Sovereign Discipline</div>
-          <p style="font-size:12.5px;line-height:1.55;color:#CBD5E1;margin:0;">Each level supplies deterministic inputs to the layer above, bounded by the 70% mathematical maturity gate.</p>
-        </div>
-        <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:12px;margin-top:16px;font-size:11px;color:#8A9BB0;text-transform:uppercase;letter-spacing:0.08em;">
-          Constrained Parallelism Protocol
-        </div>
-      </div>
-
-      <!-- Center Column: Foundation to Execution (Levels 1-4) -->
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #1E3455;border-radius:4px;padding:12px 16px;">
-          <div style="font-size:11px;font-weight:700;color:#F86822;text-transform:uppercase;margin-bottom:2px;">Level 1 &middot; Data Foundation</div>
-          <div style="font-size:13.5px;font-weight:700;color:#1E3455;">Enterprise Schema &amp; Quality Rigor</div>
-          <p style="font-size:12px;color:#4A5568;margin:4px 0 0;">Mandatory 70%+ completeness and accuracy threshold before automation.</p>
-        </div>
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #1E3455;border-radius:4px;padding:12px 16px;">
-          <div style="font-size:11px;font-weight:700;color:#F86822;text-transform:uppercase;margin-bottom:2px;">Level 2 &middot; Identity Resolution</div>
-          <div style="font-size:13.5px;font-weight:700;color:#1E3455;">Deterministic Entity Reconciliation</div>
-          <p style="font-size:12px;color:#4A5568;margin:4px 0 0;">Single canonical customer graph reconciling CRM, ERP, and billing IDs.</p>
-        </div>
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #1E3455;border-radius:4px;padding:12px 16px;">
-          <div style="font-size:11px;font-weight:700;color:#F86822;text-transform:uppercase;margin-bottom:2px;">Level 3 &middot; Customer Intelligence</div>
-          <div style="font-size:13.5px;font-weight:700;color:#1E3455;">Predictive Churn &amp; Cost-to-Serve</div>
-          <p style="font-size:12px;color:#4A5568;margin:4px 0 0;">Governed feature store supplying context-grounded inputs to agentic workflows.</p>
-        </div>
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #1E3455;border-radius:4px;padding:12px 16px;">
-          <div style="font-size:11px;font-weight:700;color:#F86822;text-transform:uppercase;margin-bottom:2px;">Level 4 &middot; Process Automation</div>
-          <div style="font-size:13.5px;font-weight:700;color:#1E3455;">Cross-Functional Workflow Engine</div>
-          <p style="font-size:12px;color:#4A5568;margin:4px 0 0;">Horizontal process orchestration removing $1.8T departmental friction.</p>
-        </div>
-      </div>
-
-      <!-- Right Column: Orchestration to Valuation (Levels 5-7) -->
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #0F6E56;border-radius:4px;padding:12px 16px;">
-          <div style="font-size:11px;font-weight:700;color:#0F6E56;text-transform:uppercase;margin-bottom:2px;">Level 5 &middot; Experience Orchestration</div>
-          <div style="font-size:13.5px;font-weight:700;color:#1E3455;">Governed Omni-Channel Delivery</div>
-          <p style="font-size:12px;color:#4A5568;margin:4px 0 0;">Multi-channel customer lifecycle delivery with zero conflicting messaging.</p>
-        </div>
-        <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #0F6E56;border-radius:4px;padding:12px 16px;">
-          <div style="font-size:11px;font-weight:700;color:#0F6E56;text-transform:uppercase;margin-bottom:2px;">Level 6 &middot; Portfolio Management</div>
-          <div style="font-size:13.5px;font-weight:700;color:#1E3455;">Customer Equity &amp; CLV Optimization</div>
-          <p style="font-size:12px;color:#4A5568;margin:4px 0 0;">Dynamic 20-30% capital reallocation away from toxic customer cohorts ($8M-$12M lift).</p>
-        </div>
-        <div style="background:#131F33;color:#FFFFFF;border:1px solid #23354E;border-left:4px solid #FEA96D;border-radius:4px;padding:16px;">
-          <div style="font-size:11px;font-weight:700;color:#FEA96D;text-transform:uppercase;margin-bottom:2px;">Level 7 &middot; Enterprise Valuation</div>
-          <div style="font-size:14px;font-weight:700;color:#FFFFFF;">Earnings Quality &amp; Multiple Expansion</div>
-          <p style="font-size:12px;color:#CBD5E1;margin:4px 0 8px;">CBCV auditable telemetry delivering <strong>1.5x to 2.5x EV/EBITDA multiple expansion</strong>.</p>
-          <div style="font-size:11px;color:#34D399;font-weight:700;text-transform:uppercase;">Valuation Defense &amp; PE Accretion</div>
-        </div>
-      </div>
-
-    </div>
+  <div class="riso-fig-img-box">
+<p><img src="../images/insights/MCo_Risograph_Seven_Level_Stack.png" alt="Seven Level Sovereign Stack Risograph"></p>
   </div>
-  <figcaption class="figure-caption" style="background:#FFFFFF;border-top:1px solid #E2E8F0;padding:14px 24px;font-size:12.5px;color:#4A5568;">
-    <strong>Exhibit 2.0:</strong> Customer Core™ Sovereign Valuation &amp; Multi-Tier Operating Architecture &middot; Linking front-door commercial execution directly to PE valuation multiple defense.
+<p><figcaption class="riso-fig-caption"></p>
+<p><strong>Exhibit 6.0:</strong> Complete Customer Core™ Operating Stack. Seven ascending architectural layers starting with a robust data foundation at Level 1, rising through deterministic identity resolution and process orchestration, culminating at Level 7 in an elevated balance sheet valuation crown.</p>
   </figcaption>
 </figure>
-<p>To overcome the Five Crises, modern enterprises must discard superficial technology procurement and adopt a seven-level sovereign architecture:</p>
-<!-- COMPONENT_17 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Customer Core™ Seven-Level Sovereign Architecture Stack</span></p>
-<p><span class="mco-block-tag">Enterprise Blueprint</span></p>
-  </div>
-  <div class="mco-block-body">
-    <div class="asc-tier-list">
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge" style="color:var(--mc-teal);background:rgba(15,110,86,0.1);">Level 7</span></p>
-          <div>
-            <div class="asc-tier-name">Earnings Quality &amp; Investor Confidence</div>
-            <div class="asc-tier-desc">Direct linkage of cohort retention to PE/public market valuation multiple expansion.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric" style="color:var(--mc-teal);">1.5x &ndash; 2.5x Multiple Lift</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge" style="color:var(--mc-teal);background:rgba(15,110,86,0.1);">Level 6</span></p>
-          <div>
-            <div class="asc-tier-name">Customer Equity &amp; Portfolio Management</div>
-            <div class="asc-tier-desc">CLV portfolio optimization and dynamic 20-30% capital reallocation away from toxic tiers.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">$8M &ndash; $12M EBITDA Lift</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 5</span></p>
-          <div>
-            <div class="asc-tier-name">Experience Orchestration &amp; Delivery</div>
-            <div class="asc-tier-desc">Governed omni-channel customer lifecycle delivery with zero contradictory messaging.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">Lifecycle Alignment</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 4</span></p>
-          <div>
-            <div class="asc-tier-name">Horizontal Process Automation</div>
-            <div class="asc-tier-desc">Cross-functional workflow engines replacing siloed handoffs and manual spreadsheet reconciliations.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">Silo Drag Remediation</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 3</span></p>
-          <div>
-            <div class="asc-tier-name">Customer Intelligence &amp; Predictive Analytics</div>
-            <div class="asc-tier-desc">Governed churn models, expansion propensity scoring, and empirical cost-to-serve telemetry.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">Predictive Accuracy</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 2</span></p>
-          <div>
-            <div class="asc-tier-name">Deterministic Identity Resolution</div>
-            <div class="asc-tier-desc">Single unified customer entity graph eliminating duplicate records across disparate tools.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">Deterministic Match</div>
-      </div>
-      <div class="asc-tier-item">
-        <div class="asc-tier-left">
-<p><span class="asc-tier-badge">Level 1</span></p>
-          <div>
-            <div class="asc-tier-name">Enterprise Data Foundation</div>
-            <div class="asc-tier-desc">Enforces mandatory 70%+ data quality threshold across completeness, freshness, and accuracy.</div>
-          </div>
-        </div>
-        <div class="asc-tier-metric">70%+ Quality Gate</div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- COMPONENT_18 -->
-<div class="mco-editorial-block">
-  <div class="mco-block-header">
-<p><span class="mco-block-title">Resolving the Five Crises: Master Architectural Summary</span></p>
-<p><span class="mco-block-tag">Operational Blueprint</span></p>
-  </div>
-  <table class="editorial-table">
-<p><thead></p>
-<p><tr></p>
-<p><th style="width:25%;">Enterprise Crisis</th></p>
-<p><th style="width:38%;">Structural Cause</th></p>
-<p><th style="width:37%;">Customer Core™ Remedy</th></p>
-<p></tr></p>
-<p></thead></p>
-<p><tbody></p>
-<p><tr></p>
-<p><td><strong>1. AI Implementation Crisis</strong></td></p>
-<p><td>Deploying algorithms on top of unstructured, un-governed data stores.</td></p>
-<p><td>Levels 1-3 Data, Identity, and Governed Intelligence Foundation.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>2. Silo Cost Drag ($1.8T)</strong></td></p>
-<p><td>Fragmented departmental tech stacks and conflicting local incentives.</td></p>
-<p><td>Value Council Governance &amp; Unified Customer Ledger.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>3. Transformation Failure</strong></td></p>
-<p><td>57+ month sequential lags vs. uncoordinated big-bang chaos.</td></p>
-<p><td>Constrained Parallelism with 70% Maturity Gates.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>4. Equity Misallocation</strong></td></p>
-<p><td>Uniform resource allocation across asymmetric customer profitability tiers.</td></p>
-<p><td>Level 6 CLV Portfolio Optimization &amp; Dynamic Reallocation.</td></p>
-<p></tr></p>
-<p><tr></p>
-<p><td><strong>5. Valuation Discount</strong></td></p>
-<p><td>Unpredictable revenue streams and opaque customer retention dynamics.</td></p>
-<p><td>Level 7 CBCV Reporting &amp; Earnings Quality Multiple Expansion.</td></p>
-<p></tr></p>
-<p></tbody></p>
-  </table>
-</div>
 <hr class="section-rule">
 </section><section class="article-section"><span class="section-kicker">MCo Research</span><h2>Citations, Research Validation, and Governance Log</h2>
 <h3>Authoritative Empirical Sources</h3>
@@ -1737,13 +1007,83 @@
 <li><strong>Writing Standard Compliance:</strong> Strict MCo Writing Standard v1.0 enforced. Zero em dashes present across all sections. Zero throat-clearers, zero hedge stacks, zero affirmation openers, and zero structural announcements.</li>
 <li><strong>Storage & Distribution:</strong> Master file authored in local workspace; dual-Drive synchronized to `michael@magruder.co` and `michael@id-cxm.com`.</li>
 </ul>
-  </section>
+    </section>
+  </div>
+
+  <!-- PANEL 2: EXECUTIVE FIELD EDITION -->
+  <div id="edition-executive" class="edition-panel">
+    <section class="article-section">
+      <div style="background:var(--ft-bg);border:1px solid var(--ft-border);border-radius:6px;padding:24px 28px;margin-bottom:36px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#665042;margin-bottom:4px;">Executive Briefing &middot; 5-Minute Summary</div>
+        <div style="font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--navy-dark);margin-bottom:8px;">Executive Field Brief &middot; Strategic Overview</div>
+        <p style="font-size:14px;color:var(--slate);line-height:1.55;margin:0;">Distilled strategic overview for Chief Executives, Private Equity Operating Partners, and Board Directors requiring immediate clarity.</p>
+      </div>
+
+      <!-- Exec Stat Grid -->
+      <div class="stat-grid-4" style="margin-bottom:36px;">
+        <div class="stat-card-editorial accent-orange">
+          <div class="stat-card-num orange">88%</div>
+          <div class="stat-card-label">Deploying AI</div>
+        </div>
+        <div class="stat-card-editorial accent-red">
+          <div class="stat-card-num red">81%</div>
+          <div class="stat-card-label">Zero Bottom-Line Return</div>
+        </div>
+        <div class="stat-card-editorial accent-red">
+          <div class="stat-card-num red">$1.8T</div>
+          <div class="stat-card-label">Silo Cost Drag</div>
+        </div>
+        <div class="stat-card-editorial">
+          <div class="stat-card-num">80/20</div>
+          <div class="stat-card-label">Customer Equity Skew</div>
+        </div>
+      </div>
+
+      <figure class="riso-article-figure">
+  <div class="riso-fig-header">
+    <div>
+      <div class="riso-fig-eyebrow">Exhibit 4.0 · Customer Portfolio Economics</div>
+      <div class="riso-fig-title">The Profitability Whale Curve (80/20 CBCV Distortion)</div>
+    </div>
+    <span class="riso-fig-code">CRISIS 4 // FIG. 4.0</span>
+  </div>
+  <div class="riso-fig-img-box">
+    <img src="../images/insights/MCo_Risograph_Whale_Curve.png" alt="The Profitability Whale Curve Risograph">
+  </div>
+  <figcaption class="riso-fig-caption">
+    <strong>Exhibit 4.0:</strong> Empirical Customer Profitability Distribution. The top 20% of customer accounts ascend to +120% of cumulative net operating profit (navy curve), the middle 60% break even, and the bottom 20% toxic accounts (orange cross-hatching) destroy 20% to 30% of total enterprise value.
+  </figcaption>
+</figure>
+
+      <p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">Enterprise AI is hitting a wall.</p>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">Companies are spending millions on new AI tools, smart agents, and cloud platforms. Yet almost none of this investment is showing up on the bottom line.</p>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">A major 2026 McKinsey study of over 10,000 organizations found that while 88% are using AI, 81% report zero financial return.</p>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">Why is this happening?</p>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">It is not because the AI models are broken. It is because companies are trying to plug high-speed AI tools into slow, disconnected department silos.</p>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">When you put machine-speed AI on top of fragmented silos, you do not fix the company. You just create confusion faster.</p>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">Across our work with private equity firms and enterprise leaders, we see five clear crises destroying value:</p>
+<h3 style="font-size:20px;font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:12px;border-left:3px solid var(--orange);padding-left:14px;">1. The AI Implementation Crisis</h3>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">Gartner reports that 60% of enterprise AI projects are abandoned because companies do not have clean, connected data. Deloitte found that only 21% of finance teams see real value from AI. Adding AI on top of messy data only automates bad decisions.</p>
+<h3 style="font-size:20px;font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:12px;border-left:3px solid var(--orange);padding-left:14px;">2. The Silo Cost Crisis</h3>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">Departments work in isolation. Marketing, sales, and operations each buy their own tools and chase their own goals. This fragmentation costs large companies an estimated $1.8 trillion every year in lost productivity.</p>
+<h3 style="font-size:20px;font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:12px;border-left:3px solid var(--orange);padding-left:14px;">3. The Transformation Failure Crisis</h3>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">Big 5-year digital transformations fail up to 84% of the time. By the time a multi-year project finishes, the business world has already moved on. Companies need continuous, parallel progress, not massive sequential overhauls.</p>
+<h3 style="font-size:20px;font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:12px;border-left:3px solid var(--orange);padding-left:14px;">4. The Equity Misallocation Crisis</h3>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">In most businesses, the top 20% of customers generate 80% of the profits, while the bottom 20% actually destroy value. Yet companies spend the same time, money, and computing power on every customer equally.</p>
+<h3 style="font-size:20px;font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:12px;border-left:3px solid var(--orange);padding-left:14px;">5. The Valuation Discount Crisis</h3>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">When investors and private equity buyers cannot clearly see where future revenue is coming from, they discount what the company is worth by 30% to 50%.</p>
+<hr style="border:0;height:1px;background:var(--rule);margin:36px 0;">
+<h3 style="font-size:20px;font-weight:700;color:var(--navy);margin-top:32px;margin-bottom:12px;border-left:3px solid var(--orange);padding-left:14px;">The Strategic Bridge</h3>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">The Five Crises show what is broken. Fixing the foundation first is how companies turn AI from an expensive science project into real earnings.</p>
+<p style="font-size:18px;line-height:1.75;color:var(--slate);margin-bottom:20px;">To read the complete mathematical proofs, research methodologies, and sovereign architecture blueprints, read the full institutional treatise at [magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance](https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance).</p>
+    </section>
+  </div>
 
   <!-- CTA BLOCK -->
   <div class="cta-block">
     <div class="cta-eyebrow">Enterprise Sovereign Architecture</div>
     <h2>Resolve the Five Crises in Your Portfolio</h2>
-    <p>Magruder &amp; Company deploys high-velocity, single-principal diagnostics bounded under $24,500 corporate procurement limits to establish deterministic Customer Core&#x2122; operating foundations before capital waste compounds.</p>
+    <p>Magruder &amp; Company deploys high-velocity, single-principal diagnostics bounded under corporate procurement limits to establish deterministic Customer Core&#x2122; operating foundations before capital waste compounds.</p>
     <a href="/#contact" class="cta-btn">Initiate Diagnostic Review</a>
   </div>
 
@@ -1770,6 +1110,21 @@
     </ul>
   </div>
 </footer>
+
+<script>
+  function switchEdition(mode) {
+    document.querySelectorAll('.edition-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.mode-pill-btn').forEach(b => b.classList.remove('active'));
+    
+    if (mode === 'executive') {
+      document.getElementById('edition-executive').classList.add('active');
+      document.getElementById('btn-mode-exec').classList.add('active');
+    } else {
+      document.getElementById('edition-journal').classList.add('active');
+      document.getElementById('btn-mode-journal').classList.add('active');
+    }
+  }
+</script>
 
 </body>
 </html>
