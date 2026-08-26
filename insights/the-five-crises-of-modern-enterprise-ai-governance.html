@@ -206,7 +206,7 @@
     font-size: 13px;
     color: var(--muted);
     letter-spacing: 0.04em;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .hero-byline strong {
@@ -1160,6 +1160,82 @@
   }
 
   
+  /* ARTICLE-LEVEL SHARE BAR */
+  .article-share-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    flex-wrap: wrap;
+  }
+
+  .share-bar-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .share-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .social-icon-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .social-icon-btn svg {
+    flex-shrink: 0;
+  }
+
+  .social-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .social-icon-btn.icon-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+  }
+
+  .social-icon-btn.icon-x:hover {
+    background: #000000;
+    border-color: #333333;
+  }
+
+  .social-icon-btn.icon-email:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .social-icon-btn.icon-copy:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  /* CARD-LEVEL SHARE ACTIONS */
   .memo-social-actions {
     display: flex;
     align-items: center;
@@ -1180,10 +1256,14 @@
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     transition: all 0.15s ease;
     text-decoration: none;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .memo-share-btn svg {
+    flex-shrink: 0;
   }
 
   .memo-share-btn:hover {
@@ -1206,8 +1286,8 @@
   }
 
   .memo-share-btn.share-linkedin:hover {
-    background: #0077B5;
-    border-color: #0077B5;
+    background: #0A66C2;
+    border-color: #0A66C2;
     color: #FFFFFF;
   }
 
@@ -1262,6 +1342,32 @@
         <span class="mode-badge">5 MIN READ</span>
       </button>
     </div>
+
+    <!-- ARTICLE-LEVEL SOCIAL SHARING BAR -->
+    
+<div class="article-share-bar">
+  <span class="share-bar-label">Share Article:</span>
+  <div class="share-btn-group">
+    <button class="social-icon-btn icon-linkedin" onclick="shareArticleLinkedIn()" title="Share full article on LinkedIn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      <span>LinkedIn</span>
+    </button>
+    <button class="social-icon-btn icon-x" onclick="shareArticleX()" title="Post full article on X / Twitter">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <span>Post</span>
+    </button>
+    <button class="social-icon-btn icon-email" onclick="shareArticleEmail(this)" title="Email article link to colleague">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <span>Email</span>
+    </button>
+    <button class="social-icon-btn icon-copy" onclick="copyArticleLink(this)" title="Copy article URL">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <span class="copy-label">Copy Link</span>
+    </button>
+  </div>
+</div>
+
+
   </div>
 </section>
 
@@ -1292,18 +1398,22 @@
       <div style="font-size:12px;color:#665042;margin-top:2px;">Pre-formatted brief for executive peers, board members, and investment committees.</div>
     </div>
     
-    <!-- Social Sharing Action Rail -->
+    <!-- Card-Level Action Buttons with Icons -->
     <div class="memo-social-actions">
-      <button class="memo-share-btn share-linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
-        <span>Share LinkedIn</span>
+      <button class="memo-share-btn share-linkedin" onclick="shareMemoLinkedIn()" title="Share quote on LinkedIn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <span>LinkedIn</span>
       </button>
-      <button class="memo-share-btn share-x" onclick="shareOnX()" title="Share on X / Twitter">
-        <span>Post to X</span>
+      <button class="memo-share-btn share-x" onclick="shareMemoX()" title="Post quote on X">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>Post</span>
       </button>
-      <button class="memo-share-btn share-email" onclick="shareViaEmail(this)" title="Email to Executive Peer">
+      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email draft to colleague">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         <span>Email Peer</span>
       </button>
-      <button class="memo-share-btn share-copy" onclick="copyBoardroomMemo(this)" title="Copy Text to Clipboard">
+      <button class="memo-share-btn share-copy" onclick="copyMemoText(this)" title="Copy memo text">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         <span class="copy-text">Copy Memo</span>
       </button>
     </div>
@@ -1840,18 +1950,22 @@
       <div style="font-size:12px;color:#665042;margin-top:2px;">Pre-formatted brief for executive peers, board members, and investment committees.</div>
     </div>
     
-    <!-- Social Sharing Action Rail -->
+    <!-- Card-Level Action Buttons with Icons -->
     <div class="memo-social-actions">
-      <button class="memo-share-btn share-linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
-        <span>Share LinkedIn</span>
+      <button class="memo-share-btn share-linkedin" onclick="shareMemoLinkedIn()" title="Share quote on LinkedIn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <span>LinkedIn</span>
       </button>
-      <button class="memo-share-btn share-x" onclick="shareOnX()" title="Share on X / Twitter">
-        <span>Post to X</span>
+      <button class="memo-share-btn share-x" onclick="shareMemoX()" title="Post quote on X">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>Post</span>
       </button>
-      <button class="memo-share-btn share-email" onclick="shareViaEmail(this)" title="Email to Executive Peer">
+      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email draft to colleague">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         <span>Email Peer</span>
       </button>
-      <button class="memo-share-btn share-copy" onclick="copyBoardroomMemo(this)" title="Copy Text to Clipboard">
+      <button class="memo-share-btn share-copy" onclick="copyMemoText(this)" title="Copy memo text">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         <span class="copy-text">Copy Memo</span>
       </button>
     </div>
@@ -2455,34 +2569,76 @@
   const ARTICLE_TITLE = "The Five Crises of Modern Enterprise AI Governance";
   const MEMO_TEXT = "AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.\n\nThe fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.";
 
-  function shareOnLinkedIn() {
-    const url = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=linkedin&utm_medium=share_card");
+  /* --- ARTICLE-LEVEL SHARING --- */
+  function shareArticleLinkedIn() {
+    const url = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=linkedin&utm_medium=article_top");
     window.open(url, '_blank', 'width=600,height=600,menubar=no,toolbar=no');
   }
 
-  function shareOnX() {
-    const tweet = "AI does not fix a broken operating model; it automates confusion at machine speed.\n\nThe Five Crises of Modern Enterprise AI Governance by @magruderco_\n\n";
-    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tweet) + "&url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=twitter&utm_medium=share_card");
+  function shareArticleX() {
+    const tweet = "Why 88% of enterprises deploying AI see zero bottom-line return: The Five Crises of Modern Enterprise AI Governance by @magruderco_\n\n";
+    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tweet) + "&url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=twitter&utm_medium=article_top");
     window.open(url, '_blank', 'width=600,height=500,menubar=no,toolbar=no');
   }
 
-  function shareViaEmail(btn) {
+  function shareArticleEmail(btn) {
+    const subject = encodeURIComponent("Executive Research: The Five Crises of Modern Enterprise AI Governance");
+    const body = encodeURIComponent(
+      "Colleague,\n\nI recommend reviewing this executive treatise from Magruder & Company analyzing why 88% of enterprise AI investments fail to impact the bottom line, and the sovereign architecture required to fix it:\n\n" +
+      ARTICLE_URL + "?utm_source=email&utm_medium=article_share\n\n"
+    );
+    
+    // Fallback copy to clipboard
+    const fullText = "Subject: Executive Research: The Five Crises of Modern Enterprise AI Governance\n\n" + ARTICLE_URL + "?utm_source=email&utm_medium=article_share";
+    navigator.clipboard.writeText(fullText).then(() => {
+      const label = btn.querySelector('span');
+      if (label) {
+        const orig = label.innerText;
+        label.innerText = 'Copied!';
+        setTimeout(() => { label.innerText = orig; }, 2500);
+      }
+    });
+
+    const a = document.createElement('a');
+    a.href = "mailto:?subject=" + subject + "&body=" + body;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { document.body.removeChild(a); }, 500);
+  }
+
+  function copyArticleLink(btn) {
+    navigator.clipboard.writeText(ARTICLE_URL + "?utm_source=copy&utm_medium=article_top").then(() => {
+      const label = btn.querySelector('.copy-label') || btn.querySelector('span');
+      if (label) {
+        const orig = label.innerText;
+        label.innerText = 'Copied!';
+        btn.style.background = 'var(--orange)';
+        setTimeout(() => {
+          label.innerText = orig;
+          btn.style.background = '';
+        }, 2500);
+      }
+    });
+  }
+
+  /* --- CARD-LEVEL SHARING (30-SECOND BOARDROOM MEMO) --- */
+  function shareMemoLinkedIn() {
+    const url = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=linkedin&utm_medium=memo_card");
+    window.open(url, '_blank', 'width=600,height=600,menubar=no,toolbar=no');
+  }
+
+  function shareMemoX() {
+    const tweet = "AI does not fix a broken operating model; it automates confusion at machine speed.\n\n";
+    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tweet) + "&url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=twitter&utm_medium=memo_card");
+    window.open(url, '_blank', 'width=600,height=500,menubar=no,toolbar=no');
+  }
+
+  function shareMemoEmail(btn) {
     const subjectText = "Boardroom Brief: The Five Crises of Modern Enterprise AI Governance";
-    const bodyText = "Colleague,
-
-I thought you would find this executive research from Magruder & Company relevant to our enterprise AI priorities:
-
-\"" + MEMO_TEXT + "\"
-
-Read the full master research and Seven-Level Operating Stack here:
-" + ARTICLE_URL + "?utm_source=email&utm_medium=peer_share";
+    const bodyText = "Colleague,\n\nI thought you would find this executive research from Magruder & Company relevant to our enterprise AI priorities:\n\n\"" + MEMO_TEXT + "\"\n\nRead the full master research and Seven-Level Operating Stack here:\n" + ARTICLE_URL + "?utm_source=email&utm_medium=peer_share";
     
-    const mailtoUrl = "mailto:?subject=" + encodeURIComponent(subjectText) + "&body=" + encodeURIComponent(bodyText);
-    
-    // Copy pre-formatted email to clipboard as guaranteed fallback for Gmail / webmail users
-    const clipboardPayload = "Subject: " + subjectText + "
-
-" + bodyText;
+    const clipboardPayload = "Subject: " + subjectText + "\n\n" + bodyText;
     navigator.clipboard.writeText(clipboardPayload).then(() => {
       const textSpan = btn ? btn.querySelector('span') : null;
       if (textSpan) {
@@ -2500,30 +2656,29 @@ Read the full master research and Seven-Level Operating Stack here:
       }
     });
 
-    // Attempt to launch default system mail client via hidden anchor
     const a = document.createElement('a');
-    a.href = mailtoUrl;
+    a.href = "mailto:?subject=" + encodeURIComponent(subjectText) + "&body=" + encodeURIComponent(bodyText);
     a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
-    setTimeout(() => {
-      document.body.removeChild(a);
-    }, 500);
+    setTimeout(() => { document.body.removeChild(a); }, 500);
   }
 
-  function copyBoardroomMemo(btn) {
+  function copyMemoText(btn) {
     const text = MEMO_TEXT + "\n\nRead the full treatise: " + ARTICLE_URL + "?utm_source=copy&utm_medium=boardroom_memo";
     navigator.clipboard.writeText(text).then(() => {
       const textSpan = btn.querySelector('.copy-text');
-      const originalText = textSpan.innerText;
-      textSpan.innerText = 'Copied!';
-      btn.style.background = '#0F6E56';
-      btn.style.borderColor = '#0F6E56';
-      setTimeout(() => {
-        textSpan.innerText = originalText;
-        btn.style.background = '';
-        btn.style.borderColor = '';
-      }, 2500);
+      if (textSpan) {
+        const originalText = textSpan.innerText;
+        textSpan.innerText = 'Copied!';
+        btn.style.background = '#0F6E56';
+        btn.style.borderColor = '#0F6E56';
+        setTimeout(() => {
+          textSpan.innerText = originalText;
+          btn.style.background = '';
+          btn.style.borderColor = '';
+        }, 2500);
+      }
     });
   }
 
