@@ -1356,9 +1356,9 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       <span>Post</span>
     </button>
-    <button class="social-icon-btn icon-email" onclick="shareArticleEmail(this)" title="Email article link to colleague">
+    <button class="social-icon-btn icon-email" onclick="shareArticleEmail(this)" title="Email executive brief snapshot to colleague">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-      <span>Email</span>
+      <span>Email Brief</span>
     </button>
     <button class="social-icon-btn icon-copy" onclick="copyArticleLink(this)" title="Copy article URL">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -1408,9 +1408,9 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         <span>Post</span>
       </button>
-      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email draft to colleague">
+      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email executive brief snapshot to peer">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        <span>Email Peer</span>
+        <span>Email Brief</span>
       </button>
       <button class="memo-share-btn share-copy" onclick="copyMemoText(this)" title="Copy memo text">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -1960,9 +1960,9 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         <span>Post</span>
       </button>
-      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email draft to colleague">
+      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email executive brief snapshot to peer">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        <span>Email Peer</span>
+        <span>Email Brief</span>
       </button>
       <button class="memo-share-btn share-copy" onclick="copyMemoText(this)" title="Copy memo text">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -2530,8 +2530,36 @@
 </footer>
 
 <script>
+
+  const ARTICLE_URL = "https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance";
+  const ARTICLE_TITLE = "The Five Crises of Modern Enterprise AI Governance";
+  const MEMO_TEXT = "AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.\n\nThe fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.";
+
+  const EMAIL_SNAPSHOT_SUBJECT = "Executive Brief: The Five Crises of Modern Enterprise AI Governance";
+  const EMAIL_SNAPSHOT_BODY = `Colleague,
+
+I recommend reviewing this executive research from Magruder & Company on why enterprise AI investments are failing to impact the bottom line, and the sovereign architecture required to fix it:
+
+EXECUTIVE SUMMARY
+"AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.
+
+The fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins."
+
+THE FIVE CRISES AT A GLANCE
+1. AI Implementation Crisis: 88% deploy AI, yet 81% see zero bottom-line EBITDA return.
+2. Silo Cost Crisis: Disconnected functional tools create $1.8T in annual productivity drag.
+3. Transformation Failure Crisis: 57-month waterfall projects suffer 70% to 84% failure rates.
+4. Equity Misallocation Crisis: Top 20% of customers generate 120% of net profits while bottom 20% destroy value.
+5. Valuation Discount Crisis: Unpredictable customer churn triggers 30% to 50% private equity multiple discounts.
+
+THE SOVEREIGN OPERATING REMEDY
+Customer Core establishes an auditable single-source-of-truth customer graph across all departments, unlocking $8M to $12M in recurring annual EBITDA lift and 1.5x to 2.5x multiple expansion.
+
+Read the full master research and interactive Seven-Level Architecture here:
+${ARTICLE_URL}?utm_source=email&utm_medium=exec_snapshot`;
+
+  /* --- MODE SWITCHER --- */
   function switchEdition(mode) {
-    console.log('Switching edition to:', mode);
     const journalPanel = document.getElementById('edition-journal');
     const execPanel = document.getElementById('edition-executive');
     const journalBtn = document.getElementById('btn-mode-journal');
@@ -2550,6 +2578,7 @@
     }
   }
 
+  /* --- EXECUTIVE DRAWER TOGGLE --- */
   function toggleDetails(id, btn) {
     const el = document.getElementById(id);
     const icon = btn.querySelector('.exec-toggle-icon');
@@ -2564,11 +2593,6 @@
     }
   }
 
-  
-  const ARTICLE_URL = "https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance";
-  const ARTICLE_TITLE = "The Five Crises of Modern Enterprise AI Governance";
-  const MEMO_TEXT = "AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.\n\nThe fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.";
-
   /* --- ARTICLE-LEVEL SHARING --- */
   function shareArticleLinkedIn() {
     const url = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=linkedin&utm_medium=article_top");
@@ -2582,25 +2606,25 @@
   }
 
   function shareArticleEmail(btn) {
-    const subject = encodeURIComponent("Executive Research: The Five Crises of Modern Enterprise AI Governance");
-    const body = encodeURIComponent(
-      "Colleague,\n\nI recommend reviewing this executive treatise from Magruder & Company analyzing why 88% of enterprise AI investments fail to impact the bottom line, and the sovereign architecture required to fix it:\n\n" +
-      ARTICLE_URL + "?utm_source=email&utm_medium=article_share\n\n"
-    );
-    
-    // Fallback copy to clipboard
-    const fullText = "Subject: Executive Research: The Five Crises of Modern Enterprise AI Governance\n\n" + ARTICLE_URL + "?utm_source=email&utm_medium=article_share";
-    navigator.clipboard.writeText(fullText).then(() => {
+    const fullDraft = "Subject: " + EMAIL_SNAPSHOT_SUBJECT + "\n\n" + EMAIL_SNAPSHOT_BODY;
+    navigator.clipboard.writeText(fullDraft).then(() => {
       const label = btn.querySelector('span');
       if (label) {
         const orig = label.innerText;
-        label.innerText = 'Copied!';
-        setTimeout(() => { label.innerText = orig; }, 2500);
+        label.innerText = 'Snapshot Copied!';
+        btn.style.background = '#0F6E56';
+        btn.style.borderColor = '#0F6E56';
+        setTimeout(() => {
+          label.innerText = orig;
+          btn.style.background = '';
+          btn.style.borderColor = '';
+        }, 2500);
       }
     });
 
+    const mailtoUrl = "mailto:?subject=" + encodeURIComponent(EMAIL_SNAPSHOT_SUBJECT) + "&body=" + encodeURIComponent(EMAIL_SNAPSHOT_BODY);
     const a = document.createElement('a');
-    a.href = "mailto:?subject=" + subject + "&body=" + body;
+    a.href = mailtoUrl;
     a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
@@ -2635,15 +2659,12 @@
   }
 
   function shareMemoEmail(btn) {
-    const subjectText = "Boardroom Brief: The Five Crises of Modern Enterprise AI Governance";
-    const bodyText = "Colleague,\n\nI thought you would find this executive research from Magruder & Company relevant to our enterprise AI priorities:\n\n\"" + MEMO_TEXT + "\"\n\nRead the full master research and Seven-Level Operating Stack here:\n" + ARTICLE_URL + "?utm_source=email&utm_medium=peer_share";
-    
-    const clipboardPayload = "Subject: " + subjectText + "\n\n" + bodyText;
-    navigator.clipboard.writeText(clipboardPayload).then(() => {
-      const textSpan = btn ? btn.querySelector('span') : null;
+    const fullDraft = "Subject: " + EMAIL_SNAPSHOT_SUBJECT + "\n\n" + EMAIL_SNAPSHOT_BODY;
+    navigator.clipboard.writeText(fullDraft).then(() => {
+      const textSpan = btn ? btn.querySelector('span:not(svg span)') : null;
       if (textSpan) {
         const originalText = textSpan.innerText;
-        textSpan.innerText = 'Draft Copied!';
+        textSpan.innerText = 'Snapshot Copied!';
         btn.style.background = '#0F6E56';
         btn.style.borderColor = '#0F6E56';
         btn.style.color = '#FFFFFF';
@@ -2656,8 +2677,9 @@
       }
     });
 
+    const mailtoUrl = "mailto:?subject=" + encodeURIComponent(EMAIL_SNAPSHOT_SUBJECT) + "&body=" + encodeURIComponent(EMAIL_SNAPSHOT_BODY);
     const a = document.createElement('a');
-    a.href = "mailto:?subject=" + encodeURIComponent(subjectText) + "&body=" + encodeURIComponent(bodyText);
+    a.href = mailtoUrl;
     a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
@@ -2667,7 +2689,7 @@
   function copyMemoText(btn) {
     const text = MEMO_TEXT + "\n\nRead the full treatise: " + ARTICLE_URL + "?utm_source=copy&utm_medium=boardroom_memo";
     navigator.clipboard.writeText(text).then(() => {
-      const textSpan = btn.querySelector('.copy-text');
+      const textSpan = btn.querySelector('.copy-text') || btn.querySelector('span:not(svg span)');
       if (textSpan) {
         const originalText = textSpan.innerText;
         textSpan.innerText = 'Copied!';
