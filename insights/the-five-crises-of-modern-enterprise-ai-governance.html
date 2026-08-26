@@ -1159,6 +1159,70 @@
     margin-top: 24px;
   }
 
+  
+  .memo-social-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .memo-share-btn {
+    background: #FFFFFF;
+    border: 1px solid #D6BBA8;
+    color: var(--navy-dark);
+    font-family: var(--font-main);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .memo-share-btn:hover {
+    border-color: var(--navy);
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(19,31,51,0.12);
+  }
+
+  .memo-share-btn.share-copy {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    border-color: var(--navy-dark);
+  }
+
+  .memo-share-btn.share-copy:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .memo-share-btn.share-linkedin:hover {
+    background: #0077B5;
+    border-color: #0077B5;
+    color: #FFFFFF;
+  }
+
+  .memo-share-btn.share-x:hover {
+    background: #000000;
+    border-color: #000000;
+    color: #FFFFFF;
+  }
+
+  .memo-share-btn.share-email:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #FFFFFF;
+  }
+
 </style>
 </head>
 <body>
@@ -1223,18 +1287,35 @@
 
 <div class="boardroom-memo-card">
   <div class="boardroom-memo-header">
-    <div class="boardroom-memo-eyebrow">Executive Transmission &middot; 30-Second Boardroom Memo</div>
-    <button class="copy-memo-btn" onclick="copyBoardroomMemo(this)">
-      <span class="copy-icon">&#128203;</span>
-      <span class="copy-text">Copy Memo to Share</span>
-    </button>
+    <div>
+      <div class="boardroom-memo-eyebrow">Executive Transmission &middot; 30-Second Boardroom Memo</div>
+      <div style="font-size:12px;color:#665042;margin-top:2px;">Pre-formatted brief for executive peers, board members, and investment committees.</div>
+    </div>
+    
+    <!-- Social Sharing Action Rail -->
+    <div class="memo-social-actions">
+      <button class="memo-share-btn share-linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
+        <span>Share LinkedIn</span>
+      </button>
+      <button class="memo-share-btn share-x" onclick="shareOnX()" title="Share on X / Twitter">
+        <span>Post to X</span>
+      </button>
+      <button class="memo-share-btn share-email" onclick="shareViaEmail()" title="Email to Executive Peer">
+        <span>Email Peer</span>
+      </button>
+      <button class="memo-share-btn share-copy" onclick="copyBoardroomMemo(this)" title="Copy Text to Clipboard">
+        <span class="copy-text">Copy Memo</span>
+      </button>
+    </div>
   </div>
+
   <blockquote class="boardroom-memo-quote" id="boardroom-memo-text">
     <p>&ldquo;AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.</p>
     <p style="margin-bottom:0;">The fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.&rdquo;</p>
   </blockquote>
+
   <div class="boardroom-memo-footer">
-    <span>For board discussions, investment committees, and peer executive briefings.</span>
+    <span>Magruder &amp; Company &middot; The Five Crises of Modern Enterprise AI Governance &middot; <a href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance" style="color:var(--orange);text-decoration:none;">magruder.co</a></span>
   </div>
 </div>
 
@@ -1754,18 +1835,35 @@
 
 <div class="boardroom-memo-card">
   <div class="boardroom-memo-header">
-    <div class="boardroom-memo-eyebrow">Executive Transmission &middot; 30-Second Boardroom Memo</div>
-    <button class="copy-memo-btn" onclick="copyBoardroomMemo(this)">
-      <span class="copy-icon">&#128203;</span>
-      <span class="copy-text">Copy Memo to Share</span>
-    </button>
+    <div>
+      <div class="boardroom-memo-eyebrow">Executive Transmission &middot; 30-Second Boardroom Memo</div>
+      <div style="font-size:12px;color:#665042;margin-top:2px;">Pre-formatted brief for executive peers, board members, and investment committees.</div>
+    </div>
+    
+    <!-- Social Sharing Action Rail -->
+    <div class="memo-social-actions">
+      <button class="memo-share-btn share-linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
+        <span>Share LinkedIn</span>
+      </button>
+      <button class="memo-share-btn share-x" onclick="shareOnX()" title="Share on X / Twitter">
+        <span>Post to X</span>
+      </button>
+      <button class="memo-share-btn share-email" onclick="shareViaEmail()" title="Email to Executive Peer">
+        <span>Email Peer</span>
+      </button>
+      <button class="memo-share-btn share-copy" onclick="copyBoardroomMemo(this)" title="Copy Text to Clipboard">
+        <span class="copy-text">Copy Memo</span>
+      </button>
+    </div>
   </div>
+
   <blockquote class="boardroom-memo-quote" id="boardroom-memo-text">
     <p>&ldquo;AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.</p>
     <p style="margin-bottom:0;">The fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.&rdquo;</p>
   </blockquote>
+
   <div class="boardroom-memo-footer">
-    <span>For board discussions, investment committees, and peer executive briefings.</span>
+    <span>Magruder &amp; Company &middot; The Five Crises of Modern Enterprise AI Governance &middot; <a href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance" style="color:var(--orange);text-decoration:none;">magruder.co</a></span>
   </div>
 </div>
 
@@ -2353,16 +2451,44 @@
   }
 
   
+  const ARTICLE_URL = "https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance";
+  const ARTICLE_TITLE = "The Five Crises of Modern Enterprise AI Governance";
+  const MEMO_TEXT = "AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.\n\nThe fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.";
+
+  function shareOnLinkedIn() {
+    const url = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=linkedin&utm_medium=share_card");
+    window.open(url, '_blank', 'width=600,height=600,menubar=no,toolbar=no');
+  }
+
+  function shareOnX() {
+    const tweet = "AI does not fix a broken operating model; it automates confusion at machine speed.\n\nThe Five Crises of Modern Enterprise AI Governance by @magruderco_\n\n";
+    const url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tweet) + "&url=" + encodeURIComponent(ARTICLE_URL + "?utm_source=twitter&utm_medium=share_card");
+    window.open(url, '_blank', 'width=600,height=500,menubar=no,toolbar=no');
+  }
+
+  function shareViaEmail() {
+    const subject = encodeURIComponent("Boardroom Brief: The Five Crises of Modern Enterprise AI Governance");
+    const body = encodeURIComponent(
+      "Colleague,\n\nI thought you would find this executive research from Magruder & Company relevant to our AI and enterprise architecture priorities:\n\n" +
+      "\"" + MEMO_TEXT + "\"\n\n" +
+      "Read the full master research and the Seven-Level Sovereign Operating Stack here:\n" +
+      ARTICLE_URL + "?utm_source=email&utm_medium=peer_share\n\n"
+    );
+    window.location.href = "mailto:?subject=" + subject + "&body=" + body;
+  }
+
   function copyBoardroomMemo(btn) {
-    const text = "AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.\n\nThe fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.";
+    const text = MEMO_TEXT + "\n\nRead the full treatise: " + ARTICLE_URL + "?utm_source=copy&utm_medium=boardroom_memo";
     navigator.clipboard.writeText(text).then(() => {
       const textSpan = btn.querySelector('.copy-text');
       const originalText = textSpan.innerText;
-      textSpan.innerText = 'Copied to Clipboard!';
+      textSpan.innerText = 'Copied!';
       btn.style.background = '#0F6E56';
+      btn.style.borderColor = '#0F6E56';
       setTimeout(() => {
         textSpan.innerText = originalText;
         btn.style.background = '';
+        btn.style.borderColor = '';
       }, 2500);
     });
   }
