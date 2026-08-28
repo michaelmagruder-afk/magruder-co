@@ -3,626 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="../images/insights/../favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="../images/insights/../favicon.png">
-<title>The Five Crises of Modern Enterprise AI Governance &middot; Magruder &amp; Company</title>
-<meta name="description" content="Why 88% of enterprises deploying AI see zero bottom-line return. An empirical deconstruction of the five structural crises destroying enterprise AI value.">
-<meta property="og:title" content="The Five Crises of Modern Enterprise AI Governance">
-<meta property="og:description" content="Why 88% of enterprises deploying AI see zero bottom-line return. An empirical deconstruction of the five structural crises destroying enterprise AI value.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance">
-<meta property="og:site_name" content="Magruder &amp; Company">
-<meta property="og:image" content="../images/insights/og-the-five-crises-1200x627.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="627">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@magruderco_">
-<meta name="twitter:title" content="The Five Crises of Modern Enterprise AI Governance">
-<meta name="twitter:description" content="Why 88% of enterprises deploying AI see zero bottom-line return. An empirical deconstruction of the five structural crises destroying enterprise AI value.">
-<meta name="twitter:image" content="../images/insights/og-the-five-crises-1200x627.png">
+<title>The Five Crises of Modern Enterprise AI Governance · Magruder &amp; Company</title>
+<meta name="description" content="Architectural Mismatch, Capital Misallocation, and the Imperative for Sovereign Enterprise Infrastructure. Practice Master Research Treatise by Magruder &amp; Company.">
 <link rel="canonical" href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<!-- Google Analytics tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPMDYQ5YBL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QPMDYQ5YBL');
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --navy: #1E3455;
-    --navy-dark: #131F33;
-    --navy-mid: #2C4A73;
-    --orange: #F86822;
-    --orange-light: #FEA96D;
-    --cream: #FAF8F5;
-    --off-white: #F2EFE9;
-    --ft-bg: #FFF1E5;
-    --ft-border: #D6BBA8;
-    --slate: #4A5568;
-    --muted: #8A9BB0;
-    --rule: #D6DDE8;
-    --teal: #0F6E56;
-    --red: #C53030;
-    --font-main: "Neue Haas Grotesk","Helvetica Neue","Hanken Grotesk",Helvetica,Arial,sans-serif;
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --font-mono: 'JetBrains Mono', monospace;
-  }
 
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: var(--font-main);
-    background-color: var(--cream);
-    color: var(--navy);
-    font-size: 17px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* NAV */
-  .site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: var(--navy-dark);
-    border-bottom: 1px solid rgba(214,221,232,0.12);
-    height: 64px;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-inner {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  .nav-logo {
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #ffffff;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .nav-logo .amp {
-    color: var(--orange);
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    list-style: none;
-    flex-wrap: wrap;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    font-size: 12.5px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: rgba(255,255,255,0.72);
-    padding: 6px 10px;
-    border-radius: 4px;
-    transition: color 0.2s, background 0.2s;
-    white-space: nowrap;
-  }
-
-  .nav-links a:hover {
-    color: #ffffff;
-    background: rgba(255,255,255,0.08);
-  }
-
-  .nav-cta {
-    background: var(--orange) !important;
-    color: #ffffff !important;
-    padding: 7px 16px !important;
-    border-radius: 5px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.03em !important;
-  }
-
-  /* HERO */
-  .hero {
-    background: var(--navy-dark);
-    padding: 130px 32px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 50% 30%, rgba(44,74,115,0.35) 0%, rgba(19,31,51,0) 70%);
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    max-width: 920px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-label {
-    display: inline-block;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 20px;
-  }
-
-  .hero h1 {
-    font-family: var(--font-serif);
-    font-size: clamp(32px, 4.5vw, 48px);
-    font-weight: 700;
-    line-height: 1.18;
-    color: #ffffff;
-    margin-bottom: 20px;
-    letter-spacing: -0.015em;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(16px, 2.2vw, 19px);
-    line-height: 1.55;
-    color: rgba(255,255,255,0.82);
-    margin-bottom: 28px;
-    font-weight: 300;
-    max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-byline {
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    margin-bottom: 24px;
-  }
-
-  .hero-byline strong {
-    color: #ffffff;
-    font-weight: 600;
-  }
-
-  /* DUAL-MODE SWITCHER PILL BAR */
-  .edition-switcher-bar {
-    display: inline-flex;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 30px;
-    padding: 4px;
-    gap: 4px;
-    margin-top: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  }
-
-  .mode-pill-btn {
-    background: transparent;
-    border: none;
-    color: rgba(255,255,255,0.75);
-    font-family: var(--font-main);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 10px 22px;
-    border-radius: 24px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .mode-pill-btn:hover {
-    color: #ffffff;
-    background: rgba(255,255,255,0.08);
-  }
-
-  .mode-pill-btn.active {
-    background: var(--orange) !important;
-    color: #ffffff !important;
-    box-shadow: 0 2px 10px rgba(248,104,34,0.35);
-  }
-
-  .mode-badge {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    background: rgba(0,0,0,0.25);
-    padding: 2px 7px;
-    border-radius: 12px;
-    text-transform: uppercase;
-  }
-
-  /* CONTENT WRAP */
-  .content-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 50px 24px 100px;
-  }
-
-  .edition-panel {
-    display: none;
-  }
-
-  .edition-panel.active {
-    display: block !important;
-    animation: fadeIn 0.25s ease-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ARTICLE STYLING */
-  .article-section {
-    margin-bottom: 56px;
-  }
-
-  .section-kicker {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 12px;
-  }
-
-  .article-section h2 {
-    font-family: var(--font-serif);
-    font-size: clamp(26px, 3.2vw, 34px);
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    line-height: 1.25;
-    color: var(--navy-dark);
-    margin-bottom: 24px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .article-section h3 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--navy);
-    margin-top: 40px;
-    margin-bottom: 16px;
-    padding-left: 16px;
-    border-left: 3px solid var(--orange);
-  }
-
-  .article-section p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: var(--slate);
-    margin-bottom: 22px;
-  }
-
-  .article-section p strong {
-    color: var(--navy);
-    font-weight: 600;
-  }
-
-  .article-bullets, .article-numbered {
-    margin: 20px 0 28px 24px;
-    color: var(--slate);
-  }
-
-  .article-bullets li, .article-numbered li {
-    font-size: 16.5px;
-    line-height: 1.75;
-    margin-bottom: 12px;
-  }
-
-  .article-bullets li strong, .article-numbered li strong {
-    color: var(--navy);
-  }
-
-  /* FT BROADSHEET INSET CARD */
-  .ft-inset-card {
-    background: var(--ft-bg);
-    border: 1px solid var(--ft-border);
-    border-top: 4px solid var(--navy-dark);
-    padding: 28px;
-    margin: 36px 0;
-    border-radius: 0 0 4px 4px;
-  }
-
-  .ft-inset-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1px solid var(--ft-border);
-    padding-bottom: 10px;
-    margin-bottom: 18px;
-  }
-
-  .ft-inset-h4 {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--navy-dark);
-  }
-
-  .ft-inset-meta {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #665042;
-  }
-
-  .ft-inset-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  @media (max-width: 700px) {
-    .ft-inset-grid { grid-template-columns: 1fr; }
-  }
-
-  .ft-inset-box {
-    background: rgba(255,255,255,0.65);
-    border: 1px solid #E6D2C4;
-    padding: 16px;
-    border-radius: 3px;
-  }
-
-  .ft-box-tag {
-    font-size: 10.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--red);
-    margin-bottom: 4px;
-  }
-
-  .ft-box-tag.sov { color: var(--teal); }
-
-  .ft-box-title {
-    font-size: 14.5px;
-    font-weight: 700;
-    color: var(--navy-dark);
-    margin-bottom: 6px;
-  }
-
-  .ft-box-desc {
-    font-size: 13px;
-    line-height: 1.55;
-    color: #4A3B32;
-    margin: 0 !important;
-  }
-
-  /* STAT GRID 4 */
-  .stat-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin: 32px 0;
-  }
-
-  @media (max-width: 860px) {
-    .stat-grid-4 { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .stat-card-editorial {
-    background: #FFFFFF;
-    border: 1px solid var(--rule);
-    border-top: 4px solid var(--navy);
-    border-radius: 4px;
-    padding: 20px 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .stat-card-editorial.accent-orange { border-top-color: var(--orange); }
-  .stat-card-editorial.accent-red { border-top-color: var(--red); }
-
-  .stat-card-num {
-    font-family: var(--font-serif);
-    font-size: clamp(32px, 3.5vw, 42px);
-    font-weight: 700;
-    line-height: 1;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .stat-card-num.red { color: var(--red); }
-  .stat-card-num.orange { color: var(--orange); }
-
-  .stat-card-label {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 6px;
-    line-height: 1.35;
-  }
-
-  .stat-card-sub {
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--slate);
-    margin: 0 !important;
-  }
-
-  /* TABLES */
-  .editorial-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    margin: 32px 0;
-    background: #FFFFFF;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .editorial-table th {
-    background: var(--navy-dark);
-    color: #FFFFFF;
-    padding: 12px 16px;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .editorial-table td {
-    padding: 14px 16px;
-    border-bottom: 1px solid var(--rule);
-    color: var(--slate);
-    line-height: 1.55;
-  }
-
-  .editorial-table tr:nth-child(even) td {
-    background: #F8FAFC;
-  }
-
-  .editorial-table td strong {
-    color: var(--navy);
-  }
-
-  /* CTA BLOCK */
-  .cta-block {
-    background: var(--navy-dark);
-    border-radius: 8px;
-    padding: 56px 48px;
-    margin: 64px 0;
-    text-align: center;
-    border-top: 4px solid var(--orange);
-  }
-
-  .cta-block .cta-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-
-  .cta-block h2 {
-    font-family: var(--font-serif);
-    font-size: clamp(24px, 3.5vw, 36px);
-    color: #ffffff;
-    margin-bottom: 18px;
-  }
-
-  .cta-block p {
-    font-size: 16.5px;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.75);
-    max-width: 640px;
-    margin: 0 auto 32px;
-  }
-
-  .cta-btn {
-    display: inline-block;
-    background: var(--orange);
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 5px;
-    transition: background 0.2s;
-  }
-
-  .cta-btn:hover {
-    background: #d9581a;
-  }
-
-  /* FOOTER */
-  .site-footer {
-    background: var(--navy-dark);
-    border-top: 1px solid rgba(214,221,232,0.12);
-    padding: 40px 32px;
-    color: rgba(255,255,255,0.6);
-    font-size: 13px;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .footer-brand {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #ffffff;
-    text-decoration: none;
-  }
-
-  .footer-brand .amp {
-    color: var(--orange);
-  }
-
-  .footer-links {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    list-style: none;
-    flex-wrap: wrap;
-  }
-
-  .footer-links a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-size: 12.5px;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover {
-    color: #ffffff;
-  }
-
-  .footer-links .sep {
-    color: rgba(255,255,255,0.25);
-  }
-
-  
   /* ==========================================================================
      EXECUTIVE FIELD EDITION 2-COLUMN STRUCTURED SPLIT CARDS
      ========================================================================== */
@@ -880,448 +271,7 @@
     .exec-split-grid.reverse .exec-split-plate { order: 2; }
   }
 
-  
-  /* ==========================================================================
-     MASTER SOVEREIGN SOLUTION SUITE & 7-TIER ARCHITECTURE MATRIX
-     ========================================================================== */
 
-  .solution-master-card {
-    background: #FFFFFF;
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    margin: 48px 0;
-    overflow: hidden;
-    box-shadow: 0 6px 32px rgba(19, 31, 51, 0.08);
-  }
-
-  .solution-master-header {
-    background: #0F6E56;
-    color: #FFFFFF;
-    padding: 24px 32px;
-    border-bottom: 4px solid var(--orange);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .solution-master-header h2 {
-    font-family: var(--font-serif);
-    font-size: clamp(24px, 3.2vw, 32px);
-    color: #FFFFFF;
-    margin: 4px 0 0;
-    letter-spacing: -0.01em;
-  }
-
-  .solution-master-body {
-    padding: 36px 32px 28px;
-    background: #FFFFFF;
-  }
-
-  /* 7-Tier Interactive Breakdown Rail */
-  .seven-tier-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 36px 0;
-  }
-
-  .tier-detail-card {
-    background: #FAF8F5;
-    border: 1px solid var(--rule);
-    border-left: 5px solid var(--navy);
-    border-radius: 4px;
-    padding: 18px 22px;
-    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-  }
-
-  .tier-detail-card:hover {
-    transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    border-color: #BFC9D8;
-  }
-
-  .tier-detail-card.highlight-orange {
-    border-left-color: var(--orange);
-  }
-
-  .tier-detail-card.highlight-teal {
-    border-left-color: var(--teal);
-    background: #F0FDF4;
-  }
-
-  .tier-top-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-
-  .tier-badge-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--orange);
-    background: rgba(248, 104, 34, 0.1);
-    padding: 3px 8px;
-    border-radius: 3px;
-  }
-
-  .tier-badge-label.teal-badge {
-    color: var(--teal);
-    background: rgba(15, 110, 86, 0.1);
-  }
-
-  .tier-financial-yield {
-    font-family: var(--font-serif);
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--teal);
-  }
-
-  .tier-title-text {
-    font-size: 16.5px;
-    font-weight: 700;
-    color: var(--navy-dark);
-    margin-bottom: 6px;
-  }
-
-  .tier-desc-text {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--slate);
-    margin-bottom: 10px !important;
-  }
-
-  .tier-mechanics-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 10px 14px;
-    font-size: 12.5px;
-    color: var(--navy-dark);
-  }
-
-  @media (max-width: 680px) {
-    .tier-mechanics-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .tier-mech-col strong {
-    color: var(--navy);
-    font-weight: 700;
-  }
-
-  
-  /* BOARDROOM MEMO CARD */
-  .boardroom-memo-card {
-    background: #FFF1E5;
-    border: 1px solid #D6BBA8;
-    border-left: 5px solid var(--orange);
-    border-radius: 6px;
-    padding: 24px 28px;
-    margin: 32px 0 40px;
-    box-shadow: 0 4px 16px rgba(19, 31, 51, 0.04);
-  }
-
-  .boardroom-memo-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #E6D2C4;
-    padding-bottom: 10px;
-  }
-
-  .boardroom-memo-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #665042;
-  }
-
-  .copy-memo-btn {
-    background: var(--navy-dark);
-    color: #FFFFFF;
-    border: none;
-    font-family: var(--font-main);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    padding: 6px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s ease;
-  }
-
-  .copy-memo-btn:hover {
-    background: var(--orange);
-  }
-
-  .boardroom-memo-quote {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    line-height: 1.65;
-    color: var(--navy-dark);
-    margin: 0 0 14px;
-  }
-
-  .boardroom-memo-quote p {
-    font-size: 18px !important;
-    line-height: 1.65 !important;
-    color: var(--navy-dark) !important;
-    margin-bottom: 12px !important;
-  }
-
-  .boardroom-memo-footer {
-    font-size: 12px;
-    color: #665042;
-    font-style: italic;
-  }
-
-  /* STRUCTURAL BRIDGE CONTAINER */
-  .structural-bridge-container {
-    background: #FFFFFF;
-    border: 1px solid var(--rule);
-    border-top: 4px solid var(--navy);
-    border-radius: 6px;
-    margin: 48px 0;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(19, 31, 51, 0.05);
-  }
-
-  .bridge-header-box {
-    background: #FAF8F5;
-    padding: 24px 28px 20px;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .bridge-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 4px;
-  }
-
-  .bridge-headline {
-    font-family: var(--font-serif);
-    font-size: clamp(22px, 2.8vw, 28px);
-    font-weight: 700;
-    color: var(--navy-dark);
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-
-  .bridge-body-content {
-    padding: 28px;
-  }
-
-  .bridge-lead-p {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.7;
-    color: var(--navy);
-    margin-bottom: 18px;
-  }
-
-  .inversion-callout-card {
-    background: #F0FDF4;
-    border: 1px solid #BBF7D0;
-    border-left: 4px solid var(--teal);
-    border-radius: 4px;
-    padding: 20px 24px;
-    margin: 24px 0;
-  }
-
-  .inversion-tag {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 8px;
-  }
-
-  .inversion-callout-card p {
-    font-size: 15.5px;
-    line-height: 1.65;
-    color: var(--navy-dark);
-    margin-bottom: 10px;
-  }
-
-  .price-of-remedy-card {
-    background: #FFF5F5;
-    border: 1px solid #FED7D7;
-    border-radius: 4px;
-    padding: 20px 24px;
-    margin-top: 24px;
-  }
-
-  
-  /* ARTICLE-LEVEL SHARE BAR */
-  .article-share-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    flex-wrap: wrap;
-  }
-
-  .share-bar-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .share-btn-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .social-icon-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #FFFFFF;
-    font-family: var(--font-main);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    padding: 6px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s ease;
-  }
-
-  .social-icon-btn svg {
-    flex-shrink: 0;
-  }
-
-  .social-icon-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-1px);
-  }
-
-  .social-icon-btn.icon-linkedin:hover {
-    background: #0A66C2;
-    border-color: #0A66C2;
-  }
-
-  .social-icon-btn.icon-x:hover {
-    background: #000000;
-    border-color: #333333;
-  }
-
-  .social-icon-btn.icon-email:hover {
-    background: var(--teal);
-    border-color: var(--teal);
-  }
-
-  .social-icon-btn.icon-copy:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-  }
-
-  /* CARD-LEVEL SHARE ACTIONS */
-  .memo-social-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .memo-share-btn {
-    background: #FFFFFF;
-    border: 1px solid #D6BBA8;
-    color: var(--navy-dark);
-    font-family: var(--font-main);
-    font-size: 11.5px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s ease;
-    text-decoration: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-
-  .memo-share-btn svg {
-    flex-shrink: 0;
-  }
-
-  .memo-share-btn:hover {
-    border-color: var(--navy);
-    background: var(--navy-dark);
-    color: #FFFFFF;
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(19,31,51,0.12);
-  }
-
-  .memo-share-btn.share-copy {
-    background: var(--navy-dark);
-    color: #FFFFFF;
-    border-color: var(--navy-dark);
-  }
-
-  .memo-share-btn.share-copy:hover {
-    background: var(--orange);
-    border-color: var(--orange);
-  }
-
-  .memo-share-btn.share-linkedin:hover {
-    background: #0A66C2;
-    border-color: #0A66C2;
-    color: #FFFFFF;
-  }
-
-  .memo-share-btn.share-x:hover {
-    background: #000000;
-    border-color: #000000;
-    color: #FFFFFF;
-  }
-
-  .memo-share-btn.share-email:hover {
-    background: var(--teal);
-    border-color: var(--teal);
-    color: #FFFFFF;
-  }
-
-  
   /* ==========================================================================
      SOLUTION 1: 2-COLUMN SIDE-BY-SIDE EDITORIAL SPLIT GRID (NO FLOATS)
      ========================================================================== */
@@ -1489,47 +439,816 @@
     .split-plate-img img { max-width: 100%; }
   }
 
+
+  /* ==========================================================================
+     MASTER SOVEREIGN SOLUTION SUITE & 7-TIER ARCHITECTURE MATRIX
+     ========================================================================== */
+
+  .solution-master-card {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    margin: 48px 0;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(19, 31, 51, 0.08);
+  }
+
+  .solution-master-header {
+    background: #0F6E56;
+    color: #FFFFFF;
+    padding: 24px 32px;
+    border-bottom: 4px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .solution-master-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3.2vw, 32px);
+    color: #FFFFFF;
+    margin: 4px 0 0;
+    letter-spacing: -0.01em;
+  }
+
+  .solution-master-body {
+    padding: 36px 32px 28px;
+    background: #FFFFFF;
+  }
+
+  /* 7-Tier Interactive Breakdown Rail */
+  .seven-tier-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 36px 0;
+  }
+
+  .tier-detail-card {
+    background: #FAF8F5;
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--navy);
+    border-radius: 4px;
+    padding: 18px 22px;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  }
+
+  .tier-detail-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-color: #BFC9D8;
+  }
+
+  .tier-detail-card.highlight-orange {
+    border-left-color: var(--orange);
+  }
+
+  .tier-detail-card.highlight-teal {
+    border-left-color: var(--teal);
+    background: #F0FDF4;
+  }
+
+  .tier-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .tier-badge-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(248, 104, 34, 0.1);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .tier-badge-label.teal-badge {
+    color: var(--teal);
+    background: rgba(15, 110, 86, 0.1);
+  }
+
+  .tier-financial-yield {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  .tier-title-text {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 6px;
+  }
+
+  .tier-desc-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate);
+    margin-bottom: 10px !important;
+  }
+
+  .tier-mechanics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--navy-dark);
+  }
+
+  @media (max-width: 680px) {
+    .tier-mechanics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tier-mech-col strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+
+  /* BOARDROOM MEMO CARD */
+  .boardroom-memo-card {
+    background: #FFF1E5;
+    border: 1px solid #D6BBA8;
+    border-left: 5px solid var(--orange);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 32px 0 40px;
+    box-shadow: 0 4px 16px rgba(19, 31, 51, 0.04);
+  }
+
+  .boardroom-memo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #E6D2C4;
+    padding-bottom: 10px;
+  }
+
+  .boardroom-memo-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #665042;
+  }
+
+  .copy-memo-btn {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .copy-memo-btn:hover {
+    background: var(--orange);
+  }
+
+  .boardroom-memo-quote {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--navy-dark);
+    margin: 0 0 14px;
+  }
+
+  .boardroom-memo-quote p {
+    font-size: 18px !important;
+    line-height: 1.65 !important;
+    color: var(--navy-dark) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .boardroom-memo-footer {
+    font-size: 12px;
+    color: #665042;
+    font-style: italic;
+  }
+
+  /* STRUCTURAL BRIDGE CONTAINER */
+  .structural-bridge-container {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--navy);
+    border-radius: 6px;
+    margin: 48px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(19, 31, 51, 0.05);
+  }
+
+  .bridge-header-box {
+    background: #FAF8F5;
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .bridge-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+
+  .bridge-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 2.8vw, 28px);
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .bridge-body-content {
+    padding: 28px;
+  }
+
+  .bridge-lead-p {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .inversion-callout-card {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-left: 4px solid var(--teal);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+
+  .inversion-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .inversion-callout-card p {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--navy-dark);
+    margin-bottom: 10px;
+  }
+
+  .price-of-remedy-card {
+    background: #FFF5F5;
+    border: 1px solid #FED7D7;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+
+
+  /* ARTICLE-LEVEL SHARE BAR */
+  .article-share-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    flex-wrap: wrap;
+  }
+
+  .share-bar-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .share-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .social-icon-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .social-icon-btn svg {
+    flex-shrink: 0;
+  }
+
+  .social-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .social-icon-btn.icon-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+  }
+
+  .social-icon-btn.icon-x:hover {
+    background: #000000;
+    border-color: #333333;
+  }
+
+  .social-icon-btn.icon-email:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .social-icon-btn.icon-copy:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  /* CARD-LEVEL SHARE ACTIONS */
+  .memo-social-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .memo-share-btn {
+    background: #FFFFFF;
+    border: 1px solid #D6BBA8;
+    color: var(--navy-dark);
+    font-family: var(--font-main);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .memo-share-btn svg {
+    flex-shrink: 0;
+  }
+
+  .memo-share-btn:hover {
+    border-color: var(--navy);
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(19,31,51,0.12);
+  }
+
+  .memo-share-btn.share-copy {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    border-color: var(--navy-dark);
+  }
+
+  .memo-share-btn.share-copy:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .memo-share-btn.share-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+    color: #FFFFFF;
+  }
+
+  .memo-share-btn.share-x:hover {
+    background: #000000;
+    border-color: #000000;
+    color: #FFFFFF;
+  }
+
+  .memo-share-btn.share-email:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #FFFFFF;
+  }
+
+
+  /* ==========================================================================
+     V1 MASTER EDITORIAL ARCHITECTURE WITH FLAWLESS MOBILE RESPONSIVENESS
+     ========================================================================== */
+
+  :root {
+    --font-heading: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    --font-serif: "Charter", "Georgia", "Merriweather", serif;
+    --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Menlo, monospace;
+
+    --navy-dark: #090E17;
+    --navy-surface: #0F172A;
+    --navy-border: #1E293B;
+    --navy-light: #334155;
+    --navy-muted: #64748B;
+    
+    --orange: #FF4F00;
+    --orange-hover: #E04600;
+    --orange-light: #FF8A50;
+
+    --teal: #0D9488;
+    --crimson: #E11D48;
+
+    --bg-page: #FDFBF7;
+    --bg-surface: #FFFFFF;
+    --ft-bg: #F8FAFC;
+    --ft-border: #E2E8F0;
+
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-muted: #64748B;
+
+    --border-light: #E2E8F0;
+    --border-medium: #CBD5E1;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    background-color: var(--bg-page);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* FLUID RESPONSIVE SITE NAVIGATION */
+  .site-nav {
+    background: var(--navy-dark);
+    border-bottom: 1px solid var(--navy-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-nav-inner {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 15.5px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav-brand span {
+    color: var(--orange);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: #94A3B8;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover {
+    color: #FFFFFF;
+  }
+
+  .nav-links a.active {
+    color: var(--orange);
+  }
+
+  .nav-cta-btn {
+    background: var(--orange) !important;
+    color: #FFFFFF !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700 !important;
+    white-space: nowrap;
+    transition: background 0.15s !important;
+  }
+
+  .nav-cta-btn:hover {
+    background: var(--orange-hover) !important;
+  }
+
+  @media (max-width: 768px) {
+    .site-nav {
+      height: 56px;
+    }
+    .site-nav-inner {
+      padding: 0 16px;
+    }
+    .nav-brand {
+      font-size: 14px;
+    }
+    .nav-links li:not(:last-child) {
+      display: none;
+    }
+    .nav-cta-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+
+  /* HERO SECTION */
+  .hero-v1 {
+    background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-surface) 100%);
+    color: #FFFFFF;
+    padding: 72px 24px 56px;
+    border-bottom: 1px solid var(--navy-border);
+    text-align: center;
+  }
+
+  .hero-v1-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 18px;
+  }
+
+  .hero-v1 h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4.5vw, 54px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(16.5px, 2vw, 20px);
+    font-weight: 400;
+    line-height: 1.55;
+    color: #94A3B8;
+    max-width: 720px;
+    margin: 0 auto 28px;
+  }
+
+  .hero-metadata {
+    font-size: 13px;
+    color: #64748B;
+    margin-bottom: 28px;
+  }
+
+  .hero-metadata strong {
+    color: #E2E8F0;
+  }
+
+  /* FLUID DUAL MODE SWITCHER */
+  .switcher-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .edition-switcher-chassis {
+    display: inline-flex;
+    background: #111C30;
+    border: 1px solid #24344D;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+    max-width: 100%;
+  }
+
+  .edition-btn {
+    border: none;
+    background: transparent;
+    color: #94A3B8;
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .edition-btn:hover {
+    color: #FFFFFF;
+  }
+
+  .edition-btn.active {
+    background: var(--orange);
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(255, 79, 0, 0.25);
+  }
+
+  .edition-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+  }
+
+  .edition-btn:not(.active) .edition-badge {
+    background: rgba(255, 255, 255, 0.08);
+    color: #64748B;
+  }
+
+  @media (max-width: 540px) {
+    .edition-switcher-chassis {
+      width: 100%;
+      flex-direction: column;
+    }
+    .edition-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 10px;
+      font-size: 13px;
+    }
+  }
+
+  /* ARTICLE SHARING BAR */
+  .hero-share-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .hero-share-btn {
+    color: #94A3B8;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    border: 1px solid #1E293B;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .hero-share-btn:hover {
+    color: #FFFFFF;
+    border-color: #334155;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* MAIN ARTICLE CONTAINER */
+  .article-v1-main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-v1 {
+      padding: 48px 16px 36px;
+    }
+    .article-v1-main {
+      padding: 28px 16px 64px;
+    }
+  }
+
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- RESPONSIVE SITE NAVIGATION -->
 <nav class="site-nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">MAGRUDER <span class="amp">&amp;</span> COMPANY</a>
+  <div class="site-nav-inner">
+    <a href="/" class="nav-brand">MAGRUDER <span>&amp;</span> COMPANY</a>
     <ul class="nav-links">
       <li><a href="/#services">Services</a></li>
       <li><a href="/#proof">The Work</a></li>
-      <li><a href="/insights">Insights</a></li>
+      <li><a href="/insights" class="active">Insights</a></li>
       <li><a href="/#about">About</a></li>
-      <li><a href="/#contact" class="nav-cta">Initiate Contact</a></li>
+      <li><a href="/#contact" class="nav-cta-btn">Start a Conversation</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <span class="section-label">Master Practice Architecture &middot; Published Research</span>
+<!-- HERO SECTION -->
+<section class="hero-v1">
+  <div class="hero-v1-inner">
+    <div class="hero-eyebrow">Master Practice Architecture &middot; Published Research</div>
     <h1>The Five Crises of Modern Enterprise AI Governance</h1>
     <p class="hero-subtitle">Architectural Mismatch, Capital Misallocation, and the Imperative for Sovereign Enterprise Infrastructure</p>
-    <div class="hero-byline">
-      <strong>Magruder &amp; Company</strong> &nbsp;&middot;&nbsp; Master Practice Architecture &nbsp;&middot;&nbsp; August 2026
+    
+    <div class="hero-metadata">
+      <span><strong>Magruder &amp; Company</strong> &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; 5 min read</span>
     </div>
 
-    <!-- DUAL-MODE SWITCHER (SWAPPED: EXECUTIVE LEFT, JOURNAL RIGHT) -->
-    <div class="edition-switcher-bar">
-      <button class="mode-pill-btn active" id="btn-mode-exec" onclick="switchEdition('executive')">
-        <span>Executive Field Edition</span>
-        <span class="mode-badge">5 MIN READ</span>
-      </button>
-      <button class="mode-pill-btn" id="btn-mode-journal" onclick="switchEdition('journal')">
-        <span>Full Master Journal Edition</span>
-        <span class="mode-badge">UNABRIDGED</span>
-      </button>
+    <!-- DUAL MODE SWITCHER -->
+    <div class="switcher-wrap">
+      <div class="edition-switcher-chassis">
+        <button class="edition-btn active" id="btn-mode-exec" onclick="switchEdition('executive')">
+          <span>Executive Field Edition</span>
+          <span class="edition-badge">5 MIN READ</span>
+        </button>
+        <button class="edition-btn" id="btn-mode-journal" onclick="switchEdition('journal')">
+          <span>Full Master Journal</span>
+          <span class="edition-badge">UNABRIDGED</span>
+        </button>
+      </div>
     </div>
 
-    <!-- ARTICLE-LEVEL SOCIAL SHARING BAR -->
+    <!-- SHARE BAR -->
     
 <div class="article-share-bar">
   <span class="share-bar-label">Share Article:</span>
@@ -1553,17 +1272,15 @@
   </div>
 </div>
 
-
   </div>
 </section>
 
-<!-- MAIN CONTENT WRAP -->
-<main class="content-wrap">
+<!-- MAIN CONTENT AREA -->
+<main class="article-v1-main">
 
-  <!-- PANEL 1: EXECUTIVE FIELD EDITION (DEFAULT ACTIVE ON LEFT) -->
+  <!-- PANEL 1: EXECUTIVE FIELD EDITION (DEFAULT ACTIVE) -->
   <div id="edition-executive" class="edition-panel active">
-    <section class="article-section">
-      
+    
 <div style="background:var(--ft-bg);border:1px solid var(--ft-border);border-radius:8px;padding:28px 32px;margin-bottom:36px;">
   <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#665042;margin-bottom:6px;">Executive Briefing &middot; Strategic Overview</div>
   <h2 style="font-family:var(--font-serif);font-size:clamp(24px, 3.2vw, 32px);font-weight:700;color:var(--navy-dark);margin-bottom:12px;letter-spacing:-0.01em;">Executive Field Edition: The Five Crises Breakdown</h2>
@@ -1590,43 +1307,6 @@
       <div class="stat-card-label">Equity Skew</div>
       <p class="stat-card-sub">Top 20% generate all corporate profit.</p>
     </div>
-  </div></div>
-
-<div class="boardroom-memo-card">
-  <div class="boardroom-memo-header">
-    <div>
-      <div class="boardroom-memo-eyebrow">Executive Transmission &middot; 30-Second Boardroom Memo</div>
-      <div style="font-size:12px;color:#665042;margin-top:2px;">Pre-formatted brief for executive peers, board members, and investment committees.</div>
-    </div>
-    
-    <!-- Card-Level Action Buttons with Icons -->
-    <div class="memo-social-actions">
-      <button class="memo-share-btn share-linkedin" onclick="shareMemoLinkedIn()" title="Share quote on LinkedIn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-        <span>LinkedIn</span>
-      </button>
-      <button class="memo-share-btn share-x" onclick="shareMemoX()" title="Post quote on X">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        <span>Post</span>
-      </button>
-      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email executive brief snapshot to peer">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        <span>Email Brief</span>
-      </button>
-      <button class="memo-share-btn share-copy" onclick="copyMemoText(this)" title="Copy memo text">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        <span class="copy-text">Copy Memo</span>
-      </button>
-    </div>
-  </div>
-
-  <blockquote class="boardroom-memo-quote" id="boardroom-memo-text">
-    <p>&ldquo;AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.</p>
-    <p style="margin-bottom:0;">The fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.&rdquo;</p>
-  </blockquote>
-
-  <div class="boardroom-memo-footer">
-    <span>Magruder &amp; Company &middot; The Five Crises of Modern Enterprise AI Governance &middot; <a href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance" style="color:var(--orange);text-decoration:none;">magruder.co</a></span>
   </div>
 </div>
 
@@ -1869,56 +1549,15 @@
   </div>
 </div>
 
-    </section>
   </div>
 
   <!-- PANEL 2: FULL MASTER JOURNAL EDITION (UNABRIDGED) -->
-  <div id="edition-journal" class="edition-panel">
-    <section class="article-section">
-      <p>---</p>
+  <div id="edition-journal" class="edition-panel" style="display:none;">
+    <p>---</p>
 
 <h2>Executive Summary: The Structural Pathology of the Modern Firm</h2>
 
 <p>Enterprise leadership faces a fundamental architectural disconnect. Across the Fortune 500 and mid-market private equity portfolios, organizations are deploying unprecedented capital into artificial intelligence, cloud data platforms, and automated workflow engines. Yet the financial return on these investments remains overwhelmingly negative or unmeasurable.</p>
-
-<div class="boardroom-memo-card">
-  <div class="boardroom-memo-header">
-    <div>
-      <div class="boardroom-memo-eyebrow">Executive Transmission &middot; 30-Second Boardroom Memo</div>
-      <div style="font-size:12px;color:#665042;margin-top:2px;">Pre-formatted brief for executive peers, board members, and investment committees.</div>
-    </div>
-    
-    <!-- Card-Level Action Buttons with Icons -->
-    <div class="memo-social-actions">
-      <button class="memo-share-btn share-linkedin" onclick="shareMemoLinkedIn()" title="Share quote on LinkedIn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-        <span>LinkedIn</span>
-      </button>
-      <button class="memo-share-btn share-x" onclick="shareMemoX()" title="Post quote on X">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        <span>Post</span>
-      </button>
-      <button class="memo-share-btn share-email" onclick="shareMemoEmail(this)" title="Email executive brief snapshot to peer">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-        <span>Email Brief</span>
-      </button>
-      <button class="memo-share-btn share-copy" onclick="copyMemoText(this)" title="Copy memo text">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        <span class="copy-text">Copy Memo</span>
-      </button>
-    </div>
-  </div>
-
-  <blockquote class="boardroom-memo-quote" id="boardroom-memo-text">
-    <p>&ldquo;AI does not fix a broken operating model. It automates whatever you feed it at machine speed. If your departments run on separate versions of the customer, you are just manufacturing confusion faster and paying more to do it.</p>
-    <p style="margin-bottom:0;">The fix is not buying another model. It is establishing one authoritative customer record that every function and every algorithm shares before automation begins.&rdquo;</p>
-  </blockquote>
-
-  <div class="boardroom-memo-footer">
-    <span>Magruder &amp; Company &middot; The Five Crises of Modern Enterprise AI Governance &middot; <a href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance" style="color:var(--orange);text-decoration:none;">magruder.co</a></span>
-  </div>
-</div>
-
 
 <p>This condition does not reflect a failure of algorithmic capability. It reflects an architectural mismatch: the attempt to deploy twenty-first-century generative and agentic technologies on top of twentieth-century product-centric, siloed organizational structures.</p>
 
@@ -2642,39 +2281,20 @@
 
 </div>
 </div>
-    </section>
   </div>
 
   <!-- CTA BLOCK -->
-  <div class="cta-block">
-    <div class="cta-eyebrow">Enterprise Sovereign Architecture</div>
-    <h2>Resolve the Five Crises in Your Portfolio</h2>
-    <p>Magruder &amp; Company deploys high-velocity, single-principal diagnostics bounded under corporate procurement limits to establish deterministic Customer Core&#x2122; operating foundations before capital waste compounds.</p>
-    <a href="/#contact" class="cta-btn">Initiate Diagnostic Review</a>
+  <div style="background:var(--navy-dark);color:#FFFFFF;border-radius:12px;padding:44px 32px;margin-top:64px;text-align:center;border:1px solid var(--navy-border);">
+    <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Enterprise Sovereign Architecture</div>
+    <h2 style="font-size:clamp(22px, 3vw, 30px);font-weight:800;color:#FFFFFF;margin-bottom:12px;border:none;padding:0;">Resolve the Five Crises in Your Portfolio</h2>
+    <p style="font-size:16px;color:#94A3B8;max-width:680px;margin:0 auto 24px;line-height:1.65;">Magruder &amp; Company deploys high-velocity, single-principal diagnostics bounded under corporate procurement limits to establish deterministic Customer Core&#x2122; operating foundations before capital waste compounds.</p>
+    <a href="/#contact" style="display:inline-block;background:var(--orange);color:#FFFFFF;font-family:var(--font-heading);font-size:14.5px;font-weight:700;padding:12px 28px;border-radius:6px;text-decoration:none;transition:background 0.15s;">Start a Conversation &rarr;</a>
   </div>
-
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <a href="/" class="footer-brand">MAGRUDER <span class="amp">&amp;</span> COMPANY</a>
-    <ul class="footer-links">
-      <li><a href="/#services">Services</a></li>
-      <li><span class="sep">&middot;</span></li>
-      <li><a href="/#proof">The Work</a></li>
-      <li><span class="sep">&middot;</span></li>
-      <li><a href="/insights">Insights</a></li>
-      <li><span class="sep">&middot;</span></li>
-      <li><a href="/#about">About</a></li>
-      <li><span class="sep">&middot;</span></li>
-      <li><a href="https://www.linkedin.com/company/magruder-and-company" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><span class="sep">&middot;</span></li>
-      <li><a href="https://customercore.co" target="_blank" rel="noopener">Customer Core&#x2122;</a></li>
-      <li><span class="sep">&middot;</span></li>
-      <li><a href="/#contact">Contact</a></li>
-    </ul>
-  </div>
+<!-- SITE FOOTER -->
+<footer style="background:var(--navy-dark);border-top:1px solid var(--navy-border);padding:40px 24px;text-align:center;color:#64748B;font-size:13px;">
+  <p>&copy; 2026 Magruder &amp; Company. All rights reserved. Customer Core&#x2122; is a proprietary operating framework of Magruder &amp; Company.</p>
 </footer>
 
 <script>
@@ -2879,7 +2499,25 @@ ${ARTICLE_URL}?utm_source=email&utm_medium=exec_snapshot`;
     }
   }
 
-</script>
 
+function switchEdition(mode) {
+  var btnExec = document.getElementById('btn-mode-exec');
+  var btnJournal = document.getElementById('btn-mode-journal');
+  var panelExec = document.getElementById('edition-executive');
+  var panelJournal = document.getElementById('edition-journal');
+
+  if (mode === 'executive') {
+    btnExec.classList.add('active');
+    btnJournal.classList.remove('active');
+    panelExec.style.display = 'block';
+    panelJournal.style.display = 'none';
+  } else {
+    btnJournal.classList.add('active');
+    btnExec.classList.remove('active');
+    panelJournal.style.display = 'block';
+    panelExec.style.display = 'none';
+  }
+}
+</script>
 </body>
 </html>
