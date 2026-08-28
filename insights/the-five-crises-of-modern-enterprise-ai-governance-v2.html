@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Five Crises of Modern Enterprise AI Governance (V2) · Magruder &amp; Company</title>
+<title>The Five Crises of Modern Enterprise AI Governance · Magruder &amp; Company</title>
 <meta name="description" content="Architectural Mismatch, Capital Misallocation, and the Imperative for Sovereign Enterprise Infrastructure. Practice Master Research Treatise by Magruder &amp; Company.">
 <link rel="canonical" href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance-v2">
 
@@ -64,20 +64,22 @@
   }
 
   .exec-crisis-badge {
+    font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     padding: 5px 12px;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #CBD5E1;
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
   }
 
   .exec-crisis-badge.alert {
-    background: rgba(197, 48, 48, 0.2);
-    color: #FEB2B2;
-    border: 1px solid rgba(197, 48, 48, 0.4);
+    background: #FEF2F2 !important;
+    color: #991B1B !important;
+    border: 1px solid #F87171 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   .exec-crisis-body {
@@ -880,7 +882,7 @@
 
 
   /* ==========================================================================
-     V2 MODERNIST NEUE HAAS GROTESK DESIGN SYSTEM OVERRIDES
+     V2 ULTRA-CLEAN MODERNIST EDITORIAL SYSTEM
      ========================================================================== */
 
   :root {
@@ -898,17 +900,12 @@
     --orange: #FF4F00;
     --orange-hover: #E04600;
     --orange-light: #FF8A50;
-    --orange-subtle: rgba(255, 79, 0, 0.08);
 
     --teal: #0D9488;
-    --teal-subtle: rgba(13, 148, 136, 0.08);
     --crimson: #E11D48;
-    --crimson-subtle: rgba(225, 29, 72, 0.08);
 
     --bg-page: #F8FAFC;
     --bg-surface: #FFFFFF;
-    --bg-card: #FFFFFF;
-    --bg-callout: #F1F5F9;
 
     --text-primary: #0F172A;
     --text-secondary: #334155;
@@ -942,162 +939,149 @@
     letter-spacing: -0.02em !important;
   }
 
-  /* HERO SECTION */
-  .hero-v2 {
-    background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-surface) 100%);
+  /* REFINED MINIMALIST HERO */
+  .hero-v2-refined {
+    background: #090E17;
     color: #FFFFFF;
-    padding: 100px 32px 72px;
-    border-bottom: 1px solid var(--navy-border);
-    position: relative;
-  }
-
-  .hero-v2-inner {
-    max-width: 960px;
-    margin: 0 auto;
+    padding: 84px 32px 64px;
+    border-bottom: 1px solid #1E293B;
     text-align: center;
   }
 
-  .hero-v2 .badge-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--orange-light);
-    background: rgba(255, 79, 0, 0.12);
-    border: 1px solid rgba(255, 79, 0, 0.3);
-    padding: 6px 14px;
-    border-radius: 9999px;
-    margin-bottom: 24px;
+  .hero-v2-refined .hero-wrap {
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .hero-v2 h1 {
+  .hero-v2-refined .eyebrow {
     font-family: var(--font-heading);
-    font-size: clamp(34px, 4.8vw, 56px);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.035em;
-    color: #FFFFFF;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
     margin-bottom: 20px;
   }
 
-  .hero-v2 .subtitle {
+  .hero-v2-refined h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(34px, 4.8vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+  }
+
+  .hero-v2-refined .subtitle {
     font-family: var(--font-body);
-    font-size: clamp(17px, 2.2vw, 21px);
-    line-height: 1.6;
+    font-size: clamp(16.5px, 2vw, 19.5px);
+    font-weight: 400;
+    line-height: 1.55;
     color: #94A3B8;
-    max-width: 800px;
-    margin: 0 auto 32px;
+    max-width: 740px;
+    margin: 0 auto 36px;
   }
 
-  .hero-v2 .metadata-strip {
+  /* SLEEK MINIMALIST SEGMENTED TOGGLE */
+  .segmented-toggle-wrap {
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: #64748B;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
   }
 
-  .hero-v2 .metadata-strip strong {
-    color: #E2E8F0;
-  }
-
-  .hero-v2 .metadata-strip .dot {
-    color: #475569;
-  }
-
-  /* V2 DUAL MODE SWITCHER */
-  .v2-switcher-chassis {
+  .segmented-toggle {
     display: inline-flex;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 9999px;
-    padding: 5px;
-    margin-bottom: 32px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+    background: #111C30;
+    border: 1px solid #24344D;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
   }
 
-  .v2-switcher-btn {
+  .segmented-btn {
     border: none;
     background: transparent;
     color: #94A3B8;
     font-family: var(--font-heading);
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 600;
-    padding: 10px 22px;
-    border-radius: 9999px;
+    padding: 9px 20px;
+    border-radius: 6px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 8px;
+    transition: all 0.15s ease;
   }
 
-  .v2-switcher-btn:hover {
+  .segmented-btn:hover {
     color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.04);
   }
 
-  .v2-switcher-btn.active {
+  .segmented-btn.active {
     background: var(--orange);
     color: #FFFFFF;
-    box-shadow: 0 4px 14px rgba(255, 79, 0, 0.35);
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(255, 79, 0, 0.25);
   }
 
-  .v2-switcher-badge {
+  .segmented-badge {
     font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 3px 8px;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.2);
     color: #FFFFFF;
   }
 
-  /* CONTENT CONTAINER */
+  .segmented-btn:not(.active) .segmented-badge {
+    background: rgba(255, 255, 255, 0.08);
+    color: #64748B;
+  }
+
+  /* SUBTLE SHARE STRIP */
+  .subtle-share-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748B;
+  }
+
+  .subtle-share-link {
+    color: #94A3B8;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #1E293B;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .subtle-share-link:hover {
+    color: #FFFFFF;
+    border-color: #334155;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* ARTICLE CONTAINER */
   .article-v2-container {
-    max-width: 900px;
+    max-width: 880px;
     margin: 0 auto;
-    padding: 56px 28px 100px;
-  }
-
-  /* HEADINGS IN CONTENT */
-  .article-v2-container h2 {
-    font-size: clamp(24px, 3.2vw, 34px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin-top: 56px;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--border-light);
-  }
-
-  .article-v2-container h3 {
-    font-size: clamp(19px, 2.4vw, 24px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
-    margin-top: 36px;
-    margin-bottom: 16px;
-  }
-
-  .article-v2-container p {
-    margin-bottom: 22px;
-  }
-
-  .article-v2-container strong {
-    color: var(--text-primary);
-    font-weight: 700;
+    padding: 48px 24px 96px;
   }
 
 </style>
@@ -1118,59 +1102,42 @@
   </div>
 </nav>
 
-<!-- HERO V2 -->
-<section class="hero-v2">
-  <div class="hero-v2-inner">
-    <div class="badge-eyebrow">Master Practice Architecture &middot; Published Research</div>
+<!-- REFINED HERO (UNCLUTTERED) -->
+<section class="hero-v2-refined">
+  <div class="hero-wrap">
+    <div class="eyebrow">Practice Insights &middot; August 2026</div>
     <h1>The Five Crises of Modern Enterprise AI Governance</h1>
     <p class="subtitle">Architectural Mismatch, Capital Misallocation, and the Imperative for Sovereign Enterprise Infrastructure</p>
     
-    <div class="metadata-strip">
-      <span>Magruder &amp; Company</span>
-      <span class="dot">&middot;</span>
-      <span>August 2026</span>
-      <span class="dot">&middot;</span>
-      <span>Series V2 Modernist Edition</span>
-    </div>
-
-    <!-- DUAL MODE SWITCHER -->
-    <div>
-      <div class="v2-switcher-chassis">
-        <button class="v2-switcher-btn active" id="btn-mode-exec" onclick="switchEdition('executive')">
+    <!-- SEGMENTED TOGGLE (CLEAN & SUBTLE) -->
+    <div class="segmented-toggle-wrap">
+      <div class="segmented-toggle">
+        <button class="segmented-btn active" id="btn-mode-exec" onclick="switchEdition('executive')">
           <span>Executive Field Edition</span>
-          <span class="v2-switcher-badge">5 MIN READ</span>
+          <span class="segmented-badge">5 MIN READ</span>
         </button>
-        <button class="v2-switcher-btn" id="btn-mode-journal" onclick="switchEdition('journal')">
+        <button class="segmented-btn" id="btn-mode-journal" onclick="switchEdition('journal')">
           <span>Full Master Journal Edition</span>
-          <span class="v2-switcher-badge">UNABRIDGED</span>
+          <span class="segmented-badge">UNABRIDGED</span>
         </button>
       </div>
     </div>
 
-    <!-- SHARE BAR -->
-    
-<div class="article-share-bar">
-  <span class="share-bar-label">Share Article:</span>
-  <div class="share-btn-group">
-    <button class="social-icon-btn icon-linkedin" onclick="shareArticleLinkedIn()" title="Share full article on LinkedIn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-      <span>LinkedIn</span>
-    </button>
-    <button class="social-icon-btn icon-x" onclick="shareArticleX()" title="Post full article on X / Twitter">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      <span>Post</span>
-    </button>
-    <button class="social-icon-btn icon-email" onclick="shareArticleEmail(this)" title="Email executive brief snapshot to colleague">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-      <span>Email Brief</span>
-    </button>
-    <button class="social-icon-btn icon-copy" onclick="copyArticleLink(this)" title="Copy article URL">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-      <span class="copy-label">Copy Link</span>
-    </button>
-  </div>
-</div>
-
+    <!-- UNDERSTATED SHARE STRIP -->
+    <div class="subtle-share-strip">
+      <button class="subtle-share-link" onclick="shareLinkedIn('https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance', 'The Five Crises of Modern Enterprise AI Governance')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg> LinkedIn
+      </button>
+      <button class="subtle-share-link" onclick="shareX('https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance', 'The Five Crises of Modern Enterprise AI Governance · Magruder & Company')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Post
+      </button>
+      <button class="subtle-share-link" onclick="shareEmail('The Five Crises of Modern Enterprise AI Governance · Magruder & Company', 'Read the research brief from Magruder & Company: https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email
+      </button>
+      <button class="subtle-share-link share-copy" onclick="copyArticleLink(this, 'https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy Link
+      </button>
+    </div>
   </div>
 </section>
 
