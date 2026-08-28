@@ -1035,6 +1035,57 @@
     margin-bottom: 22px;
   }
 
+
+  /* RESPONSIVE SITE NAV */
+  .site-nav-container {
+    background: #FFFFFF;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--ft-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-links-desktop {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .nav-btn-cta {
+    background: var(--orange);
+    color: #FFFFFF !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .site-nav-container {
+      padding: 12px 16px;
+    }
+    .nav-links-desktop a:not(.nav-btn-cta) {
+      display: none;
+    }
+    .nav-btn-cta {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1042,15 +1093,15 @@
 <div class="ft-top-stripe"></div>
 
 <!-- NAV -->
-<nav style="background:#FFFFFF;padding:18px 32px;border-bottom:1px solid var(--ft-border);position:sticky;top:0;z-index:100;">
-  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;">
-    <a href="/" style="font-family:var(--font-heading);font-weight:800;font-size:16px;letter-spacing:0.04em;color:var(--ft-ink);text-decoration:none;">MAGRUDER <span style="color:var(--orange);">&amp;</span> COMPANY</a>
-    <div style="display:flex;align-items:center;gap:24px;font-family:var(--font-heading);font-size:13.5px;font-weight:600;">
+<nav class="site-nav-container">
+  <div class="site-nav-inner">
+    <a href="/" style="font-family:var(--font-heading);font-weight:800;font-size:15px;letter-spacing:0.04em;color:var(--ft-ink);text-decoration:none;">MAGRUDER <span style="color:var(--orange);">&amp;</span> COMPANY</a>
+    <div class="nav-links-desktop">
       <a href="/#services" style="color:#6B7280;text-decoration:none;">Services</a>
       <a href="/#proof" style="color:#6B7280;text-decoration:none;">The Work</a>
       <a href="/insights" style="color:var(--orange);text-decoration:none;">Insights</a>
       <a href="/#about" style="color:#6B7280;text-decoration:none;">About</a>
-      <a href="/#contact" style="background:var(--orange);color:#FFFFFF;padding:8px 16px;border-radius:6px;text-decoration:none;transition:background 0.15s;">Start a Conversation</a>
+      <a href="/#contact" class="nav-btn-cta">Start a Conversation</a>
     </div>
   </div>
 </nav>
