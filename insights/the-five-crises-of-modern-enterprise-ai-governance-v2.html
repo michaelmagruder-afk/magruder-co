@@ -15,13 +15,821 @@
 <style>
 
   /* ==========================================================================
-     V2 MODERNIST NEUE HAAS GROTESK DESIGN SYSTEM
+     EXECUTIVE FIELD EDITION 2-COLUMN STRUCTURED SPLIT CARDS
+     ========================================================================== */
+
+  .exec-crisis-card {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(19, 31, 51, 0.04);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .exec-crisis-card:hover {
+    border-color: #BFC9D8;
+    box-shadow: 0 6px 28px rgba(19, 31, 51, 0.08);
+  }
+
+  .exec-crisis-header {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 3px solid var(--orange);
+  }
+
+  .exec-crisis-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 2px;
+  }
+
+  .exec-crisis-title {
+    font-family: var(--font-serif);
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+  }
+
+  .exec-crisis-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #CBD5E1;
+  }
+
+  .exec-crisis-badge.alert {
+    background: rgba(197, 48, 48, 0.2);
+    color: #FEB2B2;
+    border: 1px solid rgba(197, 48, 48, 0.4);
+  }
+
+  .exec-crisis-body {
+    padding: 24px 26px 20px;
+  }
+
+  .exec-split-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .exec-split-grid.reverse {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .exec-split-grid.reverse .exec-split-narrative {
+    order: 2;
+  }
+
+  .exec-split-grid.reverse .exec-split-plate {
+    order: 1;
+  }
+
+  .exec-lead-p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--navy-dark);
+    margin-bottom: 14px;
+  }
+
+  .exec-lead-p:last-child {
+    margin-bottom: 0;
+  }
+
+  .exec-lead-p strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* Expandable Detail Section */
+  .exec-expandable-box {
+    margin-top: 18px;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+
+  .exec-details-toggle {
+    width: 100%;
+    background: #F8FAFC;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-family: var(--font-main);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.15s, border-color 0.15s;
+    min-height: 44px;
+    text-align: left;
+  }
+
+  .exec-details-toggle:hover {
+    background: #EDF2F7;
+    border-color: #CBD5E1;
+  }
+
+  .exec-toggle-icon {
+    font-size: 13px;
+    color: var(--orange);
+    transition: transform 0.2s ease;
+  }
+
+  .exec-details-content {
+    display: none;
+    padding: 20px 18px 8px;
+    background: #FAF8F5;
+    border: 1px solid var(--rule);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .exec-details-content.open {
+    display: block;
+  }
+
+  .exec-details-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-top: 14px;
+    margin-bottom: 8px;
+  }
+
+  .exec-details-content p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--slate);
+    margin-bottom: 14px;
+  }
+
+  .exec-remedy-callout {
+    background: #FFFFFF;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  .exec-remedy-callout strong {
+    color: var(--teal);
+  }
+
+  @media (max-width: 768px) {
+    .exec-split-grid,
+    .exec-split-grid.reverse {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .exec-split-grid.reverse .exec-split-narrative { order: 1; }
+    .exec-split-grid.reverse .exec-split-plate { order: 2; }
+  }
+
+
+  /* ==========================================================================
+     SOLUTION 1: 2-COLUMN SIDE-BY-SIDE EDITORIAL SPLIT GRID (NO FLOATS)
+     ========================================================================== */
+
+  .editorial-split-card {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 28px 30px;
+    margin: 36px 0;
+    box-shadow: 0 4px 20px rgba(19, 31, 51, 0.04);
+    box-sizing: border-box;
+  }
+
+  .editorial-split-card.reverse {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .editorial-split-card.reverse .split-narrative {
+    order: 2;
+  }
+
+  .editorial-split-card.reverse .split-plate {
+    order: 1;
+  }
+
+  /* Narrative Side */
+  .split-narrative {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .split-kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .split-title {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 2.4vw, 24px);
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .split-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--slate);
+    margin-bottom: 14px;
+  }
+
+  .split-desc strong {
+    color: var(--navy);
+  }
+
+  .split-metric-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    background: rgba(197, 48, 48, 0.08);
+    padding: 6px 12px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+
+  .split-metric-tag.sov {
+    color: var(--teal);
+    background: rgba(15, 110, 86, 0.08);
+  }
+
+  /* Plate Side */
+  .split-plate {
+    background: #FAF8F5;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  }
+
+  .split-plate-header {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--orange);
+  }
+
+  .split-plate-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+  }
+
+  .split-plate-code {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .split-plate-img {
+    padding: 10px;
+    background: #F4EDE2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .split-plate-img img {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+
+  .split-plate-caption {
+    padding: 10px 14px;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--slate);
+    background: #FFFFFF;
+    border-top: 1px solid var(--rule);
+  }
+
+  .split-plate-caption strong {
+    color: var(--navy-dark);
+  }
+
+  /* Responsive Fallback: Single Column on Tablet & Mobile */
+  @media (max-width: 768px) {
+    .editorial-split-card,
+    .editorial-split-card.reverse {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 20px 18px;
+    }
+    .editorial-split-card.reverse .split-narrative { order: 1; }
+    .editorial-split-card.reverse .split-plate { order: 2; }
+    .split-plate-img img { max-width: 100%; }
+  }
+
+
+  /* ==========================================================================
+     MASTER SOVEREIGN SOLUTION SUITE & 7-TIER ARCHITECTURE MATRIX
+     ========================================================================== */
+
+  .solution-master-card {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    margin: 48px 0;
+    overflow: hidden;
+    box-shadow: 0 6px 32px rgba(19, 31, 51, 0.08);
+  }
+
+  .solution-master-header {
+    background: #0F6E56;
+    color: #FFFFFF;
+    padding: 24px 32px;
+    border-bottom: 4px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .solution-master-header h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3.2vw, 32px);
+    color: #FFFFFF;
+    margin: 4px 0 0;
+    letter-spacing: -0.01em;
+  }
+
+  .solution-master-body {
+    padding: 36px 32px 28px;
+    background: #FFFFFF;
+  }
+
+  /* 7-Tier Interactive Breakdown Rail */
+  .seven-tier-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 36px 0;
+  }
+
+  .tier-detail-card {
+    background: #FAF8F5;
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--navy);
+    border-radius: 4px;
+    padding: 18px 22px;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  }
+
+  .tier-detail-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-color: #BFC9D8;
+  }
+
+  .tier-detail-card.highlight-orange {
+    border-left-color: var(--orange);
+  }
+
+  .tier-detail-card.highlight-teal {
+    border-left-color: var(--teal);
+    background: #F0FDF4;
+  }
+
+  .tier-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .tier-badge-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(248, 104, 34, 0.1);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .tier-badge-label.teal-badge {
+    color: var(--teal);
+    background: rgba(15, 110, 86, 0.1);
+  }
+
+  .tier-financial-yield {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  .tier-title-text {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 6px;
+  }
+
+  .tier-desc-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--slate);
+    margin-bottom: 10px !important;
+  }
+
+  .tier-mechanics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: var(--navy-dark);
+  }
+
+  @media (max-width: 680px) {
+    .tier-mechanics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tier-mech-col strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+
+  /* BOARDROOM MEMO CARD */
+  .boardroom-memo-card {
+    background: #FFF1E5;
+    border: 1px solid #D6BBA8;
+    border-left: 5px solid var(--orange);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 32px 0 40px;
+    box-shadow: 0 4px 16px rgba(19, 31, 51, 0.04);
+  }
+
+  .boardroom-memo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #E6D2C4;
+    padding-bottom: 10px;
+  }
+
+  .boardroom-memo-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #665042;
+  }
+
+  .copy-memo-btn {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .copy-memo-btn:hover {
+    background: var(--orange);
+  }
+
+  .boardroom-memo-quote {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--navy-dark);
+    margin: 0 0 14px;
+  }
+
+  .boardroom-memo-quote p {
+    font-size: 18px !important;
+    line-height: 1.65 !important;
+    color: var(--navy-dark) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .boardroom-memo-footer {
+    font-size: 12px;
+    color: #665042;
+    font-style: italic;
+  }
+
+  /* STRUCTURAL BRIDGE CONTAINER */
+  .structural-bridge-container {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--navy);
+    border-radius: 6px;
+    margin: 48px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(19, 31, 51, 0.05);
+  }
+
+  .bridge-header-box {
+    background: #FAF8F5;
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .bridge-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+
+  .bridge-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 2.8vw, 28px);
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .bridge-body-content {
+    padding: 28px;
+  }
+
+  .bridge-lead-p {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .inversion-callout-card {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-left: 4px solid var(--teal);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+
+  .inversion-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .inversion-callout-card p {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--navy-dark);
+    margin-bottom: 10px;
+  }
+
+  .price-of-remedy-card {
+    background: #FFF5F5;
+    border: 1px solid #FED7D7;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+
+
+  /* ARTICLE-LEVEL SHARE BAR */
+  .article-share-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    flex-wrap: wrap;
+  }
+
+  .share-bar-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .share-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .social-icon-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .social-icon-btn svg {
+    flex-shrink: 0;
+  }
+
+  .social-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .social-icon-btn.icon-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+  }
+
+  .social-icon-btn.icon-x:hover {
+    background: #000000;
+    border-color: #333333;
+  }
+
+  .social-icon-btn.icon-email:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+
+  .social-icon-btn.icon-copy:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  /* CARD-LEVEL SHARE ACTIONS */
+  .memo-social-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .memo-share-btn {
+    background: #FFFFFF;
+    border: 1px solid #D6BBA8;
+    color: var(--navy-dark);
+    font-family: var(--font-main);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .memo-share-btn svg {
+    flex-shrink: 0;
+  }
+
+  .memo-share-btn:hover {
+    border-color: var(--navy);
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(19,31,51,0.12);
+  }
+
+  .memo-share-btn.share-copy {
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    border-color: var(--navy-dark);
+  }
+
+  .memo-share-btn.share-copy:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .memo-share-btn.share-linkedin:hover {
+    background: #0A66C2;
+    border-color: #0A66C2;
+    color: #FFFFFF;
+  }
+
+  .memo-share-btn.share-x:hover {
+    background: #000000;
+    border-color: #000000;
+    color: #FFFFFF;
+  }
+
+  .memo-share-btn.share-email:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #FFFFFF;
+  }
+
+
+  /* ==========================================================================
+     V2 MODERNIST NEUE HAAS GROTESK DESIGN SYSTEM OVERRIDES
      ========================================================================== */
 
   :root {
     --font-heading: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
     --font-body: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
     --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Menlo, monospace;
+    --font-serif: "Neue Haas Grotesk Display Pro", "Neue Haas Grotesk", "Inter", sans-serif;
 
     --navy-dark: #090E17;
     --navy-surface: #0F172A;
@@ -53,7 +861,7 @@
   }
 
   body {
-    font-family: var(--font-body);
+    font-family: var(--font-body) !important;
     font-size: 18px;
     line-height: 1.8;
     color: var(--text-secondary);
@@ -62,10 +870,18 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+  h1, h2, h3, h4, h5, h6, .split-card-title, .section-h {
+    font-family: var(--font-heading) !important;
     color: var(--text-primary);
     text-wrap: balance;
+    letter-spacing: -0.03em !important;
+  }
+
+  .exec-crisis-title {
+    font-family: var(--font-heading) !important;
+    color: #FFFFFF !important;
+    text-wrap: balance;
+    letter-spacing: -0.02em !important;
   }
 
   /* HERO SECTION */
@@ -194,274 +1010,6 @@
     max-width: 900px;
     margin: 0 auto;
     padding: 56px 28px 100px;
-  }
-
-  /* KPI STAT GRID V2 */
-  .kpi-grid-v2 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin: 32px 0;
-  }
-
-  @media (max-width: 768px) {
-    .kpi-grid-v2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .kpi-card-v2 {
-    background: #FFFFFF;
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .kpi-card-v2:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-  }
-
-  .kpi-card-v2 .num {
-    font-family: var(--font-heading);
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    color: var(--text-primary);
-    margin-bottom: 6px;
-  }
-
-  .kpi-card-v2 .num.orange { color: var(--orange); }
-  .kpi-card-v2 .num.red { color: var(--crimson); }
-  .kpi-card-v2 .num.teal { color: var(--teal); }
-
-  .kpi-card-v2 .label {
-    font-family: var(--font-heading);
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-
-  .kpi-card-v2 .sub {
-    font-size: 12.5px;
-    line-height: 1.45;
-    color: var(--text-muted);
-    margin: 0;
-  }
-
-  /* V2 SPLIT CARD */
-  .v2-split-card {
-    background: #FFFFFF;
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    padding: 32px;
-    margin: 36px 0;
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 36px;
-    align-items: center;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-    border-left: 4px solid var(--navy-surface);
-  }
-
-  .v2-split-card.reverse {
-    grid-template-columns: 0.85fr 1.15fr;
-    border-left: 1px solid var(--border-light);
-    border-right: 4px solid var(--orange);
-  }
-
-  .v2-split-card.reverse .v2-card-narrative { order: 2; }
-  .v2-split-card.reverse .v2-card-plate { order: 1; }
-
-  @media (max-width: 768px) {
-    .v2-split-card,
-    .v2-split-card.reverse {
-      grid-template-columns: 1fr;
-      padding: 24px;
-      gap: 24px;
-    }
-    .v2-split-card.reverse .v2-card-narrative { order: 1; }
-    .v2-split-card.reverse .v2-card-plate { order: 2; }
-  }
-
-  .v2-card-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 8px;
-  }
-
-  .v2-card-title {
-    font-family: var(--font-heading);
-    font-size: clamp(22px, 2.6vw, 26px);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.25;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-  }
-
-  .v2-card-desc {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: 18px;
-  }
-
-  .v2-metric-pill {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 6px;
-    background: var(--crimson-subtle);
-    color: var(--crimson);
-    border: 1px solid rgba(225, 29, 72, 0.2);
-  }
-
-  .v2-metric-pill.teal {
-    background: var(--teal-subtle);
-    color: var(--teal);
-    border-color: rgba(13, 148, 136, 0.2);
-  }
-
-  /* V2 RISOGRAPH PLATE CHASSIS */
-  .v2-plate-chassis {
-    background: var(--navy-dark);
-    border: 1px solid var(--navy-border);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
-  }
-
-  .v2-plate-header {
-    background: var(--navy-surface);
-    padding: 10px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .v2-plate-header .title {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--orange-light);
-  }
-
-  .v2-plate-header .fig {
-    font-family: var(--font-mono);
-    font-size: 9.5px;
-    color: #64748B;
-  }
-
-  .v2-plate-img {
-    background: #FAF8F5;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .v2-plate-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-  }
-
-  .v2-plate-caption {
-    background: #FFFFFF;
-    padding: 10px 14px;
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border-light);
-  }
-
-  /* V2 ACCORDION DRAWERS */
-  .v2-drawer-btn {
-    width: 100%;
-    background: #F8FAFC;
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    padding: 14px 20px;
-    font-family: var(--font-heading);
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-primary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 0.15s ease;
-    margin-top: 16px;
-  }
-
-  .v2-drawer-btn:hover {
-    background: #F1F5F9;
-    border-color: var(--border-medium);
-  }
-
-  .v2-drawer-content {
-    display: none;
-    background: #FFFFFF;
-    border: 1px solid var(--border-light);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    padding: 24px;
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    animation: fadeIn 0.2s ease-out;
-  }
-
-  .v2-drawer-content.open { display: block; }
-
-  /* V2 FORMULA CARDS */
-  .v2-formula-card {
-    background: #FFFFFF;
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    padding: 22px 28px;
-    margin: 28px 0;
-    text-align: center;
-    border-left: 4px solid var(--orange);
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
-  }
-
-  .v2-formula-card .tag {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 8px;
-  }
-
-  .v2-formula-card .math {
-    font-family: var(--font-heading);
-    font-size: clamp(17px, 2.2vw, 22px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
   }
 
   /* HEADINGS IN CONTENT */
@@ -625,7 +1173,7 @@
             <span class="split-plate-code">FIG. 1.0</span>
           </div>
           <div class="split-plate-img">
-            <img src="/assets/images/MCo_Five_Crises_Risograph_Print.png" alt="The Amplification Paradox Risograph">
+            <img src="../images/insights/MCo_Five_Crises_Risograph_Print.png" alt="The Amplification Paradox Risograph">
           </div>
           <div class="split-plate-caption">
             <strong>Exhibit 1.0:</strong> Fragmented silo noise refracts through Customer Core into aligned value.
@@ -675,7 +1223,7 @@
             <span class="split-plate-code">FIG. 2.0</span>
           </div>
           <div class="split-plate-img">
-            <img src="/assets/images/MCo_Risograph_Silo_Friction.png" alt="Departmental Silo Friction Risograph">
+            <img src="../images/insights/MCo_Risograph_Silo_Friction.png" alt="Departmental Silo Friction Risograph">
           </div>
           <div class="split-plate-caption">
             <strong>Exhibit 2.0:</strong> Isolated vectors emerge as a single unified momentum vector.
@@ -725,7 +1273,7 @@
             <span class="split-plate-code">FIG. 3.0</span>
           </div>
           <div class="split-plate-img">
-            <img src="/assets/images/MCo_Risograph_Timeline_Compression.png" alt="Timeline Compression Risograph">
+            <img src="../images/insights/MCo_Risograph_Timeline_Compression.png" alt="Timeline Compression Risograph">
           </div>
           <div class="split-plate-caption">
             <strong>Exhibit 3.0:</strong> 57-month waterfall decay vs. synchronized 7-tier harmonic compression.
@@ -774,7 +1322,7 @@
             <span class="split-plate-code">FIG. 4.0</span>
           </div>
           <div class="split-plate-img">
-            <img src="/assets/images/MCo_Risograph_Whale_Curve.png" alt="The Profitability Whale Curve Risograph">
+            <img src="../images/insights/MCo_Risograph_Whale_Curve.png" alt="The Profitability Whale Curve Risograph">
           </div>
           <div class="split-plate-caption">
             <strong>Exhibit 4.0:</strong> Top tier ascends to 120% profit; bottom 20% destroys value.
@@ -819,7 +1367,7 @@
             <span class="split-plate-code">FIG. 5.0</span>
           </div>
           <div class="split-plate-img">
-            <img src="/assets/images/MCo_Risograph_Valuation_Multiple.png" alt="Valuation Multiple Expansion Risograph">
+            <img src="../images/insights/MCo_Risograph_Valuation_Multiple.png" alt="Valuation Multiple Expansion Risograph">
           </div>
           <div class="split-plate-caption">
             <strong>Exhibit 5.0:</strong> Bridging discounted 7x multiple volatility into a durable 15x-18x pillar.
@@ -869,7 +1417,7 @@
       <span class="split-plate-code">FIG. 1.0</span>
     </div>
     <div class="split-plate-img">
-      <img src="/assets/images/MCo_Five_Crises_Risograph_Print.png" alt="The Amplification Paradox Risograph">
+      <img src="../images/insights/MCo_Five_Crises_Risograph_Print.png" alt="The Amplification Paradox Risograph">
     </div>
     <div class="split-plate-caption">
       <strong>Exhibit 1.0:</strong> Fragmented silo noise on the left refracts through the Customer Core lens into aligned balance-sheet value.
@@ -1013,7 +1561,7 @@
       <span class="split-plate-code">FIG. 2.0</span>
     </div>
     <div class="split-plate-img">
-      <img src="/assets/images/MCo_Risograph_Silo_Friction.png" alt="Departmental Silo Friction Risograph">
+      <img src="../images/insights/MCo_Risograph_Silo_Friction.png" alt="Departmental Silo Friction Risograph">
     </div>
     <div class="split-plate-caption">
       <strong>Exhibit 2.0:</strong> Isolated vectors passing through the Customer Core Matrix emerge as a single unified momentum vector.
@@ -1103,7 +1651,7 @@
       <span class="split-plate-code">FIG. 3.0</span>
     </div>
     <div class="split-plate-img">
-      <img src="/assets/images/MCo_Risograph_Timeline_Compression.png" alt="Timeline Compression Risograph">
+      <img src="../images/insights/MCo_Risograph_Timeline_Compression.png" alt="Timeline Compression Risograph">
     </div>
     <div class="split-plate-caption">
       <strong>Exhibit 3.0:</strong> 57-month waterfall decay contrasted against synchronized 7-tier harmonic compression.
@@ -1221,7 +1769,7 @@
       <span class="split-plate-code">FIG. 4.0</span>
     </div>
     <div class="split-plate-img">
-      <img src="/assets/images/MCo_Risograph_Whale_Curve.png" alt="The Profitability Whale Curve Risograph">
+      <img src="../images/insights/MCo_Risograph_Whale_Curve.png" alt="The Profitability Whale Curve Risograph">
     </div>
     <div class="split-plate-caption">
       <strong>Exhibit 4.0:</strong> Top tier ascends to 120% profit; middle 60% breaks even; bottom 20% toxic tier destroys value.
@@ -1273,7 +1821,7 @@
       <span class="split-plate-code">FIG. 5.0</span>
     </div>
     <div class="split-plate-img">
-      <img src="/assets/images/MCo_Risograph_Valuation_Multiple.png" alt="Valuation Multiple Expansion Risograph">
+      <img src="../images/insights/MCo_Risograph_Valuation_Multiple.png" alt="Valuation Multiple Expansion Risograph">
     </div>
     <div class="split-plate-caption">
       <strong>Exhibit 5.0:</strong> Bridging discounted 7x multiple volatility into a durable 15x-18x multiple pillar.
@@ -1407,7 +1955,7 @@
         <span class="riso-fig-code">MASTER BLUEPRINT // FIG. 6.0</span>
       </div>
       <div class="riso-fig-img-box">
-        <img src="/assets/images/MCo_Risograph_Seven_Level_Stack.png" alt="Seven Level Sovereign Stack Risograph">
+        <img src="../images/insights/MCo_Risograph_Seven_Level_Stack.png" alt="Seven Level Sovereign Stack Risograph">
       </div>
       <figcaption class="riso-fig-caption">
         <strong>Exhibit 6.0:</strong> Complete Customer Core™ Operating Stack. Seven ascending architectural layers starting with a robust data foundation at Level 1, rising through deterministic identity resolution and process orchestration, culminating at Level 7 in an elevated balance sheet valuation crown.
