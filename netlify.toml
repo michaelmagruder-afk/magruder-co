@@ -25,3 +25,15 @@
   from = "/favicon.ico"
   to = "/images/favicon.png"
   status = 200
+
+[[redirects]]
+  from = "/insights/manufacturing-01"
+  to = "/manufacturing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insights/manufacturing-01.html"
+  to = "/manufacturing"
+  status = 301
+  force = true
