@@ -2780,18 +2780,50 @@ ${ARTICLE_URL}?utm_source=email&utm_medium=exec_snapshot`;
   }
 
   function copyArticleLink(btn) {
-    navigator.clipboard.writeText(ARTICLE_URL + "?utm_source=copy&utm_medium=article_top").then(() => {
-      const label = btn.querySelector('.copy-label') || btn.querySelector('span');
-      if (label) {
-        const orig = label.innerText;
-        label.innerText = 'Copied!';
-        btn.style.background = 'var(--orange)';
-        setTimeout(() => {
-          label.innerText = orig;
-          btn.style.background = '';
-        }, 2500);
-      }
-    });
+    const textToCopy = (typeof ARTICLE_URL !== 'undefined' ? ARTICLE_URL : window.location.href) + "?utm_source=copy&utm_medium=article_top";
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        triggerCopyFeedback(btn);
+      }).catch(() => {
+        fallbackExecCopy(textToCopy, btn);
+      });
+    } else {
+      fallbackExecCopy(textToCopy, btn);
+    }
+  }
+
+  function fallbackExecCopy(text, btn) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      triggerCopyFeedback(btn);
+    } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function triggerCopyFeedback(btn) {
+    if (!btn) return;
+    const label = btn.querySelector('.copy-label') || btn.querySelector('span');
+    if (label) {
+      const orig = label.innerText;
+      label.innerText = 'Copied!';
+      btn.style.background = 'var(--orange)';
+      btn.style.color = '#FFFFFF';
+      setTimeout(() => {
+        label.innerText = orig;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 2000);
+    } else {
+      const orig = btn.innerText;
+      btn.innerText = 'Copied!';
+      setTimeout(() => { btn.innerText = orig; }, 2000);
+    }
   }
 
   /* --- CARD-LEVEL SHARING (30-SECOND BOARDROOM MEMO) --- */
@@ -2836,20 +2868,15 @@ ${ARTICLE_URL}?utm_source=email&utm_medium=exec_snapshot`;
 
   function copyMemoText(btn) {
     const text = MEMO_TEXT + "\n\nRead the full treatise: " + ARTICLE_URL + "?utm_source=copy&utm_medium=boardroom_memo";
-    navigator.clipboard.writeText(text).then(() => {
-      const textSpan = btn.querySelector('.copy-text') || btn.querySelector('span:not(svg span)');
-      if (textSpan) {
-        const originalText = textSpan.innerText;
-        textSpan.innerText = 'Copied!';
-        btn.style.background = '#0F6E56';
-        btn.style.borderColor = '#0F6E56';
-        setTimeout(() => {
-          textSpan.innerText = originalText;
-          btn.style.background = '';
-          btn.style.borderColor = '';
-        }, 2500);
-      }
-    });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        triggerCopyFeedback(btn);
+      }).catch(() => {
+        fallbackExecCopy(text, btn);
+      });
+    } else {
+      fallbackExecCopy(text, btn);
+    }
   }
 
 </script>
