@@ -5,16 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
-<title>Magruder & Company · AI Governance & Organizational Preparedness</title>
-<meta name="description" content="Management consulting for AI preparedness. We map what’s blocking you, build a governed corpus, and transfer lasting capability. Constraint Map. GenGov. H2AI.">
-<meta property="og:title" content="Magruder &amp; Company · AI Governance &amp; Organizational Preparedness">
-<meta property="og:description" content="Management consulting for AI preparedness. We map what’s blocking you, build a governed corpus, and transfer lasting capability. Constraint Map. GenGov. H2AI.">
+<title>Magruder &amp; Company · Executive Strategy Hardening &amp; AI Governance</title>
+<meta name="description" content="High-consequence executive strategy hardening and AI governance for CEOs, Board Chairs, and Private Equity Operating Partners. Friday-to-Monday Outcome Sprints.">
+<meta property="og:title" content="Magruder &amp; Company · Executive Strategy Hardening &amp; AI Governance">
+<meta property="og:description" content="High-consequence executive strategy hardening and AI governance for CEOs, Board Chairs, and Private Equity Operating Partners. Friday-to-Monday Outcome Sprints.">
 <meta property="og:url" content="https://magruder.co">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://magruder.co/og-image.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
-/* CC Brand Spec v1.0: primary typeface Neue Haas Grotesk; Inter is the approved web fallback */
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -36,7 +35,7 @@
 html{scroll-behavior:smooth}
 body{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;overflow-x:hidden}
 
-/* ── NAV ── */
+/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
@@ -60,7 +59,7 @@ nav{
   font-weight:700;
   margin:0 0.05em;
 }
-.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links{display:flex;gap:36px;align-items:center}
 .nav-links a{
   font-size:13px;font-weight:500;
   color:var(--slate);text-decoration:none;
@@ -76,12 +75,12 @@ nav{
 }
 .nav-cta:hover{background:var(--orange)!important}
 
-/* ── HERO ── */
+/* HERO */
 .hero{
-  min-height:100vh;
+  min-height:92vh;
   background:var(--navy-dark);
   display:flex;flex-direction:column;justify-content:center;
-  padding:120px 64px 80px;
+  padding:140px 64px 80px;
   position:relative;
   overflow:hidden;
 }
@@ -107,12 +106,12 @@ nav{
 }
 .hero h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(38px,5.5vw,72px);
+  font-size:clamp(36px,5.2vw,68px);
   font-weight:700;
   color:var(--white);
-  line-height:1.1;
+  line-height:1.12;
   letter-spacing:-0.02em;
-  max-width:760px;
+  max-width:860px;
   margin-bottom:32px;
   position:relative;z-index:1;
 }
@@ -122,9 +121,9 @@ nav{
 }
 .hero-sub{
   font-size:18px;font-weight:300;
-  color:rgba(255,255,255,0.65);
-  max-width:520px;
-  line-height:1.7;
+  color:rgba(255,255,255,0.8);
+  max-width:680px;
+  line-height:1.75;
   margin-bottom:48px;
   position:relative;z-index:1;
 }
@@ -160,11 +159,11 @@ nav{
   position:relative;z-index:1;
 }
 
-/* ── SECTION COMMON ── */
+/* SECTION COMMON */
 section{padding:96px 64px}
 .section-label{
-  font-size:10px;font-weight:600;
-  letter-spacing:0.2em;text-transform:uppercase;
+  font-size:11px;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;
   color:var(--orange);margin-bottom:16px;
 }
 .section-h{
@@ -172,130 +171,128 @@ section{padding:96px 64px}
   font-size:clamp(28px,3.5vw,44px);
   font-weight:700;
   color:var(--navy);
-  line-height:1.15;
+  line-height:1.18;
   letter-spacing:-0.02em;
   margin-bottom:20px;
-  max-width:640px;
+  max-width:760px;
 }
 .section-sub{
   font-size:16px;font-weight:300;
   color:var(--slate);
-  max-width:540px;
+  max-width:680px;
   line-height:1.75;
   margin-bottom:56px;
 }
 
-/* ── PROBLEM SECTION ── */
-.problem{background:var(--off-white)}
-.problem-grid{
+/* DECISIONS SECTION */
+.decisions{background:var(--off-white)}
+.gates-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:48px;align-items:start;
-  margin-top:48px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:40px;
 }
-.problem-stat{
-  padding:32px;
-  border-left:3px solid var(--orange);
+.gate-card{
   background:var(--white);
+  border-top:3px solid var(--navy);
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  border-left:1px solid var(--rule);
+  border-radius:4px;
+  padding:32px 28px;
+  transition:transform 0.15s, border-top-color 0.2s;
 }
-.problem-stat-num{
+.gate-card.lead-gate{
+  border-top-color:var(--orange);
+}
+.gate-card:hover{
+  transform:translateY(-2px);
+}
+.gate-num{
+  font-size:11px;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:12px;
+}
+.gate-title{
   font-family:'Playfair Display',serif;
-  font-size:52px;font-weight:900;
-  color:var(--orange);
-  line-height:1;
-  margin-bottom:8px;
+  font-size:19px;font-weight:700;
+  color:var(--navy);margin-bottom:12px;
+  line-height:1.3;
 }
-.problem-stat-text{
+.gate-body{
   font-size:14px;color:var(--slate);
-  line-height:1.6;
-}
-.problem-stat-source{
-  font-size:11px;color:var(--muted);
-  margin-top:8px;letter-spacing:0.04em;
+  line-height:1.65;
 }
 
-/* ── SERVICES ── */
+/* SERVICES SECTION */
 .services{background:var(--white)}
 .services-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2px;margin-top:56px;
-  border:2px solid var(--rule);
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;margin-top:48px;
 }
 .service-card{
-  padding:40px 36px;
-  background:var(--white);
-  border-right:2px solid var(--rule);
-  transition:background 0.2s;
+  padding:40px 32px;
+  background:var(--cream);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  transition:border-color 0.2s,transform 0.15s;
+  display:flex;flex-direction:column;
 }
-.service-card:last-child{border-right:none}
-.service-card:hover{background:var(--cream)}
+.service-card:hover{
+  border-color:var(--orange);
+  transform:translateY(-2px);
+}
 .service-num{
-  font-size:11px;font-weight:600;
+  font-size:11px;font-weight:700;
   letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:20px;
+  color:var(--orange);margin-bottom:16px;
 }
-.service-icon{
-  width:40px;height:40px;
-  border-radius:8px;
-  margin-bottom:16px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;
-}
-.si-navy{background:var(--navy)}
-.si-orange{background:var(--orange)}
-.si-teal{background:var(--teal)}
 .service-title{
   font-family:'Playfair Display',serif;
   font-size:22px;font-weight:700;
-  color:var(--navy);margin-bottom:6px;
+  color:var(--navy);margin-bottom:8px;
+  line-height:1.25;
 }
-.service-sub{
+.service-sub-tag{
   font-size:11px;font-weight:600;
   letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--orange);margin-bottom:16px;
+  color:var(--muted);margin-bottom:16px;
 }
 .service-body{
   font-size:14px;color:var(--slate);
   line-height:1.7;margin-bottom:24px;
+  flex:1;
 }
-.service-phases{
-  display:flex;flex-direction:column;gap:6px;
+.service-list{
+  list-style:none;display:flex;flex-direction:column;gap:8px;
+  margin-bottom:28px;
 }
-.service-phase{
-  font-size:12px;color:var(--slate);
-  padding:6px 10px;
-  background:var(--cream);
-  border-radius:4px;
+.service-list li{
+  font-size:13px;color:var(--navy);
   display:flex;align-items:center;gap:8px;
 }
-.service-phase::before{
+.service-list li::before{
   content:'';width:6px;height:6px;
-  border-radius:50%;background:var(--navy);
+  border-radius:50%;background:var(--orange);
   flex-shrink:0;
 }
-.service-ring{
-  font-size:12px;padding:6px 10px;
-  background:var(--cream);border-radius:4px;
-  color:var(--slate);margin-top:4px;
+.btn-card{
+  display:inline-block;text-align:center;
+  padding:12px 20px;border-radius:4px;
+  font-size:13px;font-weight:600;
+  text-decoration:none;transition:background 0.2s;
 }
-.service-ring strong{color:var(--navy);font-weight:600}
-.service-level{
-  font-size:12px;padding:5px 10px;
-  background:var(--cream);border-radius:4px;
-  color:var(--slate);margin-top:4px;
-  display:flex;align-items:center;gap:8px;
-}
-.level-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--orange);flex-shrink:0;
-}
+.btn-card-primary{background:var(--navy);color:var(--white)}
+.btn-card-primary:hover{background:var(--orange)}
+.btn-card-outline{border:1px solid var(--navy);color:var(--navy)}
+.btn-card-outline:hover{background:var(--white);border-color:var(--orange);color:var(--orange)}
 
-/* ── PROOF ── */
+/* PROOF & RESEARCH */
 .proof{background:var(--navy)}
 .proof .section-label{color:var(--orange)}
 .proof .section-h{color:var(--white)}
-.proof .section-sub{color:rgba(255,255,255,0.6)}
+.proof .section-sub{color:rgba(255,255,255,0.7)}
 .proof-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -315,7 +312,7 @@ section{padding:96px 64px}
   margin-bottom:8px;
 }
 .proof-stat-label{
-  font-size:13px;color:rgba(255,255,255,0.6);
+  font-size:13px;color:rgba(255,255,255,0.7);
   line-height:1.5;
 }
 .proof-statement{
@@ -328,9 +325,9 @@ section{padding:96px 64px}
 .proof-quote{
   font-family:'Playfair Display',serif;
   font-size:20px;font-weight:400;font-style:italic;
-  color:rgba(255,255,255,0.85);
+  color:rgba(255,255,255,0.9);
   line-height:1.65;
-  max-width:680px;
+  max-width:720px;
 }
 .proof-attr{
   font-size:12px;color:var(--orange);
@@ -338,7 +335,24 @@ section{padding:96px 64px}
   margin-top:16px;
 }
 
-/* ── ABOUT ── */
+/* DESTINATION */
+.destination{background:var(--cream);padding:96px 64px}
+.destination-inner{max-width:960px;margin:0 auto}
+
+/* EXECUTIVE BRIEF FEATURE */
+.exec-brief{
+  background:var(--off-white);
+  padding:80px 64px;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.exec-brief-grid{
+  max-width:1040px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.3fr;
+  gap:48px;align-items:start;
+}
+
+/* ABOUT */
 .about{background:var(--cream)}
 .about-inner{
   display:grid;
@@ -347,7 +361,7 @@ section{padding:96px 64px}
 }
 .about-credentials{
   display:flex;flex-direction:column;gap:16px;
-  margin-top:40px;
+  margin-top:32px;
 }
 .credential{
   padding:20px 24px;
@@ -357,14 +371,14 @@ section{padding:96px 64px}
 }
 .credential:hover{border-left-color:var(--orange)}
 .credential-title{
-  font-size:13px;font-weight:600;
+  font-size:14px;font-weight:600;
   color:var(--navy);margin-bottom:4px;
 }
 .credential-body{
-  font-size:13px;color:var(--slate);line-height:1.5;
+  font-size:13px;color:var(--slate);line-height:1.55;
 }
 .about-commitment{
-  margin-top:48px;
+  margin-top:40px;
   padding:32px;
   background:var(--navy);
   border-radius:2px;
@@ -380,43 +394,56 @@ section{padding:96px 64px}
   color:var(--white);line-height:1.6;
 }
 
-/* ── CONTACT ── */
+/* CONTACT (DIRECT C-SUITE) */
 .contact{
   background:var(--navy-dark);
+  color:var(--white);
   padding:96px 64px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;align-items:center;
 }
-.contact .section-h{color:var(--white);margin-bottom:16px}
-.contact .section-sub{color:rgba(255,255,255,0.55);margin-bottom:40px}
-.contact-details{display:flex;flex-direction:column;gap:20px}
-.contact-item{
-  display:flex;align-items:flex-start;gap:16px;
+.contact-container{
+  max-width:960px;margin:0 auto;
 }
-.contact-item-label{
-  font-size:10px;font-weight:600;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--orange);min-width:72px;
-  padding-top:2px;
+.contact .section-label{color:var(--orange)}
+.contact .section-h{color:var(--white);margin-bottom:20px}
+.contact .section-sub{color:rgba(255,255,255,0.8);margin-bottom:40px;max-width:760px}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+  margin-top:32px;
 }
-.contact-item-val{
-  font-size:15px;color:rgba(255,255,255,0.8);
+.contact-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:6px;
+  padding:32px;
 }
-.contact-item-val a{
-  color:rgba(255,255,255,0.8);text-decoration:none;
-  transition:color 0.2s;
+.contact-card-title{
+  font-size:12px;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;
 }
-.contact-item-val a:hover{color:var(--orange)}
-.contact-form-note{
-  font-size:13px;color:rgba(255,255,255,0.4);
-  line-height:1.6;margin-top:24px;
+.contact-list{
+  list-style:none;display:flex;flex-direction:column;gap:16px;
+  font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6;
 }
+.contact-list strong{color:var(--white)}
+.contact-actions{
+  display:flex;flex-direction:column;gap:16px;
+}
+.btn-contact{
+  display:block;text-align:center;
+  padding:15px 24px;border-radius:4px;
+  font-size:14px;font-weight:600;
+  text-decoration:none;transition:background 0.2s;
+}
+.btn-contact-orange{background:var(--orange);color:var(--white)}
+.btn-contact-orange:hover{background:#E05510}
+.btn-contact-outline{border:1px solid rgba(255,255,255,0.4);color:var(--white)}
+.btn-contact-outline:hover{border-color:var(--orange);color:var(--orange)}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{
   background:var(--navy-dark);
-  padding:24px 64px;
+  padding:28px 64px;
   border-top:1px solid rgba(255,255,255,0.08);
   display:flex;justify-content:space-between;align-items:center;
 }
@@ -433,74 +460,27 @@ footer{
 }
 .footer-links{display:flex;gap:32px}
 .footer-links a{
-  font-size:12px;color:rgba(255,255,255,0.35);
+  font-size:12px;color:rgba(255,255,255,0.4);
   text-decoration:none;letter-spacing:0.04em;
   transition:color 0.2s;
 }
 .footer-links a:hover{color:var(--orange)}
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:900px){
   nav{padding:16px 20px}
   .nav-brand{font-size:12px;letter-spacing:0.14em}
   .nav-links{display:none}
   section{padding:64px 24px}
-  .hero{padding:100px 24px 64px}
-  .problem-grid,.services-grid,.proof-grid,.about-inner,.contact{
-    grid-template-columns:1fr;gap:24px;
-  }
-  footer{flex-direction:column;gap:16px;padding:24px}
-  .footer-brand{font-size:10px;letter-spacing:0.16em}
+  .hero{padding:110px 24px 64px}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner,.contact-grid,.exec-brief-grid{grid-template-columns:1fr;gap:32px}
+  footer{flex-direction:column;gap:16px;padding:24px;text-align:center}
 }
 @media(max-width:480px){
-  .nav-brand{font-size:11px;letter-spacing:0.12em}
+  .proof-grid{grid-template-columns:1fr}
 }
-
-/* Buttons rendered as <button> need the same look as anchor btn-primary */
-button.btn-primary{border:none;cursor:pointer;font-family:inherit}
-
-/* ── CONTACT FORM ── */
-.contact-form{display:flex;flex-direction:column;gap:18px}
-.form-row{display:flex;flex-direction:column;gap:6px}
-.form-row label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
-.form-row input,.form-row textarea{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:4px;
-  padding:11px 14px;
-  color:rgba(255,255,255,0.9);
-  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
-  font-size:14px;
-  line-height:1.5;
-  transition:border-color 0.2s,background 0.2s;
-  resize:vertical;
-  width:100%;
-}
-.form-row input::placeholder,.form-row textarea::placeholder{color:rgba(255,255,255,0.22)}
-.form-row input:focus,.form-row textarea:focus{outline:none;border-color:rgba(248,104,34,0.55);background:rgba(255,255,255,0.09)}
-.form-optional{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;text-transform:uppercase;margin-left:6px}
 </style>
-
-<!-- LinkedIn Insight Tag -->
-<script type="text/javascript">
-_linkedin_partner_id = "542930268";
-window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-</script>
-<script type="text/javascript">
-(function(l) {
-  if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-  window.lintrk.q=[]}
-  var s = document.getElementsByTagName("script")[0];
-  var b = document.createElement("script");
-  b.type = "text/javascript"; b.async = true;
-  b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-  s.parentNode.insertBefore(b, s);
-})(window.lintrk);
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=542930268&fmt=gif" />
-</noscript>
 </head>
 <body>
 
@@ -509,224 +489,191 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   <a href="#" class="nav-brand" aria-label="Magruder and Company home">MAGRUDER <span>&amp;</span> COMPANY</a>
   <div class="nav-links">
     <a href="/outcome-sprint">Outcome Sprint</a>
-    <a href="#services">Services</a>
-    <a href="#proof">The Work</a>
+    <a href="/advisory">Executive Advisory</a>
+    <a href="#decisions">Decision Gates</a>
+    <a href="#research">Research Corpus</a>
     <a href="/insights">Insights</a>
     <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="https://customercore.co" target="_blank">Customer Core™</a>
-    <!-- <a href="#" target="_blank">The Observation Deck</a> -->
-    <a href="#contact" class="nav-cta">Start a Conversation</a>
+    <a href="https://customercore.co" target="_blank" rel="noopener">Customer Core™</a>
+    <a href="#contact" class="nav-cta">Connect Direct</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-label">Magruder & Company · Management Consulting</div>
-  <h1>Your AI investment needs a <em>foundation</em> before it can compound.</h1>
-  <div class="hero-sub">Most organizations deploy AI on top of knowledge that was never governed. The market has not failed to produce AI advice. It has failed to produce AI preparedness. We start by mapping what is blocking you. Then we build the foundation beneath it. GenGov OS deploys on your infrastructure, runs continuously, and is yours permanently.</div>
+  <div class="hero-label">Magruder &amp; Company · Executive Strategy Hardening</div>
+  <h1>High-consequence strategy requires total clarity before <em>Monday morning</em>.</h1>
+  <div class="hero-sub">When enterprise direction, capital allocation, or AI governance cannot be delegated to functional silos, leadership needs an airtight, defensible position. Michael Magruder personally stress-tests, hardens, and delivers board-ready strategic instruments across concentrated 72-hour operating windows.</div>
   <div class="hero-actions">
-    <a href="#services" class="btn-primary">See How We Work</a>
-    <a href="https://customercore.co" class="btn-secondary" target="_blank">View the Framework →</a>
+    <a href="/outcome-sprint" class="btn-primary">The Outcome Sprint</a>
+    <a href="/advisory" class="btn-secondary">Executive Advisory</a>
   </div>
   <div class="hero-rule"></div>
 </section>
 
-<!-- PROBLEM -->
-<section class="problem" id="problem">
-  <div class="section-label">The Market Condition</div>
-  <div class="section-h">AI is being deployed. The foundation beneath it is not being built.</div>
-  <div class="section-sub">Every advisor owns a lane. The technology firms sell adoption. The consultancies sell strategy. The governance specialists sell policy. None of them holds the full problem. None of them was designed to.</div>
-  <div class="problem-grid">
-    <div class="problem-stat">
-      <div class="problem-stat-num">95%</div>
-      <div class="problem-stat-text">of companies fail to achieve measurable financial impact from generative AI.</div>
-      <div class="problem-stat-source">MIT Project NANDA · The GenAI Divide, 2025</div>
+<!-- DECISION GATES -->
+<section class="decisions" id="decisions">
+  <div class="section-label">The Q4 Governance Corridor</div>
+  <div class="section-h">The Four Nondelegable Decision Gates</div>
+  <div class="section-sub">Functional executives optimize within domains. The CEO and Board arbitrate across domains when the enterprise cannot maximize all objectives simultaneously. Across the late Q3 and Q4 governance corridor, leadership must resolve these four gates before commitments harden:</div>
+  
+  <div class="gates-grid">
+    <div class="gate-card lead-gate">
+      <div class="gate-num">Gate 01 · Priority Lead</div>
+      <div class="gate-title">Govern the Enterprise AI Transition</div>
+      <div class="gate-body">The Board and Audit Committee hold the CEO personally accountable for AI governance, autonomous agent liabilities, and sovereign intellectual property boundaries. Executive leadership requires an authoritative Governed AI Manifest you can personally defend before fall committee review cycles.</div>
     </div>
-    <div class="problem-stat">
-      <div class="problem-stat-num">12%</div>
-      <div class="problem-stat-text">of CEOs say AI has delivered both cost and revenue benefits. 56% report no significant financial benefit at all.</div>
-      <div class="problem-stat-source">PwC 29th Global CEO Survey, 2026</div>
+    <div class="gate-card">
+      <div class="gate-num">Gate 02 · Capital Allocation</div>
+      <div class="gate-title">Lock the 2027 Strategic Bets</div>
+      <div class="gate-body">While the CFO models budget scenarios, only the CEO can arbitrate competing functional claims and decide what gets funded, what gets starved, and what gets stopped before the 2027 Annual Operating Plan hardens into permanent cost structures.</div>
     </div>
-    <div class="problem-stat">
-      <div class="problem-stat-num">75%</div>
-      <div class="problem-stat-text">of executives admit their company's AI strategy is "more for show" than actual internal guidance.</div>
-      <div class="problem-stat-source">Writer/Harris Poll, 2026 · 900 CEOs surveyed</div>
+    <div class="gate-card">
+      <div class="gate-num">Gate 03 · Investor Credibility</div>
+      <div class="gate-title">Defend the Value Creation Narrative</div>
+      <div class="gate-body">Year-end commitments represent the CEO's personal credibility with directors, PE sponsors, and institutional investors. Leadership must decide now whether current performance supports the thesis or whether expectations must be proactively reset while a reset still reads as proactive leadership.</div>
     </div>
-    <div class="problem-stat">
-      <div class="problem-stat-num">78%</div>
-      <div class="problem-stat-text">of executives lack confidence their organization could pass an independent AI governance audit within 90 days.</div>
-      <div class="problem-stat-source">Grant Thornton, 2026 · 950 C-suite leaders</div>
+    <div class="gate-card">
+      <div class="gate-num">Gate 04 · Leadership Architecture</div>
+      <div class="gate-title">Resolve Leadership &amp; Execution Authority</div>
+      <div class="gate-body">The 2027 operating plan will be built around the executive team in place today. The CEO must determine whether current executive capabilities, operating models, and decision rights can execute the committed strategy before commitments lock.</div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- HOW WE DELIVER -->
 <section class="services" id="services">
-  <div class="section-label">What We Deliver</div>
-  <div class="section-h">One entry point. Three outcomes. Each one builds on what the last made possible.</div>
-  <div class="section-sub">What changes as the practice runs is what your executive team can point to. Readiness Assessment, Governed Corpus, Capability Transfer. In sequence, each one builds on what the last revealed. The instruments that deliver each outcome: Constraint Map&#x2120;, GenGov&trade;, H2AI&trade;.</div>
+  <div class="section-label">Governed Delivery Vehicles</div>
+  <div class="section-h">A 72-hour deep-pass crucible. Four operational instruments. An enduring Living Corpus.</div>
+  <div class="section-sub">We operate at the intersection of extreme time compression and board-level rigor. Whether through concentrated weekend decision sprints or enterprise governance architecture, our delivery is built around definitive executive outcomes.</div>
+  
   <div class="services-grid">
 
-    <!-- Constraint Map -->
+    <!-- Outcome Sprint -->
     <div class="service-card">
-      <div class="service-num">Outcome 01</div>
-      <div class="service-icon si-orange">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="4" cy="4" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="4" r="1.8" fill="white" opacity="0.9"/><circle cx="10" cy="10" r="2" fill="white" opacity="1"/><circle cx="4" cy="16" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="16" r="1.8" fill="white" opacity="0.9"/><line x1="4" y1="5.8" x2="8.5" y2="9" stroke="white" stroke-width="1" opacity="0.5"/><line x1="16" y1="5.8" x2="11.5" y2="9" stroke="white" stroke-width="1" opacity="0.5"/><line x1="4" y1="14.2" x2="8.5" y2="11" stroke="white" stroke-width="1" opacity="0.5"/><line x1="16" y1="14.2" x2="11.5" y2="11" stroke="white" stroke-width="1" opacity="0.5"/></svg>
-      </div>
-      <div class="service-title">Readiness Assessment</div>
-      <div class="service-sub">Constraint Map&#x2120; · 2 weeks</div>
-      <div class="service-body">The first outcome is clarity about what is actually blocking you. The work begins with your business, not our instruments: we wrap AI literacy around how the function actually operates so the executive team sees its own operation differently before anything is diagnosed. From that footing, the Constraint Map&#x2120; names the specific impediments operating between your AI strategy and its results: recognition signals you can verify against your own experience, remediation patterns that direct the work that follows. Two weeks of focused work produces an operating picture, an evaluation framework, and a conversation guide. The executive team enters Q3 planning able to say what to fund, what to pause, and what to stop, in terms the board can follow.</div>
-      <div class="service-phases">
-        <div class="service-phase">CM-01 · Strategy Without Validation</div>
-        <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 0;line-height:1.4">75% of executives admit their AI strategy is "more for show" than guidance. 95% of companies fail to achieve measurable financial impact from generative AI.<br><span style="font-size:10px;color:var(--warm-grey)">Writer/Harris Poll 2026 · MIT Project NANDA, The GenAI Divide</span></div>
-        <div class="service-phase">CM-02 · Competence Theater</div>
-        <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 0;line-height:1.4">82% provide AI training, yet 59% still report a skills gap. 88% of AI agent pilots never reach production.<br><span style="font-size:10px;color:var(--warm-grey)">DataCamp/YouGov 2026 · Anaconda/Forrester (DigitalApplied), March 2026</span></div>
-        <div class="service-phase">CM-03 · The Governance Gap</div>
-        <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 0;line-height:1.4">78% cannot pass an independent AI governance audit within 90 days. 82% have unknown AI agents in their infrastructure.<br><span style="font-size:10px;color:var(--warm-grey)">Grant Thornton 2026 · Cloud Security Alliance, April 2026</span></div>
-        <div class="service-phase">CM-04 · Invisible Spend</div>
-        <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 0;line-height:1.4">Only 12% of CEOs report both cost and revenue benefits from AI. 80% of workers use unapproved AI tools.<br><span style="font-size:10px;color:var(--warm-grey)">PwC 29th Global CEO Survey 2026 · Multiple 2026 security reports</span></div>
-        <div class="service-phase">CM-05 · The Accountability Vacuum</div>
-        <div style="font-size:11px;color:var(--muted);margin:-6px 0 10px 0;line-height:1.4">76% now have a Chief AI Officer, up from 26% in 2025. Titles surged. Only 1 in 5 has tested a response plan for AI failures.<br><span style="font-size:10px;color:var(--warm-grey)">IBM 2026 · Grant Thornton 2026</span></div>
-      </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
-        <div class="service-ring">Operating picture · Evaluation framework · Conversation guide</div>
-        <div class="service-ring" style="color:var(--muted)">No procurement cycle required · Within most discretionary authority</div>
-      </div>
+      <div class="service-num">Delivery Vehicle 01</div>
+      <div class="service-title">The Friday-to-Monday Outcome Sprint</div>
+      <div class="service-sub-tag">72-Hour Weekend Crucible</div>
+      <div class="service-body">Strictly limited to one active engagement per weekend. Michael Magruder personally ingests your unresolved challenge Friday evening, executes deep research and adversarial stress-testing over the weekend, and delivers four board-ready operational instruments by 8:00 AM Central on Monday.</div>
+      <ul class="service-list">
+        <li>Instrument A: 3-Page Executive Decision Brief</li>
+        <li>Instrument B: Vulnerability Audit &amp; Closure Log</li>
+        <li>Instrument C: Stakeholder Defense Matrix</li>
+        <li>Instrument D: Actionable Execution Roadmap</li>
+        <li>Evidentiary Living Corpus Appendix (100+ pages)</li>
+      </ul>
+      <a href="/outcome-sprint" class="btn-card btn-card-primary">Explore Outcome Sprint</a>
     </div>
 
-    <!-- GenGov -->
+    <!-- GenGov OS -->
     <div class="service-card">
-      <div class="service-num">Outcome 02</div>
-      <div class="service-icon si-navy">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 0 1 0 16" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/><path d="M10 18a8 8 0 0 1 0-16" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><path d="M13.5 4.5l-1-2.5 2.5 1" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M6.5 15.5l1 2.5-2.5-1" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><circle cx="10" cy="10" r="2" fill="white" opacity="0.7"/></svg>
-      </div>
-      <div class="service-title">Governed Corpus</div>
-      <div class="service-sub">GenGov&trade; · 9–12 weeks</div>
-      <div class="service-body">The second outcome is an asset the organization did not have before. Through GenGov&trade;, the practice curates and codifies what a function already knows into a governed corpus your AI systems can operate on. The corpus arrives in two forms at once: a narrative your people read and audit, and a machine-readable reference any agent you deploy can act on, both governed against the same source. Deploys on your infrastructure. Runs continuously. The corpus compounds with every session.</div>
-      <div style="margin-top:16px;margin-bottom:8px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange)">The CACI Cycle: Curate · Assimilate · Codify · Institutionalize</div>
-      <div class="service-phases">
-        <div class="service-phase">Curate · open reception</div>
-        <div class="service-phase">Assimilate · held breath</div>
-        <div class="service-phase">Codify · dual-format corpus</div>
-        <div class="service-phase">Institutionalize · transfer</div>
-      </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
-        <div class="service-ring">Governed Corpus Build · 9–12 weeks</div>
-        <div class="service-ring" style="color:var(--muted)">Capability Transfer · org operates independently</div>
-      </div>
+      <div class="service-num">Delivery Vehicle 02</div>
+      <div class="service-title">GenGov OS &amp; Governed AI Manifest</div>
+      <div class="service-sub-tag">Architecture &amp; Continuous Improvement</div>
+      <div class="service-body">The enterprise AI governance operating system. Curates, assimilates, and codifies departmental knowledge into a dual-format governed corpus. Governed under Human-to-AI Governed Continuous Improvement (H2AI GCI v2.2) and autonomous multi-model tribunal review (Conclave).</div>
+      <ul class="service-list">
+        <li>The Executive Governed AI Manifest</li>
+        <li>CACI Codification Cycle (Curate, Assimilate, Codify, Institutionalize)</li>
+        <li>Autonomous Multi-Model Conclave Governance</li>
+        <li>Deploys on client infrastructure, running continuously</li>
+        <li>Permanent corporate asset ownership</li>
+      </ul>
+      <a href="/advisory" class="btn-card btn-card-outline">Review Advisory Architecture</a>
     </div>
 
-    <!-- H2AI -->
+    <!-- Longitudinal Warranty -->
     <div class="service-card">
-      <div class="service-num">Outcome 03</div>
-      <div class="service-icon si-navy" style="padding:0;display:flex;align-items:center;justify-content:center">
-        <!-- H2AI™ wordmark — reversed variant per brand-h2ai.html: NHG Bold 700, white, orange rule -->
-        <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <text x="19" y="22"
-                font-family='"Neue Haas Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif'
-                font-weight="700"
-                font-size="12"
-                fill="white"
-                text-anchor="middle"
-                letter-spacing="0.5">H2AI</text>
-          <text x="31.5" y="15"
-                font-family='"Neue Haas Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif'
-                font-weight="400"
-                font-size="5"
-                fill="white">&#x2122;</text>
-          <rect x="8" y="25.5" width="22" height="2" fill="#F86822"/>
-        </svg>
-      </div>
-      <div class="service-title">Capability Transfer</div>
-      <div class="service-sub">H2AI&trade; · Permanent</div>
-      <div class="service-body">The third outcome is ownership. The corpus transfers to your team with H2AI&trade;, the discipline that keeps AI accountable to human judgment after the practitioners step back. H2AI&trade; arrives as three things that are easy to confuse and important to separate: an assessment that establishes where human-to-AI intermediation is actually required, a playbook that defines how your people stage that judgment decision by decision, and a standing office that runs intermediation as institutional practice, not as consulting that leaves when the engagement does.</div>
-      <div style="margin-top:16px;margin-bottom:8px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange)">Human governance at every CACI checkpoint</div>
-      <div class="service-phases">
-        <div class="service-phase">Human decides what matters in Curate</div>
-        <div class="service-phase">Human resolves every conflict in Assimilate</div>
-        <div class="service-phase">Human governs every claim in Codify</div>
-        <div class="service-phase">Human decides what transfers in Institutionalize</div>
-      </div>
-      <div style="margin-top:20px;padding:16px;background:var(--cream);border-radius:4px;font-size:13px;color:var(--slate);line-height:1.6">
-        Your people build competence by running the cycle itself, not by attending training. That is what separates durable capability from the awareness that upskilling programs usually produce.
-      </div>
+      <div class="service-num">Delivery Vehicle 03</div>
+      <div class="service-title">Longitudinal Advisory &amp; Research Warranty</div>
+      <div class="service-sub-tag">Active Governance Follow-Through</div>
+      <div class="service-body">Strategy does not end when the brief is delivered. Michael remains directly accessible throughout the subsequent business week for board discussions, followed by structured check-ins at Day 7, Day 30, and Day 60 to track implementation and preserve institutional memory.</div>
+      <ul class="service-list">
+        <li>Immediate Monday through Friday hardening window</li>
+        <li>Day 7, Day 30, and Day 60 outcome audits</li>
+        <li>Board committee defense support</li>
+        <li>Preservation of corporate institutional memory</li>
+        <li>Corpus compounds with every successive quarter</li>
+      </ul>
+      <a href="#contact" class="btn-card btn-card-outline">Connect with Michael</a>
     </div>
 
   </div>
 </section>
 
-<!-- CUSTOMER CORE — THE DESTINATION -->
-<section class="destination" id="destination" style="padding:80px 60px;max-width:900px;margin:0 auto">
-  <div class="section-label">Where the Practice Leads</div>
-  <div class="section-h" style="margin-bottom:12px">Customer Core&trade;</div>
-  <div class="section-sub" style="margin-bottom:40px">Customer Core&trade; is the destination. It is what a fully optimized AI-ready enterprise looks like when the practice has landed: an operating model organized around value streams rather than functional verticals, where each layer of AI investment connects to the next through the Seven Levels that carry raw data to earnings quality. That connection is the unbreakable thread from data to earnings, and it is the proof a CFO can audit.</div>
-  <div style="display:flex;gap:40px;align-items:flex-start">
-    <div style="flex-shrink:0">
-      <!-- Customer Core™ C mark — brand-builder v1.4 geometry, light bg variant -->
-      <svg width="60" height="60" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 39.15 14.6 A 19.9 19.9 0 1 0 39.15 25.4 L 32.15 25.4 A 13.3 13.3 0 1 1 32.15 14.6 Z" fill="#1E3455"/>
-        <circle cx="20" cy="20" r="9.3" fill="#F86822"/>
-      </svg>
-    </div>
-    <div style="flex:1">
-      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:16px">
-        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>1 · Data Foundation</div>
-        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>2 · Unified Customer View</div>
-        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>3 · Customer Analysis &amp; Insights</div>
-        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>4 · Operational Effectiveness</div>
-        <div class="service-level"><span class="level-dot" style="background:var(--rule)"></span>5 · Customer Engagement &amp; Experiences</div>
-        <div class="service-level"><span class="level-dot" style="background:#D4A64A"></span>6 · Customer Value Realization</div>
-        <div class="service-level" style="background:var(--orange);border-radius:4px"><span class="level-dot" style="background:white"></span><span style="color:white;font-weight:600">7 · Earnings Quality &amp; Investor Confidence</span></div>
-      </div>
-      <div style="margin-top:16px;font-size:13px;font-style:italic;color:var(--slate);line-height:1.6">An unbreakable thread from data to earnings. Every layer of AI investment connected to the financial outcomes it was always supposed to produce.</div>
-      <a href="https://customercore.co" target="_blank" style="font-size:12px;color:var(--orange);text-decoration:none;font-weight:600;letter-spacing:0.04em;display:inline-block;margin-top:12px">Explore the framework →</a>
-    </div>
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="proof" id="proof">
-  <div class="section-label">The Proof of Work</div>
-  <div class="section-h" style="color:var(--white)">The practice was built using its own methodology.</div>
-  <div class="section-sub">This is not a theoretical claim. GenGov OS runs on practitioner-owned infrastructure today. Every AI work session since launch is archived, indexed, and queryable in real time.</div>
+<!-- RESEARCH CORPUS & PROOF -->
+<section class="proof" id="research">
+  <div class="section-label">Empirical Decision Research</div>
+  <div class="section-h">Backed by a disciplined 100-case enterprise decision corpus.</div>
+  <div class="section-sub">Our work is not an improvisation. It draws directly on accumulated pattern recognition, forensic stress-testing, and multi-model judicial governance developed across 100 codified enterprise decision situations.</div>
+  
   <div class="proof-grid">
     <div class="proof-stat">
-      <div class="proof-stat-num">1,100+</div>
-      <div class="proof-stat-label">Pages of governed intellectual property produced under H2AI&#x2122; governance</div>
+      <div class="proof-stat-num">100</div>
+      <div class="proof-stat-label">High-consequence enterprise decision models codified across major industry sectors</div>
     </div>
     <div class="proof-stat">
       <div class="proof-stat-num">1,976+</div>
-      <div class="proof-stat-label">AI work sessions archived and queryable verbatim, the operational history of a practice built on its own system</div>
+      <div class="proof-stat-label">AI work sessions archived and queryable verbatim under GenGov OS, the operational history of our practice</div>
     </div>
     <div class="proof-stat">
-      <div class="proof-stat-num">200+</div>
-      <div class="proof-stat-label">Tier-1 research sources integrated from McKinsey, BCG, Gartner, HBR, MIT</div>
+      <div class="proof-stat-num">4</div>
+      <div class="proof-stat-label">Autonomous frontier AI judicial nodes operating in epistemic isolation under Conclave governance</div>
     </div>
     <div class="proof-stat">
-      <div class="proof-stat-num">Live</div>
-      <div class="proof-stat-label">GenGov OS is deployed and running on practitioner-owned infrastructure today, the same system offered to clients</div>
+      <div class="proof-stat-num">Sole</div>
+      <div class="proof-stat-label">Personal practitioner sovereignty by Michael Magruder, 100% authored personally with zero delegation</div>
     </div>
   </div>
+
   <div class="proof-statement">
     <div class="proof-quote">"Everything this practice produces is current, it is honest, and it will not waste your time."</div>
-    <div class="proof-attr">The practice commitment · Magruder & Company</div>
+    <div class="proof-attr">The Practice Commitment · Magruder &amp; Company</div>
   </div>
 </section>
 
-<!-- Q2 IMPERATIVE -->
-<section class="q2" id="q2-imperative" style="background:var(--off-white);padding:80px 60px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
-  <div style="max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start">
-    <div>
-      <div class="section-label" style="margin-bottom:16px">The Executive Brief</div>
-      <div class="section-h" style="margin-bottom:20px;font-size:32px;line-height:1.2">The Q2 Imperative</div>
-      <div style="font-size:14px;font-weight:600;color:var(--orange);letter-spacing:0.04em;margin-bottom:24px">Why AI-Preparedness Is Not Optional, and Why the Window Is Now</div>
-      <a href="./q2-imperative.html" class="btn-primary" style="display:inline-block">Read the Brief</a>
+<!-- DESTINATION: CUSTOMER CORE -->
+<section class="destination" id="destination">
+  <div class="destination-inner">
+    <div class="section-label">Where the Practice Leads</div>
+    <div class="section-h">Customer Core™</div>
+    <div class="section-sub">Customer Core™ is the destination. It is what a fully optimized AI-ready enterprise looks like when the practice has landed: an operating model organized around value streams rather than functional verticals, where each layer of AI investment connects to the next through the Seven Levels that carry raw data to earnings quality.</div>
+    <div style="display:flex;gap:40px;align-items:flex-start">
+      <div style="flex-shrink:0">
+        <svg width="60" height="60" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 39.15 14.6 A 19.9 19.9 0 1 0 39.15 25.4 L 32.15 25.4 A 13.3 13.3 0 1 1 32.15 14.6 Z" fill="#1E3455"/>
+          <circle cx="20" cy="20" r="9.3" fill="#F86822"/>
+        </svg>
+      </div>
+      <div style="flex:1">
+        <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:16px">
+          <div style="font-size:12px;padding:5px 10px;background:var(--white);border-radius:4px;color:var(--slate)">1 · Data Foundation</div>
+          <div style="font-size:12px;padding:5px 10px;background:var(--white);border-radius:4px;color:var(--slate)">2 · Unified Customer View</div>
+          <div style="font-size:12px;padding:5px 10px;background:var(--white);border-radius:4px;color:var(--slate)">3 · Customer Analysis &amp; Insights</div>
+          <div style="font-size:12px;padding:5px 10px;background:var(--white);border-radius:4px;color:var(--slate)">4 · Operational Effectiveness</div>
+          <div style="font-size:12px;padding:5px 10px;background:var(--white);border-radius:4px;color:var(--slate)">5 · Customer Engagement &amp; Experiences</div>
+          <div style="font-size:12px;padding:5px 10px;background:var(--white);border-radius:4px;color:var(--slate)">6 · Customer Value Realization</div>
+          <div style="font-size:12px;padding:6px 10px;background:var(--orange);border-radius:4px;color:white;font-weight:600">7 · Earnings Quality &amp; Investor Confidence</div>
+        </div>
+        <div style="font-size:13px;font-style:italic;color:var(--slate);line-height:1.6;margin-top:12px">An unbreakable thread from data to earnings. Every layer of AI investment connected to the financial outcomes it was always supposed to produce.</div>
+        <a href="https://customercore.co" target="_blank" rel="noopener" style="font-size:12px;color:var(--orange);text-decoration:none;font-weight:600;letter-spacing:0.04em;display:inline-block;margin-top:12px">Explore the framework →</a>
+      </div>
     </div>
-    <div style="font-size:16px;line-height:1.7;color:var(--slate)">
-      <p style="margin-bottom:18px">The market is flooded with AI advice. Organizations remain paralyzed by invisible internal constraints. True AI preparedness is not a matter of better strategy decks. It is an execution problem.</p>
-      <p style="margin-bottom:18px"><strong style="color:var(--navy)">95% of companies</strong> fail to achieve measurable financial impact from generative AI. <strong style="color:var(--navy)">75%</strong> admit their AI strategy is "more for show." <strong style="color:var(--navy)">73% of CEOs</strong> report stress or anxiety over their AI strategy.</p>
-      <p style="margin-bottom:0">The organizations that engage now will enter Q3 with a methodology already running. The window between systematic preparation and episodic reaction is not permanently open. It closes one quarter at a time.</p>
+  </div>
+</section>
+
+<!-- EXECUTIVE BRIEFING FEATURE -->
+<section class="exec-brief" id="briefing">
+  <div class="exec-brief-grid">
+    <div>
+      <div class="section-label">Flagship Research Publication</div>
+      <div class="section-h" style="font-size:32px;line-height:1.2;margin-bottom:16px">The Record Is Not the Memory</div>
+      <div style="font-size:14px;font-weight:600;color:var(--orange);letter-spacing:0.04em;margin-bottom:24px">Why the Summary Is Never Evidence in Enterprise AI</div>
+      <a href="/insights" class="btn-primary" style="display:inline-block">Read Flagship Insights</a>
+    </div>
+    <div style="font-size:15px;line-height:1.75;color:var(--slate)">
+      <p style="margin-bottom:16px">Enterprises deploying generative AI and autonomous agents on summarized meeting notes or lossy retrieval pipelines are accumulating hidden structural liabilities. When an audit, regulator, or investment committee demands provenance, summaries cannot prove what actually occurred.</p>
+      <p style="margin-bottom:16px"><strong style="color:var(--navy)">88% of enterprises</strong> deploy AI, yet <strong style="color:var(--navy)">81%</strong> report zero bottom-line gain. The missing layer is not another model: it is an immutable, evidentiary memory architecture that executive leadership can verify and defend.</p>
+      <p style="margin-bottom:0">Explore our published monographs and diagnostic series deconstructing enterprise AI governance, operational readiness, and the nondelegable decisions facing leadership.</p>
     </div>
   </div>
 </section>
@@ -737,10 +684,10 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
     <div>
       <div class="section-label">The Practitioner</div>
       <div class="section-h">Michael Magruder</div>
-      <div class="section-sub" style="margin-bottom:0">30 years of cross-functional enterprise experience spanning customer experience, digital transformation, and AI integration. The practice was built on the belief that the best practices for organizational AI preparedness do not yet exist in published form, and that building them requires someone willing to do the foundational work.</div>
+      <div class="section-sub" style="margin-bottom:0">Over 20 years of cross-functional enterprise advisory experience spanning customer experience transformation, digital architecture, and sovereign AI governance. The practice was founded on the conviction that high-consequence executive clarity cannot be outsourced to junior consultants or automated away into black-box tools.</div>
       <div class="about-commitment">
         <div class="about-commitment-label">Practice Positioning</div>
-        <div class="about-commitment-text">Magruder & Company occupies the space between AI strategic ambition and the organizational architecture required to deliver it. Where every other advisor owns a lane, this practice holds the full shape of the problem.</div>
+        <div class="about-commitment-text">Magruder &amp; Company occupies the space where enterprise direction, capital allocation, and AI risk intersect. We hold the full shape of the problem directly with the CEO and Board.</div>
       </div>
     </div>
     <div>
@@ -748,7 +695,7 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
       <div class="about-credentials">
         <div class="credential">
           <div class="credential-title">Senior Strategy Director · Publicis Sapient</div>
-          <div class="credential-body">Led a $346M customer experience transformation portfolio for Verizon Consumer Group. Embedded practitioner, not independent contractor.</div>
+          <div class="credential-body">Led a 346 million dollar customer experience transformation portfolio for Verizon Consumer Group. Embedded practitioner, not independent contractor.</div>
         </div>
         <div class="credential">
           <div class="credential-title">Business Strategies Director · Razorfish</div>
@@ -759,54 +706,40 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
           <div class="credential-body">Enterprise digital integration across organizational functions and customer-facing channels.</div>
         </div>
         <div class="credential">
-          <div class="credential-title">Founder & Principal · Magruder & Company</div>
-          <div class="credential-body">Built Customer Core&#x2122; using the same methodology offered to clients. The practice is the proof of concept.</div>
+          <div class="credential-title">Founder &amp; Principal · Magruder &amp; Company</div>
+          <div class="credential-body">Built Customer Core™ and GenGov OS using the same methodology offered to clients. The practice is the proof of concept.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT (DIRECT C-SUITE ONLY - ZERO FORMS) -->
 <section class="contact" id="contact">
-  <div>
-    <div class="section-label">Start a Conversation</div>
-    <div class="section-h">The right conversation begins with one question.</div>
-    <div class="section-sub">Before your next AI deployment, does the knowledge it will operate on exist in governed, auditable form that your organization owns?</div>
-    <div class="contact-form-note" style="margin-top:0;margin-bottom:32px">The Readiness Assessment is a two-week engagement within most organizations' direct discretionary authority. No procurement cycle required.</div>
-    <div class="contact-details">
-      <div class="contact-item">
-        <div class="contact-item-label">Practice</div>
-        <div class="contact-item-val">magruder.co</div>
+  <div class="contact-container">
+    <div class="section-label">Direct C-Suite Connection</div>
+    <div class="section-h">Connect Directly with Michael Magruder</div>
+    <div class="section-sub">We work exclusively with Chief Executive Officers, Board Chairs, and Private Equity Operating Partners. There are no intake forms to fill out, no SDRs, and no junior intermediaries. This is strictly direct 1-to-1 executive communication.</div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-title">What to Share in Your Message</div>
+        <ul class="contact-list">
+          <li><strong>1. The Decision:</strong> The unresolved strategic, capital, or AI governance challenge currently on your desk.</li>
+          <li><strong>2. The Monday Stakes:</strong> Why having this solved, stress-tested, and defensible by Monday morning alters your enterprise outcome.</li>
+          <li><strong>3. Context:</strong> Whether this is for your enterprise directly or passed along on behalf of an executive peer.</li>
+          <li><strong>4. Availability:</strong> A 15-minute window today for us to speak directly.</li>
+        </ul>
       </div>
-      <div class="contact-item">
-        <div class="contact-item-label">Framework</div>
-        <div class="contact-item-val"><a href="https://customercore.co" target="_blank">customercore.co</a></div>
+
+      <div class="contact-actions">
+        <a href="mailto:michael@magruder.co?subject=Confidential%20Executive%20Strategic%20Inquiry" class="btn-contact btn-contact-orange">Email Michael Magruder Direct</a>
+        <a href="https://www.linkedin.com/in/magruder/" target="_blank" rel="noopener" class="btn-contact btn-contact-outline">Connect via LinkedIn</a>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin-top:8px">
+          Direct Email: michael@magruder.co &middot; All discussions governed by bilateral Mutual NDA &middot; Private zero-retention enterprise API enclaves
+        </div>
       </div>
     </div>
-  </div>
-  <div>
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
-      <input type="hidden" name="form-name" value="contact" />
-      <p style="display:none"><input name="bot-field" /></p>
-      <div class="form-row">
-        <label for="cf-name">Name</label>
-        <input type="text" id="cf-name" name="name" placeholder="Your name" required />
-      </div>
-      <div class="form-row">
-        <label for="cf-company">Company</label>
-        <input type="text" id="cf-company" name="company" placeholder="Your organization" required />
-      </div>
-      <div class="form-row">
-        <label for="cf-email">Email</label>
-        <input type="email" id="cf-email" name="email" placeholder="Your work email" required />
-      </div>
-      <div class="form-row">
-        <label for="cf-context">What brings you here? <span class="form-optional">(optional)</span></label>
-        <textarea id="cf-context" name="context" rows="3" placeholder="Brief context — your role, what you're working on, what you're trying to figure out."></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="align-self:flex-start;margin-top:4px">Start a Conversation</button>
-    </form>
   </div>
 </section>
 
@@ -814,12 +747,13 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
 <footer>
   <div class="footer-brand">MAGRUDER <span>&amp;</span> COMPANY</div>
   <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#proof">The Work</a>
+    <a href="/outcome-sprint">Outcome Sprint</a>
+    <a href="/advisory">Executive Advisory</a>
+    <a href="#decisions">Decision Gates</a>
     <a href="/insights">Insights</a>
     <a href="#about">About</a>
-    <a href="https://www.linkedin.com/company/magruderco" target="_blank">LinkedIn</a>
-    <a href="https://customercore.co" target="_blank">Customer Core&#x2122;</a>
+    <a href="https://www.linkedin.com/company/magruderco" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://customercore.co" target="_blank" rel="noopener">Customer Core™</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
