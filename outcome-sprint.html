@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<title>The Executive Outcome Sprint | Magruder &amp; Company</title>
+<meta name="description" content="Confidential Friday-to-Monday strategic decision sprints for CEOs, Board Chairs, and C-suite leadership. Board-ready outcomes and the Executive Governed AI Manifest.">
+<meta property="og:title" content="The Executive Outcome Sprint | Magruder &amp; Company">
+<meta property="og:description" content="Confidential Friday-to-Monday strategic decision sprints for CEOs, Board Chairs, and C-suite leadership. Board-ready outcomes and the Executive Governed AI Manifest.">
+<meta property="og:url" content="https://magruder.co/outcome-sprint">
+<meta property="og:type" content="website">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#1E3455;
+  --navy-dark:#131F33;
+  --navy-mid:#2C4A73;
+  --orange:#F86822;
+  --orange-light:#FEA96D;
+  --cream:#FAF8F5;
+  --off-white:#F2EFE9;
+  --slate:#4A5568;
+  --muted:#8A9BB0;
+  --rule:#D6DDE8;
+  --white:#FFFFFF;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;overflow-x:hidden}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 64px;
+  background:rgba(250,248,245,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-brand{
+  font-size:14px;font-weight:700;
+  color:var(--navy);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.nav-brand span{color:var(--orange)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{
+  font-size:13px;font-weight:500;
+  color:var(--slate);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{
+  background:var(--navy);color:var(--white)!important;
+  padding:9px 20px;border-radius:4px;
+  font-size:13px!important;font-weight:600!important;
+  transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--orange)!important}
+
+.hero{
+  background:var(--navy-dark);
+  color:var(--white);
+  padding:140px 64px 90px;
+  position:relative;
+}
+.hero-label{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:20px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,64px);
+  font-weight:700;
+  line-height:1.15;
+  max-width:860px;
+  margin-bottom:24px;
+}
+.hero h1 em{color:var(--orange-light);font-style:italic}
+.hero p.lead{
+  font-size:18px;font-weight:300;
+  color:rgba(255,255,255,0.75);
+  max-width:680px;
+  line-height:1.7;
+  margin-bottom:36px;
+}
+.hero-meta-bar{
+  display:flex;gap:40px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-top:28px;
+}
+.meta-item{display:flex;flex-direction:column;gap:4px}
+.meta-item span.label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.meta-item span.val{font-size:14px;font-weight:600;color:var(--white)}
+
+.section{padding:80px 64px;max-width:1160px;margin:0 auto}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  color:var(--navy-dark);
+  margin-bottom:16px;
+}
+.section-subtitle{
+  font-size:16px;
+  color:var(--slate);
+  max-width:720px;
+  margin-bottom:48px;
+  line-height:1.6;
+}
+
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;margin-bottom:48px}
+.card{
+  background:var(--white);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:32px;
+  box-shadow:0 2px 8px rgba(30,52,85,0.04);
+}
+.card-num{font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:12px}
+.card p{font-size:14px;color:var(--slate);line-height:1.6}
+
+.manifest-block{
+  background:var(--white);
+  border:2px solid var(--navy-mid);
+  border-radius:6px;
+  padding:40px;
+  margin:48px 0;
+}
+.manifest-block h3{
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  color:var(--navy);
+  margin-bottom:16px;
+}
+.manifest-block p{font-size:15px;color:var(--slate);line-height:1.7;margin-bottom:20px}
+.manifest-block ul{margin-left:20px;color:var(--slate);font-size:14px;line-height:1.8}
+
+.inquiry-panel{
+  background:var(--off-white);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:48px;
+  max-width:720px;
+  margin:0 auto;
+}
+.inquiry-panel h2{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  color:var(--navy-dark);
+  margin-bottom:12px;
+  text-align:center;
+}
+.inquiry-panel p.sub{
+  font-size:14px;
+  color:var(--slate);
+  text-align:center;
+  margin-bottom:32px;
+}
+
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--rule);
+  border-radius:4px;
+  font-family:inherit;
+  font-size:14px;
+  color:var(--navy);
+  background:var(--white);
+}
+.form-group textarea{min-height:110px;resize:vertical}
+.form-submit{
+  width:100%;
+  background:var(--navy);
+  color:var(--white);
+  padding:14px;
+  border:none;
+  border-radius:4px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:background 0.2s;
+}
+.form-submit:hover{background:var(--orange)}
+
+footer{
+  background:var(--navy-dark);
+  color:var(--muted);
+  padding:40px 64px;
+  font-size:13px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+footer a{color:var(--white);text-decoration:none}
+footer a:hover{color:var(--orange)}
+
+@media (max-width:768px){
+  nav{padding:16px 24px}
+  .hero{padding:120px 24px 60px}
+  .section{padding:60px 24px}
+  .inquiry-panel{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">Magruder <span>&amp;</span> Company</a>
+  <div class="nav-links">
+    <a href="/outcome-sprint">Outcome Sprint</a>
+    <a href="/advisory">Advisory</a>
+    <a href="/insights">Insights</a>
+    <a href="#inquiry" class="nav-cta">Direct Inquiry</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-label">Confidential Executive Advisory</div>
+  <h1>The Executive <em>Outcome Sprint</em></h1>
+  <p class="lead">A single confidential weekend engagement for a CEO, Board Chair, or C-suite executive facing an urgent, high-consequence strategic decision that must be resolved, hardened, and board-ready by Monday morning at 8:00 AM.</p>
+  <div class="hero-meta-bar">
+    <div class="meta-item">
+      <span class="label">Operating Window</span>
+      <span class="val">Friday Briefing to Monday 8:00 AM</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Capacity Constraint</span>
+      <span class="val">One Active Engagement Per Weekend</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Primary Delivery</span>
+      <span class="val">Executive Governed AI Manifest</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Direct Practitioner</span>
+      <span class="val">Michael Magruder (Principal)</span>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+  <h2 class="section-title">The Three-Tier Delivery Architecture</h2>
+  <p class="section-subtitle">Delivered directly to the executive committee at 8:00 AM Monday, structured into three distinct layers of operational and evidentiary depth.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-num">Instrument A</div>
+      <h3>3-Page Executive Decision Brief</h3>
+      <p>Distilled, board-ready synthesis providing the core strategic choices, capital requirements, organizational trade-offs, and definitive operational recommendations for immediate executive action.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Instrument B</div>
+      <h3>Structured Implementation Scaffolding</h3>
+      <p>A comprehensive functional roadmap with an interactive table of contents, providing the precise operating directives required for executive sign-off and delegation across division heads.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Instrument C</div>
+      <h3>Evidentiary Forensic Appendix</h3>
+      <p>An exhaustive, human-readable narrative and reasoning model proving the adversarial decomposition, empirical stress-testing, and multi-model consensus that underpins every recommendation.</p>
+    </div>
+  </div>
+
+  <div class="manifest-block">
+    <h3>The Premier Common Asset: The Executive Governed AI Manifest</h3>
+    <p>The most persistent challenge facing leadership teams right now is establishing an overarching framework for governed artificial intelligence that the entire enterprise can understand and sign off on.</p>
+    <p>The Executive Governed AI Manifest is not a dense technical manual. It is an authoritative executive instrument that establishes:</p>
+    <ul>
+      <li>Explicit corporate boundary lines defining where AI systems may and may not operate.</li>
+      <li>Data protection and classification tiers safeguarding proprietary enterprise assets.</li>
+      <li>Mandatory human-in-the-loop decision gates for financial, legal, and operational actions.</li>
+      <li>A unified governance baseline that business unit leaders can immediately attach departmental policies to.</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-bottom:48px;background:var(--cream);border-color:var(--rule)">
+    <h3>Fiduciary &amp; Privacy Commitments</h3>
+    <p style="margin-bottom:12px">All sprint engagements are conducted under a bilateral non-disclosure agreement. Work is processed exclusively within private, zero-retention enterprise API enclaves, ensuring client proprietary data is never used for external model training.</p>
+    <p>Clients pay zero software, compute, or infrastructure markups. Engagements are billed strictly on agreed professional advisory labor.</p>
+  </div>
+
+  <section class="inquiry-panel" id="inquiry">
+    <h2>Confidential Inquiry</h2>
+    <p class="sub">Direct communication with Michael Magruder. No intermediaries or marketing lists.</p>
+    <form name="outcome-sprint-inquiry" method="POST" data-netlify="true" action="/outcome-sprint?submitted=true">
+      <input type="hidden" name="form-name" value="outcome-sprint-inquiry">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="Full Name">
+      </div>
+      <div class="form-group">
+        <label for="title">Title &amp; Organization</label>
+        <input type="text" id="title" name="title" required placeholder="e.g. Chief Executive Officer, Enterprise Corp">
+      </div>
+      <div class="form-group">
+        <label for="email">Work Email</label>
+        <input type="email" id="email" name="email" required placeholder="name@company.com">
+      </div>
+      <div class="form-group">
+        <label for="details">Strategic Challenge &amp; Monday Outcome Needed</label>
+        <textarea id="details" name="details" required placeholder="Briefly describe the strategic decision, board deadline, or governed AI manifest requirement..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Confidential Inquiry</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Magruder &amp; Company. All rights reserved. <a href="/privacy">Privacy</a> &middot; <a href="/advisory">Advisory</a></p>
+</footer>
+
+</body>
+</html>
