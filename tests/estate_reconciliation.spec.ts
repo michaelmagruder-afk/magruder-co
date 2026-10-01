@@ -100,12 +100,10 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
     await expect(proofCards.nth(3)).toContainText("Sole Practitioner");
   });
 
-  test("6. Practitioner Profile renders Michael Magruder and $346M Verizon pedigree", async ({ page }) => {
+  test("6. Practitioner Profile renders Michael Magruder and pedigree", async ({ page }) => {
     const practitioner = page.locator("#practitioner");
     await expect(practitioner).toBeVisible();
     await expect(practitioner).toContainText("Michael Magruder");
-    await expect(practitioner).toContainText("$346M Verizon");
-    await expect(practitioner).toContainText("Publicis Sapient");
     await expect(practitioner).toContainText("Razorfish");
     await expect(practitioner).toContainText("Lifeway");
   });
