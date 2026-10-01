@@ -259,6 +259,7 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
 
   test("16. Author Byline Invariant: All articles link to Michael Magruder LinkedIn profile", async ({ page }) => {
     const articles = [
+      "insights/the-friday-crucible-q4-executive-challenge.html",
       "insights/the-operating-partners-q3-reality-check.html",
       "insights/executive-fluency-and-strategic-clarity.html",
       "insights/the-executive-governed-ai-manifest.html",
