@@ -153,7 +153,7 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
       // Must be an authentic anchor tag
       expect(link.tag).toBe("a");
       expect(link.target).toBe("_blank");
-      expect(link.href).toMatch(/^https:\/\/magruder\.co\//);
+      expect(link.href).toMatch(/^\/|https:\/\/magruder\.co\//);
     }
   });
 

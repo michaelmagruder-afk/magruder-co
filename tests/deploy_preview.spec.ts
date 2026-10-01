@@ -46,4 +46,29 @@ test.describe("Netlify Deploy Preview (PR #10) Verification", () => {
     const emojiRegex = /[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/u;
     expect(emojiRegex.test(bodyText)).toBe(false);
   });
+
+  test("5. Comprehensive Canon Audit: All 15 monograph links resolve to HTTP 200", async ({ request }) => {
+    const paths = [
+      "/insights/the-operating-partners-q3-reality-check",
+      "/insights/executive-fluency-and-strategic-clarity",
+      "/insights/the-executive-governed-ai-manifest",
+      "/insights/the-record-is-not-the-memory",
+      "/insights/the-five-crises-of-modern-enterprise-ai-governance",
+      "/constraint-01",
+      "/constraint-02",
+      "/constraint-03",
+      "/constraint-04",
+      "/constraint-05",
+      "/manufacturing",
+      "/insights/manufacturing-02",
+      "/insights/manufacturing-03",
+      "/insights/manufacturing-04",
+      "/q3-imperative",
+    ];
+
+    for (const p of paths) {
+      const res = await request.get(`${PREVIEW_URL}${p}`);
+      expect(res.status(), `Path ${p} should return HTTP 200 on preview`).toBe(200);
+    }
+  });
 });
