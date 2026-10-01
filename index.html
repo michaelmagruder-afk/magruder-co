@@ -1,772 +1,1554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magruder &amp; Company · AI Governance &amp; Enterprise Preparedness</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
-<title>Magruder &amp; Company · AI Governance &amp; Organizational Preparedness</title>
-<meta name="description" content="Management consulting for AI preparedness. We map what is blocking you, build a governed corpus, and transfer lasting capability. Constraint Map. GenGov. H2AI.">
+<meta name="description" content="Management consulting for AI preparedness. Enterprise strategy hardening, executive alignment, and boardroom governance. Constraint Map. GenGov OS. H2AI.">
 <meta property="og:title" content="Magruder &amp; Company · AI Governance &amp; Organizational Preparedness">
-<meta property="og:description" content="Management consulting for AI preparedness. We map what is blocking you, build a governed corpus, and transfer lasting capability. Constraint Map. GenGov. H2AI.">
+<meta property="og:description" content="Management consulting for AI preparedness. Enterprise strategy hardening, executive alignment, and boardroom governance. Constraint Map. GenGov OS. H2AI.">
 <meta property="og:url" content="https://magruder.co">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://magruder.co/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@magruderco_">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-:root{
-  --navy:#1E3455;
-  --navy-dark:#131F33;
-  --navy-mid:#2C4A73;
-  --orange:#F86822;
-  --orange-light:#FEA96D;
-  --cream:#FAF8F5;
-  --off-white:#F2EFE9;
-  --slate:#4A5568;
-  --muted:#8A9BB0;
-  --rule:#D6DDE8;
-  --teal:#0F6E56;
-  --white:#FFFFFF;
-}
+    :root {
+      --navy: #1E3455;
+      --navy-dark: #131F33;
+      --navy-mid: #2C4A73;
+      --orange: #F86822;
+      --orange-light: #FEA96D;
+      --cream: #FAF8F5;
+      --off-white: #F2EFE9;
+      --slate: #4A5568;
+      --muted: #8A9BB0;
+      --rule: #D6DDE8;
+      --teal: #0F6E56;
+      --white: #FFFFFF;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
 
-html{scroll-behavior:smooth}
-body{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;background:var(--cream);color:var(--navy);line-height:1.6;overflow-x:hidden}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 64px;
-  background:rgba(250,248,245,0.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--rule);
-}
-.nav-brand{
-  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
-  font-size:14px;font-weight:700;
-  color:var(--navy);
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  text-decoration:none;
-  display:inline-block;
-  white-space:nowrap;
-}
-.nav-brand span{
-  color:var(--orange);
-  font-weight:700;
-  margin:0 0.05em;
-}
-.nav-links{display:flex;gap:36px;align-items:center}
-.nav-links a{
-  font-size:13px;font-weight:500;
-  color:var(--slate);text-decoration:none;
-  letter-spacing:0.02em;
-  transition:color 0.2s;
-}
-.nav-links a:hover{color:var(--orange)}
-.nav-cta{
-  background:var(--navy);color:var(--white)!important;
-  padding:9px 22px;border-radius:4px;
-  font-size:13px!important;font-weight:600!important;
-  transition:background 0.2s!important;
-}
-.nav-cta:hover{background:var(--orange)!important}
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-/* HERO */
-.hero{
-  min-height:92vh;
-  background:var(--navy-dark);
-  display:flex;flex-direction:column;justify-content:center;
-  padding:140px 64px 80px;
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;
-  top:-100px;right:-100px;
-  width:600px;height:600px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(248,104,34,0.08) 0%,transparent 70%);
-}
-.hero::after{
-  content:'';position:absolute;
-  bottom:-80px;left:200px;
-  width:400px;height:400px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(44,74,115,0.4) 0%,transparent 70%);
-}
-.hero-label{
-  font-size:11px;font-weight:600;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--orange);
-  margin-bottom:28px;
-}
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(38px,5.5vw,72px);
-  font-weight:700;
-  color:var(--white);
-  line-height:1.1;
-  letter-spacing:-0.02em;
-  max-width:820px;
-  margin-bottom:32px;
-  position:relative;z-index:1;
-}
-.hero h1 em{
-  color:var(--orange-light);
-  font-style:italic;
-}
-.hero-sub{
-  font-size:18px;font-weight:300;
-  color:rgba(255,255,255,0.75);
-  max-width:680px;
-  line-height:1.75;
-  margin-bottom:48px;
-  position:relative;z-index:1;
-}
-.hero-actions{
-  display:flex;gap:16px;flex-wrap:wrap;
-  position:relative;z-index:1;
-}
-.btn-primary{
-  background:var(--orange);color:var(--white);
-  padding:15px 32px;border-radius:4px;
-  font-size:14px;font-weight:600;
-  text-decoration:none;
-  letter-spacing:0.02em;
-  transition:background 0.2s,transform 0.15s;
-  display:inline-block;
-}
-.btn-primary:hover{background:#E05510;transform:translateY(-1px)}
-.btn-secondary{
-  border:1px solid rgba(255,255,255,0.3);
-  color:rgba(255,255,255,0.85);
-  padding:15px 32px;border-radius:4px;
-  font-size:14px;font-weight:500;
-  text-decoration:none;
-  transition:border-color 0.2s,color 0.2s;
-  display:inline-block;
-}
-.btn-secondary:hover{border-color:var(--orange);color:var(--orange)}
-.hero-rule{
-  width:56px;height:3px;
-  background:var(--orange);
-  border-radius:2px;
-  margin-top:64px;
-  position:relative;z-index:1;
-}
+    /* Top Announcement Ribbon */
+    .ribbon {
+      background: var(--navy-dark);
+      color: var(--white);
+      padding: 10px 48px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .ribbon-tag {
+      background: var(--orange);
+      color: var(--white);
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-right: 12px;
+    }
+    .ribbon-link {
+      color: var(--orange-light);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+    .ribbon-link:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
 
-/* SECTION COMMON */
-section{padding:96px 64px}
-.section-label{
-  font-size:10px;font-weight:600;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--orange);margin-bottom:16px;
-}
-.section-h{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(28px,3.5vw,44px);
-  font-weight:700;
-  color:var(--navy);
-  line-height:1.15;
-  letter-spacing:-0.02em;
-  margin-bottom:20px;
-  max-width:640px;
-}
-.section-sub{
-  font-size:16px;font-weight:300;
-  color:var(--slate);
-  max-width:580px;
-  line-height:1.75;
-  margin-bottom:56px;
-}
+    /* Fixed Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(250, 248, 245, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-brand {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .nav-brand span {
+      color: var(--orange);
+      font-weight: 700;
+      margin: 0 0.05em;
+    }
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+    }
+    nav a:hover, nav a.active {
+      color: var(--orange);
+      font-weight: 600;
+    }
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: 4px;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      transition: background 0.2s ease !important;
+    }
+    .nav-cta:hover {
+      background: var(--orange) !important;
+    }
 
-/* PROBLEM SECTION */
-.problem{background:var(--off-white)}
-.problem-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:48px;align-items:start;
-  margin-top:48px;
-}
-.problem-stat{
-  padding:32px;
-  border-left:3px solid var(--orange);
-  background:var(--white);
-}
-.problem-stat-num{
-  font-family:'Playfair Display',serif;
-  font-size:52px;font-weight:900;
-  color:var(--orange);
-  line-height:1;
-  margin-bottom:8px;
-}
-.problem-stat-text{
-  font-size:14px;color:var(--slate);
-  line-height:1.6;
-}
-.problem-stat-source{
-  font-size:11px;color:var(--muted);
-  margin-top:8px;letter-spacing:0.04em;
-}
+    /* Layout Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
 
-/* SERVICES */
-.services{background:var(--white)}
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2px;margin-top:56px;
-  border:2px solid var(--rule);
-}
-.service-card{
-  padding:40px 32px;
-  background:var(--white);
-  border-right:2px solid var(--rule);
-  transition:background 0.2s;
-  display:flex;
-  flex-direction:column;
-}
-.service-card:last-child{border-right:none}
-.service-card:hover{background:var(--cream)}
-.service-num{
-  font-size:11px;font-weight:600;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:20px;
-}
-.service-icon{
-  width:40px;height:40px;
-  border-radius:8px;
-  margin-bottom:16px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;
-}
-.si-navy{background:var(--navy)}
-.si-orange{background:var(--orange)}
-.si-teal{background:var(--teal)}
-.service-title{
-  font-family:'Playfair Display',serif;
-  font-size:22px;font-weight:700;
-  color:var(--navy);margin-bottom:6px;
-}
-.service-sub{
-  font-size:11px;font-weight:600;
-  letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--orange);margin-bottom:16px;
-}
-.service-body{
-  font-size:14px;color:var(--slate);
-  line-height:1.7;margin-bottom:24px;
-  flex-grow:1;
-}
-.service-phases{
-  display:flex;flex-direction:column;gap:6px;
-}
-.service-phase{
-  font-size:12px;color:var(--slate);
-  padding:6px 10px;
-  background:var(--cream);
-  border-radius:4px;
-  display:flex;align-items:center;gap:8px;
-}
-.service-phase::before{
-  content:'';width:6px;height:6px;
-  border-radius:50%;background:var(--navy);
-  flex-shrink:0;
-}
-.service-ring{
-  font-size:12px;padding:6px 10px;
-  background:var(--cream);border-radius:4px;
-  color:var(--slate);margin-top:4px;
-}
+    /* Hero Section (Signature Dark Navy & Editorial Serif) */
+    .hero {
+      background: var(--navy-dark);
+      color: var(--white);
+      padding: 100px 48px 80px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(248, 104, 34, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: 100px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(44, 74, 115, 0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 980px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 24px;
+      display: block;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      color: var(--orange-light);
+      font-style: italic;
+    }
+    .hero-lead {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.7;
+      max-width: 860px;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #E05510;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.88);
+      background: transparent;
+    }
+    .btn-secondary:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: rgba(248, 104, 34, 0.05);
+    }
+    .hero-callout {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid var(--orange);
+      padding: 18px 24px;
+      border-radius: 0 4px 4px 0;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+      max-width: 900px;
+    }
+    .hero-callout strong {
+      color: var(--white);
+    }
 
-/* PROOF */
-.proof{background:var(--navy)}
-.proof .section-label{color:var(--orange)}
-.proof .section-h{color:var(--white)}
-.proof .section-sub{color:rgba(255,255,255,0.6)}
-.proof-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2px;
-  border:1px solid rgba(255,255,255,0.1);
-  margin-top:0;
-}
-.proof-stat{
-  padding:40px 32px;
-  border-right:1px solid rgba(255,255,255,0.1);
-}
-.proof-stat:last-child{border-right:none}
-.proof-stat-num{
-  font-family:'Playfair Display',serif;
-  font-size:44px;font-weight:900;
-  color:var(--orange);line-height:1;
-  margin-bottom:8px;
-}
-.proof-stat-label{
-  font-size:13px;color:rgba(255,255,255,0.65);
-  line-height:1.55;
-}
+    /* Common Section Styles */
+    section {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .section-h {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--slate);
+      max-width: 780px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
 
-/* ABOUT */
-.about{background:var(--cream)}
-.about-inner{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;align-items:start;
-}
-.about-credentials{
-  display:flex;flex-direction:column;gap:16px;
-  margin-top:40px;
-}
-.credential{
-  padding:20px 24px;
-  background:var(--white);
-  border-left:3px solid var(--rule);
-  transition:border-color 0.2s;
-}
-.credential:hover{border-left-color:var(--orange)}
-.credential-title{
-  font-size:13px;font-weight:600;
-  color:var(--navy);margin-bottom:4px;
-}
-.credential-body{
-  font-size:13px;color:var(--slate);line-height:1.5;
-}
-.about-commitment{
-  margin-top:48px;
-  padding:32px;
-  background:var(--navy);
-  border-radius:2px;
-}
-.about-commitment-label{
-  font-size:10px;font-weight:600;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--orange);margin-bottom:12px;
-}
-.about-commitment-text{
-  font-family:'Playfair Display',serif;
-  font-size:17px;font-style:italic;
-  color:var(--white);line-height:1.6;
-}
+    /* Market Condition Statistics (Problem Section) */
+    .market-section {
+      background: var(--off-white);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .stat-card {
+      background: var(--white);
+      border-left: 3px solid var(--orange);
+      padding: 28px 24px;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-source {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--navy-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .stat-desc {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.5;
+    }
 
-/* CONTACT */
-.contact{
-  background:var(--navy-dark);
-  padding:96px 64px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;align-items:center;
-}
-.contact .section-h{color:var(--white);margin-bottom:16px}
-.contact .section-sub{color:rgba(255,255,255,0.65);margin-bottom:40px}
-.contact-details{display:flex;flex-direction:column;gap:20px}
-.contact-item{
-  display:flex;align-items:flex-start;gap:16px;
-}
-.contact-item-label{
-  font-size:10px;font-weight:600;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--orange);min-width:110px;
-  padding-top:2px;
-}
-.contact-item-val{
-  font-size:15px;color:rgba(255,255,255,0.85);
-}
-.contact-item-val a{
-  color:rgba(255,255,255,0.85);text-decoration:none;
-  transition:color 0.2s;
-}
-.contact-item-val a:hover{color:var(--orange)}
-.contact-form-note{
-  font-size:13px;color:rgba(255,255,255,0.45);
-  line-height:1.6;margin-top:24px;
-}
+    /* Comparison Table: Management Consulting vs Software */
+    .comparison-section {
+      background: var(--cream);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 14px;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 18px 22px;
+      border: 1px solid var(--rule);
+      text-align: left;
+      vertical-align: top;
+    }
+    .comparison-table th {
+      background: var(--off-white);
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .th-highlight {
+      background: var(--navy) !important;
+      color: var(--white) !important;
+      border-bottom: 2px solid var(--orange) !important;
+    }
+    .td-highlight {
+      background: #faf8f5;
+      font-weight: 500;
+      border-left: 2px solid var(--orange) !important;
+    }
 
-/* CONTACT FORM */
-.contact-form{display:flex;flex-direction:column;gap:18px}
-.form-row{display:flex;flex-direction:column;gap:6px}
-.form-row label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
-.form-row input,.form-row textarea{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:4px;
-  padding:11px 14px;
-  color:rgba(255,255,255,0.9);
-  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
-  font-size:14px;
-  line-height:1.5;
-  transition:border-color 0.2s,background 0.2s;
-  resize:vertical;
-  width:100%;
-}
-.form-row input::placeholder,.form-row textarea::placeholder{color:rgba(255,255,255,0.22)}
-.form-row input:focus,.form-row textarea:focus{outline:none;border-color:rgba(248,104,34,0.55);background:rgba(255,255,255,0.09)}
-.form-optional{font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;text-transform:uppercase;margin-left:6px}
-button.btn-primary{border:none;cursor:pointer;font-family:inherit}
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 28px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 28px;
+    }
 
-/* FOOTER */
-footer{
-  background:var(--navy-dark);
-  padding:24px 64px;
-  border-top:1px solid rgba(255,255,255,0.08);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.footer-brand{
-  font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;
-  font-size:11px;font-weight:700;
-  color:rgba(255,255,255,0.55);
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-}
-.footer-brand span{
-  color:var(--orange);
-  margin:0 0.05em;
-}
-.footer-links{display:flex;gap:32px}
-.footer-links a{
-  font-size:12px;color:rgba(255,255,255,0.4);
-  text-decoration:none;letter-spacing:0.04em;
-  transition:color 0.2s;
-}
-.footer-links a:hover{color:var(--orange)}
+    /* Editorial Card */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(30, 52, 85, 0.06);
+      border-color: var(--orange);
+    }
+    .card-num {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .card-deliverable {
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+      font-size: 12px;
+      color: var(--navy);
+      line-height: 1.5;
+      background: var(--cream);
+      padding: 14px 16px;
+      border-radius: 3px;
+    }
+    .card-deliverable strong {
+      color: var(--orange);
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  nav{padding:16px 20px}
-  .nav-brand{font-size:12px;letter-spacing:0.14em}
-  .nav-links{display:none}
-  section{padding:64px 24px}
-  .hero{padding:110px 24px 64px}
-  .problem-grid,.services-grid,.proof-grid,.about-inner,.contact{
-    grid-template-columns:1fr;gap:24px;
-  }
-  footer{flex-direction:column;gap:16px;padding:24px}
-  .footer-brand{font-size:10px;letter-spacing:0.16em}
-}
-@media(max-width:480px){
-  .nav-brand{font-size:11px;letter-spacing:0.12em}
-}
-</style>
+    /* Generative Governance Section */
+    .governance-section {
+      background: var(--white);
+    }
 
-<!-- LinkedIn Insight Tag -->
-<script type="text/javascript">
-_linkedin_partner_id = "542930268";
-window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-</script>
-<script type="text/javascript">
-(function(l) {
-  if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-  window.lintrk.q=[]}
-  var s = document.getElementsByTagName("script")[0];
-  var b = document.createElement("script");
-  b.type = "text/javascript"; b.async = true;
-  b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-  s.parentNode.insertBefore(b, s);
-})(window.lintrk);
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=542930268&fmt=gif" />
-</noscript>
+    /* Canonical 3+1 Services Section */
+    .services-section {
+      background: var(--off-white);
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .service-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+    .service-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--cream);
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--rule);
+      width: fit-content;
+    }
+    .service-crucible {
+      border: 2px solid var(--orange);
+      background: var(--white);
+    }
+    .service-crucible .service-badge {
+      background: var(--orange);
+      color: var(--white);
+      border-color: var(--orange);
+    }
+
+    /* Customer Core Showcase */
+    .showcase-section {
+      background: var(--cream);
+    }
+    .showcase-box {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 44px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+    .showcase-box h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .showcase-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .pillar {
+      background: var(--cream);
+      border-left: 3px solid var(--navy);
+      padding: 16px 20px;
+      border-radius: 0 3px 3px 0;
+    }
+    .pillar:hover {
+      border-left-color: var(--orange);
+    }
+    .pillar-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .pillar-desc {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    /* Proof of Work Section (Signature Midnight Navy) */
+    .proof-section {
+      background: var(--navy-dark);
+      color: var(--white);
+      padding: 84px 0;
+    }
+    .proof-section .section-h {
+      color: var(--white);
+    }
+    .proof-section .section-sub {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 36px;
+    }
+    .proof-card {
+      background: var(--navy-dark);
+      padding: 36px 28px;
+      text-align: center;
+    }
+    .proof-num {
+      font-family: var(--font-serif);
+      font-size: 46px;
+      font-weight: 900;
+      color: var(--orange);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .proof-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .proof-sub {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.45;
+    }
+
+    /* Practitioner Pedigree Profile */
+    .practitioner-section {
+      background: var(--white);
+    }
+    .practitioner-box {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      background: var(--cream);
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .practitioner-meta h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .practitioner-title {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .practitioner-commitment {
+      background: var(--navy);
+      color: var(--white);
+      padding: 20px;
+      border-radius: 3px;
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .practitioner-commitment strong {
+      display: block;
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .practitioner-bio {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+    .practitioner-bio p {
+      margin-bottom: 14px;
+    }
+    .pedigree-list {
+      list-style: none;
+      margin-top: 20px;
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+    }
+    .pedigree-item {
+      font-size: 13px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pedigree-item strong {
+      color: var(--orange);
+      font-weight: 700;
+      min-width: 140px;
+    }
+
+    /* Insights Archive Categories */
+    .insights-section {
+      background: var(--off-white);
+    }
+    .insight-category {
+      margin-top: 40px;
+    }
+    .insight-cat-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .insight-cat-count {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--orange);
+      font-weight: 700;
+    }
+    .article-item {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--rule);
+      border-radius: 3px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      transition: border-left-color 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .article-item:hover {
+      border-left-color: var(--orange);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+    .article-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .article-desc {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+    .article-meta {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--navy);
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    /* Platform Logos Section (Monochrome Anti-Agency Standard) */
+    .platform-section {
+      background: var(--white);
+    }
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .platform-card {
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 22px 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: border-color 0.15s ease;
+    }
+    .platform-card:hover {
+      border-color: var(--navy);
+    }
+    .platform-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+    .platform-subtext {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--slate);
+      line-height: 1.4;
+    }
+    .platform-airgap {
+      border: 1px solid var(--navy-mid);
+      background: #eff3f8;
+    }
+
+    /* Commercial Sprint Box (One Friday Constraint) */
+    .sprint-section {
+      background: var(--cream);
+    }
+    .sprint-card {
+      border: 2px solid var(--navy);
+      border-radius: 4px;
+      padding: 44px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 6px 24px rgba(30, 52, 85, 0.05);
+    }
+    .sprint-card h2 {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .sprint-sub {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--orange);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    /* Footer (Signature Dark Midnight) */
+    footer {
+      background: var(--navy-dark);
+      padding: 36px 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .footer-brand span {
+      color: var(--orange);
+    }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-left: 20px;
+      transition: color 0.15s ease;
+    }
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-4, .stats-grid, .proof-grid, .showcase-box, .practitioner-box, .sprint-card {
+        grid-template-columns: 1fr;
+      }
+      .platform-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      header {
+        padding: 16px 20px;
+      }
+      .container {
+        padding: 0 20px;
+      }
+      .hero {
+        padding: 80px 20px 60px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand" aria-label="Magruder and Company home">MAGRUDER <span>&amp;</span> COMPANY</a>
-  <div class="nav-links">
-    <a href="/outcome-sprint">Outcome Sprint</a>
-    <a href="#services">Services</a>
-    <a href="#proof">The Work</a>
-    <a href="/insights">Insights</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="nav-cta">Start a Conversation</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-label">Magruder &amp; Company · Strategic Advisory &amp; AI Governance</div>
-  <h1>Your AI investment needs a <em>foundation</em> before it can compound.</h1>
-  <div class="hero-sub">Most organizations deploy AI on top of knowledge that was never governed. The market has not failed to produce AI advice. It has failed to produce AI preparedness. We map what is blocking you, codify the knowledge your systems must operate on, and transfer lasting institutional capability. GenGov OS deploys on your infrastructure, runs continuously, and is yours permanently.</div>
-  <div class="hero-actions">
-    <a href="#services" class="btn-primary">See How We Work</a>
-    <a href="/outcome-sprint" class="btn-secondary">The Outcome Sprint →</a>
-  </div>
-  <div class="hero-rule"></div>
-</section>
-
-<!-- PROBLEM -->
-<section class="problem" id="problem">
-  <div class="section-label">The Market Condition</div>
-  <div class="section-h">AI is being deployed. The foundation beneath it is not being built.</div>
-  <div class="section-sub">Every advisor owns a lane. The technology firms sell adoption. The consultancies sell strategy. The governance specialists sell policy. None of them holds the full problem. None of them was designed to.</div>
-  <div class="problem-grid">
-    <div class="problem-stat">
-      <div class="problem-stat-num">95%</div>
-      <div class="problem-stat-text">of companies fail to achieve measurable financial impact from generative AI.</div>
-      <div class="problem-stat-source">MIT Project NANDA · The GenAI Divide, 2025</div>
-    </div>
-    <div class="problem-stat">
-      <div class="problem-stat-num">12%</div>
-      <div class="problem-stat-text">of CEOs say AI has delivered both cost and revenue benefits. 56% report no significant financial benefit at all.</div>
-      <div class="problem-stat-source">PwC 29th Global CEO Survey, 2026</div>
-    </div>
-    <div class="problem-stat">
-      <div class="problem-stat-num">75%</div>
-      <div class="problem-stat-text">of executives admit their company's AI strategy is "more for show" than actual internal guidance.</div>
-      <div class="problem-stat-source">Writer/Harris Poll, 2026 · 900 CEOs surveyed</div>
-    </div>
-    <div class="problem-stat">
-      <div class="problem-stat-num">78%</div>
-      <div class="problem-stat-text">of executives lack confidence their organization could pass an independent AI governance audit within 90 days.</div>
-      <div class="problem-stat-source">Grant Thornton, 2026 · 950 C-suite leaders</div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-label">What We Deliver</div>
-  <div class="section-h">Executive Clarity. Governed Knowledge. Lasting Ownership.</div>
-  <div class="section-sub">What changes as the practice runs is what your executive team can point to. Structured assessments, permanent governed assets, and capability transfer designed for enterprise leadership.</div>
-  <div class="services-grid">
-
-    <!-- Constraint Map -->
-    <div class="service-card">
-      <div class="service-num">Service 01</div>
-      <div class="service-icon si-orange">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="4" cy="4" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="4" r="1.8" fill="white" opacity="0.9"/><circle cx="10" cy="10" r="2" fill="white" opacity="1"/><circle cx="4" cy="16" r="1.8" fill="white" opacity="0.9"/><circle cx="16" cy="16" r="1.8" fill="white" opacity="0.9"/><line x1="4" y1="5.8" x2="8.5" y2="9" stroke="white" stroke-width="1" opacity="0.5"/><line x1="16" y1="5.8" x2="11.5" y2="9" stroke="white" stroke-width="1" opacity="0.5"/><line x1="4" y1="14.2" x2="8.5" y2="11" stroke="white" stroke-width="1" opacity="0.5"/><line x1="16" y1="14.2" x2="11.5" y2="11" stroke="white" stroke-width="1" opacity="0.5"/></svg>
-      </div>
-      <div class="service-title">Readiness Assessment</div>
-      <div class="service-sub">Constraint Map&#x2120; · 2 weeks</div>
-      <div class="service-body">The first outcome is clarity about what is actually blocking you. The work begins with your business, not generic instruments: we wrap AI literacy around how the function actually operates so the executive team sees its own operation differently before anything is diagnosed. From that footing, the Constraint Map&#x2120; names the specific impediments operating between your AI strategy and its results. Two weeks of focused work produces an operating picture, an evaluation framework, and a conversation guide.</div>
-      <div class="service-phases">
-        <div class="service-phase">Operating picture of operational blockers</div>
-        <div class="service-phase">Independent governance evaluation framework</div>
-        <div class="service-phase">Executive conversation guide for the Board</div>
-      </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
-        <div class="service-ring">Operating picture · Evaluation framework · Conversation guide</div>
-        <div class="service-ring" style="color:var(--muted)">No procurement cycle required · Discretionary authority</div>
-      </div>
-    </div>
-
-    <!-- GenGov -->
-    <div class="service-card">
-      <div class="service-num">Service 02</div>
-      <div class="service-icon si-navy">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 0 1 0 16" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/><path d="M10 18a8 8 0 0 1 0-16" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><path d="M13.5 4.5l-1-2.5 2.5 1" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/><path d="M6.5 15.5l1 2.5-2.5-1" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><circle cx="10" cy="10" r="2" fill="white" opacity="0.7"/></svg>
-      </div>
-      <div class="service-title">Governed Corpus</div>
-      <div class="service-sub">GenGov OS&trade; · 9-12 weeks</div>
-      <div class="service-body">The second outcome is an asset the organization did not have before. Through GenGov OS&trade;, the practice curates and codifies what a function already knows into a governed corpus your AI systems can operate on. The corpus arrives in two forms at once: a narrative your people read and audit, and a machine-readable reference any agent you deploy can act on, both governed against the same source. Deploys on your infrastructure. Runs continuously.</div>
-      <div class="service-phases">
-        <div class="service-phase">Curate: open reception &amp; domain capture</div>
-        <div class="service-phase">Assimilate: resolving institutional conflicts</div>
-        <div class="service-phase">Codify: dual-format auditable corpus</div>
-        <div class="service-phase">Institutionalize: sovereign deployment</div>
-      </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
-        <div class="service-ring">Governed Corpus Build · 9-12 weeks</div>
-        <div class="service-ring" style="color:var(--muted)">Deploys directly on client-owned infrastructure</div>
-      </div>
-    </div>
-
-    <!-- H2AI -->
-    <div class="service-card">
-      <div class="service-num">Service 03</div>
-      <div class="service-icon si-navy" style="padding:0;display:flex;align-items:center;justify-content:center">
-        <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <text x="19" y="22" font-family='"Neue Haas Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif' font-weight="700" font-size="12" fill="white" text-anchor="middle" letter-spacing="0.5">H2AI</text>
-          <text x="31.5" y="15" font-family='"Neue Haas Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif' font-weight="400" font-size="5" fill="white">&#x2122;</text>
-          <rect x="8" y="25.5" width="22" height="2" fill="#F86822"/>
-        </svg>
-      </div>
-      <div class="service-title">Capability Transfer</div>
-      <div class="service-sub">H2AI&trade; · Permanent</div>
-      <div class="service-body">The third outcome is ownership. The corpus transfers to your team with H2AI&trade;, the discipline that keeps AI accountable to human judgment after the practitioners step back. H2AI&trade; arrives as an assessment that establishes where human-to-AI intermediation is actually required, a playbook defining decision staging, and a standing office that runs intermediation as institutional practice.</div>
-      <div class="service-phases">
-        <div class="service-phase">Human decides what matters in Curate</div>
-        <div class="service-phase">Human resolves every conflict in Assimilate</div>
-        <div class="service-phase">Human governs every claim in Codify</div>
-        <div class="service-phase">Human decides what transfers in Institutionalize</div>
-      </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
-        <div class="service-ring">Human judgment at every operational checkpoint</div>
-        <div class="service-ring" style="color:var(--muted)">Capability Transfer · org operates independently</div>
-      </div>
-    </div>
-
-    <!-- Executive Outcome Sprint -->
-    <div class="service-card">
-      <div class="service-num">Specialized Sprint</div>
-      <div class="service-icon si-orange">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="white" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="service-title">Outcome Sprint</div>
-      <div class="service-sub">Crucible · 72 Hours</div>
-      <div class="service-body">When an immediate, high-consequence inflection gate cannot wait for a multi-week engagement, the Executive Outcome Sprint takes one critical decision into an intensive 72-hour Crucible. Produces four board-ready decision instruments: Executive Decision Brief, Adversarial Vulnerability Audit, Stakeholder Defense Matrix, and Actionable Roadmap.</div>
-      <div class="service-phases">
-        <div class="service-phase">Four board-ready decision instruments</div>
-        <div class="service-phase">Sovereign Conclave 4-node judicial review</div>
-        <div class="service-phase">Comprehensive living corpus appendix</div>
-      </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
-        <div class="service-ring"><a href="/outcome-sprint" style="color:var(--orange);text-decoration:none;font-weight:600">Explore the Outcome Sprint →</a></div>
-        <div class="service-ring" style="color:var(--muted)">Board and investment committee decision defense</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROOF -->
-<section class="proof" id="proof">
-  <div class="section-label">The Proof of Work</div>
-  <div class="section-h" style="color:var(--white)">The practice was built using its own methodology.</div>
-  <div class="section-sub">This is not a theoretical claim. GenGov OS runs on practitioner-owned infrastructure today. Every AI work session since launch is archived, indexed, and queryable in real time.</div>
-  <div class="proof-grid">
-    <div class="proof-stat">
-      <div class="proof-stat-num">100</div>
-      <div class="proof-stat-label">High-consequence enterprise decision models codified under empirical research</div>
-    </div>
-    <div class="proof-stat">
-      <div class="proof-stat-num">1,976+</div>
-      <div class="proof-stat-label">AI work sessions archived and queryable verbatim under GenGov OS</div>
-    </div>
-    <div class="proof-stat">
-      <div class="proof-stat-num">4</div>
-      <div class="proof-stat-label">Autonomous frontier AI judicial nodes operating in epistemic isolation</div>
-    </div>
-    <div class="proof-stat">
-      <div class="proof-stat-num">Sole</div>
-      <div class="proof-stat-label">Personal practitioner sovereignty by Michael Magruder, 100% authored personally with zero delegation</div>
-    </div>
-  </div>
-</section>
-
-<!-- EXECUTIVE BRIEFING FEATURE -->
-<section class="exec-brief" id="briefing" style="background:var(--off-white);padding:80px 64px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
-  <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start">
+  <!-- Top Announcement Ribbon -->
+  <div class="ribbon">
     <div>
-      <div class="section-label" style="margin-bottom:16px">Flagship Governance Framework · Decision Gate 01</div>
-      <div class="section-h" style="margin-bottom:20px;font-size:32px;line-height:1.2">The Executive Governed AI Manifest</div>
-      <div style="font-size:14px;font-weight:600;color:var(--orange);letter-spacing:0.04em;margin-bottom:24px">Enterprise AI Governance, Liability Boundaries, and Board-Level Accountability</div>
-      <a href="/insights/the-executive-governed-ai-manifest" class="btn-primary" style="display:inline-block">Read the Manifest Brief</a>
-    </div>
-    <div style="font-size:15px;line-height:1.75;color:var(--slate)">
-      <p style="margin-bottom:16px">When the Board and Audit Committee ask who owns enterprise AI risk, what is the CEO's answer? A vendor terms sheet or CIO security checklist is not a corporate governance policy.</p>
-      <p style="margin-bottom:16px">The Executive Governed AI Manifest establishes clear model lineage, operational decision rights, multi-model tribunal oversight (Sovereign Conclave), and an evidentiary audit corpus before annual operating plans harden.</p>
-      <p style="margin-bottom:0">Explore the foundational architecture designed for chief executives who must defend their enterprise AI posture before regulators, lenders, and institutional investors.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div>
-      <div class="section-label">The Practitioner</div>
-      <div class="section-h">Michael Magruder</div>
-      <div class="section-sub" style="margin-bottom:0">Over 20 years of cross-functional enterprise advisory experience spanning customer experience transformation, digital architecture, and sovereign AI governance. The practice was founded on the conviction that high-consequence executive clarity cannot be outsourced to junior consultants or automated away into black-box tools.</div>
-      <div class="about-commitment">
-        <div class="about-commitment-label">Practice Positioning</div>
-        <div class="about-commitment-text">Magruder &amp; Company occupies the space where enterprise direction, capital allocation, and AI risk intersect. We hold the full shape of the problem directly with the CEO and Board.</div>
-      </div>
+      <span class="ribbon-tag">Q3 Close / Q4 Launch</span>
+      <span>Entering Q4 or preparing for upcoming board reviews? We are accepting select enterprise constraints for weekend and 5-day sprints.</span>
     </div>
     <div>
-      <div style="font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:20px">Career Foundation</div>
-      <div class="about-credentials">
-        <div class="credential">
-          <div class="credential-title">Senior Strategy Director · Publicis Sapient</div>
-          <div class="credential-body">Led a 346 million dollar customer experience transformation portfolio for Verizon Consumer Group. Embedded practitioner, not independent contractor.</div>
+      <a href="#sprint" class="ribbon-link">Explore The One Friday Constraint →</a>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <a href="#" class="nav-brand">Magruder <span>&amp;</span> Company</a>
+    <nav>
+      <a href="#overview" class="active">Overview</a>
+      <a href="#market">The Condition</a>
+      <a href="#governance">Generative Governance</a>
+      <a href="#services">Services (3+1)</a>
+      <a href="#customer-core">Customer Core</a>
+      <a href="#proof">Proof of Work</a>
+      <a href="#practitioner">The Practitioner</a>
+      <a href="#insights">Canon &amp; Insights</a>
+      <a href="#platforms">Universal Sovereignty</a>
+      <a href="#sprint">The One Friday Constraint</a>
+      <a href="mailto:michael@magruder.co" class="nav-cta">Schedule Intake</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="overview">
+    <div class="container hero-content">
+      <span class="hero-label">Enterprise Management Consulting · Proprietary Tooling Included</span>
+      <h1>AI Governance Starts at the Executive Table, <em>Not the IT Helpdesk.</em></h1>
+      <p class="hero-lead">
+        Magruder &amp; Company provides high-consequence management consulting, executive alignment, and board strategy hardening for CEOs, CFOs, and Private Equity Operating Partners. Zero software fees. Zero subscription lock-in. Powered by over $1M in proprietary, internally developed practitioner platforms brought directly to your engagement.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:michael@magruder.co" class="btn btn-primary">Initiate Confidential Executive Dialogue</a>
+        <a href="#services" class="btn btn-secondary">Review the 3+1 Services Architecture</a>
+      </div>
+      <div class="hero-callout">
+        <strong>The Outcome-Over-Output Invariant:</strong> We do not deliver shelfware, academic slide decks, or passive reports. Every sprint is engineered to achieve a tangible, cash-backed business outcome you cannot reach internally without burning months of calendar time or millions in headcount.
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Condition Statistics Strip -->
+  <section class="market-section" id="market">
+    <div class="container">
+      <span class="section-label">The Enterprise AI Disconnect</span>
+      <h2 class="section-h">The Empirical Reality of Enterprise AI Implementations</h2>
+      <p class="section-sub">Independent institutional audits reveal that the overwhelming majority of corporate AI projects fail to generate durable economic value.</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">95%</div>
+          <div class="stat-source">MIT NANDA Report</div>
+          <div class="stat-desc">Of enterprise generative AI implementations deliver zero measurable return on investment or EBITDA impact.</div>
         </div>
-        <div class="credential">
-          <div class="credential-title">Business Strategies Director · Razorfish</div>
-          <div class="credential-body">Digital strategy and transformation at the intersection of customer experience and enterprise architecture.</div>
+
+        <div class="stat-card">
+          <div class="stat-num">12%</div>
+          <div class="stat-source">PwC Executive Study</div>
+          <div class="stat-desc">Only twelve percent of senior business leaders report their generative AI initiatives are performing at enterprise scale.</div>
         </div>
-        <div class="credential">
-          <div class="credential-title">Director of Integrated Digital · Lifeway</div>
-          <div class="credential-body">Enterprise digital integration across organizational functions and customer-facing channels.</div>
+
+        <div class="stat-card">
+          <div class="stat-num">75%</div>
+          <div class="stat-source">Writer / Harris Poll</div>
+          <div class="stat-desc">Of enterprise leadership teams state their generative AI pilot programs have permanently stalled in experimentation.</div>
         </div>
-        <div class="credential">
-          <div class="credential-title">Founder &amp; Principal · Magruder &amp; Company</div>
-          <div class="credential-body">Built GenGov OS using the same empirical methodology offered to clients. The practice is the proof of concept.</div>
+
+        <div class="stat-card">
+          <div class="stat-num">78%</div>
+          <div class="stat-source">Grant Thornton Audit</div>
+          <div class="stat-desc">Of Chief Financial Officers report that a severe lack of internal organizational readiness is the primary barrier to realization.</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div>
-    <div class="section-label">Start a Conversation</div>
-    <div class="section-h">The right conversation begins with one question.</div>
-    <div class="section-sub">Before your next AI deployment, does the knowledge it will operate on exist in governed, auditable form that your organization owns?</div>
-    <div class="contact-form-note" style="margin-top:0;margin-bottom:32px">Confidential executive inquiries are handled directly with Michael Magruder under bilateral Mutual NDA.</div>
-    <div class="contact-details">
-      <div class="contact-item">
-        <div class="contact-item-label">Practice</div>
-        <div class="contact-item-val">magruder.co</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-item-label">Executive Channel</div>
-        <div class="contact-item-val"><a href="https://www.linkedin.com/company/magruderco" target="_blank" rel="noopener">Magruder &amp; Company on LinkedIn</a></div>
+  <!-- Comparison Table: Management Consulting vs Software -->
+  <section class="comparison-section">
+    <div class="container">
+      <span class="section-label">Strategic Differentiation</span>
+      <h2 class="section-h">Consulting Reimagined: The Anti-Software Stance</h2>
+      <p class="section-sub">Why high-stakes leadership teams choose a dedicated principal armed with proprietary platforms over legacy consultancies and software vendors.</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="width: 24%;">Dimension</th>
+            <th style="width: 36%;">Traditional Management Consulting</th>
+            <th style="width: 40%;" class="th-highlight">Magruder &amp; Company Advisory</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Staffing &amp; Leadership</strong></td>
+            <td>Sold by partners; staffed by junior associates learning on your calendar.</td>
+            <td class="td-highlight">Single-Principal Guarantee: Every sprint is led, analyzed, and delivered directly by Michael Magruder.</td>
+          </tr>
+          <tr>
+            <td><strong>Tooling &amp; Technology</strong></td>
+            <td>Zero tooling provided. Client is left to implement advice manually or buy software.</td>
+            <td class="td-highlight">Tooling Included at Zero Cost: Over $1M in proprietary governance oracles and stress-test engines deployed directly.</td>
+          </tr>
+          <tr>
+            <td><strong>Delivery Cadence</strong></td>
+            <td>8 to 12 weeks of discovery interviews ending in speculative slide presentations.</td>
+            <td class="td-highlight">5-Day Turnaround: 45-minute Monday intake, off-calendar multi-model stress-testing, Friday 8:00 AM delivery.</td>
+          </tr>
+          <tr>
+            <td><strong>Work Product Ownership</strong></td>
+            <td>Static slide decks and PDFs. Client owns recommendations, not the execution logic.</td>
+            <td class="td-highlight">Dual-Substrate Assets: Executive narrative memo plus structured machine-readable code (JSON/schemas) owned 100% by client.</td>
+          </tr>
+          <tr>
+            <td><strong>Commercial Terms</strong></td>
+            <td>Open-ended time-and-materials billing with incentives to expand scope.</td>
+            <td class="td-highlight">Fixed Advisory Fee: 100% credited toward a 90-day comprehensive build upon completion.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Generative Governance Core Doctrine Section -->
+  <section class="governance-section" id="governance">
+    <div class="container">
+      <span class="section-label">The Fiduciary Imperative</span>
+      <h2 class="section-h">Generative Governance: Governing the Executive Suite in the Age of AI</h2>
+      <p class="section-sub">
+        Why delegating artificial intelligence to IT or the CTO is an abdication of fiduciary responsibility. AI is not a technology upgrade; it is an enterprise capital allocation, operating liability, and margin durability transformation.
+      </p>
+
+      <div class="grid-4">
+        <div class="card">
+          <span class="card-num">Governance Pillar 01</span>
+          <h3 class="card-title">The Fiduciary &amp; Boardroom Covenant</h3>
+          <p class="card-desc">
+            Establishing board-level oversight and Delaware Caremark compliance. Transforming the executive team from reactive buzzword consumers into authoritative fiduciaries with a unified, non-negotiable corporate AI posture.
+          </p>
+          <div class="card-deliverable">
+            <strong>Executive Deliverable</strong>
+            Binding 2-Page Executive Covenant, corporate posture charter, and certified 5-audience communication doctrine.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-num">Governance Pillar 02</span>
+          <h3 class="card-title">Context Champions vs. Heads-Down Tasks</h3>
+          <p class="card-desc">
+            Dismantling the false promise of pure process automation. Elevating enterprise employees from heads-down task executors into strategic Context Champions who orchestrate AI models within governed operational bounds.
+          </p>
+          <div class="card-deliverable">
+            <strong>Operational Deliverable</strong>
+            Workforce context transition blueprint, Maker-Checker decision bounds, and cognitive sycophancy defenses.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-num">Governance Pillar 03</span>
+          <h3 class="card-title">The Adversarial CapEx Shredder</h3>
+          <p class="card-desc">
+            Enforcing the Null Hypothesis across all AI expenditures (prove verified gross margin expansion or labor cost elimination before spending). Eliminating unevidenced software creep, copilot seat licenses, and token churn.
+          </p>
+          <div class="card-deliverable">
+            <strong>Financial Deliverable</strong>
+            Threefold technology spend triage (Scale, Redesign, Retire) tied directly to audited general ledger EBITDA impact.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-num">Governance Pillar 04</span>
+          <h3 class="card-title">The Navigator &amp; Kinetic Guardrails</h3>
+          <p class="card-desc">
+            Replacing static IT security gates with active Course Deviation Indicators (CDI). Monitoring multi-turn drift, preventing epistemic hallucination, and keeping cross-functional teams moving at full velocity toward True North.
+          </p>
+          <div class="card-deliverable">
+            <strong>Institutional Deliverable</strong>
+            Programmatic corporate invariant schemas ([client_boardroom_invariants.json]) enforcing operational thresholds.
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div>
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
-      <input type="hidden" name="form-name" value="contact" />
-      <p style="display:none"><input name="bot-field" /></p>
-      <div class="form-row">
-        <label for="cf-name">Name</label>
-        <input type="text" id="cf-name" name="name" placeholder="Your name" required />
-      </div>
-      <div class="form-row">
-        <label for="cf-company">Company</label>
-        <input type="text" id="cf-company" name="company" placeholder="Your organization" required />
-      </div>
-      <div class="form-row">
-        <label for="cf-email">Email</label>
-        <input type="email" id="cf-email" name="email" placeholder="Your work email" required />
-      </div>
-      <div class="form-row">
-        <label for="cf-context">What brings you here? <span class="form-optional">(optional)</span></label>
-        <textarea id="cf-context" name="context" rows="3" placeholder="Brief context: your role, what you are working on, what you are trying to resolve."></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="align-self:flex-start;margin-top:4px">Start a Conversation</button>
-    </form>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">MAGRUDER <span>&amp;</span> COMPANY</div>
-  <div class="footer-links">
-    <a href="/outcome-sprint">Outcome Sprint</a>
-    <a href="/advisory">Executive Advisory</a>
-    <a href="#services">Services</a>
-    <a href="#proof">The Work</a>
-    <a href="/insights">Insights</a>
-    <a href="#about">About</a>
-    <a href="https://www.linkedin.com/company/magruderco" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="#contact">Contact</a>
-  </div>
-</footer>
+  <!-- The 3+1 Canonical Services Architecture -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <span class="section-label">The Canonical Engagement Architecture</span>
+      <h2 class="section-h">The 3+1 Services Architecture</h2>
+      <p class="section-sub">
+        From diagnostic readiness to sovereign corporate memory and permanent operational transfer. Every engagement is structured to build lasting enterprise capability, not permanent consulting dependence.
+      </p>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var brand = document.querySelector('.nav-brand');
-  if(brand){ brand.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); }); }
-});
-</script>
+      <div class="grid-2">
+        <div class="service-card">
+          <span class="service-badge">Service 01 · 2-Week Readiness Sprint</span>
+          <h3 class="card-title" style="font-size: 22px;">Readiness Assessment (Constraint Map™)</h3>
+          <p class="card-desc">
+            Discover precisely where your enterprise is blocked before spending capital on AI models or infrastructure. We map executive intent, operational friction, regulatory covenants, and technical silos to identify the single governing constraint.
+          </p>
+          <div class="card-deliverable">
+            <strong>Governed Output</strong>
+            Comprehensive Constraint Map™ identifying root vulnerabilities, unhedged contract risks, and high-impact intervention points.
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="service-badge">Service 02 · 9 to 12-Week Sovereign Build</span>
+          <h3 class="card-title" style="font-size: 22px;">Governed Corpus (GenGov OS™)</h3>
+          <p class="card-desc">
+            Build the governed organizational context that makes artificial intelligence perform with deterministic accuracy. Executed across the four-phase CACI lifecycle: Context Assimilation, Architectural Hardening, Governance Invariants, and Verification.
+          </p>
+          <div class="card-deliverable">
+            <strong>Governed Output</strong>
+            Production GenGov OS™ installation, immutable corporate memory ledger, and automated semantic content integrity gates.
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="service-badge">Service 03 · Permanent Operational Transfer</span>
+          <h3 class="card-title" style="font-size: 22px;">Capability Transfer (H2AI™)</h3>
+          <p class="card-desc">
+            Transfer operational capability and governance playbooks directly into your executive and technical leadership teams. We train your Context Champions so you never depend on outside advisors or retainers again.
+          </p>
+          <div class="card-deliverable">
+            <strong>Governed Output</strong>
+            Complete operational sovereignty, certified Context Champions, and internal audit playbooks for ongoing model oversight.
+          </div>
+        </div>
+
+        <div class="service-card service-crucible">
+          <span class="service-badge">Specialized Crucible · 72 Hours to 5 Days</span>
+          <h3 class="card-title" style="font-size: 22px;">The One Friday Constraint (Outcome Sprint)</h3>
+          <p class="card-desc">
+            The flagship rapid-deployment crucible. Name your single most urgent operational, commercial, or governance bottleneck on Monday morning. By Friday 8:00 AM, receive a fully stress-tested, board-ready solution docket.
+          </p>
+          <div class="card-deliverable">
+            <strong>Governed Output</strong>
+            Dual-substrate delivery package: Executive narrative closer memo plus machine-readable governance code with 100% credit toward GenGov OS™.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Four Core Engagement Archetypes -->
+  <section class="governance-section" id="archetypes">
+    <div class="container">
+      <span class="section-label">Functional Diagnostic Lenses</span>
+      <h2 class="section-h">The Four Core Engagement Archetypes</h2>
+      <p class="section-sub">How executive leadership teams apply our advisory to resolve acute strategic and operational bottlenecks.</p>
+
+      <div class="grid-4">
+        <div class="card">
+          <span class="card-num">Archetype 01</span>
+          <h3 class="card-title">Board Strategy &amp; Plan Hardening</h3>
+          <p class="card-desc">
+            Preparing annual plans, capital allocation budgets, or Private Equity Value-Creation Plans (VCP) for upcoming board reviews where internal presentations hide optimistic run-rate assumptions.
+          </p>
+          <div class="card-deliverable">
+            <strong>Tangible Work Product Delivered</strong>
+            A third-party audited, stress-tested board dossier reconciling cross-functional capacity with financial run rates, complete with the ten hardest adversarial questions answered.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-num">Archetype 02</span>
+          <h3 class="card-title">ELT AI Preparedness &amp; Governance</h3>
+          <p class="card-desc">
+            Resolving executive fragmentation on AI, ending disjointed departmental tool pilots, and establishing Delaware Caremark fiduciary oversight and corporate risk posture.
+          </p>
+          <div class="card-deliverable">
+            <strong>Tangible Work Product Delivered</strong>
+            A binding 2-Page Executive Covenant, corporate AI posture doctrine, Null Hypothesis hurdle rate framework, and the blueprint elevating employees to Context Champions.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-num">Archetype 03</span>
+          <h3 class="card-title">Multi-Asset Compliance &amp; Covenant Forensics</h3>
+          <p class="card-desc">
+            Unhedged regulatory exposure (EU AI Act, NIST AI RMF), complex debt covenants, M&amp;A contracts, or IP assignment risks across thousands of corporate documents.
+          </p>
+          <div class="card-deliverable">
+            <strong>Tangible Work Product Delivered</strong>
+            Cross-corpus forensic audit analyzing negative space (what was omitted from the documentation), surfacing hidden cross-default triggers and indemnification leaks.
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-num">Archetype 04</span>
+          <h3 class="card-title">Horizontal Value-Chain Reconciliation</h3>
+          <p class="card-desc">
+            Resolving friction between sales pipeline promises, operational delivery limits, finance close cycles, and customer retention metrics across the enterprise.
+          </p>
+          <div class="card-deliverable">
+            <strong>Tangible Work Product Delivered</strong>
+            Horizontal value-chain reconciliation tying commercial promises directly to cash-backed EBITDA quality (A2EQ) and permanently shredding zombie legacy software costs.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Core Showcase -->
+  <section class="showcase-section" id="customer-core">
+    <div class="container">
+      <span class="section-label">Institutional Asset Showcase</span>
+      <h2 class="section-h">Customer Core: The AI-Prepared Enterprise</h2>
+      <p class="section-sub">How high-consequence enterprises transition from stochastic AI experiments to a sovereign, AI-prepared operating system.</p>
+
+      <div class="showcase-box">
+        <div>
+          <span class="hero-label" style="margin-bottom: 12px;">Proprietary Architecture</span>
+          <h3>An Immutable Corporate Memory Corpus</h3>
+          <p style="font-size: 14px; color: var(--slate); margin-bottom: 20px; line-height: 1.65;">
+            Most enterprises fail at AI because they connect raw language models to fragmented file folders, resulting in severe hallucinations, data leakage, and zero institutional retention. Customer Core is our battle-tested architecture that codifies tacit executive wisdom into an immutable corporate memory corpus.
+          </p>
+          <p style="font-size: 13px; color: var(--navy); font-weight: 600;">
+            Selective engagement partners receive operational deployment and tailored adaptation of Customer Core as an integral component of our advisory engagement.
+          </p>
+        </div>
+        <div class="showcase-pillars">
+          <div class="pillar">
+            <div class="pillar-title">1. Tacit IP &amp; Context Assimilation</div>
+            <div class="pillar-desc">Codifies unwritten executive heuristics, operational rules of thumb, and living canon into an append-only, searchable corporate memory corpus.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">2. Fiduciary &amp; Privacy Shield</div>
+            <div class="pillar-desc">Air-gapped pseudonymization ensuring zero client proprietary data or trade secrets ever leak to external foundation model vendors.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">3. Deterministic Governance Oracles</div>
+            <div class="pillar-desc">Mathematical, financial, and policy check engines running on exact symbolic execution code rather than probabilistic text generation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof of Work Grid (Signature Dark Navy Section) -->
+  <section class="proof-section" id="proof">
+    <div class="container">
+      <span class="hero-label">Empirical Grounding</span>
+      <h2 class="section-h">The Proof of Work</h2>
+      <p class="section-sub">Our methodologies are not speculative theories. They are hardened through rigorous, continuous production execution across complex enterprise environments.</p>
+
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-num">100</div>
+          <div class="proof-label">Decision Models</div>
+          <div class="proof-sub">Over 100 governed, deterministic decision models deployed across commercial operations.</div>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-num">1,976+</div>
+          <div class="proof-label">Archived Sessions</div>
+          <div class="proof-sub">Complete forensic telemetry across nearly 2,000 multi-model operational and strategy sessions.</div>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-num">4</div>
+          <div class="proof-label">Judicial Nodes</div>
+          <div class="proof-sub">Blinded Conclave tribunal evaluating work products across Claude, ChatGPT, Gemini, and Perplexity.</div>
+        </div>
+
+        <div class="proof-card">
+          <div class="proof-num">100%</div>
+          <div class="proof-label">Sole Practitioner</div>
+          <div class="proof-sub">Single-principal delivery model guaranteeing zero junior associate dilution or learning on your clock.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Practitioner Profile -->
+  <section class="practitioner-section" id="practitioner">
+    <div class="container">
+      <span class="section-label">Principal Advisory</span>
+      <h2 class="section-h">The Practitioner Behind the Practice</h2>
+      <p class="section-sub">Direct engagement with an enterprise executive who has governed mission-critical systems and multi-million dollar technology investments.</p>
+
+      <div class="practitioner-box">
+        <div class="practitioner-meta">
+          <h3>Michael Magruder</h3>
+          <span class="practitioner-title">Founder &amp; Managing Principal</span>
+          <div class="practitioner-commitment">
+            <strong>Single-Principal Guarantee</strong>
+            "Every client engagement, strategy crucible, and governance sprint is personally architected, stress-tested, and delivered by Michael Magruder."
+          </div>
+        </div>
+
+        <div class="practitioner-bio">
+          <p>
+            Michael Magruder brings more than 20 years of enterprise architecture, commercial strategy, and executive advisory experience leading complex, high-consequence business transformations.
+          </p>
+          <p>
+            Prior to founding Magruder &amp; Company, Michael led the <strong>$346M Verizon portfolio transformation</strong> at Publicis Sapient, operating at the intersection of enterprise software architecture, strategic product engineering, and executive capital allocation. His leadership spans foundational tenures at Razorfish and Lifeway, governing mission-critical systems and multi-million dollar technology investments.
+          </p>
+          <p>
+            Unlike traditional consulting partners who sell engagements and delegate execution to junior analysts, Michael personally conducts every intake, stress-tests every premise against the Null Hypothesis using proprietary multi-model tribunals, and delivers hardened, board-ready work product.
+          </p>
+
+          <ul class="pedigree-list">
+            <li class="pedigree-item"><strong>Enterprise Scale:</strong> Governed $346M Verizon enterprise digital portfolio at Publicis Sapient.</li>
+            <li class="pedigree-item"><strong>Practitioner Pedigree:</strong> Deep architectural and delivery leadership across Razorfish and Lifeway.</li>
+            <li class="pedigree-item"><strong>Academic &amp; Institutional Canon:</strong> Author of proprietary governance frameworks under review by top management journals.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Insights & Canon Section -->
+  <section class="insights-section" id="insights">
+    <div class="container">
+      <span class="section-label">The Sovereign Executive Canon</span>
+      <h2 class="section-h">Executive Monographs &amp; Research Canon</h2>
+      <p class="section-sub">
+        The complete intellectual property and empirical research estate authored by Michael Magruder for Chief Executives, Private Equity Operating Partners, and Corporate Directors.
+      </p>
+
+      <!-- Category 1: Strategic Leadership & Governance Series -->
+      <div class="insight-category">
+        <div class="insight-cat-title">
+          <span>Strategic Leadership &amp; Governance Series</span>
+          <span class="insight-cat-count">5 Monographs</span>
+        </div>
+
+        <a href="https://magruder.co/insights/the-operating-partners-q3-reality-check" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">The Operating Partner's Q3 Reality Check</div>
+            <div class="article-desc">How private equity sponsors and platform CEOs stress-test Value-Creation Plans in five business days before Q4 board reviews, surviving the 58% 24-month executive turnover trap.</div>
+          </div>
+          <div class="article-meta">PE Executive Brief</div>
+        </a>
+
+        <a href="https://magruder.co/insights/executive-fluency-and-strategic-clarity" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Executive Fluency &amp; Strategic Clarity at the ELT Table</div>
+            <div class="article-desc">Why artificial intelligence fluency and strategic clarity are non-negotiable executive outcomes. Eliminating superficial buzzword mimicry and establishing unified C-suite posture.</div>
+          </div>
+          <div class="article-meta">Boardroom Doctrine</div>
+        </a>
+
+        <a href="https://magruder.co/insights/the-executive-governed-ai-manifest" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">The Executive Governed AI Manifest (The Practice of AI)</div>
+            <div class="article-desc">The master founding treatise establishing why subtraction must precede automation, elevating workers to Context Champions, and codifying the fiduciary posture of enterprise AI.</div>
+          </div>
+          <div class="article-meta">Master Canon</div>
+        </a>
+
+        <a href="https://magruder.co/insights/the-record-is-not-the-memory" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">The Record Is Not the Memory: Why the Summary Is Never Evidence in Enterprise AI</div>
+            <div class="article-desc">Why statistical summarization erodes corporate state and how cryptographic, verifiable evidentiary records protect enterprise decision integrity.</div>
+          </div>
+          <div class="article-meta">Evidentiary Research</div>
+        </a>
+
+        <a href="https://magruder.co/insights/the-five-crises-of-modern-enterprise-ai-governance" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">The Five Crises of Modern Enterprise AI Governance</div>
+            <div class="article-desc">An architectural breakdown of the five structural fault lines threatening enterprise AI deployments, from context fragmentation to silent covenant omissions.</div>
+          </div>
+          <div class="article-meta">Practice Architecture</div>
+        </a>
+      </div>
+
+      <!-- Category 2: The Five Constraints Series -->
+      <div class="insight-category">
+        <div class="insight-cat-title">
+          <span>The Five Constraints Series</span>
+          <span class="insight-cat-count">5-Part Core Architecture</span>
+        </div>
+
+        <a href="https://magruder.co/constraint-01" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 1: The Context Window Fallacy: Why More Tokens Will Not Save Your Strategy</div>
+            <div class="article-desc">Deconstructing the illusion that expanding context windows solves strategic coherence. Explaining attention degradation and distractor dilution in enterprise decisions.</div>
+          </div>
+          <div class="article-meta">Constraint 01</div>
+        </a>
+
+        <a href="https://magruder.co/constraint-02" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 2: The Data Quality Illusion: Clean Data in Broken Context Is Just Faster Garbage</div>
+            <div class="article-desc">Why relational database hygiene fails to produce reliable AI outputs when uncoupled from living executive intent and organizational rules of thumb.</div>
+          </div>
+          <div class="article-meta">Constraint 02</div>
+        </a>
+
+        <a href="https://magruder.co/constraint-03" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 3: The Vendor Lock-In Trap: How Multi-Tenant Cloud Architecture Compromises Enterprise IP</div>
+            <div class="article-desc">The hidden legal, operational, and financial liabilities of building core enterprise workflows on proprietary, volatile third-party model APIs.</div>
+          </div>
+          <div class="article-meta">Constraint 03</div>
+        </a>
+
+        <a href="https://magruder.co/constraint-04" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 4: The Governance Gap: Why Compliance Checklists Fail at Generative Scale</div>
+            <div class="article-desc">Moving beyond static annual audits to automated runtime governance oracles and deterministic mathematical boundary checks.</div>
+          </div>
+          <div class="article-meta">Constraint 04</div>
+        </a>
+
+        <a href="https://magruder.co/constraint-05" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 5: The Operational Disconnect: Bridging the Chasm Between Executive Intent and Model Output</div>
+            <div class="article-desc">How to systematically translate high-level boardroom strategy into deterministic execution bounds without losing semantic fidelity.</div>
+          </div>
+          <div class="article-meta">Constraint 05</div>
+        </a>
+      </div>
+
+      <!-- Category 3: Manufacturing 2030 Series -->
+      <div class="insight-category">
+        <div class="insight-cat-title">
+          <span>Manufacturing 2030 Series: Autonomous Industrial Systems</span>
+          <span class="insight-cat-count">4-Part Industrial Monograph</span>
+        </div>
+
+        <a href="https://magruder.co/manufacturing" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 1: Autonomous Operations: From Predictive Maintenance to Self-Healing Value Chains</div>
+            <div class="article-desc">Transforming industrial manufacturing from reactive maintenance schedules to closed-loop autonomous operational correction.</div>
+          </div>
+          <div class="article-meta">Manufacturing 2030</div>
+        </a>
+
+        <a href="https://magruder.co/insights/manufacturing-02" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 2: Supply Chain Sovereignty: Building Epistemic Resilience in Volatile Global Networks</div>
+            <div class="article-desc">Architecting supply network visibility that survives geopolitical shifts, supplier insolvency, and unexpected logistics chokepoints.</div>
+          </div>
+          <div class="article-meta">Manufacturing 2030</div>
+        </a>
+
+        <a href="https://magruder.co/insights/manufacturing-03" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 3: Worker Augmentation: How Context-Aware Systems Redefine Factory Floor Expertise</div>
+            <div class="article-desc">Preserving decades of senior plant floor craftsmanship by wrapping generative context around frontline operators in real time.</div>
+          </div>
+          <div class="article-meta">Manufacturing 2030</div>
+        </a>
+
+        <a href="https://magruder.co/insights/manufacturing-04" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Part 4: Quality Architecture: Deterministic Verification in High-Consequence Production</div>
+            <div class="article-desc">Combining high-speed computer vision with deterministic physical laws to achieve zero-defect production guarantees.</div>
+          </div>
+          <div class="article-meta">Manufacturing 2030</div>
+        </a>
+      </div>
+
+      <!-- Category 4: Quarterly Analysis -->
+      <div class="insight-category">
+        <div class="insight-cat-title">
+          <span>Quarterly Benchmark Reports</span>
+          <span class="insight-cat-count">Executive State of the Market</span>
+        </div>
+
+        <a href="https://magruder.co/q3-imperative" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Q1 2025: The State of Enterprise AI Preparedness</div>
+            <div class="article-desc">An empirical audit of the Fortune 500 enterprise AI readiness chasm, examining pilot attrition rates, copilot fatigue, and board skepticism.</div>
+          </div>
+          <div class="article-meta">State of the Market</div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Platform Logos Section (Monochrome Anti-Agency Standard) -->
+  <section class="platform-section" id="platforms">
+    <div class="container">
+      <span class="section-label">Universal Platform Sovereignty</span>
+      <h2 class="section-h">Zero Vendor Lock-In. Natively Deployed.</h2>
+      <p class="section-sub">
+        We do not resell vendor software. All strategy hardening outputs, stress-test registers, and machine-readable assets are formatted to integrate seamlessly into your enterprise's approved technical stack.
+      </p>
+
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-name">Anthropic</div>
+          <div class="platform-subtext">Claude Enterprise Projects &amp; Sovereign Artifact Bundles</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">OpenAI</div>
+          <div class="platform-subtext">ChatGPT Enterprise Workspaces &amp; Governed Action Schemas</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Microsoft</div>
+          <div class="platform-subtext">Copilot Studio &amp; Azure OpenAI Private Tenant Enclaves</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Google Cloud</div>
+          <div class="platform-subtext">Vertex AI, BigQuery &amp; Gemini Enterprise Architecture</div>
+        </div>
+        <div class="platform-card platform-airgap">
+          <div class="platform-name">Air-Gapped Sovereign</div>
+          <div class="platform-subtext">Offline On-Premise Execution with Zero Network Telemetry</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The One Friday Constraint Commercial Sprint (No Price / Discretionary Engagement) -->
+  <section class="sprint-section" id="sprint">
+    <div class="container">
+      <div class="sprint-card">
+        <div>
+          <span class="section-label">Flagship Tactical Sprint</span>
+          <h2>The One Friday Constraint</h2>
+          <p style="font-size: 15px; color: var(--slate); margin-bottom: 20px; line-height: 1.65;">
+            Name just one operational bottleneck or strategic vulnerability. In five business days (requiring only 75 total minutes of executive calendar time), we vet the premise, stress-test it against the null hypothesis, and deliver a board-ready execution plan.
+          </p>
+          <div style="background: var(--cream); padding: 16px 20px; border-radius: 4px; font-size: 13px; color: var(--navy); margin-bottom: 20px; border-left: 3px solid var(--orange);">
+            <strong>Urgent Weekend Sprint Protocol:</strong> For time-critical Q3 closeouts and looming Monday board reviews, our principal team carves out Saturday and Sunday to deliver hardened work product by Monday 8:00 AM.
+          </div>
+          <div style="font-size: 13px; color: var(--slate);">
+            <strong>Executive Publication Privilege:</strong> Engagement partners receive advance first-access to research authored for the Strategic Management Society (SMS) and papers under review by the Harvard Business Review.
+          </div>
+        </div>
+        <div style="text-align: center; border-left: 1px solid var(--rule); padding-left: 40px;">
+          <div style="font-size: 20px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; margin-bottom: 6px;">Direct Principal Advisory</div>
+          <div class="sprint-sub">Discretionary Executive Engagement · 100% Reinvestment Credit</div>
+          <p style="font-size: 13px; color: var(--slate); margin-bottom: 24px; line-height: 1.55;">
+            Fits standard executive discretionary authority. Structured for immediate engagement without multi-week committee delays. 100% credited toward any subsequent 90-day comprehensive build.
+          </p>
+          <a href="mailto:michael@magruder.co?subject=Confidential%20Intake:%20The%20One%20Friday%20Constraint" class="btn btn-primary" style="width: 100%;">Schedule 45-Min Intake</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Signature Dark Midnight Navy) -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Magruder <span>&amp;</span> Company</div>
+          <div style="font-size: 11px; color: rgba(255, 255, 255, 0.45); margin-top: 2px;">Sovereign Executive Advisory &amp; Boardroom Command · Single-Principal Guarantee</div>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Shield</a>
+          <a href="#">Sovereign Standard</a>
+          <a href="mailto:michael@magruder.co" style="color: var(--orange-light); font-weight: 600;">Direct Principal Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
