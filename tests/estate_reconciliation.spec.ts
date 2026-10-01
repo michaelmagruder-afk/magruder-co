@@ -256,4 +256,44 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
       expect(imgCount, `${m.file} must contain exhibit image ${m.img}`).toBeGreaterThanOrEqual(1);
     }
   });
+
+  test("16. Author Byline Invariant: All articles link to Michael Magruder LinkedIn profile", async ({ page }) => {
+    const articles = [
+      "insights/the-operating-partners-q3-reality-check.html",
+      "insights/executive-fluency-and-strategic-clarity.html",
+      "insights/the-executive-governed-ai-manifest.html",
+      "insights/the-record-is-not-the-memory.html",
+      "insights/the-five-crises-of-modern-enterprise-ai-governance.html",
+      "constraint-01.html",
+      "constraint-02.html",
+      "constraint-03.html",
+      "constraint-04.html",
+      "constraint-05.html",
+      "insights/manufacturing-01.html",
+      "insights/manufacturing-02.html",
+      "insights/manufacturing-03.html",
+      "insights/manufacturing-04.html",
+      "manufacturing.html",
+      "q2-imperative.html",
+      "q3-imperative.html"
+    ];
+
+    for (const relPath of articles) {
+      const fullPath = "file://" + path.resolve(__dirname, "../", relPath);
+      await page.goto(fullPath, { waitUntil: "domcontentloaded" });
+
+      const authorLink = page.locator("a[href='https://www.linkedin.com/in/michaeljmagruder/']");
+      const linkCount = await authorLink.count();
+      expect(linkCount, `${relPath} must feature at least one link to Michael Magruder LinkedIn profile`).toBeGreaterThanOrEqual(1);
+
+      // Verify author name text
+      const firstLinkText = await authorLink.first().textContent();
+      expect(firstLinkText, `${relPath} author link text must contain 'Michael Magruder'`).toContain("Michael Magruder");
+
+      // Verify security attributes
+      await expect(authorLink.first()).toHaveAttribute("target", "_blank");
+      await expect(authorLink.first()).toHaveAttribute("rel", "noopener");
+    }
+  });
 });
+
