@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Neue Haas Grotesk Text Pro", Arial, sans-serif;
+    background: #ffffff;
+    color: #0f172a;
+    width: 1200px;
+    height: 720px;
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .headline h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .headline p {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+  .firm {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .firm span { color: #f86822; }
+
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+    flex-grow: 1;
+  }
+
+  .step-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fafafa;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .step-card.active-gate {
+    background: #ffffff;
+    border: 2px solid #f86822;
+    box-shadow: 0 4px 12px rgba(248,104,34,0.1);
+  }
+
+  .step-top {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .step-badge {
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+  }
+  .active-gate .step-badge { color: #f86822; }
+  .step-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+  }
+  .step-desc {
+    font-size: 11.5px;
+    color: #475569;
+    line-height: 1.45;
+    margin-top: 4px;
+  }
+
+  .step-bottom {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+    margin-top: 12px;
+  }
+  .metric-val {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .metric-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.04em;
+  }
+
+  .gate-badge-highlight {
+    background: #ffedd5;
+    color: #c2410c;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 11.5px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headline">
+    <h1>SCIA Zero-Discrepancy EBITDA Reconciliation Flow</h1>
+    <p>Deterministic Mathematical Audit Gating for Institutional Private Equity</p>
+  </div>
+  <div class="firm">Magruder <span>&amp;</span> Company</div>
+</header>
+
+<div class="flow-grid">
+  <!-- Step 1 -->
+  <div class="step-card">
+    <div class="step-top">
+      <span class="step-badge">Phase 01</span>
+      <div class="step-title">Reported Financial Ingestion</div>
+      <p class="step-desc">Ingests unnormalized management accounts, trial balance, and raw trailing twelve month ledger entries.</p>
+    </div>
+    <div class="step-bottom">
+      <div class="metric-val">$6,840,000</div>
+      <div class="metric-label">Reported TTM EBITDA</div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step-card">
+    <div class="step-top">
+      <span class="step-badge">Phase 02</span>
+      <div class="step-title">4-Tier Add-Back Classification</div>
+      <p class="step-desc">Classifies adjustments: Tier 1 M&amp;A transaction fees, Tier 2 run-rate headcount, Tier 3 out-of-period adjustments, Tier 4 owner discretionary.</p>
+    </div>
+    <div class="step-bottom">
+      <div class="metric-val">+$1,025,000 / -$150k</div>
+      <div class="metric-label">Itemized Net Normalization</div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step-card active-gate">
+    <div class="step-top">
+      <span class="step-badge">Phase 03 &middot; Guardrail</span>
+      <div class="step-title">SCIA Arithmetic Integrity Gate</div>
+      <p class="step-desc">External deterministic arithmetic engine validates sum of line items against normalized total. Strictly zero language model math.</p>
+    </div>
+    <div class="step-bottom">
+      <div class="gate-badge-highlight">$0.00 Discrepancy Gate Passed</div>
+      <div class="metric-label" style="text-align: center; margin-top: 4px;">Fail-Closed Execution</div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="step-card">
+    <div class="step-top">
+      <span class="step-badge">Phase 04</span>
+      <div class="step-title">Investment Committee Output</div>
+      <p class="step-desc">Generates defensible diligence exhibit with complete audit trail, general ledger coordinates, and covenant protection.</p>
+    </div>
+    <div class="step-bottom">
+      <div class="metric-val">$7,715,000</div>
+      <div class="metric-label">Verified Adjusted EBITDA</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Source: Magruder &amp; Company White Paper &middot; SCIA EBITDA ARCHITECTURE</div>
+  <div>&copy; 2026 Magruder &amp; Company. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

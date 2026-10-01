@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Neue Haas Grotesk Text Pro", Arial, sans-serif;
+    background: #ffffff;
+    color: #0f172a;
+    width: 1200px;
+    height: 720px;
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .headline h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .headline p {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+  .firm {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .firm span { color: #f86822; }
+
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+    flex-grow: 1;
+  }
+
+  .matrix-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fafafa;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+    margin-bottom: 16px;
+  }
+  .card-header h2 {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .card-header.fluency h2 { color: #0284c7; }
+  .card-header.clarity h2 { color: #f86822; }
+  .badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-fluency { background: #e0f2fe; color: #0369a1; }
+  .badge-clarity { background: #ffedd5; color: #c2410c; }
+
+  .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+  }
+
+  .matrix-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    border-left: 4px solid #cbd5e1;
+  }
+  .fluency .matrix-item { border-left-color: #0284c7; }
+  .clarity .matrix-item { border-left-color: #f86822; }
+
+  .item-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .item-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: #64748b;
+  }
+  .item-desc {
+    font-size: 11.5px;
+    color: #475569;
+    margin-top: 3px;
+    line-height: 1.45;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headline">
+    <h1>The 5x5 ELT Fluency &amp; Strategic Clarity Matrix</h1>
+    <p>Executive Governance Diagnostic for Modern Enterprise Leadership</p>
+  </div>
+  <div class="firm">Magruder <span>&amp;</span> Company</div>
+</header>
+
+<div class="matrix-grid">
+  <!-- Column 1: 5 Dimensions of Executive Fluency -->
+  <div class="matrix-card fluency">
+    <div class="card-header fluency">
+      <h2>5 Dimensions of Executive Fluency</h2>
+      <span class="badge badge-fluency">Mechanical Rigor</span>
+    </div>
+    <div class="item-list">
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">01</span> Computational Physics</div>
+        <div class="item-desc">Stochastic next-token prediction vs. deterministic state machines. Eliminating LLM balance-sheet arithmetic.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">02</span> Memory &amp; Institutional State</div>
+        <div class="item-desc">Transient context windows vs. governed corporate memory. Preventing attention rot and distillation corruption.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">03</span> Epistemic Limits &amp; Negative Space</div>
+        <div class="item-desc">Detecting silent omissions in contracts, debt covenants, and diligence. Knowing what the model cannot see.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">04</span> Risk &amp; Contractual Liability Surface</div>
+        <div class="item-desc">Multi-tenant privacy leakage, indemnification boundaries, and regulatory audit trail preservation.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">05</span> Economic Mechanics &amp; Unit Economics</div>
+        <div class="item-desc">Auditing total task cost, token drag, and labor displacement against verified EBITDA bridge lines.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 2: 5 Pillars of Strategic Clarity -->
+  <div class="matrix-card clarity">
+    <div class="card-header clarity">
+      <h2>5 Pillars of Strategic Clarity</h2>
+      <span class="badge badge-clarity">Institutional Posture</span>
+    </div>
+    <div class="item-list">
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">01</span> Corporate Posture &amp; Position</div>
+        <div class="item-desc">Establishing an unshakeable institutional stance rather than reacting to commercial vendor releases.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">02</span> Capital Hurdle Rates &amp; ROI Discipline</div>
+        <div class="item-desc">Mandatory 3.0x net cash ROI within 12 months or verified EBITDA expansion equal to 2.5x total cost.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">03</span> Operating Boundaries &amp; Non-Negotiables</div>
+        <div class="item-desc">Deterministic maker-checker execution bounds, zero generative arithmetic, and sovereign enclaves.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">04</span> Public &amp; Boardroom Narrative Alignment</div>
+        <div class="item-desc">Grounded, transparent executive communications with strictly zero corporate AI washing.</div>
+      </div>
+      <div class="matrix-item">
+        <div class="item-title"><span class="item-num">05</span> Unified Cross-Functional Execution</div>
+        <div class="item-desc">CEO, CFO, COO, CRO, and General Counsel speaking with one authoritative voice at the table.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Source: Magruder &amp; Company Executive Canon &middot; NARRATIVE-20260929-FLUENCY-CLARITY</div>
+  <div>&copy; 2026 Magruder &amp; Company. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

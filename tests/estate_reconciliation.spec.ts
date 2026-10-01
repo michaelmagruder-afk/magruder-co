@@ -228,4 +228,32 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
     const navCenterY = navBox!.y + navBox!.height / 2;
     expect(Math.abs(brandCenterY - navCenterY)).toBeLessThan(15);
   });
+
+  test("15. Executive Monograph Canon: Full-depth hydration and graphic exhibit rendering", async ({ page }) => {
+    const monographs = [
+      { file: "the-operating-partners-q3-reality-check.html", minLength: 6000, img: "/images/the_traceability_bridge.png" },
+      { file: "executive-fluency-and-strategic-clarity.html", minLength: 9000, img: "/images/mco_elt_fluency_and_clarity_matrix.png" },
+      { file: "the-executive-governed-ai-manifest.html", minLength: 8000, img: "/images/the_ai_reasoning_trap.png" },
+      { file: "the-record-is-not-the-memory.html", minLength: 7000, img: "/images/mco_governed_corporate_memory_pipeline.png" },
+      { file: "the-five-crises-of-modern-enterprise-ai-governance.html", minLength: 30000, img: "../images/insights/MCo_Five_Crises_Risograph_Print.png" }
+    ];
+
+    for (const m of monographs) {
+      const fullPath = "file://" + path.resolve(__dirname, "../insights", m.file);
+      await page.goto(fullPath, { waitUntil: "domcontentloaded" });
+
+      const text = await page.evaluate(() => document.body.textContent || "");
+      expect(text.length, `${m.file} must be fully hydrated with substantive depth`).toBeGreaterThan(m.minLength);
+
+      // Invariants: Zero em dashes & zero emojis
+      expect(text.includes("\u2014") || text.includes("\u2013"), `${m.file} must have zero em/en dashes`).toBe(false);
+      const emojiRegex = /[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u;
+      expect(emojiRegex.test(text), `${m.file} must have zero emojis`).toBe(false);
+
+      // Graphic exhibit present in DOM
+      const imgSelector = `img[src='${m.img}']`;
+      const imgCount = await page.locator(imgSelector).count();
+      expect(imgCount, `${m.file} must contain exhibit image ${m.img}`).toBeGreaterThanOrEqual(1);
+    }
+  });
 });

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Neue Haas Grotesk Text Pro", Arial, sans-serif;
+    background: #ffffff;
+    color: #0f172a;
+    width: 1200px;
+    height: 720px;
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .headline h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .headline p {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+  .firm {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .firm span { color: #f86822; }
+
+  .pipeline-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 18px 0;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .stage-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .stage-badge {
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .stage-num {
+    font-size: 10.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #f86822;
+  }
+  .stage-name {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 2px;
+    color: #ffffff;
+  }
+
+  .stage-content {
+    background: #fafafa;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .stage-desc {
+    font-size: 12px;
+    color: #334155;
+    line-height: 1.45;
+  }
+  .stage-metric {
+    font-size: 11px;
+    font-weight: 700;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    white-space: nowrap;
+    margin-left: 16px;
+  }
+
+  .arrow-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cbd5e1;
+    font-size: 14px;
+    margin: -4px 0;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headline">
+    <h1>Governed Corporate Memory Retrieval Pipeline</h1>
+    <p>Zero-Discrepancy Architectural Flow for Private Equity Due Diligence &amp; Value Creation</p>
+  </div>
+  <div class="firm">Magruder <span>&amp;</span> Company</div>
+</header>
+
+<div class="pipeline-flow">
+  <!-- Stage 1 -->
+  <div class="stage-row">
+    <div class="stage-badge">
+      <span class="stage-num">Stage 01</span>
+      <span class="stage-name">Discovery Ingestion</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-desc">Raw Private Equity prospect transcript, general ledger excerpt, or financial due diligence fragment.</div>
+      <div class="stage-metric">Unstructured Input</div>
+    </div>
+  </div>
+
+  <div class="arrow-indicator">&#x2193;</div>
+
+  <!-- Stage 2 -->
+  <div class="stage-row">
+    <div class="stage-badge">
+      <span class="stage-num">Stage 02</span>
+      <span class="stage-name">Hybrid RRF Engine</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-desc">Dual-branch retrieval combining SQLite FTS5 BM25 (exact nomenclature) and dense on-device semantic scoring via Reciprocal Rank Fusion (k=60).</div>
+      <div class="stage-metric">Local Execution &middot; &lt;1ms</div>
+    </div>
+  </div>
+
+  <div class="arrow-indicator">&#x2193;</div>
+
+  <!-- Stage 3 -->
+  <div class="stage-row">
+    <div class="stage-badge">
+      <span class="stage-num">Stage 03</span>
+      <span class="stage-name">Context Budgeting</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-desc">Enforces strict maximum 3 Solution Units (SOL-020 EBITDA Bridge, SOL-024 VCP Decomposition, SOL-033 Spend Variance). Eliminates attention rot.</div>
+      <div class="stage-metric">&lt;1,800 Tokens Total</div>
+    </div>
+  </div>
+
+  <div class="arrow-indicator">&#x2193;</div>
+
+  <!-- Stage 4 -->
+  <div class="stage-row">
+    <div class="stage-badge">
+      <span class="stage-num">Stage 04</span>
+      <span class="stage-name">Deterministic Engine</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-desc">Subordinates probabilistic generation to deterministic Python/SQL ledger calculations. Ingests reported numbers and reconciles all add-backs.</div>
+      <div class="stage-metric">$0.00 Discrepancy Gate</div>
+    </div>
+  </div>
+
+  <div class="arrow-indicator">&#x2193;</div>
+
+  <!-- Stage 5 -->
+  <div class="stage-row">
+    <div class="stage-badge">
+      <span class="stage-num">Stage 05</span>
+      <span class="stage-name">Commercial Assembly</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-desc">Compiles decision-ready deliverables: Instrument A (3-Page Executive Closer) and Instrument B (2-Page Governed Statement of Work).</div>
+      <div class="stage-metric">1.4s Synthesis Speed</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Source: Magruder &amp; Company White Paper &middot; BEYOND RAG AND CAG</div>
+  <div>&copy; 2026 Magruder &amp; Company. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

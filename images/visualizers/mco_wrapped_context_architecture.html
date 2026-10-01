@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Neue Haas Grotesk Text Pro", Arial, sans-serif;
+    background: #ffffff;
+    color: #0f172a;
+    width: 1200px;
+    height: 720px;
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .headline h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .headline p {
+    font-size: 13px;
+    color: #475569;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+  .firm {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  .firm span { color: #f86822; }
+
+  .arch-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .outer-layer {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 24px;
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(15,23,42,0.08);
+  }
+  .outer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 10px;
+  }
+  .outer-title {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #f86822;
+  }
+  .outer-tag {
+    font-size: 11px;
+    background: rgba(248,104,34,0.2);
+    color: #fea96d;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .outer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .outer-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 10px 14px;
+  }
+  .outer-box h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .outer-box p {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 3px;
+  }
+
+  .middle-layer {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    color: #0f172a;
+    border: 2px solid #cbd5e1;
+  }
+  .middle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 8px;
+  }
+  .middle-title {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #0284c7;
+  }
+  .middle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .middle-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #0284c7;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .middle-box h5 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .middle-box p {
+    font-size: 11px;
+    color: #475569;
+    margin-top: 2px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headline">
+    <h1>The Wrapped Context Architecture</h1>
+    <p>Anchoring Computational Physics Within Enterprise Operational Reality</p>
+  </div>
+  <div class="firm">Magruder <span>&amp;</span> Company</div>
+</header>
+
+<div class="arch-container">
+  <div class="outer-layer">
+    <div class="outer-header">
+      <div class="outer-title">Layer 1: Proprietary Enterprise Context (Client Specific)</div>
+      <div class="outer-tag">Governing Invariants</div>
+    </div>
+    <div class="outer-grid">
+      <div class="outer-box">
+        <h4>EBITDA &amp; Debt Covenants</h4>
+        <p>Senior leverage ratios, interest coverage bounds, fixed-charge coverage.</p>
+      </div>
+      <div class="outer-box">
+        <h4>Gross Margin Dynamics</h4>
+        <p>Cost of goods sold, direct labor unit costs, volume discount thresholds.</p>
+      </div>
+      <div class="outer-box">
+        <h4>Regulatory Compliance</h4>
+        <p>EU AI Act high-risk classification, SOC 2 Type II, SEC Item 1A cyber.</p>
+      </div>
+      <div class="outer-box">
+        <h4>Operational Bottlenecks</h4>
+        <p>Warehouse picking velocity, billing reconciliation cycle times.</p>
+      </div>
+    </div>
+
+    <!-- Inner Core: Foundational Computational Physics -->
+    <div class="middle-layer">
+      <div class="middle-header">
+        <div class="middle-title">Layer 2: Foundational Computational Physics (The Machine Reality)</div>
+        <span style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Universal Medium Constraints</span>
+      </div>
+      <div class="middle-grid">
+        <div class="middle-box">
+          <h5>Stochastic Token Generation</h5>
+          <p>Probabilistic text completion. Strictly prohibited from general ledger arithmetic.</p>
+        </div>
+        <div class="middle-box">
+          <h5>Context Attention Rot</h5>
+          <p>Attention dilution across deep turns. Solved via externalized memory ledgers.</p>
+        </div>
+        <div class="middle-box">
+          <h5>Deterministic Fences</h5>
+          <p>Python/SQL calculation engines validating every quantitative claim.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Source: Magruder &amp; Company Executive Canon &middot; NARRATIVE-20260929-FLUENCY-CLARITY</div>
+  <div>&copy; 2026 Magruder &amp; Company. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
