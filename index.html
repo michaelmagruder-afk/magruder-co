@@ -130,6 +130,7 @@
       background: rgba(250, 248, 245, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--rule);
+      gap: 32px;
     }
     .nav-brand {
       font-family: var(--font-sans);
@@ -141,6 +142,7 @@
       text-decoration: none;
       display: inline-block;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .nav-brand span {
       color: var(--orange);
@@ -149,9 +151,10 @@
     }
     nav {
       display: flex;
-      gap: 22px;
+      gap: 28px;
       align-items: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
     nav a {
       font-size: 13px;
@@ -1034,6 +1037,8 @@
       nav {
         justify-content: center;
         gap: 12px;
+        flex-wrap: wrap;
+        white-space: normal;
       }
       .container {
         padding: 0 20px;
@@ -1079,16 +1084,11 @@
   <header>
     <a href="#" class="nav-brand">Magruder <span>&amp;</span> Company</a>
     <nav>
-      <a href="#overview" class="active">Overview</a>
-      <a href="#market">The Condition</a>
-      <a href="#governance">Generative Governance</a>
-      <a href="#services">Services (3+1)</a>
-      <a href="#customer-core">Customer Core</a>
+      <a href="#services">Services</a>
+      <a href="#governance">Governance</a>
       <a href="#proof">Proof of Work</a>
+      <a href="#insights">Insights</a>
       <a href="#practitioner">The Practitioner</a>
-      <a href="#insights">Canon &amp; Insights</a>
-      <a href="#platforms">Universal Sovereignty</a>
-      <a href="#sprint">The One Friday Constraint</a>
       <a href="#contact" class="nav-cta">Start a Conversation</a>
     </nav>
   </header>

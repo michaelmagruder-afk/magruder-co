@@ -210,4 +210,22 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
     const bodyText = await page.evaluate(() => document.body.innerText);
     expect(bodyText).not.toContain("michael@magruder.co");
   });
+
+  test("14. Desktop Navigation Bar Layout: Single-line rendering with zero wrap collision", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto(filePath, { waitUntil: "domcontentloaded" });
+
+    const brandBox = await page.locator(".nav-brand").boundingBox();
+    const navBox = await page.locator("nav").boundingBox();
+    expect(brandBox).toBeTruthy();
+    expect(navBox).toBeTruthy();
+
+    // Nav must be positioned strictly to the right of brand with zero wrap collision
+    expect(navBox!.x).toBeGreaterThan(brandBox!.x + brandBox!.width);
+
+    // Nav and brand must be vertically aligned on the single top header bar
+    const brandCenterY = brandBox!.y + brandBox!.height / 2;
+    const navCenterY = navBox!.y + navBox!.height / 2;
+    expect(Math.abs(brandCenterY - navCenterY)).toBeLessThan(15);
+  });
 });
