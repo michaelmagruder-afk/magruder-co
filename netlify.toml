@@ -25,3 +25,13 @@
   from = "/favicon.ico"
   to = "/images/favicon.png"
   status = 200
+
+[[redirects]]
+  from = "/favicon.svg"
+  to = "/images/favicon.svg"
+  status = 200
+
+[[redirects]]
+  from = "/favicon.png"
+  to = "/images/favicon.png"
+  status = 200
