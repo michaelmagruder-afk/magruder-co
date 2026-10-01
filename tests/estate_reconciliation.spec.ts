@@ -189,4 +189,25 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
     const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
     expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1);
   });
+
+  test("13. Netlify Contact Form Integrity: Zero email harvesting exposure and valid form schema", async ({ page }) => {
+    const form = page.locator("form[name='contact']");
+    await expect(form).toHaveCount(1);
+    await expect(form).toHaveAttribute("data-netlify", "true");
+    await expect(form).toHaveAttribute("data-netlify-honeypot", "bot-field");
+
+    // Required fields
+    await expect(form.locator("input[name='name']")).toBeVisible();
+    await expect(form.locator("input[name='company']")).toBeVisible();
+    await expect(form.locator("input[name='email']")).toBeVisible();
+    await expect(form.locator("textarea[name='context']")).toBeVisible();
+
+    // Assert zero mailto links on the entire page
+    const mailtoLinks = await page.locator("a[href^='mailto:']").count();
+    expect(mailtoLinks, "Entire page must contain ZERO mailto links to prevent bot scraping").toBe(0);
+
+    // Assert Michael personal email is not exposed in body
+    const bodyText = await page.evaluate(() => document.body.innerText);
+    expect(bodyText).not.toContain("michael@magruder.co");
+  });
 });
