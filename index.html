@@ -14,6 +14,35 @@
 <meta property="og:image" content="https://magruder.co/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@magruderco_">
+<link rel="canonical" href="https://magruder.co/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://magruder.co/#organization",
+      "name": "Magruder & Company",
+      "url": "https://magruder.co",
+      "logo": "https://magruder.co/images/favicon.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Michael Magruder"
+      },
+      "description": "Executive advisory for AI governance, strategic readiness, and portfolio turnaround for CEOs, Private Equity Sponsors, and Corporate Directors."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://magruder.co/#website",
+      "url": "https://magruder.co",
+      "name": "Magruder & Company",
+      "publisher": {
+        "@id": "https://magruder.co/#organization"
+      }
+    }
+  ]
+}
+</script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -349,16 +378,23 @@
     .comparison-section {
       background: var(--cream);
     }
-    .comparison-table {
+    .table-responsive {
       width: 100%;
-      border-collapse: collapse;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       margin-top: 24px;
-      font-size: 14px;
-      background: var(--white);
       border: 1px solid var(--rule);
       border-radius: 4px;
-      overflow: hidden;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+    .comparison-table {
+      width: 100%;
+      min-width: 620px;
+      border-collapse: collapse;
+      margin-top: 0;
+      font-size: 14px;
+      background: var(--white);
+      border: none;
     }
     .comparison-table th, .comparison-table td {
       padding: 18px 22px;
@@ -868,6 +904,12 @@
     }
 
     @media (max-width: 900px) {
+      .ribbon {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 20px;
+        text-align: center;
+      }
       .grid-2, .grid-4, .stats-grid, .proof-grid, .showcase-box, .practitioner-box, .sprint-card {
         grid-template-columns: 1fr;
       }
@@ -875,13 +917,27 @@
         grid-template-columns: repeat(2, 1fr);
       }
       header {
-        padding: 16px 20px;
+        padding: 14px 20px;
+        flex-direction: column;
+        gap: 12px;
+      }
+      nav {
+        justify-content: center;
+        gap: 12px;
       }
       .container {
         padding: 0 20px;
       }
       .hero {
-        padding: 80px 20px 60px;
+        padding: 60px 20px 40px;
+      }
+      .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .hero-btns .btn {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -977,42 +1033,44 @@
       <h2 class="section-h">Consulting Reimagined: The Anti-Software Stance</h2>
       <p class="section-sub">Why high-stakes leadership teams choose a dedicated principal armed with proprietary platforms over legacy consultancies and software vendors.</p>
 
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th style="width: 24%;">Dimension</th>
-            <th style="width: 36%;">Traditional Management Consulting</th>
-            <th style="width: 40%;" class="th-highlight">Magruder &amp; Company Advisory</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Staffing &amp; Leadership</strong></td>
-            <td>Sold by partners; staffed by junior associates learning on your calendar.</td>
-            <td class="td-highlight">Single-Principal Guarantee: Every sprint is led, analyzed, and delivered directly by Michael Magruder.</td>
-          </tr>
-          <tr>
-            <td><strong>Tooling &amp; Technology</strong></td>
-            <td>Zero tooling provided. Client is left to implement advice manually or buy software.</td>
-            <td class="td-highlight">Tooling Included at Zero Cost: Over $1M in proprietary governance oracles and stress-test engines deployed directly.</td>
-          </tr>
-          <tr>
-            <td><strong>Delivery Cadence</strong></td>
-            <td>8 to 12 weeks of discovery interviews ending in speculative slide presentations.</td>
-            <td class="td-highlight">5-Day Turnaround: 45-minute Monday intake, off-calendar multi-model stress-testing, Friday 8:00 AM delivery.</td>
-          </tr>
-          <tr>
-            <td><strong>Work Product Ownership</strong></td>
-            <td>Static slide decks and PDFs. Client owns recommendations, not the execution logic.</td>
-            <td class="td-highlight">Dual-Substrate Assets: Executive narrative memo plus structured machine-readable code (JSON/schemas) owned 100% by client.</td>
-          </tr>
-          <tr>
-            <td><strong>Commercial Terms</strong></td>
-            <td>Open-ended time-and-materials billing with incentives to expand scope.</td>
-            <td class="td-highlight">Fixed Advisory Fee: 100% credited toward a 90-day comprehensive build upon completion.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 24%;">Dimension</th>
+              <th style="width: 36%;">Traditional Management Consulting</th>
+              <th style="width: 40%;" class="th-highlight">Magruder &amp; Company Advisory</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Staffing &amp; Leadership</strong></td>
+              <td>Sold by partners; staffed by junior associates learning on your calendar.</td>
+              <td class="td-highlight">Single-Principal Guarantee: Every sprint is led, analyzed, and delivered directly by Michael Magruder.</td>
+            </tr>
+            <tr>
+              <td><strong>Tooling &amp; Technology</strong></td>
+              <td>Zero tooling provided. Client is left to implement advice manually or buy software.</td>
+              <td class="td-highlight">Tooling Included at Zero Cost: Over $1M in proprietary governance oracles and stress-test engines deployed directly.</td>
+            </tr>
+            <tr>
+              <td><strong>Delivery Cadence</strong></td>
+              <td>8 to 12 weeks of discovery interviews ending in speculative slide presentations.</td>
+              <td class="td-highlight">5-Day Turnaround: 45-minute Monday intake, off-calendar multi-model stress-testing, Friday 8:00 AM delivery.</td>
+            </tr>
+            <tr>
+              <td><strong>Work Product Ownership</strong></td>
+              <td>Static slide decks and PDFs. Client owns recommendations, not the execution logic.</td>
+              <td class="td-highlight">Dual-Substrate Assets: Executive narrative memo plus structured machine-readable code (JSON/schemas) owned 100% by client.</td>
+            </tr>
+            <tr>
+              <td><strong>Commercial Terms</strong></td>
+              <td>Open-ended time-and-materials billing with incentives to expand scope.</td>
+              <td class="td-highlight">Fixed Advisory Fee: 100% credited toward a 90-day comprehensive build upon completion.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 

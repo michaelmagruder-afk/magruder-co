@@ -169,4 +169,24 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
     const hasEmoji = emojiRegex.test(bodyText);
     expect(hasEmoji, "Body text must have ZERO emojis").toBe(false);
   });
+
+  test("11. SEO Canonical tag and Schema.org JSON-LD structured data", async ({ page }) => {
+    const canonical = page.locator("link[rel='canonical']");
+    await expect(canonical).toHaveAttribute("href", "https://magruder.co/");
+
+    const jsonLd = await page.locator("script[type='application/ld+json']").textContent();
+    expect(jsonLd).toBeTruthy();
+    const parsed = JSON.parse(jsonLd!);
+    expect(parsed["@context"]).toBe("https://schema.org");
+    expect(parsed["@graph"].some((item: any) => item["@type"] === "Organization")).toBe(true);
+  });
+
+  test("12. Mobile viewport rendering with zero horizontal overflow", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+    await page.reload({ waitUntil: "domcontentloaded" });
+
+    const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
+    expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1);
+  });
 });
