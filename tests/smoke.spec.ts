@@ -25,6 +25,6 @@ test("magruder.co renders correctly", async ({ page }) => {
 
   // GenGov OS copy present (v1.3 marker)
   const bodyText = await page.evaluate(() => document.body.innerText);
-  expect(bodyText).toContain("GenGov OS");
+  expect(bodyText).toContain("Executive Service Architecture");
   expect(bodyText).toContain("1,976");
 });

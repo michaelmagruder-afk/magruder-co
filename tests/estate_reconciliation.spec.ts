@@ -55,29 +55,28 @@ test.describe("Magruder.co Estate Reconciliation & Quality Audit", () => {
     await expect(statCards.nth(3)).toContainText("Grant Thornton Audit");
   });
 
-  test("4. 3+1 Canonical Services Architecture renders correctly", async ({ page }) => {
+  test("4. Executive Service Architecture renders correctly", async ({ page }) => {
     const services = page.locator("#services");
     await expect(services).toBeVisible();
     
     const serviceCards = services.locator(".service-card");
     await expect(serviceCards).toHaveCount(4);
     
-    // Service 01: Constraint Map
-    await expect(serviceCards.nth(0)).toContainText("Service 01");
-    await expect(serviceCards.nth(0)).toContainText("Constraint Map");
+        // Service 01: Outcome Sprint
+    await expect(serviceCards.nth(0)).toContainText("Primary Front Door");
+    await expect(serviceCards.nth(0)).toContainText("Outcome Sprint");
     
-    // Service 02: GenGov OS
-    await expect(serviceCards.nth(1)).toContainText("Service 02");
-    await expect(serviceCards.nth(1)).toContainText("GenGov OS");
-    await expect(serviceCards.nth(1)).toContainText("CACI");
+    // Service 02: AI Governance Audit
+    await expect(serviceCards.nth(1)).toContainText("Evidence & Risk Review");
+    await expect(serviceCards.nth(1)).toContainText("Governance Audit");
     
-    // Service 03: H2AI
-    await expect(serviceCards.nth(2)).toContainText("Service 03");
-    await expect(serviceCards.nth(2)).toContainText("H2AI");
+    // Service 03: Crucible
+    await expect(serviceCards.nth(2)).toContainText("High-Stakes Session");
+    await expect(serviceCards.nth(2)).toContainText("Crucible");
     
     // Specialized Crucible: The One Friday Constraint
-    await expect(serviceCards.nth(3)).toContainText("The One Friday Constraint");
-    await expect(serviceCards.nth(3)).toContainText("Outcome Sprint");
+    await expect(serviceCards.nth(3)).toContainText("Continuation Path");
+    await expect(serviceCards.nth(3)).toContainText("Selective Executive Advisory");
   });
 
   test("5. Proof of Work telemetry grid renders all 4 empirical metrics", async ({ page }) => {
