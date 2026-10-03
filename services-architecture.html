@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<title>The Executive Service Architecture | Magruder &amp; Company</title>
+<meta name="description" content="The structural deployment mechanics for high-consequence enterprise constraints, empirical verification, and sovereign capability transfer.">
+<meta property="og:title" content="The Executive Service Architecture | Magruder &amp; Company">
+<meta property="og:description" content="The structural deployment mechanics for high-consequence enterprise constraints, empirical verification, and sovereign capability transfer.">
+<meta property="og:url" content="https://magruder.co/services-architecture">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://magruder.co/images/og-services-architecture.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://magruder.co/images/og-services-architecture.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1E3455;
+  --navy-dark: #131F33;
+  --navy-mid: #2C4A73;
+  --orange: #F86822;
+  --orange-light: #FEA96D;
+  --cream: #FAF8F5;
+  --off-white: #F2EFE9;
+  --slate: #4A5568;
+  --muted: #8A9BB0;
+  --rule: #D6DDE8;
+  --white: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 64px;
+  background: rgba(250,248,245,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-brand {
+  font-size: 14px; font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav-brand span { color: var(--orange); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 13px; font-weight: 500;
+  color: var(--slate); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--orange); }
+.nav-cta {
+  background: var(--navy); color: var(--white) !important;
+  padding: 9px 20px; border-radius: 4px;
+  font-size: 13px !important; font-weight: 600 !important;
+  text-decoration: none;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--orange) !important; }
+
+/* Hero */
+.hero {
+  background: var(--navy-dark);
+  color: var(--white);
+  padding: 140px 64px 80px;
+  position: relative;
+}
+.hero-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1.15;
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+.hero h1 em { color: var(--orange-light); font-style: italic; }
+.hero p.lead {
+  font-size: 18px; font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  max-width: 780px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.hero-meta-bar {
+  display: flex; gap: 36px; flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 28px;
+}
+.meta-item { display: flex; flex-direction: column; gap: 4px; }
+.meta-item span.label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.meta-item span.val { font-size: 14px; font-weight: 600; color: var(--white); }
+
+/* Main layout */
+.section { padding: 80px 64px; max-width: 1160px; margin: 0 auto; }
+.section-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  color: var(--navy-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.section-subtitle {
+  font-size: 16px;
+  color: var(--slate);
+  max-width: 780px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* Grids & Cards */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 48px; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 32px; margin-bottom: 48px; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 36px 32px;
+  display: flex; flex-direction: column;
+  box-shadow: 0 2px 8px rgba(30,52,85,0.04);
+  transition: transform 0.15s, border-color 0.15s;
+}
+.card:hover {
+  border-color: var(--orange);
+  transform: translateY(-2px);
+}
+.card-num {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 12px;
+}
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--navy); margin-bottom: 10px;
+  line-height: 1.25;
+}
+.card-timing {
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px;
+}
+.card p {
+  font-size: 14px; color: var(--slate);
+  line-height: 1.7; margin-bottom: 20px;
+  flex: 1;
+}
+.card-list {
+  list-style: none; display: flex; flex-direction: column; gap: 10px;
+  font-size: 13px; color: var(--navy); margin-bottom: 24px;
+}
+.card-list li {
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+}
+.card-list li::before {
+  content: '•'; color: var(--orange); font-size: 16px; line-height: 1; flex-shrink: 0;
+}
+
+.btn-card {
+  display: inline-block; text-align: center;
+  padding: 12px 20px; border-radius: 4px;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none; transition: background 0.2s, border-color 0.2s;
+}
+.btn-card-primary { background: var(--navy); color: var(--white); }
+.btn-card-primary:hover { background: var(--orange); }
+.btn-card-outline { border: 1px solid var(--navy); color: var(--navy); }
+.btn-card-outline:hover { background: var(--cream); border-color: var(--orange); color: var(--orange); }
+
+/* Standout Callout Box */
+.standout-box {
+  background: var(--off-white);
+  border-left: 4px solid var(--orange);
+  border-radius: 4px;
+  padding: 32px 36px;
+  margin: 32px 0 48px;
+}
+.standout-box h4 {
+  font-size: 17px; font-weight: 700;
+  color: var(--navy-dark); margin-bottom: 10px;
+}
+.standout-box p {
+  font-size: 14px; color: var(--slate);
+  line-height: 1.7; margin-bottom: 16px;
+}
+.standout-box ul {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+  font-size: 13px; color: var(--navy);
+}
+.standout-box ul li {
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.standout-box ul li::before {
+  content: '•'; color: var(--orange); font-weight: bold; flex-shrink: 0;
+}
+
+/* Invariants / Firewall Section */
+.firewall-section {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 56px 48px;
+  margin-bottom: 64px;
+}
+.firewall-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 32px;
+}
+.firewall-item {
+  background: var(--cream);
+  padding: 24px;
+  border-radius: 4px;
+  border-top: 2px solid var(--navy);
+}
+.firewall-item.accent { border-top-color: var(--orange); }
+.firewall-num {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 8px;
+}
+.firewall-title {
+  font-size: 16px; font-weight: 700;
+  color: var(--navy); margin-bottom: 8px;
+  line-height: 1.3;
+}
+.firewall-desc {
+  font-size: 13px; color: var(--slate);
+  line-height: 1.6;
+}
+
+/* Framework Table */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 28px 0 48px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(30,52,85,0.04);
+}
+.framework-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+.framework-table th {
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 600;
+  padding: 16px 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.framework-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--slate);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.framework-table tr:last-child td { border-bottom: none; }
+.framework-table tr:hover td { background: var(--cream); }
+.framework-table td strong { color: var(--navy); }
+.badge-framework {
+  display: inline-block;
+  background: var(--off-white);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 3px;
+  border-left: 2px solid var(--orange);
+  margin-bottom: 4px;
+}
+
+/* Direct Connect Panel */
+.connect-panel {
+  background: var(--navy-dark);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 64px 56px;
+  margin: 32px 0 64px;
+}
+.connect-panel .section-label { color: var(--orange); }
+.connect-panel h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; color: var(--white);
+  margin-bottom: 16px;
+}
+.connect-panel p.lead-text {
+  font-size: 16px; color: rgba(255,255,255,0.85);
+  line-height: 1.7; max-width: 760px;
+  margin-bottom: 32px;
+}
+.connect-actions {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  align-items: center; border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 32px;
+}
+.btn-orange {
+  background: var(--orange); color: var(--white);
+  padding: 14px 28px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s;
+}
+.btn-orange:hover { background: #E05510; }
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.4);
+  color: var(--white); padding: 14px 28px;
+  border-radius: 4px; font-size: 14px;
+  text-decoration: none; display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+.connect-note {
+  font-size: 12px; color: var(--muted);
+  margin-top: 20px; line-height: 1.5;
+}
+
+/* Footer */
+footer {
+  background: var(--navy-dark);
+  color: var(--muted);
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+footer a { color: var(--white); text-decoration: none; margin: 0 8px; }
+footer a:hover { color: var(--orange); }
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 110px 24px 60px; }
+  .section { padding: 60px 24px; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .connect-panel { padding: 36px 24px; }
+  .firewall-section { padding: 32px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav>
+  <a href="/" class="nav-brand">Magruder <span>&amp;</span> Company</a>
+  <div class="nav-links">
+    <a href="/#services">Service Architecture</a>
+    <a href="/#decisions">Decision Gates</a>
+    <a href="/insights">Insights</a>
+    <a href="/outcome-sprint">Outcome Sprint</a>
+  </div>
+  <a href="/#contact" class="nav-cta">Initiate Inquiry</a>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-label">Executive Advisory Architecture · Commercial Methodology</div>
+  <h1>The Executive <em>Service Architecture</em></h1>
+  <p class="lead">The structural deployment mechanics for high-consequence enterprise constraints, empirical verification, and sovereign capability transfer.</p>
+  
+  <div class="hero-meta-bar">
+    <div class="meta-item">
+      <span class="label">Operating Thesis</span>
+      <span class="val">Post-Consulting Execution</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Accountability</span>
+      <span class="val">Single-Principal Guarantee</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Governance Standard</span>
+      <span class="val">Multi-Model Adversarial Rigor</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Delivery Speed</span>
+      <span class="val">64-Hour Weekend to 5-Day Sprints</span>
+    </div>
+  </div>
+</header>
+
+<main class="section">
+
+  <!-- Section 1: Post-Consulting Execution Model -->
+  <div class="section-label">Foundation</div>
+  <h2 class="section-title">The Post-Consulting Execution Model</h2>
+  <p class="section-subtitle">Why traditional advisory fails high-consequence inflection points, and how our inverted operating model restores boardroom execution velocity.</p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-num">Principle 01</div>
+      <h3>Zero Junior Middleware</h3>
+      <p>The traditional consulting model relies on billable hour expansion, sending teams of junior generalists who learn your business on your management team calendar. We eliminate all delegated delivery. You work exclusively with seasoned enterprise principals.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Principle 02</div>
+      <h3>The Single-Principal Guarantee</h3>
+      <p>Magruder &amp; Company guarantees single-principal accountability. Michael Magruder personally architects, analyzes, tests, and defends every deliverable, financial model, and constraint map. The principal in the boardroom is the principal writing the code.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">Principle 03</div>
+      <h3>We Rebuild, We Do Not Just Audit</h3>
+      <p>Traditional audits drop 100-page slide decks of problems on your desk, leaving your exhausted team with all the homework. We enforce a strict zero-homework guarantee: we identify the defects, repair the plan, and deliver finished, polished board instruments.</p>
+    </div>
+  </div>
+
+  <!-- Section 2: The Four Service Vehicles -->
+  <div class="section-label">Engagements</div>
+  <h2 class="section-title">The Four Service Delivery Vehicles</h2>
+  <p class="section-subtitle">Structured for specific executive inflection points: from rapid weekend board defenses to comprehensive enterprise governance audits.</p>
+
+  <div class="grid-2">
+    <!-- Vehicle 1 -->
+    <div class="card">
+      <div class="card-num">Vehicle 01 · Flagship Rapid Deployment</div>
+      <h3>The Executive Outcome Sprint</h3>
+      <div class="card-timing">Monday 8:00 AM Intake to Friday 8:00 AM Delivery (5 Days)</div>
+      <p>Designed for urgent executive inflection points: looming board pre-reads, quarterly closeout variances, annual operating plan disputes, or private equity investment committee reviews.</p>
+      <ul class="card-list">
+        <li><strong>Zero Client Burden:</strong> Exactly two structured calls (45-min Monday intake, 30-min Thursday resolution).</li>
+        <li><strong>Single Constraint Hardening:</strong> Isolates and stress-tests one critical operational vulnerability against the general ledger.</li>
+        <li><strong>Four Board-Ready Instruments:</strong> Single Constraint Brief, Dependency Register, Tech Spend Triage, and Boardroom Pre-Mortem Dossier.</li>
+      </ul>
+      <a href="/outcome-sprint" class="btn-card btn-card-primary">Explore Outcome Sprint</a>
+    </div>
+
+    <!-- Vehicle 2 -->
+    <div class="card" style="border-top: 3px solid var(--orange);">
+      <div class="card-num">Vehicle 02 · Enterprise Guardrail Architecture</div>
+      <h3>The Executive Governed AI Manifest</h3>
+      <div class="card-timing">10 to 14 Business Days (Full ELT &amp; Board Delivery)</div>
+      <p>The nondelegable corporate guardrails, liability boundaries, and decision rights for the Executive Leadership Team and Board of Directors. A technology vendor terms sheet is not a corporate governance policy; the CEO cannot delegate AI liability to IT or software vendors.</p>
+      <ul class="card-list">
+        <li><strong>The Living Governed AI Manifest:</strong> Translates fragmented departmental AI experiments into a single, legally defensible board-level policy, agent liability boundary, and capital threshold rulebook.</li>
+        <li><strong>Multi-Framework Due Diligence Audit:</strong> Benchmarks and audits enterprise AI deployments against the market's leading governance frameworks (NIST AI RMF, EU AI Act, Delaware Caremark, and ISO 42001).</li>
+        <li><strong>Fiduciary Board Defense:</strong> Delivers the complete evidentiary due diligence dossier for the Audit Committee, General Counsel, and PE Operating Partner proving zero unhedged IP leakage.</li>
+      </ul>
+      <a href="/insights/the-executive-governed-ai-manifest" class="btn-card btn-card-primary">Review Governed AI Manifest</a>
+    </div>
+
+    <!-- Vehicle 3 -->
+    <div class="card">
+      <div class="card-num">Vehicle 03 · Alignment Crucible</div>
+      <h3>The Boardroom Command Center</h3>
+      <div class="card-timing">1-Day Executive Crucible or 2-Day Intensive Session</div>
+      <p>Neutral, adversarial facilitation for executive teams facing misaligned functional direct reports, conflicting forecasts, or impending shareholder scrutiny.</p>
+      <ul class="card-list">
+        <li><strong>Multi-Model Adversarial Stress-Test:</strong> Coordinates blinded frontier reasoning nodes to uncover blind spots off-calendar.</li>
+        <li><strong>Mathematical Verification:</strong> Tests cross-functional dependencies against deterministic run-rate code.</li>
+        <li><strong>Boardroom Alignment:</strong> Unifies CEO, CFO, CRO, and COO behind an unassailable, reconciled operational plan.</li>
+      </ul>
+      <a href="/#contact" class="btn-card btn-card-outline">Schedule Alignment Session</a>
+    </div>
+
+    <!-- Vehicle 4 -->
+    <div class="card">
+      <div class="card-num">Vehicle 04 · Retained Counsel</div>
+      <h3>Selective Executive Retainer</h3>
+      <div class="card-timing">Retained Quarterly Partnership (Strictly Limited Capacity)</div>
+      <p>Continuous strategic counsel for select CEOs and Private Equity Operating Partners navigating complex platform transformations, holding period extensions, or high-stakes capital events.</p>
+      <ul class="card-list">
+        <li><strong>Direct Principal Access:</strong> Private on-demand advisory directly with Michael Magruder.</li>
+        <li><strong>Continuous Stress-Testing:</strong> Real-time adversarial evaluation of emerging risks and strategic opportunities.</li>
+        <li><strong>Confidential Sounding Board:</strong> Independent executive guidance outside the formal boardroom hierarchy.</li>
+      </ul>
+      <a href="/#contact" class="btn-card btn-card-outline">Apply for Retained Access</a>
+    </div>
+  </div>
+
+  <!-- Standout Box: Weekend Protocol -->
+  <div class="standout-box">
+    <h4>The Urgent Weekend Protocol (Accelerated 64-Hour Turnaround)</h4>
+    <p>To support emergency board pre-reads, sudden quarterly variances, or immediate Monday morning investment committees, Magruder &amp; Company executes an accelerated weekend outcome sprint:</p>
+    <ul>
+      <li><strong>Intake:</strong> Friday 4:00 PM (45-minute structured briefing call).</li>
+      <li><strong>Execution:</strong> Saturday and Sunday off-calendar analytical sprint. Senior principals execute multi-model stress-testing, financial reconciliation, and cross-functional dependency auditing.</li>
+      <li><strong>Delivery:</strong> Four finished, boardroom-ready instruments delivered directly into private executive custody by Monday at 6:30 AM.</li>
+    </ul>
+  </div>
+
+  <!-- Framework Alignment Matrix -->
+  <div class="section-label">Due Diligence Standards</div>
+  <h2 class="section-title">AI Governance Framework Alignment</h2>
+  <p class="section-subtitle">How the Executive Governed AI Manifest audits, benchmarks, and hardens enterprise operations across the preeminent statutory and fiduciary frameworks in the market.</p>
+
+  <div class="table-wrapper">
+    <table class="framework-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">Statutory / Industry Framework</th>
+          <th style="width: 26%;">Enterprise Vulnerability Addressed</th>
+          <th style="width: 28%;">MCo Manifest Due Diligence Standard</th>
+          <th style="width: 24%;">Boardroom &amp; Audit Defense</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="badge-framework">NIST AI RMF 1.0</span><br>
+            <strong>NIST AI Risk Management Framework</strong>
+          </td>
+          <td>Unmonitored model drift, stochastic hallucinations, and unquantified operational failure modes across enterprise departments.</td>
+          <td>Binds probabilistic LLMs inside deterministic code fences with mandatory schema enforcement, automated circuit-breakers, and mathematical assertion gates.</td>
+          <td>Affirmative proof of Govern, Map, Measure, and Manage functions for technical audit committees.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="badge-framework">EU AI Act (2024/1689)</span><br>
+            <strong>European AI Regulation</strong>
+          </td>
+          <td>Fines up to 7% of global annual turnover for unclassified high-risk AI deployments, opaque training data, and synthetic content violations.</td>
+          <td>Rigorous 4-tier risk classification, data lineage verification, human-in-the-loop oversight protocols, and sovereign copyright compliance logs.</td>
+          <td>Audit-ready technical documentation and risk assessments for cross-border enterprise platforms.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="badge-framework">Delaware Caremark</span><br>
+            <strong>Fiduciary Duty of Oversight</strong>
+          </td>
+          <td>Personal director liability for failure to implement and monitor mission-critical corporate compliance and information reporting systems.</td>
+          <td>Establishes an immutable, auditable corporate AI decision log and parameter provenance record, eliminating executive willful blindness.</td>
+          <td>Affirmative legal defense proving active, structured board-level oversight of autonomous technologies.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="badge-framework">ISO/IEC 42001:2023</span><br>
+            <strong>AI Management System (AIMS)</strong>
+          </td>
+          <td>Ad-hoc departmental tool adoption lacking enterprise governance architecture, security controls, and ethical bounds.</td>
+          <td>Comprehensive policies covering AI risk treatment, system lifecycle, third-party vendor assessments, and role-based access boundaries.</td>
+          <td>Standardized institutional audit trail satisfying enterprise procurement due diligence and lenders.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="badge-framework">SEC Item 1A Guidance</span><br>
+            <strong>Algorithmic Risk Disclosure</strong>
+          </td>
+          <td>Material misstatement or omission of artificial intelligence operational risks, vendor concentration, or financial forecast dependency.</td>
+          <td>Direct reconciliation tracing every operational AI expenditure and productivity assumption into general ledger line items and EBITDA bridges.</td>
+          <td>Defensible, audited disclosures protecting leadership from shareholder litigation and disclosure audits.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 3: Sovereign Executive Firewall -->
+  <div class="firewall-section">
+    <div class="section-label">Trust &amp; Governance</div>
+    <h2 class="section-title">The Sovereign Executive Firewall</h2>
+    <p class="section-subtitle" style="margin-bottom: 24px;">Complete confidentiality, absolute work-product custody, and psychological safety for leadership teams.</p>
+
+    <div class="firewall-grid">
+      <div class="firewall-item accent">
+        <div class="firewall-num">Invariant 01</div>
+        <div class="firewall-title">Absolute Client Custody</div>
+        <div class="firewall-desc">All working notes, diagnostic analyses, and finished deliverables belong exclusively to you. Magruder &amp; Company never delivers a scorecard or backchannel report to your board or sponsor without your written directive.</div>
+      </div>
+      <div class="firewall-item">
+        <div class="firewall-num">Invariant 02</div>
+        <div class="firewall-title">Complete Candor &amp; Safety</div>
+        <div class="firewall-desc">You and your functional leaders can be completely candid about operational friction, stalled software rollouts, or missed forecasts, knowing zero diagnostic materials ever leave our private custody.</div>
+      </div>
+      <div class="firewall-item">
+        <div class="firewall-num">Invariant 03</div>
+        <div class="firewall-title">100% Retainer Reinvestment Credit</div>
+        <div class="firewall-desc">The entire advisory fee for any Outcome Sprint is credited dollar-for-dollar toward a subsequent comprehensive transformation retainer if initiated within 14 calendar days of deliverable completion.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connect Panel -->
+  <div class="connect-panel">
+    <div class="section-label">Direct Action</div>
+    <h2>Harden Your Strategy Before the Board Convenes</h2>
+    <p class="lead-text">Whether you face an urgent quarterly variance requiring a 64-hour weekend turnaround or a complex multi-discipline alignment bottleneck, we are prepared to evaluate fit immediately.</p>
+    <div class="connect-actions">
+      <a href="/outcome-sprint" class="btn-orange">Explore the Outcome Sprint</a>
+      <a href="/#contact" class="btn-outline">Initiate Confidential Inquiry</a>
+      <a href="https://linkedin.com/in/michaeljmagruder" target="_blank" rel="noopener" class="btn-outline">Connect on LinkedIn</a>
+    </div>
+    <div class="connect-note">All inquiries are handled directly and confidentially by Michael Magruder under non-disclosure protection.</div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Magruder &amp; Company. All Rights Reserved. Sovereign Strategy &amp; Enterprise Governance.</p>
+  <p style="margin-top: 8px;">
+    <a href="/">Home</a> |
+    <a href="/#services">Services</a> |
+    <a href="/insights">Insights</a> |
+    <a href="/outcome-sprint">Outcome Sprint</a> |
+    <a href="/#contact">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
