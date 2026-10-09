@@ -71,6 +71,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .article-desc{font-size:13px;font-weight:300;color:var(--slate);line-height:1.55;}
 .article-arrow{padding:20px 20px;display:flex;align-items:center;color:var(--muted);font-size:16px;transition:color 0.2s;flex-shrink:0;}
 
+/* FLAGSHIP HERO */
+.flagship-hero-section{margin-bottom:64px;}
+.flagship-section-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+.flagship-section-eyebrow::after{content:'';flex:1;height:1px;background:var(--rule);}
+.flagship-card{display:block;text-decoration:none;background:var(--navy-dark);color:var(--white);border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);border-top:4px solid var(--orange);box-shadow:0 16px 40px rgba(19,31,51,0.16);transition:transform 0.2s ease,box-shadow 0.2s ease,border-color 0.2s ease;}
+.flagship-card:hover{transform:translateY(-2px);box-shadow:0 22px 48px rgba(19,31,51,0.22);border-color:rgba(248,104,34,0.35);}
+.flagship-grid{display:grid;grid-template-columns:310px 1fr;min-height:400px;}
+.flagship-media-wrapper{position:relative;background:#0C1421;display:flex;align-items:center;justify-content:center;overflow:hidden;border-right:1px solid rgba(255,255,255,0.08);}
+.flagship-cover-image{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.3s ease;}
+.flagship-card:hover .flagship-cover-image{transform:scale(1.02);}
+.flagship-media-badge{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(19,31,51,0.9);backdrop-filter:blur(8px);padding:6px 10px;font-size:9px;font-weight:700;letter-spacing:0.14em;text-align:center;color:var(--orange-light);border:1px solid rgba(255,255,255,0.12);border-radius:2px;text-transform:uppercase;}
+.flagship-content-wrapper{padding:36px 36px 32px;display:flex;flex-direction:column;justify-content:space-between;}
+.flagship-meta-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.flagship-pill{background:rgba(248,104,34,0.15);color:var(--orange-light);border:1px solid rgba(248,104,34,0.4);padding:3px 9px;border-radius:2px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;font-size:10px;}
+.flagship-date{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
+.flagship-reading-time{color:rgba(255,255,255,0.45);font-size:11px;letter-spacing:0.04em;}
+.flagship-headline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.2vw,27px);font-weight:700;line-height:1.25;color:var(--white);margin-bottom:12px;letter-spacing:-0.01em;}
+.flagship-pullquote{font-size:13.5px;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.55;border-left:2px solid var(--orange);padding-left:14px;margin-bottom:12px;}
+.flagship-dek{font-size:13px;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:20px;}
+.flagship-metrics-strip{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);padding:10px 16px;border-radius:2px;margin-bottom:22px;}
+.flagship-metric-item{display:flex;flex-direction:column;}
+.flagship-metric-val{font-size:15px;font-weight:700;color:var(--orange-light);letter-spacing:-0.01em;}
+.flagship-metric-lbl{font-size:9.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-top:1px;}
+.flagship-metric-divider{width:1px;height:22px;background:rgba(255,255,255,0.1);}
+.flagship-action-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
+.flagship-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--white);padding:10px 22px;font-size:13px;font-weight:600;letter-spacing:0.04em;border-radius:2px;transition:background 0.2s ease,transform 0.15s ease;}
+.flagship-card:hover .flagship-btn{background:#E05514;transform:translateX(2px);}
+.flagship-alt-link{font-size:11.5px;color:var(--muted);letter-spacing:0.04em;}
+
 /* FOOTER */
 footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;}
 .footer-brand{font-family:"Neue Haas Grotesk","Helvetica Neue",Helvetica,Inter,Arial,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:0.18em;text-transform:uppercase;}
@@ -86,6 +115,11 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
   .nav-links{display:none}
   .page-header{padding:110px 24px 56px}
   .main-body{padding:48px 24px 72px}
+  .flagship-grid{grid-template-columns:1fr;}
+  .flagship-media-wrapper{height:280px;border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .flagship-content-wrapper{padding:24px 20px;}
+  .flagship-metrics-strip{flex-wrap:wrap;gap:14px;}
+  .flagship-metric-divider{display:none;}
   footer{flex-direction:column;gap:16px;padding:24px;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center;gap:20px}
 }
@@ -115,20 +149,56 @@ footer{background:var(--navy-dark);padding:24px 64px;border-top:1px solid rgba(2
 
 <main class="main-body">
 
+  <!-- FLAGSHIP LEADING ARTICLE -->
+  <section class="flagship-hero-section">
+    <div class="flagship-section-eyebrow">
+      <span>Flagship Publication &middot; Q4 2026 Leadership Imperative</span>
+    </div>
+    
+    <a href="/insights/context-is-the-next-culture" class="flagship-card" aria-label="Read Context is the Next Culture: The Q4 Imperative">
+      <div class="flagship-grid">
+        <div class="flagship-media-wrapper">
+          <img src="/images/insights/context-is-the-next-culture-cover.png" alt="Context is the Next Culture: The Q4 Imperative" class="flagship-cover-image" />
+          <div class="flagship-media-badge">Executive Brief &amp; Journal Edition</div>
+        </div>
+        <div class="flagship-content-wrapper">
+          <div class="flagship-meta-row">
+            <span class="flagship-pill">Q4 Imperative</span>
+            <span class="flagship-date">October 8, 2026</span>
+            <span class="flagship-reading-time">18 Min Read &middot; Executive Brief Included</span>
+          </div>
+          <h2 class="flagship-headline">Context is the Next Culture: The Q4 Imperative for Executive Leadership Teams</h2>
+          <blockquote class="flagship-pullquote">&ldquo;If a position on context is not prepared this quarter and planned into next year's work, it is too late for next year. Context is the next culture, if we choose it. If we do not, AI will be.&rdquo;</blockquote>
+          <p class="flagship-dek">Why context, not workflow automation, is the true anchor around which enterprise culture forms, and what executive teams must do this quarter before AI absorbs the work.</p>
+          <div class="flagship-metrics-strip">
+            <div class="flagship-metric-item">
+              <span class="flagship-metric-val">250,000</span>
+              <span class="flagship-metric-lbl">Returned Hours</span>
+            </div>
+            <div class="flagship-metric-divider"></div>
+            <div class="flagship-metric-item">
+              <span class="flagship-metric-val">138 FTEs</span>
+              <span class="flagship-metric-lbl">Capacity Created</span>
+            </div>
+            <div class="flagship-metric-divider"></div>
+            <div class="flagship-metric-item">
+              <span class="flagship-metric-val">1 Quarter</span>
+              <span class="flagship-metric-lbl">Window of Action</span>
+            </div>
+          </div>
+          <div class="flagship-action-row">
+            <span class="flagship-btn">Read Executive Brief &rarr;</span>
+            <span class="flagship-alt-link">Full Treatise &middot; Sovereign GTM Architecture</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </section>
+
   <!-- MASTER PRACTICE ARCHITECTURE -->
   <section class="series-section">
     <div class="series-label">Strategic Leadership &amp; Executive Canon</div>
     <div class="article-list">
-
-      <a href="/insights/context-is-the-next-culture" class="article-card">
-        <span class="article-num" style="background:#FFF7ED;color:#EA580C;border-right:1px solid #FED7AA">Q4</span>
-        <div class="article-body">
-          <div class="article-meta">October 8, 2026 &nbsp;&middot;&nbsp; Executive Strategy &middot; Q4 Leadership Imperative</div>
-          <div class="article-title">Context is the Next Culture: The Q4 Imperative for Executive Leadership Teams</div>
-          <div class="article-desc">Why context, not workflow automation, is the true anchor around which enterprise culture forms, and what executive teams must do this quarter before AI absorbs the work.</div>
-        </div>
-        <span class="article-arrow">&#x2192;</span>
-      </a>
 
       <a href="/insights/pe-portco-q3-reality-check-strategy-hardening" class="article-card">
         <span class="article-num" style="background:#FFF7ED;color:#EA580C;border-right:1px solid #FED7AA">PORTCO</span>
