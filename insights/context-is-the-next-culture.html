@@ -498,6 +498,211 @@
     .edition-switcher-bar { flex-direction: column; width: 100%; border-radius: 12px; }
     .mode-pill-btn { justify-content: center; border-radius: 8px; }
   }
+
+  /* EXECUTIVE BRIEF STYLES (EXPANDED FIELD EDITION) */
+  .edition-banner-bar {
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--orange);
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin-bottom: 28px;
+    font-size: 13.5px;
+    color: var(--slate);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .executive-dek {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(20px, 2.4vw, 24px);
+    line-height: 1.45;
+    color: var(--navy-mid);
+    margin: 0 0 28px;
+  }
+  .iib {
+    background: var(--ft-bg);
+    border: 1px solid var(--ft-border);
+    border-radius: 6px;
+    padding: 26px 30px 10px;
+    margin: 0 0 36px;
+    box-shadow: 0 4px 16px rgba(19, 31, 51, 0.04);
+  }
+  .iib .label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #665042;
+    margin-bottom: 14px;
+  }
+  .iib h3 {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    margin: 0 0 6px;
+    color: var(--navy-dark);
+  }
+  .iib p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+  details.brief-drawer {
+    margin: 22px 0 26px;
+    border: none;
+    padding: 0;
+  }
+  details.brief-drawer summary {
+    list-style: none;
+    cursor: pointer;
+    background: #F8FAFC;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 13px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 46px;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  details.brief-drawer summary::-webkit-details-marker { display: none; }
+  details.brief-drawer summary::after {
+    content: "+";
+    color: var(--orange);
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 12px;
+    line-height: 1;
+  }
+  details.brief-drawer[open] summary::after {
+    content: "\2212";
+  }
+  details.brief-drawer[open] summary {
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid #E2E8F0;
+    background: #EDF2F7;
+  }
+  details.brief-drawer summary:hover {
+    background: #EDF2F7;
+  }
+  details.brief-drawer .dc {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 22px 22px 10px;
+  }
+  details.brief-drawer .dc p, details.brief-drawer .dc li {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--slate);
+  }
+  details.brief-drawer .dc ol, details.brief-drawer .dc ul {
+    padding-left: 22px;
+    margin: 0 0 16px;
+  }
+  details.brief-drawer .dc li {
+    margin-bottom: 8px;
+  }
+  .callout-inner {
+    background: #FFFFFF;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 16px;
+    margin: 14px 0 18px;
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.6;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  .callout-inner b {
+    color: var(--teal);
+  }
+  .brief-drawer table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    margin: 6px 0 18px;
+    background: #FFFFFF;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .brief-drawer th, .brief-drawer td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .brief-drawer th {
+    font-size: 11.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: #F1F5F9;
+    font-weight: 700;
+  }
+  .brief-drawer td {
+    color: var(--slate);
+  }
+  .brief-drawer tr:last-child td {
+    border-bottom: none;
+  }
+  .close-declaration {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: clamp(22px, 2.8vw, 28px);
+    line-height: 1.35;
+    color: var(--navy-dark);
+    margin: 36px 0 44px;
+    border-left: 4px solid var(--orange);
+    padding-left: 20px;
+  }
+  .refs-brief {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--slate);
+    border-top: 1px solid var(--rule);
+    padding-top: 28px;
+    margin-top: 48px;
+  }
+  .refs-brief h3 {
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .refs-brief ol {
+    padding-left: 22px;
+    margin: 0 0 20px;
+  }
+  .refs-brief li {
+    margin-bottom: 10px;
+  }
+  sup {
+    font-size: 11px;
+    line-height: 0;
+    color: var(--orange);
+    font-weight: 700;
+    margin-left: 1px;
+  }
+  sup a {
+    color: inherit;
+    text-decoration: none;
+  }
+  sup a:hover {
+    text-decoration: underline;
+  }
+
 </style>
 </head>
 <body>
@@ -532,7 +737,7 @@
     <div class="edition-switcher-bar">
       <button class="mode-pill-btn active" id="btn-mode-exec" onclick="switchEdition('executive')">
         <span>Executive Brief</span>
-        <span class="mode-badge">4 MIN READ</span>
+        <span class="mode-badge">7 MIN READ</span>
       </button>
       <button class="mode-pill-btn" id="btn-mode-journal" onclick="switchEdition('journal')">
         <span>Full Master Journal Edition</span>
@@ -571,90 +776,191 @@
   <div id="edition-executive" class="edition-panel active">
     <article class="prose">
 
-    <div style="background: var(--ft-bg); border: 1px solid var(--ft-border); border-radius: 8px; padding: 28px 32px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(19,31,51,0.04);">
-      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #665042; margin-bottom: 6px;">Executive Briefing &middot; Strategic Overview</div>
-      <h2 style="font-family: var(--font-serif); font-size: clamp(22px, 2.8vw, 28px); font-weight: 700; color: var(--navy-dark); margin-bottom: 12px; letter-spacing: -0.01em;">Executive Field Edition: The Context Architecture</h2>
-      <p style="font-size: 15.5px; color: #4A3B32; line-height: 1.7; margin-bottom: 20px;">
-        Distilled for Chief Executives, Board Members, and Enterprise Leadership Teams. The priority across corporate America is currently AI itself, operating under the unexamined assumption that organizational context comes along for the ride. It does not. Context is the anchor around which culture forms.
-      </p>
-      
-      <div class="stat-grid-4">
-        <div class="stat-card-editorial accent-orange">
-          <div class="stat-card-num orange">81%</div>
-          <div class="stat-card-label">Workforce Anxiety</div>
-          <div class="stat-card-sub">Gen Z fear AI will shrink jobs when rote relays are automated without elevation.</div>
-        </div>
-        <div class="stat-card-editorial accent-navy">
-          <div class="stat-card-num navy">4 MIN</div>
-          <div class="stat-card-label">Executive Brief</div>
-          <div class="stat-card-sub">High-conviction synthesis designed for Board and Operating Committee review.</div>
-        </div>
-        <div class="stat-card-editorial accent-orange">
-          <div class="stat-card-num orange">0 RELAY</div>
-          <div class="stat-card-label">Eliminate First</div>
-          <div class="stat-card-sub">Eliminate handoffs before automating them; give returned time a clear destination.</div>
-        </div>
-        <div class="stat-card-editorial accent-navy">
-          <div class="stat-card-num navy">Q4 2026</div>
-          <div class="stat-card-label">Action Window</div>
-          <div class="stat-card-sub">ELT position on context must be prepared this quarter before institutional drift sets in.</div>
-        </div>
+    <div class="edition-banner-bar">
+      <div>
+        <strong style="color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px;">Executive Brief</strong> &middot; 7 min read &middot; High-conviction synthesis with 8 interactive evidence drawers.
+      </div>
+      <a href="#journal" onclick="switchEdition('journal'); return false;" style="color: var(--orange); font-weight: 600; text-decoration: underline;">Switch to Full Master Journal Edition (30 min read) &rarr;</a>
+    </div>
+
+    <p class="executive-dek">Many companies are on their way to a culture built around AI. The context of the business is a different anchor, and much of it is about to be lost.</p>
+
+    <section class="iib" aria-label="Idea in brief">
+      <div class="label">Idea in Brief</div>
+      <h3>The Problem</h3>
+      <p>Culture is a reflection of who a company is, and many companies are now building theirs around AI. Meanwhile the context of the business (why things are the way they are, what the numbers mean, who decided what and why) is fragmented, rarely written down, and disappearing as AI absorbs the work through which people learned it.</p>
+      <h3>Why It Happens</h3>
+      <p>The priority is AI itself: agents, automated workflows, and the platforms that promise both. The assumption underneath is that context comes along for the ride. In my experience, it does not.</p>
+      <h3>The Solution</h3>
+      <p>Make a position on context the heart of the position on AI, stated by the executive team this quarter. Start with one value stream, elevate the people in between rather than remove them, and give the returned time a destination.</p>
+    </section>
+
+    <div class="stat-grid-4" style="margin-bottom: 40px;">
+      <div class="stat-card-editorial accent-orange">
+        <div class="stat-card-num orange">80%</div>
+        <div class="stat-card-label">Learning Risk</div>
+        <div class="stat-card-sub">Gen Z report AI tools likely make it more difficult for them to learn fundamental context.</div>
+      </div>
+      <div class="stat-card-editorial accent-navy">
+        <div class="stat-card-num navy">7 MIN</div>
+        <div class="stat-card-label">Executive Brief</div>
+        <div class="stat-card-sub">High-conviction synthesis with 8 interactive evidence drawers for Operating Committees.</div>
+      </div>
+      <div class="stat-card-editorial accent-orange">
+        <div class="stat-card-num orange">0 RELAY</div>
+        <div class="stat-card-label">Eliminate First</div>
+        <div class="stat-card-sub">Retire obsolete handoffs before automating them; give returned time a destination.</div>
+      </div>
+      <div class="stat-card-editorial accent-navy">
+        <div class="stat-card-num navy">Q4 2026</div>
+        <div class="stat-card-label">Action Window</div>
+        <div class="stat-card-sub">ELT position on context must be prepared this quarter before institutional drift sets in.</div>
       </div>
     </div>
-    <p style="margin-bottom: 24px; color: #2D3748;">Culture is a reflection of who a company is: how it does things, what it values, where its focus goes. Right now, many of us are on our way to a new one. We talk about AI, we breathe it, and it is becoming the subject of nearly every conversation we have, rather than capturing and curating the context of the company, the customer, and the market. Instead, we throw AI at it. I have done it. I have seen others do it. We cannot allow AI to become our culture.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;">What is truly a company's own is not the tool. It is its deep understanding of why it does what it does. That understanding is what I mean by context: the why behind the what. It lives in people, across every function and level, and it is formed between them: in the room, in the argument, in the exception someone remembers from three years ago. Much of it is not written down, and it is about to be lost, as AI absorbs the work through which people used to learn it. Once it is gone, it is remarkably hard to recover. In my work with executives, this is one of the largest gaps I see, and one of the least discussed.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;">Right now, the priority is AI itself. The assumption underneath is that context comes along for the ride. In my experience, it does not. Retaining context takes significant, deliberate work, not once but continuously, as the work happens. It is a discipline, and almost no one is practicing it. Context does not replace culture. It is the anchor a culture forms around. And it cannot be a project. It has to be the stated position of the executive leadership team, because context is fragmented across an organization the same way its people are.</p>
-    <h2 style="font-family: var(--font-serif); font-size: 28px; color: var(--navy); margin: 48px 0 20px; line-height: 1.25;">What we are losing</h2>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>The relay.</strong> One group pulls data into a deck. The presenters use AI to package the content; the audience uses AI to receive it. Each person takes different context from it, none of which is written down anywhere the organization can use. The people in between do not need to be fired. They need to be elevated, so they can carry the context to where decisions are made.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>The apprenticeship.</strong> The work most companies are automating first is the work that taught their people what the numbers mean. If we start throwing AI at automating workflow, who is training them? This is not only about Gen Z. Every member of a company, from a new teammate to an executive, has to be contextually trained, because human reasoning, and the gut feel that tells you something is wrong, both rest on deep contextual knowledge.</p>
+
+    <h2>We Cannot Let AI Become Our Culture</h2>
+    <p>Culture is a reflection of who a company is: how it does things, what it values, where its focus goes. Right now, many of us are on our way to a new one. We talk about AI, we breathe it, and it is becoming the subject of nearly every conversation we have, rather than capturing and curating the context of the company, the customer, and the market. Instead, we throw AI at it. I have done it. I have seen others do it.</p>
+    <p>What is truly a company's own is not the tool. It is its deep understanding of why it does what it does. That is what I mean by context: the why behind the what. Why a process exists, what a number is actually measuring, who decided something and why, and which parts of the business are load-bearing and which are simply old. It lives in people, and it is formed between them: in the room, in the argument, in the exception someone remembers from three years ago. Once it is gone, it is remarkably hard to recover. In my work with executives, this is one of the largest gaps I see, and one of the least discussed.</p>
+    <p>Context does not replace culture. Trust, identity, and shared norms make a culture, and nothing formal substitutes for them. But a culture needs something to form around, and context is the anchor.</p>
+
+    <h2>What We Are Losing</h2>
+    <p><strong>The relay.</strong> One group pulls data into a deck. A larger group gathers to receive it. The presenters use AI to package the content, and the audience uses AI to receive it. Every audience forms its own context from the same artifact, and that context is never captured. Researchers now have a name for the output of the automated relay, &ldquo;workslop&rdquo;: AI-generated work that looks polished and does not move the task forward.<sup><a href="#r1">1</a></sup></p>
+    <p><strong>The apprenticeship.</strong> The work most companies are automating first is the work that taught their people what the numbers mean. Building the deck, reconciling the figures that disagreed, being asked in the room why a number moved: that was an apprenticeship in context. In Gallup's 2026 study of Gen Z, 80 percent of 14- to 29-year-olds said AI tools are likely to make it more difficult for them to learn.<sup><a href="#r2">2</a></sup> The gap is wider than one generation. Anyone who is not trained in what to look for, at any level, will miss what AI gets wrong.</p>
 
     <div class="callout-box" style="border-left: 4px solid var(--orange); font-size: 19px; line-height: 1.6; color: var(--navy-dark); font-family: var(--font-serif); padding: 22px 26px; margin: 36px 0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-      <em>"AI didn't create this. As leaders and executives, we created it."</em>
+      <em>&ldquo;AI didn&rsquo;t create this. As leaders and executives, we created it.&rdquo;</em>
     </div>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>Verification debt.</strong> AI can produce a synthesis in minutes. Proving it is right can take as long as building it did the old way. I call this verification debt: output produced faster than anyone can confirm it. The error surfaces later, in something that does real damage, and by then no one can trace where it began, because there is no provenance. The cost of trusting the tools has to be counted, and someone has to be trained to pay it.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>No one bears the context.</strong> None of the chief officer roles is necessarily charged with the business context of the organization. Part of every role, from the newest analyst to the chief executive, is to bear the context of the work and to do something with it. The people downstream can see it, but they do not have a way to be heard. Decision rights now tend to sit where context is thinnest.</p>
-    <h2 style="font-family: var(--font-serif); font-size: 28px; color: var(--navy); margin: 48px 0 20px; line-height: 1.25;">How context moves</h2>
-    <p style="margin-bottom: 24px; color: #2D3748;">Executives still own the decision. But the people closest to the work should research the issue, refine the recommendation, and write out the reasoning, with a mechanism that guarantees an answer. Then the executive's job is to ask good questions of the reasoning and decide. I call this upline context culture: reasoning and context move up from the teams closest to the work, rather than work being pushed down as simple tasks to complete.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;">Organizations are investing in the tools and not in the people who stand between the tools and the decisions: people trained to direct AI, verify what it produces, and keep its output tied to what the business actually knows. Most executive teams do not yet know this skill has to exist.</p>
 
-    <div class="callout-box" style="border-left: 4px solid var(--orange); font-size: 19px; line-height: 1.6; color: var(--navy-dark); font-family: var(--font-serif); padding: 22px 26px; margin: 36px 0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-      <em>"If you are not trained in what to look for, you will miss it."</em>
-    </div>
-    <p style="margin-bottom: 24px; color: #2D3748;">AI keeps our heads tilted down. A growing share of our thinking is expressed not to people but to AI. These models listen extremely well. They affirm us. We are wrestling less with each other, and we are growing less with each other. Executive teams have an opportunity to anchor culture in human affirmation instead of AI affirmation: to listen to the people making deeper contextual decisions, and reward them for working together across functions within the value stream. When people can see a map of how everything connects, they can say: that is where I fit. It stops being a job title.</p>
+    <p><strong>Verification debt.</strong> AI can produce a synthesis in minutes. Proving it is right can take as long as building it did the old way. I call this verification debt: output produced faster than anyone can confirm it. Many times the debt is never paid at all, and the error surfaces later, in something that does real damage, with no provenance to trace it.</p>
+    <p><strong>No one bears the context.</strong> We have a chief marketing officer, a chief human resources officer, and a chief technology or information officer, and none of these roles is necessarily charged with the business context of the organization. In my observation, executives are becoming more transient, while the people reporting to them hold the deeper context but lack the decision practice of tenured leaders. Decision rights now tend to sit where context is thinnest.</p>
+
+    <details class="brief-drawer">
+      <summary>How verification debt accumulates</summary>
+      <div class="dc">
+        <p>Three properties of these systems make the debt grow.</p>
+        <ol>
+          <li><strong>The first draft becomes the truth.</strong> Once output exists, people modify it rather than question it, and an error made in seconds can survive long after anyone remembers where it came from.</li>
+          <li><strong>The systems are pulled toward finishing, not toward accuracy.</strong> Large language models are probabilistic, and they move toward a finished answer, which is not necessarily an accurate one.</li>
+          <li><strong>Context drifts.</strong> Long work is compressed as it goes, details drift, and the systems can hallucinate, however powerful the tools are.</li>
+        </ol>
+        <div class="callout-inner"><strong>What a board can ask for:</strong> Two numbers: the hours spent correcting AI output, and how long it takes to trace an error to its source.</div>
+      </div>
+    </details>
+
+    <details class="brief-drawer">
+      <summary>Klarna: when operating savings become customer costs</summary>
+      <div class="dc">
+        <p>In early 2024, Klarna introduced an AI customer service assistant that reportedly did the work of 700 full-time representatives. Its workforce fell by roughly 40 percent between December 2022 and December 2024. In May 2025, its chief executive acknowledged that the company had focused too much on efficiency, that quality had suffered, and that it was rehiring people and moving to a hybrid model.<sup><a href="#r3">3</a></sup></p>
+        <p>In my reading, automating without the context of what the work was really doing can turn operating savings into customer and brand costs.</p>
+      </div>
+    </details>
+
+    <h2>Productivity Is Not Yet Earnings</h2>
+    <p>The research points the same way. In McKinsey's <em>State of AI in 2026</em>, 80 percent of respondents report that AI has improved productivity, but 37 percent report any EBIT contribution, and about 6 percent qualify as high performers. Nearly three-quarters of those high performers report fundamentally redesigning workflows because of AI, against one-quarter of others.<sup><a href="#r4">4</a></sup> Boston Consulting Group finds 5 percent of companies &ldquo;future-built&rdquo; and 60 percent laggards, and advises putting about 70 percent of transformation effort on people and processes (a heuristic, not a measurement).<sup><a href="#r5">5</a></sup></p>
+    <p>In my experience, what limits the value a company gets from AI is more often how the organization is built than which models it can use. Individual productivity does not become enterprise earnings on its own.</p>
+
+    <details class="brief-drawer">
+      <summary>The research in brief</summary>
+      <div class="dc">
+        <table>
+          <thead>
+            <tr><th>Source</th><th>Finding</th><th>What it suggests</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>McKinsey, <em>The State of AI in 2026</em><sup><a href="#r4">4</a></sup></td><td>80% report improved productivity; 37% any EBIT contribution; about 6% are high performers.</td><td>Individual productivity gains do not translate into enterprise earnings on their own, without changes to the operating model.</td></tr>
+            <tr><td>McKinsey, <em>The State of AI in 2026</em><sup><a href="#r4">4</a></sup></td><td>Nearly three-quarters of high performers redesigned workflows, against one-quarter of others.</td><td>High performers redesign the work rather than insert AI into it.</td></tr>
+            <tr><td>Boston Consulting Group, September 2025<sup><a href="#r5">5</a></sup></td><td>5% future-built, 35% scaling, 60% laggards (46% emerging, 14% stagnating).</td><td>Most companies have not yet achieved material value at scale.</td></tr>
+            <tr><td>Boston Consulting Group, September 2025<sup><a href="#r5">5</a></sup></td><td>About 70% of effort on people and processes, 20% technology, 10% algorithms (a heuristic, not a measurement).</td><td>The value is in the work and the people around it.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <h2>How Context Moves</h2>
+    <p><strong>Upline context culture.</strong> Executives still own the decision. But the people closest to the work should research the issue, define it, and write out the reasoning, with a mechanism that guarantees an answer. Then the executive's job is to ask good questions of the reasoning and decide. Reasoning and context move up from the teams closest to the work, rather than work being pushed down as simple tasks to complete.</p>
+    <p><strong>Standing between AI and the decision.</strong> Organizations are investing in the tools and not in the people who stand between the tools and the decisions: people trained to direct AI, verify what it produces, and keep its output tied to what the business actually knows. Most executive teams do not yet know this skill has to exist.</p>
+    <p><strong>Eliminate before you automate.</strong> Michael Hammer made the case in 1990: stop paving the cowpaths, and use information technology to redesign the work rather than automate it.<sup><a href="#r6">6</a></sup> Automating a relay makes it faster without asking whether it should exist at all. Frontline teams find the obsolete work, and leaders, with authority across boundaries, retire it.</p>
+
+    <details class="brief-drawer">
+      <summary>What to retire, and what to keep</summary>
+      <div class="dc">
+        <p>The useful question is why a task exists. Work that only translates information across departmental walls can often go where shared context connects both sides, unless it performs a legally required segregation of duties. Status decks and briefings that only move information up a hierarchy can go where the state of the work is visible.</p>
+        <p>Not every meeting is relay. Keep and redesign the meetings that form commitment, confer legitimacy, surface resistance, or resolve ambiguity, because that is where sensemaking happens,<sup><a href="#r7">7</a></sup> and it is often where context is formed. Eliminate a task when its business necessity has disappeared, not merely when its output can be automated.</p>
+      </div>
+    </details>
 
     <div class="graphic-wrapper" style="margin: 36px 0; text-align: center;">
       <img src="/images/mco_wrapped_context_architecture.png" alt="The Context Architecture: Bridging Value Stream Context Across the Enterprise" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--rule); box-shadow: 0 4px 16px rgba(15,23,42,0.06);">
       <div class="graphic-caption" style="font-size: 13px; color: var(--slate); margin-top: 10px; font-weight: 500;">Exhibit 1: The Context Architecture: Anchoring Enterprise Reasoning Along Value Streams Across Functional Disciplines.</div>
     </div>
-    <h2 style="font-family: var(--font-serif); font-size: 28px; color: var(--navy); margin: 48px 0 20px; line-height: 1.25;">What an executive team does this quarter</h2>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>Plant the flag.</strong> Every executive team needs to say: this is our position on AI. Not a policy so much as a position, a short set of commitments everyone knows and can repeat. And most of it should be about context: the position on AI is, at its heart, a position on context about the company itself and the information needed to run it. It sounds something like this: no one will be fired for bridging one point to the next. We are going to elevate everyone to start speaking in context. We need your head up, looking at the market, the customer, and the product. You have the deepest insight and context in the company, and we have not even captured it yet. We want to invest in you, not just in AI.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;">The commitment is scoped to retiring relay work, to bridging one point to the next. It is not a promise that no role will ever change. Where capacity is released, the honest order is to elevate and redeploy first, absorb through attrition second, and reduce third, and to keep a visible record of all three. A blanket promise is not credible to boards or to employees; a visible record is.</p>
+
+    <h2>The Hope</h2>
+    <p>The people in between do not need to be fired. They need to be elevated, so they can map the content and the context around it and carry it to where decisions are made. Then their work becomes conversations about context, with their heads up instead of down. When people can see a map of how everything connects, they can say: that is where I fit. It stops being a job title. It becomes the feeling of coming to work every day and contributing.</p>
+    <p>Context is a win for nearly everyone at the table: for HR, for operations, for finance, for every functional discipline, and for earnings quality. It is part of the security of the company, and it is the company's intellectual property.</p>
+    <p>There is time to be had as well. A 2016 study found that time spent in collaborative work had grown by 50 percent or more over the previous two decades,<sup><a href="#r8">8</a></sup> and a 2017 study found executives spending nearly 23 hours a week in meetings, up from less than 10 in the 1960s.<sup><a href="#r9">9</a></sup> By my own illustrative arithmetic, a 10 percent reduction in meetings and reporting returns about 250,000 hours a year in a 5,000-person company, before netting out what the work costs, and without hiring anyone. Returned time leaks unless it has a destination. The position on context is that destination.</p>
+
+    <details class="brief-drawer">
+      <summary>The arithmetic, and what it does not include</summary>
+      <div class="dc">
+        <p>As an illustration, not a measurement: if meetings, reporting, and the work around them take about 11 hours per person per week over about 46 working weeks, that is about 506 hours per person per year.</p>
+        <table>
+          <thead>
+            <tr><th>Reduction</th><th>Per person</th><th>5,000-person company</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>5 percent</td><td>about 25 hours</td><td>about 126,000 hours</td></tr>
+            <tr><td>10 percent</td><td>about 51 hours</td><td>about 253,000 hours</td></tr>
+          </tbody>
+        </table>
+        <div class="callout-inner"><strong>What it does not include:</strong> The return has to be netted against what the work costs: the office, the working sessions, the stewards, and the verification itself. I do not yet know the net for any given company, which is one more reason to take a baseline before the change.</div>
+        <p>Research supports the value of where the time goes: meaningful work is strongly associated with engagement, commitment, and job satisfaction,<sup><a href="#r10">10</a></sup> and in 2025 only 18 percent of U.S. workers said their job had a purpose they personally believed in.<sup><a href="#r11">11</a></sup></p>
+      </div>
+    </details>
+
+    <h2>What an Executive Team Does This Quarter</h2>
+    <p><strong>Plant the flag.</strong> Every executive team needs to say: this is our position on AI. Not a policy so much as a position, a short set of commitments everyone knows and can repeat. And most of it should be about context, told in the company's own stories rather than another company's.</p>
+    <p><strong>Scope the commitment honestly.</strong> No one is fired for bridging one point to the next. Where capacity is released, the honest order is to elevate and redeploy first, absorb through attrition second, and reduce third, and to keep a visible record of all three. A blanket promise is not credible to boards or to employees; a visible record is.</p>
+    <p><strong>Start with one value stream.</strong> Revenue is a function of a value stream, chained across the functional disciplines until value reaches the customer. The value chain is not new. What I believe AI now allows us to do is focus on it, and operationalize the organization around it, with the functional disciplines remaining as centers of excellence.</p>
+    <p>We only have Q4 to create this in preparation for Q1 2027. If a position on context is not prepared this quarter and planned into next year's work, it is too late for next year, and the people who hold much of the context may not be there the year after.</p>
+
+    <details class="brief-drawer">
+      <summary>Questions for your executive team</summary>
+      <div class="dc">
+        <ol>
+          <li>What is our position on AI, and how much of it is about the context of our own company? Can we tell it in our own stories?</li>
+          <li>Where is bearing context acknowledged in our roles today?</li>
+          <li>Which value stream would we start with?</li>
+          <li>Who is trained to stand between AI and our decisions, and where is our verification debt accumulating?</li>
+          <li>What should we stop doing before we automate anything?</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="brief-drawer">
+      <summary>A note for chief human resources officers</summary>
+      <div class="dc">
+        <p>If bearing context is part of every role, it belongs in how roles are defined, developed, and rewarded. The conversation deserves a table set for it, with someone moderating so each organization can put it in its own context. It is continuous improvement that never reaches a steady state, unless we frame it so it can grow and refine without redesigning and reorganizing every five years.</p>
+      </div>
+    </details>
+
+    <details class="brief-drawer">
+      <summary>A note for private equity sponsors</summary>
+      <div class="dc">
+        <p>A portfolio company whose operating knowledge lives in the heads of a few executives carries key-person risk, longer diligence, and buyer skepticism. The usual question, &ldquo;Does the target use AI?&rdquo;, produces vendor lists and pilots. The better question is whether the company has a transferable, governed, economically measured way of operating that lets AI improve decisions without increasing key-person dependency, control failure, rework, or customer risk.</p>
+        <p>Context is the heart of that answer. A governed body of knowledge, named owners for each value stream, and verification records make operating gains durable and transferable.</p>
+      </div>
+    </details>
 
     <div class="callout-box" style="border-left: 4px solid var(--orange); font-size: 19px; line-height: 1.6; color: var(--navy-dark); font-family: var(--font-serif); padding: 22px 26px; margin: 36px 0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-      <em>"You do not work for AI. You do not serve AI."</em>
+      <em>&ldquo;You're on your laptop, and then you look up and you can see outside the window. Imagine looking outside the window all the time. That's your new world. You can finally see again.&rdquo;</em>
     </div>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>Eliminate before you automate.</strong> Do not automate a relay after the constraint that justified it has disappeared. Eliminate a task when its business necessity has disappeared, not merely when its output can be automated.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>Give the returned time a destination.</strong> Returned time leaks unless it has a destination. The position on context is that destination.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;"><strong>Value stream first.</strong> Revenue is a function of a value stream, chained across the functional disciplines until value reaches the customer. So I propose applying AI to the value stream first. The companion paper, <em>Value Stream First</em>, takes up how.</p>
-    <p style="margin-bottom: 24px; color: #2D3748;">I cannot think of an organization doing this extremely well, because we have not been trained to do it. So here is where I would start: the position first, stated by the executive team this quarter, and then one value stream, with its context kept, with provenance, from the first entry. Each executive team will answer these questions with its own relays, meetings, and decisions:</p>
-    <ul style="margin-bottom: 24px; padding-left: 24px;">
-      <li style="margin-bottom: 8px; color: #2D3748;">What is our position on AI, and how much of it is about the context of our own company? Can we tell it in our own stories?</li>
-      <li style="margin-bottom: 8px; color: #2D3748;">Where is bearing context acknowledged in our roles today?</li>
-      <li style="margin-bottom: 8px; color: #2D3748;">Which value stream would we start with?</li>
-      <li style="margin-bottom: 8px; color: #2D3748;">Who is trained to stand between AI and our decisions, and where is our verification debt accumulating?</li>
-      <li style="margin-bottom: 8px; color: #2D3748;">What should we stop doing before we automate anything?</li>
-</ul>
-    <p style="margin-bottom: 24px; color: #2D3748;">If a position on context is not prepared this quarter and planned into next year's work, it is too late for next year, and the people who hold much of the context may not be there the year after. Lead this change and control it, or be controlled by it and have to react.</p>
 
-    <div class="callout-box" style="border-left: 4px solid var(--orange); font-size: 19px; line-height: 1.6; color: var(--navy-dark); font-family: var(--font-serif); padding: 22px 26px; margin: 36px 0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-      <em>"You're on your laptop, and then you look up and you can see outside the window. Imagine looking outside the window all the time. That's your new world. You can finally see again."</em>
-    </div>
-    <p style="margin-bottom: 24px; color: #2D3748;">Context is the next culture, if we choose it. If we do not, AI will be.</p>
+    <p class="close-declaration">Context is the next culture, if we choose it. If we do not, AI will be.</p>
 
     <div style="background: #FFFFFF; border: 1px solid var(--rule); border-top: 4px solid var(--navy-mid); border-radius: 6px; padding: 28px 32px; margin-top: 56px; box-shadow: 0 2px 12px rgba(19,31,51,0.04);">
       <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--orange); margin-bottom: 8px;">Principal Author &amp; Advisory Practice</div>
       <p style="font-size: 15.5px; line-height: 1.65; color: var(--slate); margin-bottom: 18px;">
-        Michael Magruder is the founder and principal of Magruder &amp; Company, Nashville, Tennessee, with 25+ years across the enterprise, including recent work with a $140 billion leading telecommunications provider in the TMT market.
+        <strong>Michael Magruder</strong> is the founder and principal of Magruder &amp; Company, based in Nashville, Tennessee, with 25+ years of solving problems across the enterprise, including recent work with a $140 billion leading telecommunications provider in the TMT market, in the support roles beneath its executive teams. The full Journal Edition carries the complete argument and empirical evidence. The forthcoming companion paper, <em>Value Stream First</em>, takes up how to build context along the value stream.
       </p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
         <button onclick="switchEdition('journal')" class="mode-pill-btn" style="background: var(--navy-dark); color: #FFFFFF; padding: 10px 22px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px;">
@@ -665,6 +971,23 @@
       </div>
     </div>
 
+    <section class="refs-brief" id="references-brief">
+      <h3>References</h3>
+      <ol>
+        <li id="r1">Kate Niederhoffer, Gabriella Rosen Kellerman, Angela Lee, Alex Liebscher, Kristina Rapuano, and Jeffrey T. Hancock, &ldquo;AI-Generated &lsquo;Workslop&rsquo; Is Destroying Productivity,&rdquo; <em>Harvard Business Review</em>, September 22, 2025.</li>
+        <li id="r2">Gallup, Walton Family Foundation, and GSV Ventures, <em>The AI Paradox: More Exposure, Less Confidence Among Gen Z</em> (Voices of Gen Z), 2026; fielded February 24 to March 4, 2026, with 1,572 respondents aged 14 to 29.</li>
+        <li id="r3">Melissa Burke, Jeremy Reich, Fran&ccedil;ois Faelli, and Hernan Saenz, &ldquo;AI Transformation: The Fears Are New. The Answer Isn&rsquo;t,&rdquo; Bain &amp; Company, August 31, 2026; Klarna, press release on its AI assistant, February 2024.</li>
+        <li id="r4">McKinsey &amp; Company, <em>The State of AI in 2026</em>, August 25, 2026.</li>
+        <li id="r5">Boston Consulting Group, &ldquo;The Widening AI Value Gap,&rdquo; September 2025.</li>
+        <li id="r6">Michael Hammer, &ldquo;Reengineering Work: Don&rsquo;t Automate, Obliterate,&rdquo; <em>Harvard Business Review</em>, July to August 1990.</li>
+        <li id="r7">Karl E. Weick, <em>Sensemaking in Organizations</em> (Thousand Oaks, CA: Sage, 1995).</li>
+        <li id="r8">Rob Cross, Reb Rebele, and Adam Grant, &ldquo;Collaborative Overload,&rdquo; <em>Harvard Business Review</em>, January to February 2016.</li>
+        <li id="r9">Leslie A. Perlow, Constance Noonan Hadley, and Eunice Eun, &ldquo;Stop the Meeting Madness,&rdquo; <em>Harvard Business Review</em>, July to August 2017.</li>
+        <li id="r10">B. A. Allan, C. Batz-Barbarich, H. M. Sterling, and L. Tay, &ldquo;Outcomes of Meaningful Work: A Meta-Analysis,&rdquo; <em>Journal of Management Studies</em> 56, no. 3 (2019): 500 to 528.</li>
+        <li id="r11">Gallup and Stand Together, <em>The Power of Purpose</em>, November 11, 2025.</li>
+      </ol>
+    </section>
+
     </article>
   </div>
 
@@ -672,7 +995,7 @@
   <div id="edition-journal" class="edition-panel">
     <article class="prose">
       <div style="background: var(--ft-bg); border: 1px solid var(--ft-border); border-radius: 6px; padding: 14px 20px; margin-bottom: 32px; font-size: 14px; color: var(--navy);">
-        <strong>Full Master Journal Edition</strong> &middot; 30 min read &middot; Audited references, empirical data tables, and complete organizational architecture. Looking for the high-level synthesis? <a href="#brief" onclick="switchEdition('executive'); return false;" style="color: var(--orange); font-weight: 600; text-decoration: underline;">Switch to Executive Brief (4 min read)</a>.
+        <strong>Full Master Journal Edition</strong> &middot; 30 min read &middot; Audited references, empirical data tables, and complete organizational architecture. Looking for the high-level synthesis? <a href="#brief" onclick="switchEdition('executive'); return false;" style="color: var(--orange); font-weight: 600; text-decoration: underline;">Switch to Executive Brief (7 min read)</a>.
       </div>
 
     <div class="callout-box" style="border-left-color: var(--navy-mid); background: #FFFFFF; border: 1px solid var(--rule); border-left: 4px solid var(--navy-mid); padding: 24px 28px; margin-bottom: 40px; box-shadow: 0 2px 12px rgba(19,31,51,0.04);">
