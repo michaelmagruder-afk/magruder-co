@@ -722,6 +722,235 @@
       min-width: 140px;
     }
 
+    /* Flagship Executive Monograph Card */
+    .flagship-hero-section {
+      margin-top: 36px;
+      margin-bottom: 48px;
+    }
+    .flagship-section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .flagship-section-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .flagship-card {
+      display: block;
+      text-decoration: none;
+      background: var(--navy-dark);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 4px solid var(--orange);
+      box-shadow: 0 16px 40px rgba(19, 31, 51, 0.16);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .flagship-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 52px rgba(19, 31, 51, 0.25);
+      border-color: rgba(248, 104, 34, 0.4);
+    }
+    .flagship-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      align-items: stretch;
+    }
+    .flagship-stage {
+      background: linear-gradient(145deg, #0A121D 0%, #152235 100%);
+      padding: 36px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .flagship-monograph-frame {
+      width: 100%;
+      max-width: 250px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.14);
+      border-radius: 3px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .flagship-card:hover .flagship-monograph-frame {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(248, 104, 34, 0.5);
+    }
+    .flagship-monograph-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/5;
+      object-fit: contain;
+      display: block;
+    }
+    .flagship-content {
+      padding: 36px 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .flagship-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .flagship-pill {
+      background: rgba(248, 104, 34, 0.15);
+      color: var(--orange-light);
+      border: 1px solid rgba(248, 104, 34, 0.4);
+      padding: 3px 9px;
+      border-radius: 2px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+    .flagship-date {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .flagship-reading-time {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+    .flagship-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 2.2vw, 27px);
+      font-weight: 700;
+      line-height: 1.25;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .flagship-pullquote {
+      font-size: 13.5px;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.55;
+      border-left: 2px solid var(--orange);
+      padding-left: 14px;
+      margin-bottom: 14px;
+    }
+    .flagship-dek {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+    .flagship-metrics-strip {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 18px;
+      border-radius: 3px;
+      margin-bottom: 24px;
+    }
+    .flagship-metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .flagship-metric-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--orange-light);
+      letter-spacing: -0.01em;
+    }
+    .flagship-metric-lbl {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .flagship-metric-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .flagship-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: auto;
+    }
+    .flagship-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: #FFFFFF;
+      padding: 11px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .flagship-card:hover .flagship-btn {
+      background: #E05514;
+      transform: translateX(2px);
+      box-shadow: 0 4px 12px rgba(248, 104, 34, 0.35);
+    }
+    .flagship-alt-link {
+      font-size: 11.5px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .insights-hub-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 20px 28px;
+      margin-top: 40px;
+      gap: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+    .insights-hub-text {
+      font-size: 14px;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .insights-hub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 3px;
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+    .insights-hub-link:hover {
+      background: var(--orange);
+    }
+
     /* Insights Archive Categories */
     .insights-section {
       background: var(--off-white);
@@ -1063,6 +1292,36 @@
       }
       .contact-form {
         padding: 24px;
+      }
+      .flagship-grid {
+        grid-template-columns: 1fr;
+      }
+      .flagship-stage {
+        padding: 28px 20px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .flagship-monograph-frame {
+        max-width: 220px;
+      }
+      .flagship-content {
+        padding: 28px 20px;
+      }
+      .flagship-metrics-strip {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .flagship-metric-divider {
+        display: none;
+      }
+      .flagship-action-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .insights-hub-banner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -1493,12 +1752,70 @@
         The complete intellectual property and empirical research estate authored by Michael Magruder for Chief Executives, Private Equity Operating Partners, and Corporate Directors.
       </p>
 
+      <!-- Flagship Monograph: Context Is the Next Culture -->
+      <div class="flagship-hero-section">
+        <div class="flagship-section-eyebrow">
+          <span>Featured Sovereign Executive Monograph · Q4 Imperative</span>
+        </div>
+        
+        <a href="/insights/context-is-the-next-culture" class="flagship-card" aria-label="Read Context is the Next Culture: The Q4 Imperative">
+          <div class="flagship-grid">
+            <div class="flagship-stage">
+              <div class="flagship-monograph-frame">
+                <img src="/images/insights/context-is-the-next-culture-cover.png" 
+                     onerror="if(!this.dataset.retried){this.dataset.retried=1;this.src='images/insights/context-is-the-next-culture-cover.png';}" 
+                     alt="Context is the Next Culture: The Q4 Imperative" 
+                     class="flagship-monograph-img" />
+              </div>
+            </div>
+            <div class="flagship-content">
+              <div class="flagship-meta-row">
+                <span class="flagship-pill">Q4 Imperative</span>
+                <span class="flagship-date">October 8, 2026</span>
+                <span class="flagship-reading-time">18 Min Read · Executive Brief &amp; Journal Edition</span>
+              </div>
+              <h3 class="flagship-headline">Context is the Next Culture: The Q4 Imperative for Executive Leadership Teams</h3>
+              <blockquote class="flagship-pullquote">&ldquo;If a position on context is not prepared this quarter and planned into next year's work, it is too late for next year. Context is the next culture, if we choose it. If we do not, AI will be.&rdquo;</blockquote>
+              <p class="flagship-dek">An executive monograph deconstructing why artificial intelligence without explicit enterprise context cannibalizes institutional capability, and how corporate boards and executive leadership teams anchor cognitive sovereignty heading into 2027.</p>
+              <div class="flagship-metrics-strip">
+                <div class="flagship-metric-item">
+                  <span class="flagship-metric-val">10</span>
+                  <span class="flagship-metric-lbl">Context Vectors</span>
+                </div>
+                <div class="flagship-metric-divider"></div>
+                <div class="flagship-metric-item">
+                  <span class="flagship-metric-val">5</span>
+                  <span class="flagship-metric-lbl">ELT Decisions</span>
+                </div>
+                <div class="flagship-metric-divider"></div>
+                <div class="flagship-metric-item">
+                  <span class="flagship-metric-val">Q4 2026</span>
+                  <span class="flagship-metric-lbl">Planning Window</span>
+                </div>
+              </div>
+              <div class="flagship-action-row">
+                <span class="flagship-btn">Read Executive Brief &rarr;</span>
+                <span class="flagship-alt-link">Includes Full Unabridged Journal Edition</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
       <!-- Category 1: Strategic Leadership & Governance Series -->
       <div class="insight-category">
         <div class="insight-cat-title">
           <span>Strategic Leadership &amp; Governance Series</span>
-          <span class="insight-cat-count">7 Monographs</span>
+          <span class="insight-cat-count">8 Monographs</span>
         </div>
+
+        <a href="/insights/context-is-the-next-culture" class="article-item" target="_blank" rel="noopener">
+          <div class="article-info">
+            <div class="article-title">Context is the Next Culture: The Q4 Imperative for Executive Leadership Teams</div>
+            <div class="article-desc">An executive monograph deconstructing why AI without explicit enterprise context cannibalizes institutional capability, and how leadership teams anchor cognitive sovereignty heading into 2027.</div>
+          </div>
+          <div class="article-meta">Q4 Imperative Flagship</div>
+        </a>
 
         <a href="/insights/pe-portco-q3-reality-check-strategy-hardening" class="article-item" target="_blank" rel="noopener">
           <div class="article-info">
@@ -1658,6 +1975,16 @@
             <div class="article-desc">An empirical audit of the Fortune 500 enterprise AI readiness chasm, examining pilot attrition rates, copilot fatigue, and board skepticism.</div>
           </div>
           <div class="article-meta">State of the Market</div>
+        </a>
+      </div>
+
+      <!-- Dedicated Insights Hub Gateway -->
+      <div class="insights-hub-banner">
+        <div class="insights-hub-text">
+          Looking for the complete executive canon, practice architectures, and industrial treatises?
+        </div>
+        <a href="/insights" class="insights-hub-link">
+          Explore Dedicated Insights Hub &rarr;
         </a>
       </div>
 
