@@ -3,14 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0;url=/insights/context-is-the-next-culture#journal">
-<link rel="canonical" href="https://magruder.co/insights/context-is-the-next-culture#journal">
 <title>Redirecting to Master Journal Edition &middot; Magruder &amp; Company</title>
 <script>
-  window.location.replace('/insights/context-is-the-next-culture#journal');
+  (function() {
+    var search = window.location.search || '';
+    var hash = window.location.hash || '#journal';
+    if (!hash.startsWith('#journal')) {
+      hash = '#journal';
+    }
+    window.location.replace('/insights/context-is-the-next-culture' + search + hash);
+  })();
 </script>
+<noscript>
+  <meta http-equiv="refresh" content="0;url=/insights/context-is-the-next-culture#journal">
+</noscript>
+<link rel="canonical" href="https://magruder.co/insights/context-is-the-next-culture#journal">
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 40px; text-align: center; color: #1a202c;">
-<p>Redirecting to the <a href="/insights/context-is-the-next-culture#journal" style="color: #c9510c; font-weight: 600;">Master Journal Edition</a>...</p>
+<p>Redirecting to the <a id="redirect-link" href="/insights/context-is-the-next-culture#journal" style="color: #c9510c; font-weight: 600;">Master Journal Edition</a>...</p>
+<script>
+  var link = document.getElementById('redirect-link');
+  if (link) {
+    link.href = '/insights/context-is-the-next-culture' + (window.location.search || '') + '#journal';
+  }
+</script>
 </body>
 </html>
