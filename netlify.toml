@@ -41,3 +41,13 @@
   to = "/insights/context-is-the-next-culture#journal"
   status = 301
 
+[[redirects]]
+  from = "/brief"
+  to = "/insights/context-is-the-next-culture?utm_source=linkedin&utm_medium=social_carousel&utm_campaign=context_culture_q4#brief"
+  status = 302
+
+[[redirects]]
+  from = "/context"
+  to = "/insights/context-is-the-next-culture?utm_source=linkedin&utm_medium=social_carousel&utm_campaign=context_culture_q4#brief"
+  status = 302
+
