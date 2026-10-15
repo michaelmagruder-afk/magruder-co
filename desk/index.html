@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
-  <title>Michael Magruder | Short-Term Work for Executives</title>
+  <title>Michael Magruder | Enterprise AI Position &amp; Governance Plans</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,13 +22,22 @@
     .top-badge { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-lt); border: 1px solid rgba(248,104,34,0.35); background: rgba(248,104,34,0.12); padding: 5px 12px; border-radius: 3px; }
     .hero { background: var(--navy-dk); color: var(--white); padding: 72px 48px 64px; }
     .wrap { max-width: 900px; margin: 0 auto; }
-    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
-    .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4.4vw, 50px); font-weight: 700; line-height: 1.16; margin-bottom: 26px; }
-    .hero h1 em { color: var(--orange-lt); font-style: italic; font-weight: 500; }
-    .hero-lead { font-size: 18.5px; color: rgba(255,255,255,0.9); line-height: 1.7; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
+    .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(34px, 4.6vw, 50px); font-weight: 700; line-height: 1.14; margin-bottom: 18px; color: var(--white); }
+    .hero-sub { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.4vw, 24px); font-weight: 500; line-height: 1.42; color: rgba(255,255,255,0.95); margin-bottom: 22px; }
+    .hero-sub em { color: var(--orange-lt); font-style: italic; font-weight: 500; }
+    .hero-lead { font-size: 17.5px; color: rgba(255,255,255,0.86); line-height: 1.68; margin-bottom: 28px; }
+    .hero-pillars { display: grid; grid-template-columns: 1fr; gap: 14px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 24px; }
+    .hero-pillar { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-left: 3px solid var(--orange); border-radius: 4px; padding: 18px 22px; }
+    .hero-pillar strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; letter-spacing: 0.01em; color: var(--white); margin-bottom: 6px; line-height: 1.25; }
+    .hero-pillar span { font-size: 14.5px; color: rgba(255,255,255,0.82); line-height: 1.55; display: block; }
     main { padding: 64px 48px 80px; }
     .intro p { font-size: 17px; color: var(--slate); margin-bottom: 18px; }
     .intro p:last-child { margin-bottom: 0; }
+    .cred-strip { margin-top: 26px; background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--navy); border-radius: 4px; padding: 20px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .cred-heading { grid-column: 1 / -1; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: -4px; }
+    .cred-item strong { display: block; font-size: 20px; color: var(--navy-dk); font-family: 'Playfair Display', Georgia, serif; margin-bottom: 4px; }
+    .cred-item span { font-size: 13.5px; color: var(--slate); line-height: 1.45; display: block; }
     section { margin-top: 60px; }
     .label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
     h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; line-height: 1.25; color: var(--navy-dk); margin-bottom: 18px; }
@@ -41,7 +50,9 @@
     .timing-row dd { padding: 18px 20px; color: var(--slate); font-size: 15.5px; }
     ul.work { list-style: none; display: grid; gap: 10px; }
     ul.work li { background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--navy); padding: 14px 18px; border-radius: 4px; font-size: 15.5px; color: var(--slate); }
+    ul.work li strong { color: var(--navy-dk); }
     .panel { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--orange); padding: 30px 32px; border-radius: 4px; }
+    .panel-navy { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--navy); padding: 30px 32px; border-radius: 4px; }
     .quiet { font-style: italic; color: var(--navy-dk) !important; }
     .commercial { background: var(--navy-dk); color: var(--white); border-radius: 6px; padding: 44px 48px; margin-top: 64px; }
     .commercial h2 { color: var(--white); }
@@ -61,11 +72,12 @@
     @media (max-width: 720px) {
       .top-bar, .hero { padding-left: 16px; padding-right: 16px; }
       .hero { padding-top: 48px; padding-bottom: 44px; }
+      .hero-pillars, .cred-strip { grid-template-columns: 1fr; }
       main { padding: 44px 16px 56px; }
       .timing-row { grid-template-columns: 1fr; }
       .timing-row dt { padding-bottom: 6px; }
       .timing-row dd { padding-top: 10px; }
-      .panel { padding: 22px 20px; }
+      .panel, .panel-navy { padding: 22px 20px; }
       .commercial { padding: 32px 20px; }
     }
   </style>
@@ -79,9 +91,23 @@
 
   <header class="hero">
     <div class="wrap">
-      <div class="eyebrow">Short-term work for executives</div>
-      <h1>Close out the week knowing it's finished. <em>Or walk in Monday morning with the weekend's work already done.</em></h1>
-      <p class="hero-lead">Immediate relief for complex work on a deadline. I start within hours. I work alongside you, with one executive or across the enterprise, so your team moves faster and decides sooner. Close out Friday knowing the work is finished and hardened. Or hand it off Friday and start Monday days ahead. Either way, you see how the work was taken apart and rebuilt, and you're ready for what comes next.</p>
+      <h1>Enterprise AI Position, Operating &amp; Governance Plans</h1>
+      <p class="hero-sub">I work with your executive team to deliver a clear, defensible AI position and governance plan for your executive team, your board, and your organization, <em>either built from the ground up or pressure-tested and hardened from your current draft.</em></p>
+      <p class="hero-lead">Every CEO, CFO, and executive leader is being asked by their board, their investors, and their workforce where the company stands on AI and how it will be governed. Most current plans either overpromise on vendor hype or stall in scattered pilots that never reach Quality of Earnings. I take the heavy writing and structural work off your desk so you walk into the room with a complete, board-ready plan in days, not months.</p>
+      <div class="hero-pillars">
+        <div class="hero-pillar">
+          <strong>AI Governance Planning</strong>
+          <span>We align with your leadership team in a few focused working sessions, and I write a complete, board-ready AI position, operating model, and governance plan tied directly to Quality of Earnings and your risk profile.</span>
+        </div>
+        <div class="hero-pillar">
+          <strong>Stress-Test and Strengthen Your Existing Plan</strong>
+          <span>If your team already has an AI strategy or board deck in motion, I put every claim, financial assumption, and governance guardrail through adversarial stress-testing against the toughest board, PE sponsor, CFO, and general counsel questions, and rebuild weak sections with verified evidence.</span>
+        </div>
+        <div class="hero-pillar">
+          <strong>Deliverables in Days</strong>
+          <span>You can hand off raw inputs or an existing draft on Friday for Monday morning delivery, or start Monday for Friday completion, and walk into the room with the finished narrative, the verification audit report, and a prepared board Q&amp;A defense brief.</span>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -89,120 +115,113 @@
     <div class="wrap">
 
       <div class="intro">
-        <p>My name is Michael Magruder. Think of me as a small, highly effective team you can bring in by the hour, the day, or the week. I do the work itself, not just advisory. That means the documents, the plans, the analysis, the materials, whatever has to get built and finished. It can be a whole project or one piece of a larger body of work.</p>
-        <p>I can work alongside one executive, across an executive team, or within the functional disciplines. I do not need a long onboarding. I have spent my career, as both a consultant and an employee, aligning people, strategy, plans, and execution almost immediately out of the gate. From day one, consider me an extension of yourself.</p>
+        <p>My name is Michael Magruder. Think of me as an experienced enterprise transformation partner and applied AI governance architect whom you can bring in by the day, the week, or even the weekend to solve one specific, high-stakes problem: giving you a clear, defensible AI position and operating plan that holds up in the boardroom and works across the organization.</p>
+        <p>For more than 25 years, as both a senior consultant (Publicis Sapient, Razorfish) and an enterprise operating executive, I have aligned executive teams, functional disciplines, strategy, and execution. Over the past year, I have built proprietary multi-agent AI governance systems, authoring 1,000+ governed pages of production IP across 15 master architectural documents backed by 200+ Tier-1 institutional citations. I understand both the pathology of where enterprise AI quietly fails and the hope of where it creates real operating leverage.</p>
+        <div class="cred-strip">
+          <div class="cred-heading">Actual Work and Results</div>
+          <div class="cred-item">
+            <strong>$346M CX Portfolio</strong>
+            <span>At Verizon, via Publicis Sapient, I aligned 200+ customer-facing initiatives across a $346M transformation portfolio.</span>
+          </div>
+          <div class="cred-item">
+            <strong>1,000+ Governed Pages</strong>
+            <span>Over the past year, I have authored 1,000+ pages of production AI governance and operating IP across 15 master documents and 14 governance protocols.</span>
+          </div>
+          <div class="cred-item">
+            <strong>-23% to +15% Turnaround</strong>
+            <span>I executed a 6-month operational turnaround across $110M in digital channel revenue and achieved 3.4x strategic throughput.</span>
+          </div>
+        </div>
       </div>
 
       <section>
-        <div class="label">Timing</div>
-        <h2>How the timing works</h2>
-        <dl class="timing">
-          <div class="timing-row"><dt>By end of day or first thing tomorrow</dt><dd>I can usually begin within an hour or two and continue working into the evening until it's done.</dd></div>
-          <div class="timing-row"><dt>By end of the week</dt><dd>Give it to me Monday morning, or as late as Wednesday afternoon, and have it by Friday morning or end of day Friday.</dd></div>
-          <div class="timing-row"><dt>By Monday at 8 AM</dt><dd>Give it to me Friday. I prepare right away, work through the evenings and the weekend, and it's on your desk Monday morning.</dd></div>
-          <div class="timing-row"><dt>By the hour or the day</dt><dd>For something smaller that just needs to get done.</dd></div>
-          <div class="timing-row"><dt>On site</dt><dd>I can come to you for a few days or a week. That might be your office, wherever your executive team is meeting on site or off site (a strategy offsite or retreat), or wherever you may be traveling, for work or personal. The client covers travel.</dd></div>
-        </dl>
-      </section>
-
-      <section>
-        <div class="label">The work</div>
-        <h2>The kind of work I take off your desk</h2>
+        <div class="label">The Service</div>
+        <h2>Your Enterprise AI Position and Governance Plan answers the core questions before your board</h2>
+        <p>Whether we build your plan from a blank page after a few hours of working sessions with your leadership team, or I take the draft your team has already built and pressure-test and harden it before it goes to the board, we focus on the exact questions your stakeholders need answered:</p>
         <ul class="work">
-          <li>Board, investor, and PE sponsor materials you are creating or preparing to deliver, hardened before they go out</li>
-          <li>Quarterly materials, from the narrative or MD&amp;A section of a quarterly presentation to end-to-end business case reviews. At Verizon, I aligned 200+ customer-facing initiatives in a $346M CX portfolio.</li>
-          <li>Strategy and execution plans, hardened and built back with depth and refinement</li>
-          <li>Your AI position plan for your executive team, your board, and your company, whether I lead it or augment yours</li>
-          <li>Executive communications to your team, your organization, or the public</li>
-          <li>Getting several teams or vendors working from one plan</li>
-          <li>RFPs</li>
-          <li>Analysis of complex sets of materials, from contracts to projects</li>
-          <li>Working alongside another leader on existing work, as a pair, to take some of it off their plate in the short term</li>
+          <li><strong>The Board &amp; Investor Position:</strong> We establish a clear, unvarnished thesis on where AI creates measurable enterprise value in your business model, where it does not, and how capital and talent are allocated against Quality of Earnings (QoE).</li>
+          <li><strong>Organizational AI Readiness &amp; Operating Model:</strong> We move your organization beyond disconnected tool licenses and shadow AI pilots into a governed human-AI operating model across your functional disciplines, mapped directly to the CFO's portfolio.</li>
+          <li><strong>Enterprise AI Governance &amp; Risk Architecture:</strong> We define practical, enforceable guardrails against model hallucination, silent context drift, intellectual property leakage, vendor lock-in, and regulatory exposure, including NIST AI RMF, fiduciary oversight, and data boundaries.</li>
+          <li><strong>Value-Stream &amp; Sequencing Roadmap:</strong> We lay out a realistic 90-day, 6-month, and 12-month execution sequence that aligns your leadership team, internal staff, and external vendors around one plan rather than competing experiments.</li>
+          <li><strong>Workforce &amp; Executive Alignment Communications:</strong> We prepare clear messaging for your executive team, your managers, and your broader organization that replaces anxiety and hype with practical operating standards.</li>
         </ul>
       </section>
 
       <section>
-        <div class="label">Hardening</div>
-        <h2>Hardening something that's almost ready</h2>
+        <div class="label">Pressure-Testing &amp; Hardening</div>
+        <h2>Hardening an AI plan or board deck means pressure-testing every assumption and rebuilding weak sections</h2>
         <div class="panel">
-          <p>Anything I complete or improve for you can be hardened, and so can your own work, whether it's nearly finished or about to be presented.</p>
-          <p>Hardening means I take it apart and put it through a tougher review than it will face in the room. I use the platforms and tools I have built to decompose it from an adversarial perspective, going further than a skeptical board, investor, or team would. You see exactly how deep the review went and what it found. Then we rebuild it together, quickly, adding data or market references where they strengthen your position. I don't just break it, I rebuild it. I'm glad to show you how it works.</p>
-          <p>You also know how accurate it is. Every hardened deliverable comes with reports that document what was checked, what was found, and what changed. That's very different from dropping something into AI and working with it as it drifts and hallucinates, often in ways you don't notice until it's too late and difficult to unwind. I also make sure nothing in it reads as if AI wrote it.</p>
-          <p>Depending on your audience, I prepare the questions and challenges you are likely to face, with answers ready, so you walk in prepared.</p>
+          <p>Every plan we build from the ground up is hardened before delivery, and if your team has already drafted an AI strategy, board update, or vendor investment case, I can pressure-test and harden that draft before you walk into the room.</p>
+          <p>Hardening means I take the draft apart and put it through a tougher adversarial review than it will face from your board, PE sponsor, CFO, or general counsel. Using the multi-model governance systems I have built over 190+ working sessions, I test every technical claim, cost assumption, adoption timeline, and risk mitigation against current institutional research (McKinsey, BCG, Gartner, HBR, MIT) and real-world enterprise failure modes.</p>
+          <p>I do not just break the work down; I rebuild the narrative and financial logic with you quickly so it is airtight. Every hardened AI plan comes with a verification report documenting what was checked, what was challenged, and what changed, along with a board Q&amp;A preparation brief covering the hardest questions you will face and the strongest answers to each.</p>
+          <p>Every engagement runs under strict confidentiality boundaries: your company materials remain strictly private, never train public models, and read as clear, authoritative human prose rather than AI-generated text.</p>
         </div>
       </section>
 
       <section>
-        <div class="label">How it's possible</div>
-        <h2>How one person delivers like a team</h2>
-        <p>For the past year, I have worked every day at the frontier of applied AI. I orchestrate multiple models across several platforms at once, in processes built for how business actually runs across an enterprise. That is the platform of systems and tools behind the work. I can teach it, but you do not need to know how any of it works to benefit from it.</p>
-        <p class="quiet">Unless you want to see it, the machinery stays on my side. What reaches you is finished work, and the evidence behind it.</p>
+        <div class="label">Timing</div>
+        <h2>You choose the turnaround window that fits your board and leadership calendar</h2>
+        <dl class="timing">
+          <div class="timing-row"><dt>By Monday at 8 AM (The Weekend Turnaround)</dt><dd>You can hand off your current draft or raw inputs on Friday, and I will start immediately, work through the weekend, and place the finished, hardened AI position plan or board deck on your desk before 8 AM Monday.</dd></div>
+          <div class="timing-row"><dt>By end of the week</dt><dd>You can brief me Monday morning, or as late as Wednesday, to author or rebuild your AI position and governance plan with your team for delivery by Friday.</dd></div>
+          <div class="timing-row"><dt>By end of day or first thing tomorrow</dt><dd>I can step in within hours when an urgent board pre-read, executive memo, or AI investment review needs immediate stress-testing and revision overnight.</dd></div>
+          <div class="timing-row"><dt>By the hour or the day</dt><dd>I conduct focused working sessions alongside you, your CIO or CTO, or your strategy lead to pressure-test an AI roadmap or align competing team proposals.</dd></div>
+          <div class="timing-row"><dt>On site with your leadership team</dt><dd>I can travel on short notice to work directly with you and your executive team at your headquarters, a board prep session, or an executive strategy offsite.</dd></div>
+        </dl>
       </section>
 
       <section>
-        <div class="label">Examples</div>
-        <h2>Examples I can show you</h2>
-        <p>I can share examples of finished work with client details removed, such as these.</p>
-        <ul class="work">
-          <li>Enterprise, organizational, and operational plans that realign functional disciplines into value streams that map to quality of earnings</li>
-          <li>Models that run from the data up through analytics, workflow, customer engagement, and customer lifetime value, and into quality of earnings</li>
-          <li>KPIs owned by each functional discipline, mapped across the executive team and into the CFO's portfolio</li>
-        </ul>
+        <div class="label">Qualifications &amp; Track Record</div>
+        <h2>I combine 25 years of enterprise operating reality with a full year inside the AI frontier</h2>
+        <p>Most AI plans fail for one of two reasons: they are written by technologists who do not understand P&amp;L governance, change management, and Quality of Earnings, or they are written by traditional advisors who only know AI from slideware.</p>
+        <p>I sit at the intersection of both. Over the past 25+ years, I have built strategy-to-execution frameworks and run digital channels at scale, aligning a $346M portfolio across 200+ initiatives at Verizon via Publicis Sapient and leading a 28-person digital discipline across $110M in annual channel revenue. Over the past year, I have worked hands-on every day orchestrating multi-model AI architectures across 600,000+ words of governed production output. I know firsthand what works in production, what breaks under pressure, and how to govern it.</p>
+        <p class="quiet">Unless you want to see the underlying systems, the machinery stays on my side. What reaches your desk is a clear, defensible plan your board and organization can trust.</p>
       </section>
 
       <section>
         <div class="label">Deliverables</div>
-        <h2>What you receive</h2>
-        <p>Finished work comes in whatever format you need, whether that's a document, deck, spreadsheet, report, or plan. Everything comes two ways. One is clear human narrative that people can read and act on. The other is a machine-readable version you can bring into any system or AI platform you use. You own all of it. Hand it to another team, build on it, or bring it back to me later and I will pick up where we left off.</p>
+        <h2>You walk away with three concrete, board-ready deliverables</h2>
+        <ul class="work">
+          <li><strong>The Executive &amp; Board Narrative:</strong> You receive the finished plan written in the exact format your room requires, whether that is a board deck, an executive position paper, or an operating memo, ready to distribute as your own.</li>
+          <li><strong>The Adversarial Audit &amp; Board Q&amp;A Brief:</strong> You receive a complete record of every assumption tested, the institutional benchmarks cited, and prepared responses to the toughest board, CFO, general counsel, and investor challenges.</li>
+          <li><strong>Machine-Readable Governance Context:</strong> You receive clean, structured context files that you can load directly into your internal AI platforms so your teams operate from your governed standards, and you own 100% of the work product.</li>
+        </ul>
       </section>
 
       <section>
-        <div class="label">Why</div>
-        <h2>Why I'm offering this</h2>
-        <p>Over that same year, I have been building proprietary systems and intellectual property. A full service portfolio built on that work will take months to bring to market, and this work bridges that time. I may continue offering it well beyond then.</p>
-        <p>That year has taken me deep into AI, systems, and how organizations and operations actually behave. Bring me whatever level of complexity you have, and I will tell you honestly whether it is something I can take on.</p>
-      </section>
-
-      <section>
-        <div class="label">Background</div>
-        <h2>Background</h2>
-        <p>For more than 25 years I have worked inside strategy frameworks and methodologies. I have built strategy-to-execution frameworks and brought them to life inside organizations, and I still study and use them today. I say this so you know the depth behind the work, up to the level of a management consulting firm. That is not the work I'm offering here. But anything that touches strategy or execution is done by someone who understands the whole picture. If you want to see how I reasoned through it, I will walk you through it.</p>
-        <p>A $346M customer experience portfolio across 200+ initiatives at Verizon, through Publicis Sapient. A turnaround from -23% to +15% in six months on $110M in channel revenue. The full range of my work is at <a href="https://magruder.co">magruder.co</a>.</p>
-        <p>References are available, for both character and the quality of my work.</p>
-      </section>
-
-      <section>
-        <div class="label">Size</div>
-        <h2>Nothing is too small</h2>
-        <p>I will consider nearly anything. Tell me what you need and when you need it, and I will let you know whether I think it is a good fit for us to work on together. Don't hesitate if it seems small. I am grateful for the work, and it is a blessing to me if it helps you reach an outcome you are working toward.</p>
+        <div class="label">Why This Window Exists</div>
+        <h2>This work bridges our broader commercial launch, and I am glad to share what I have learned</h2>
+        <div class="panel-navy">
+          <p>Over the past year, I have built a comprehensive suite of proprietary AI readiness, governance, and operating systems, including our $24,500 diagnostic gateway and enterprise transformation architectures. Bringing that full commercial portfolio to market takes months. Authoring and hardening Enterprise AI Position and Governance Plans for executives bridges that window while solving the single most urgent question on every leadership team's desk right now.</p>
+          <p><strong>I extend a standing offer to reciprocate:</strong> Whether or not you need a formal plan written right now, if you are thinking through what AI means for your company, your board, or your own clients, I am glad to share what I have learned. I am happy to walk you or your team through my AI preparedness frameworks, enterprise governance lessons, and multi-model research methods at no cost, simply to be helpful to you and the people you serve.</p>
+        </div>
       </section>
 
       <section>
         <div class="label">Getting started</div>
-        <h2>How it begins</h2>
-        <p>It starts with a phone call and a short conversation. No written scope is needed. It will become clear to each of us whether this is something I should take on. If it is, I will write up what I heard and share it back, and the work starts right away.</p>
-        <p>We can work through a confidential client portal I set up for you, where everything is posted in one place, or simply by email, whichever is easier for you. I can also travel and work on site almost immediately, including weekends.</p>
+        <h2>Every engagement begins with a brief, direct phone call</h2>
+        <p>No formal RFP or lengthy scoping process is needed. Tell me where your current AI thinking or draft stands, who the audience is (board, investors, executive team, or workforce), and your deadline. If it is a fit, I will write up what I heard and share it back with a straightforward fixed fee or day rate, and I will start immediately.</p>
+        <p>Whether you need a single board pre-read sharpened overnight or a comprehensive enterprise AI position built from the ground up, I am grateful for the work and glad to help you walk into the room completely prepared. References are available, and my broader work is at <a href="https://magruder.co">magruder.co</a>.</p>
       </section>
 
       <div class="commercial" id="engage">
-        <div class="label">Terms</div>
-        <h2>Terms</h2>
-        <p>Rates depend on the type and length of the work. A payment link is provided once we agree on terms.</p>
-        <p>50% upfront and 50% on completion. Your company can pay, or you can pay personally. Everything stays confidential.</p>
+        <div class="label">Terms &amp; Contact</div>
+        <h2>Reach out directly to start</h2>
+        <p>Rates are agreed upfront on our first call based on whether we are hardening an existing draft or authoring a new plan from scratch. Standard terms are 50% upfront and 50% upon completion. Your company can pay, or you can engage me directly. Everything stays strictly confidential.</p>
         <div class="actions">
           <a id="emailbtn" class="btn btn-orange" href="mailto:michael@magruder.co">Email michael@magruder.co</a>
           <a class="btn btn-outline" href="tel:+15124615667">Call or text 512.461.5667</a>
           <a class="btn btn-outline" href="https://www.linkedin.com/in/michaeljmagruder" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <div class="code-box">
-          <label for="paycode">If I have given you a code, enter it here to pay.</label>
+          <label for="paycode">If we have already spoken and I have given you a payment code, enter it below:</label>
           <div class="code-row">
             <input id="paycode" class="code-input" type="text" autocomplete="off" aria-label="Payment code" />
             <button id="paybtn" class="btn btn-orange" type="button">Continue</button>
           </div>
           <div id="paymsg" class="msg" role="status"></div>
         </div>
-        <p class="pass">If someone you trust sent you this, feel free to pass it along to another executive.</p>
+        <p class="pass">If someone you trust sent you this page, feel free to pass it along to another executive.</p>
       </div>
 
     </div>
@@ -226,7 +245,7 @@
       var ref = rawRef.replace(/[^A-Za-z0-9_-]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 80);
       var prefill = params.get("code");
       if (prefill) { document.getElementById("paycode").value = prefill.toUpperCase(); }
-      var subject = "Short-term work inquiry";
+      var subject = "Enterprise AI Position & Governance Plan inquiry";
       var body = "Michael,\n\nHere is what I need and when I need it:\n\n\n" + (ref ? "Ref: " + ref + "\n" : "");
       document.getElementById("emailbtn").href = "mailto:michael@magruder.co?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       function goPay() {
