@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>LinkedIn Carousel Comparison Studio | Magruder &amp; Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-workspace: #0b0f19;
+    --bar-bg: #162032;
+    --bar-border: #2d3b52;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-blue: #2563eb;
+    --accent-blue-hover: #1d4ed8;
+    --slide-w: 480px;
+    --slide-h: 600px; /* 4:5 portrait aspect ratio */
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-workspace);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .studio-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Sticky Control Header */
+  .control-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bar-bg);
+    border-bottom: 1px solid var(--bar-border);
+    padding: 12px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e2e8f0;
+  }
+
+  .brand-badge {
+    font-size: 11px;
+    font-weight: 600;
+    background-color: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .controls-center {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--bar-border);
+    background-color: #243044;
+    color: #f1f5f9;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    text-decoration: none;
+  }
+
+  .btn:hover {
+    background-color: #33435c;
+    border-color: #4b5e7e;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-blue-hover);
+  }
+
+  .toggle-group {
+    display: flex;
+    align-items: center;
+    background-color: #0d131f;
+    border: 1px solid var(--bar-border);
+    border-radius: 6px;
+    padding: 3px;
+    gap: 4px;
+  }
+
+  .toggle-btn {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 4px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+
+  .toggle-btn.active {
+    background-color: #243044;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+
+  .stepper-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0d131f;
+    border: 1px solid var(--bar-border);
+    border-radius: 6px;
+    padding: 3px 8px;
+  }
+
+  .stepper-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e2e8f0;
+    min-width: 90px;
+    text-align: center;
+  }
+
+  .stepper-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #243044;
+    border: 1px solid var(--bar-border);
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .stepper-btn:hover {
+    background-color: #33435c;
+  }
+
+  /* Comparison Stage */
+  .comparison-stage {
+    flex: 1;
+    padding: 28px 24px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .columns-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .column-header {
+    background-color: #162032;
+    border: 1px solid var(--bar-border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .col-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .col-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .col-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .badge-a {
+    background-color: rgba(37, 99, 235, 0.2);
+    color: #93c5fd;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+  }
+
+  .badge-b {
+    background-color: rgba(13, 148, 136, 0.2);
+    color: #5eead4;
+    border: 1px solid rgba(94, 234, 212, 0.3);
+  }
+
+  .col-desc {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.45;
+  }
+
+  /* Slide Cards (Authentic 4:5 Aspect Ratio 1080x1350 scaled) */
+  .slide-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .slide-number-tag {
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .slide-card {
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 4 / 5;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 44px 40px 36px;
+    color: #0f172a;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+  }
+
+  /* Watermark Subtle Number */
+  .slide-watermark {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 150px;
+    font-weight: 900;
+    color: #f1f5f9;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+    letter-spacing: -0.05em;
+  }
+
+  .slide-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  /* Header inside slide */
+  .slide-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+  }
+
+  .slide-firm {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1e293b;
+  }
+
+  .slide-category {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+
+  /* Body inside slide */
+  .slide-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slide-kicker {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #2563eb;
+    margin-bottom: 12px;
+  }
+
+  .slide-title {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+    margin-bottom: 16px;
+  }
+
+  .slide-title-serif {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.18;
+    color: #0f172a;
+    margin-bottom: 16px;
+  }
+
+  .slide-lead {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #334155;
+    margin-bottom: 20px;
+  }
+
+  /* Content Cards inside slide */
+  .content-box-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .content-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #2563eb;
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .content-box-b {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #0d9488;
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .content-box-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .content-box-text {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: #475569;
+  }
+
+  /* Timeline Steps inside slide */
+  .step-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-size: 11px;
+    font-weight: 700;
+    background-color: #e2e8f0;
+    color: #0f172a;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-heading {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .step-desc {
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.4;
+  }
+
+  /* Slide Footer */
+  .slide-footer {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .slide-author-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-author-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .slide-author-title {
+    font-size: 9.5px;
+    color: #64748b;
+  }
+
+  .slide-cta-pill {
+    font-size: 10px;
+    font-weight: 600;
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .slide-cta-pill-teal {
+    font-size: 10px;
+    font-weight: 600;
+    background-color: #0f766e;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  /* Single-Slide Stepper Mode */
+  .mode-stepper .slide-card-container {
+    display: none;
+  }
+
+  .mode-stepper .slide-card-container.active-slide {
+    display: flex;
+  }
+
+  /* Responsive Mobile */
+  @media (max-width: 900px) {
+    .columns-wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .slide-card {
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="studio-container">
+  <!-- Top Control Bar -->
+  <header class="control-header">
+    <div class="brand-group">
+      <span class="brand-title">Magruder &amp; Company</span>
+      <span class="brand-badge">Carousel Studio</span>
+    </div>
+
+    <div class="controls-center">
+      <!-- Mode Toggle: Continuous vs Stepper -->
+      <div class="toggle-group">
+        <button id="btnModeContinuous" class="toggle-btn active">Continuous Scroll</button>
+        <button id="btnModeStepper" class="toggle-btn">Slide-by-Slide</button>
+      </div>
+
+      <!-- Slide Stepper Controls -->
+      <div id="stepperControls" class="stepper-group" style="display: none;">
+        <button id="btnPrevSlide" class="stepper-btn">&lsaquo;</button>
+        <span id="stepperIndicator" class="stepper-label">Slide 1 of 5</span>
+        <button id="btnNextSlide" class="stepper-btn">&rsaquo;</button>
+      </div>
+
+      <!-- Zoom / View Size -->
+      <div class="toggle-group">
+        <button class="toggle-btn active" data-zoom="normal">Desktop (100%)</button>
+        <button class="toggle-btn" data-zoom="compact">Compact (80%)</button>
+      </div>
+
+      <!-- Direct Destination Link -->
+      <a href="split_view.html" target="_blank" class="btn">View Landing Page Split</a>
+    </div>
+
+    <div>
+      <span style="font-size: 11px; color: #94a3b8; font-weight: 500;">Format: 1080 &times; 1350 (4:5 Mobile Portrait)</span>
+    </div>
+  </header>
+
+  <!-- Comparison Stage -->
+  <main class="comparison-stage" id="comparisonStage">
+    <div class="columns-wrapper">
+
+      <!-- ========================================== -->
+      <!-- COLUMN 1: VERSION A (EXECUTIVE FRAMEWORK)  -->
+      <!-- ========================================== -->
+      <section class="column" id="colVersionA">
+        <div class="column-header">
+          <div class="col-title-row">
+            <span class="col-title">Version A: The Executive Framework</span>
+            <span class="col-badge badge-a">Strategic &amp; Board Focus</span>
+          </div>
+          <p class="col-desc">
+            Framed around the fiduciary question facing the Board, the Audit Committee, and the CEO. Emphasizes institutional governance, Quality of Earnings, and board-ready rigor.
+          </p>
+        </div>
+
+        <!-- Slide A1 -->
+        <div class="slide-card-container active-slide" data-slide-index="1">
+          <div class="slide-number-tag">Slide 01 &bull; The Boardroom Question</div>
+          <div class="slide-card">
+            <div class="slide-watermark">01</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">Executive AI Strategy</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker">Fiduciary &amp; Operational Governance</div>
+                <h2 class="slide-title-serif">Where does your company stand on Enterprise AI?</h2>
+                <p class="slide-lead">
+                  Every board of directors, investor, and audit committee is asking this quarter. Most leadership teams have fragments of a policy and scattered pilot experiments, but no clear, defensible position.
+                </p>
+                <div class="content-box">
+                  <div class="content-box-title">The Executive Imperative</div>
+                  <div class="content-box-text">
+                    You cannot govern what is not codified. Moving from scattered curiosity to enterprise execution requires a disciplined position on what you will do, what you will not do, and how it will be verified.
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide A2 -->
+        <div class="slide-card-container" data-slide-index="2">
+          <div class="slide-number-tag">Slide 02 &bull; The Two Traps</div>
+          <div class="slide-card">
+            <div class="slide-watermark">02</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">The Diagnostic</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker">Operational Breakdown</div>
+                <h2 class="slide-title">Most enterprise AI plans fail in one of two ways.</h2>
+                <div class="content-box-list">
+                  <div class="content-box">
+                    <div class="content-box-title">Trap 1: The Vendor Hype Overpromise</div>
+                    <div class="content-box-text">
+                      Commits the company to sweeping autonomous transformations without operational workflows, loaded labor grounding, or regulatory risk boundaries.
+                    </div>
+                  </div>
+                  <div class="content-box">
+                    <div class="content-box-title">Trap 2: The Proof-of-Concept Stall</div>
+                    <div class="content-box-text">
+                      Scores of departmental experiments that consume management attention and budget, but never connect to Quality of Earnings or clear governance gates.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide A3 -->
+        <div class="slide-card-container" data-slide-index="3">
+          <div class="slide-number-tag">Slide 03 &bull; The Three Deliverables</div>
+          <div class="slide-card">
+            <div class="slide-watermark">03</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">Deliverables Architecture</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker">Core Deliverables</div>
+                <h2 class="slide-title">Three unified pillars of an Enterprise AI Position.</h2>
+                <div class="content-box-list">
+                  <div class="content-box">
+                    <div class="content-box-title">1. The Enterprise AI Position</div>
+                    <div class="content-box-text">
+                      An unambiguous corporate declaration: what you will do, what you will not do, and why it aligns with company valuation.
+                    </div>
+                  </div>
+                  <div class="content-box">
+                    <div class="content-box-title">2. The Operating Model</div>
+                    <div class="content-box-text">
+                      How cross-functional teams, existing tech stacks, and daily employee workflows actually incorporate AI capabilities safely.
+                    </div>
+                  </div>
+                  <div class="content-box">
+                    <div class="content-box-title">3. The Governance Plan</div>
+                    <div class="content-box-text">
+                      Auditability, fiduciary boundaries, data sovereignty, regulatory adherence, and board-level risk oversight.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide A4 -->
+        <div class="slide-card-container" data-slide-index="4">
+          <div class="slide-number-tag">Slide 04 &bull; The Working Strawman</div>
+          <div class="slide-card">
+            <div class="slide-watermark">04</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">Operating Cadence</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker">Delivery Velocity</div>
+                <h2 class="slide-title">A working strawman in days, progressively hardened.</h2>
+                <p class="slide-lead" style="margin-bottom: 16px;">
+                  Instead of months of passive consulting discovery before you see a single page, we flip the cadence:
+                </p>
+                <div class="step-grid">
+                  <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                      <div class="step-heading">Day 5: Working Strawman on Your Desk</div>
+                      <div class="step-desc">A structured draft of your position and governance plan ready for executive review.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                      <div class="step-heading">Weeks 2 to 4: Weekly Hardening Sprints</div>
+                      <div class="step-desc">Pressure-testing each section with your leadership team and multi-perspective review.</div>
+                    </div>
+                  </div>
+                  <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                      <div class="step-heading">Week 4: Board-Ready Deliverable</div>
+                      <div class="step-desc">A complete, defensible operating and governance architecture ready for directors.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide A5 -->
+        <div class="slide-card-container" data-slide-index="5">
+          <div class="slide-number-tag">Slide 05 &bull; Confidential Engagement</div>
+          <div class="slide-card">
+            <div class="slide-watermark">05</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">Next Steps</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker">Principal Advisory</div>
+                <h2 class="slide-title-serif">Establish your enterprise AI position this quarter.</h2>
+                <p class="slide-lead">
+                  Every engagement is led directly at the principal level by Michael Magruder, supported by senior practitioners in governance, architecture, and change management.
+                </p>
+                <div class="content-box" style="margin-bottom: 14px;">
+                  <div class="content-box-title">Governance &amp; Confidentiality Guarantees</div>
+                  <div class="content-box-text">
+                    &bull; Mutual NDA executed prior to review.<br>
+                    &bull; Predictable fixed-envelope advisory sprint.<br>
+                    &bull; Direct peer access without junior consulting layers.
+                  </div>
+                </div>
+                <div style="font-size: 13px; font-weight: 600; color: #1e293b;">
+                  Connect on LinkedIn or visit: <span style="color: #2563eb;">magruder.co/ai-plan</span>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill">magruder.co</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- ========================================== -->
+      <!-- COLUMN 2: VERSION B (PRACTITIONER METHOD)  -->
+      <!-- ========================================== -->
+      <section class="column" id="colVersionB">
+        <div class="column-header">
+          <div class="col-title-row">
+            <span class="col-title">Version B: The Practitioner Method</span>
+            <span class="col-badge badge-b">Operator &amp; Speed-to-Clarity</span>
+          </div>
+          <p class="col-desc">
+            Framed around cutting through consulting bloat and delivering rapid operational clarity. Emphasizes the working strawman method, pressure-testing, and Quality of Earnings.
+          </p>
+        </div>
+
+        <!-- Slide B1 -->
+        <div class="slide-card-container active-slide" data-slide-index="1">
+          <div class="slide-number-tag">Slide 01 &bull; Executive Positioning</div>
+          <div class="slide-card">
+            <div class="slide-watermark">01</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">Operating Architecture</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker" style="color: #0d9488;">Enterprise Operating Models</div>
+                <h2 class="slide-title">Establish your enterprise AI position without months of discovery.</h2>
+                <p class="slide-lead">
+                  CEOs, CFOs, and Private Equity Operating Partners are under intense pressure to deliver an enterprise AI strategy. But traditional consulting models take 90 days just to deliver a slide deck.
+                </p>
+                <div class="content-box-b">
+                  <div class="content-box-title">The Alternative Approach</div>
+                  <div class="content-box-text">
+                    Start with a working strawman in days. Harden it through structured weekly sprints. Deliver board-level defensibility before traditional firms finish their stakeholder interviews.
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill-teal">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide B2 -->
+        <div class="slide-card-container" data-slide-index="2">
+          <div class="slide-number-tag">Slide 02 &bull; The Enterprise Challenge</div>
+          <div class="slide-card">
+            <div class="slide-watermark">02</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">The Diagnostic</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker" style="color: #0d9488;">The Core Dilemma</div>
+                <h2 class="slide-title">Scattered pilots do not equal an enterprise strategy.</h2>
+                <p class="slide-lead" style="margin-bottom: 14px;">
+                  Across most enterprises, AI adoption is fractured into uncoordinated pockets:
+                </p>
+                <div class="content-box-list">
+                  <div class="content-box-b">
+                    <div class="content-box-title">Shadow Experimentation</div>
+                    <div class="content-box-text">Teams using unvetted consumer tools without IP or confidentiality safeguards.</div>
+                  </div>
+                  <div class="content-box-b">
+                    <div class="content-box-title">Departmental Silos</div>
+                    <div class="content-box-text">Sales, Engineering, and Marketing buying separate software that fails to talk to corporate data.</div>
+                  </div>
+                  <div class="content-box-b">
+                    <div class="content-box-title">Zero Audit Trail</div>
+                    <div class="content-box-text">No mechanism to prove compliance, explain model decisions, or protect enterprise valuation.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill-teal">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide B3 -->
+        <div class="slide-card-container" data-slide-index="3">
+          <div class="slide-number-tag">Slide 03 &bull; What We Deliver</div>
+          <div class="slide-card">
+            <div class="slide-watermark">03</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">The Deliverables</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker" style="color: #0d9488;">Tangible IP</div>
+                <h2 class="slide-title">What a complete Enterprise AI Position looks like.</h2>
+                <div class="content-box-list">
+                  <div class="content-box-b">
+                    <div class="content-box-title">Pillar 1: The Executive AI Position</div>
+                    <div class="content-box-text">
+                      Defines corporate boundaries, capital allocation, approved use cases, and strategic red lines for the board.
+                    </div>
+                  </div>
+                  <div class="content-box-b">
+                    <div class="content-box-title">Pillar 2: The Operating Architecture</div>
+                    <div class="content-box-text">
+                      Binds human workflows with autonomous systems, establishing team-level tooling, throughput, and oversight.
+                    </div>
+                  </div>
+                  <div class="content-box-b">
+                    <div class="content-box-title">Pillar 3: The Board Governance Plan</div>
+                    <div class="content-box-text">
+                      Ensures compliance with Delaware Caremark oversight, SEC disclosure, and audit committee risk thresholds.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill-teal">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide B4 -->
+        <div class="slide-card-container" data-slide-index="4">
+          <div class="slide-number-tag">Slide 04 &bull; Hardening Engine</div>
+          <div class="slide-card">
+            <div class="slide-watermark">04</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">The Methodology</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker" style="color: #0d9488;">The Discipline</div>
+                <h2 class="slide-title">Why we believe in progressive hardening.</h2>
+                <p class="slide-lead" style="margin-bottom: 14px;">
+                  A plan created in a vacuum fails upon contact with the board. We subject every draft to systematic pressure-testing:
+                </p>
+                <div class="content-box-list">
+                  <div class="content-box-b">
+                    <div class="content-box-title">Adversarial Stress-Testing</div>
+                    <div class="content-box-text">Testing assumptions against regulatory shifts, competitive disruptions, and budget stress.</div>
+                  </div>
+                  <div class="content-box-b">
+                    <div class="content-box-title">Multi-Perspective Judicial Review</div>
+                    <div class="content-box-text">Evaluating the deliverable through CEO, CFO, General Counsel, and CTO lenses.</div>
+                  </div>
+                  <div class="content-box-b">
+                    <div class="content-box-title">Board-Ready Defense</div>
+                    <div class="content-box-text">Arming leadership with quantitative support for every strategic choice and trade-off.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill-teal">Swipe &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide B5 -->
+        <div class="slide-card-container" data-slide-index="5">
+          <div class="slide-number-tag">Slide 05 &bull; Next Steps</div>
+          <div class="slide-card">
+            <div class="slide-watermark">05</div>
+            <div class="slide-inner">
+              <div class="slide-header">
+                <span class="slide-firm">Magruder &amp; Company</span>
+                <span class="slide-category">Executive Consultation</span>
+              </div>
+              <div class="slide-body">
+                <div class="slide-kicker" style="color: #0d9488;">Action Gate</div>
+                <h2 class="slide-title">Start with a working strawman next week.</h2>
+                <p class="slide-lead">
+                  Whether you need an enterprise AI position built from the ground up or want to stress-test your existing draft before presenting to directors:
+                </p>
+                <div class="content-box-b" style="margin-bottom: 16px;">
+                  <div class="content-box-title">Two Confidential Engagement Paths</div>
+                  <div class="content-box-text">
+                    <strong>Path 1: Ground-Up Build</strong> &bull; Complete working strawman in 5 days, weekly hardening to board approval.<br>
+                    <strong>Path 2: Defensibility Audit</strong> &bull; Systematic pressure-testing of your existing draft to identify blind spots.
+                  </div>
+                </div>
+                <div style="font-size: 13px; font-weight: 600; color: #1e293b;">
+                  Inquire at: <span style="color: #0d9488;">magruder.co/ai-plan</span> or message on LinkedIn.
+                </div>
+              </div>
+              <div class="slide-footer">
+                <div class="slide-author-col">
+                  <span class="slide-author-name">Michael Magruder</span>
+                  <span class="slide-author-title">Managing Principal, Magruder &amp; Company</span>
+                </div>
+                <span class="slide-cta-pill-teal">magruder.co</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+(function() {
+  const btnModeContinuous = document.getElementById('btnModeContinuous');
+  const btnModeStepper = document.getElementById('btnModeStepper');
+  const stepperControls = document.getElementById('stepperControls');
+  const btnPrevSlide = document.getElementById('btnPrevSlide');
+  const btnNextSlide = document.getElementById('btnNextSlide');
+  const stepperIndicator = document.getElementById('stepperIndicator');
+  const stage = document.getElementById('comparisonStage');
+  const zoomBtns = document.querySelectorAll('[data-zoom]');
+
+  let currentSlideIndex = 1;
+  const totalSlides = 5;
+  let currentMode = 'continuous'; // 'continuous' or 'stepper'
+
+  function updateStepperView() {
+    stepperIndicator.textContent = `Slide ${currentSlideIndex} of ${totalSlides}`;
+    const allSlideContainers = document.querySelectorAll('.slide-card-container');
+    allSlideContainers.forEach(container => {
+      const idx = parseInt(container.getAttribute('data-slide-index'), 10);
+      if (idx === currentSlideIndex) {
+        container.classList.add('active-slide');
+      } else {
+        container.classList.remove('active-slide');
+      }
+    });
+  }
+
+  btnModeContinuous.addEventListener('click', () => {
+    currentMode = 'continuous';
+    btnModeContinuous.classList.add('active');
+    btnModeStepper.classList.remove('active');
+    stepperControls.style.display = 'none';
+    stage.classList.remove('mode-stepper');
+    // Ensure all visible
+    document.querySelectorAll('.slide-card-container').forEach(c => c.classList.add('active-slide'));
+  });
+
+  btnModeStepper.addEventListener('click', () => {
+    currentMode = 'stepper';
+    btnModeStepper.classList.add('active');
+    btnModeContinuous.classList.remove('active');
+    stepperControls.style.display = 'flex';
+    stage.classList.add('mode-stepper');
+    updateStepperView();
+  });
+
+  btnPrevSlide.addEventListener('click', () => {
+    if (currentSlideIndex > 1) {
+      currentSlideIndex--;
+      updateStepperView();
+    }
+  });
+
+  btnNextSlide.addEventListener('click', () => {
+    if (currentSlideIndex < totalSlides) {
+      currentSlideIndex++;
+      updateStepperView();
+    }
+  });
+
+  // Keyboard navigation for stepper
+  window.addEventListener('keydown', (e) => {
+    if (currentMode === 'stepper') {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        if (currentSlideIndex < totalSlides) {
+          currentSlideIndex++;
+          updateStepperView();
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        if (currentSlideIndex > 1) {
+          currentSlideIndex--;
+          updateStepperView();
+        }
+      }
+    }
+  });
+
+  // Zoom controls
+  zoomBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      zoomBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const zoom = btn.dataset.zoom;
+      const cards = document.querySelectorAll('.slide-card');
+      cards.forEach(card => {
+        if (zoom === 'compact') {
+          card.style.maxWidth = '440px';
+          card.style.padding = '36px 32px 28px';
+        } else {
+          card.style.maxWidth = '540px';
+          card.style.padding = '44px 40px 36px';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
