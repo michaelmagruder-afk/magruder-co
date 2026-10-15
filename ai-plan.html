@@ -14,6 +14,18 @@
   <meta property="og:image" content="https://magruder.co/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://magruder.co/ai-plan" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPMDYQ5YBL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QPMDYQ5YBL', {
+      page_title: 'Magruder & Company · Enterprise AI Position, Operating & Governance Plans',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -71,7 +83,16 @@
     .commercial { background: var(--navy-dk); color: var(--white); border-radius: 6px; padding: 44px 48px; margin-top: 64px; }
     .commercial h2 { color: var(--white); }
     .commercial p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 14px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 26px 0 10px; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); padding: 28px 30px; border-radius: 4px; margin-top: 22px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-row { display: flex; flex-direction: column; gap: 6px; }
+    .form-row label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+    .form-optional { font-weight: 400; color: rgba(255,255,255,0.45); text-transform: lowercase; }
+    .form-row input, .form-row textarea { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 12px 14px; color: var(--white); font-family: inherit; font-size: 14.5px; line-height: 1.5; width: 100%; resize: vertical; }
+    .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--orange); background: rgba(255,255,255,0.12); }
+    .form-row input::placeholder, .form-row textarea::placeholder { color: rgba(255,255,255,0.38); }
+    .linkedin-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 24px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); }
+    .linkedin-bar p { margin-bottom: 0 !important; font-size: 15px !important; color: rgba(255,255,255,0.88) !important; }
     .btn { display: inline-block; padding: 14px 24px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
     .btn-orange { background: var(--orange); color: var(--white); }
     .btn-orange:hover { background: #d95a18; }
@@ -83,12 +104,12 @@
     @media (max-width: 720px) {
       .top-bar, .hero { padding-left: 16px; padding-right: 16px; }
       .hero { padding-top: 48px; padding-bottom: 44px; }
-      .hero-pillars, .cred-strip { grid-template-columns: 1fr; }
+      .hero-pillars, .cred-strip, .form-grid { grid-template-columns: 1fr; }
       main { padding: 44px 16px 56px; }
       .timing-row { grid-template-columns: 1fr; }
       .timing-row dt { padding-bottom: 6px; }
       .timing-row dd { padding-top: 10px; }
-      .panel, .panel-navy { padding: 22px 20px; }
+      .panel, .panel-navy, .contact-form { padding: 22px 20px; }
       .commercial { padding: 32px 20px; }
     }
   </style>
@@ -218,21 +239,71 @@
 
       <div class="commercial" id="engage">
         <div class="label">Engagement &amp; Contact</div>
-        <h2>Initiate a confidential conversation</h2>
-        <p>Engagement fees are agreed upfront based on whether we are pressure-testing and hardening an existing draft or building a complete plan with your leadership team through weekly iterations. Standard terms are 50% at kickoff and 50% upon completion, payable via corporate card, ACH, or invoice. Every conversation and client document remains strictly confidential.</p>
-        <div class="actions">
-          <a id="emailbtn" class="btn btn-orange" href="mailto:michael@magruder.co?subject=Enterprise%20AI%20Position%2C%20Operating%20%26%20Governance%20Plan%20Inquiry">Email michael@magruder.co</a>
-          <a class="btn btn-outline" href="https://calendar.app.google/994M959NRAM5CJTy9" target="_blank" rel="noopener">Book 30-Minute Intro</a>
-          <a class="btn btn-outline" href="tel:+15124615667">Call or text 512.461.5667</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/michaeljmagruder" target="_blank" rel="noopener">LinkedIn</a>
+        <h2>Initiate a confidential executive conversation</h2>
+        <p>Engagement fees are agreed upfront based on whether we are pressure-testing and hardening an existing draft or building a complete plan with your leadership team through weekly iterations. Standard terms are 50% at kickoff and 50% upon completion, payable via corporate card, ACH, or invoice. Every conversation and client document remains strictly confidential under bilateral Mutual NDA.</p>
+
+        <form id="ai-plan-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none"><input name="bot-field" /></p>
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-row">
+              <label for="cf-company">Company / Organization</label>
+              <input type="text" id="cf-company" name="company" placeholder="Your organization or fund" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Corporate Work Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="name@company.com" required />
+          </div>
+          <div class="form-row">
+            <label for="cf-context">Strategic Context <span class="form-optional">(optional)</span></label>
+            <textarea id="cf-context" name="context" rows="3" placeholder="Brief context: whether you are building an enterprise AI position and governance plan from the ground up or pressure-testing an existing draft ahead of an upcoming board review."></textarea>
+          </div>
+          <button type="submit" class="btn btn-orange" style="align-self: flex-start; margin-top: 4px;">Start a Conversation</button>
+        </form>
+
+        <div class="linkedin-bar">
+          <p>Prefer to connect directly on LinkedIn? You can also send a direct message on LinkedIn.</p>
+          <a id="linkedin-dm-btn" class="btn btn-outline" href="https://www.linkedin.com/in/michaeljmagruder" target="_blank" rel="noopener">Message on LinkedIn</a>
         </div>
+
         <p class="pass">Share this service overview with a CEO, CFO, board director, or operating partner preparing for upcoming AI strategy or board reviews.</p>
       </div>
 
     </div>
   </main>
 
-  <footer>&copy; 2026 <a href="https://magruder.co">Magruder &amp; Company</a> &middot; Michael Magruder, Founder &amp; Managing Principal &middot; Nashville, Tennessee</footer>
+  <footer>&copy; 2026 <a href="https://magruder.co">Magruder &amp; Company</a> &middot; Enterprise AI Readiness &amp; Governance Advisory &middot; Nashville, Tennessee</footer>
 
+  <script>
+    (function () {
+      var form = document.getElementById("ai-plan-form");
+      if (form) {
+        form.addEventListener("submit", function () {
+          if (typeof gtag === "function") {
+            gtag("event", "generate_lead", {
+              event_category: "engagement",
+              event_label: "ai_plan_contact_form"
+            });
+          }
+        });
+      }
+      var liBtn = document.getElementById("linkedin-dm-btn");
+      if (liBtn) {
+        liBtn.addEventListener("click", function () {
+          if (typeof gtag === "function") {
+            gtag("event", "click", {
+              event_category: "outbound",
+              event_label: "ai_plan_linkedin_dm"
+            });
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

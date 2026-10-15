@@ -4,7 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
-  <title>Michael Magruder | Enterprise AI Position &amp; Governance Plans</title>
+  <title>Michael Magruder | Enterprise AI Position, Operating &amp; Governance Plans</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPMDYQ5YBL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QPMDYQ5YBL', {
+      page_title: 'Michael Magruder · Enterprise AI Position, Operating & Governance Plans (Desk)',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -234,11 +246,20 @@
       var rawRef = params.get("ref") || params.get("utm_source") || "";
       // Stripe only accepts reference IDs made of letters, numbers, dashes and underscores.
       var ref = rawRef.replace(/[^A-Za-z0-9_-]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 80);
+      if (ref && typeof gtag === "function") {
+        gtag("event", "desk_referral_visit", { referral_code: ref });
+      }
       var prefill = params.get("code");
       if (prefill) { document.getElementById("paycode").value = prefill.toUpperCase(); }
-      var subject = "Enterprise AI position and governance plan inquiry";
-      var body = "Michael,\n\nI would like to discuss an enterprise AI position and governance plan. Here is where our current thinking stands and our target timeline:\n\n\n" + (ref ? "Ref: " + ref + "\n" : "");
-      document.getElementById("emailbtn").href = "mailto:michael@magruder.co?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      var subject = "Enterprise AI position, operating, and governance plan inquiry";
+      var body = "Michael,\n\nI would like to discuss an enterprise AI position, operating, and governance plan. Here is where our current thinking stands and our target timeline:\n\n\n" + (ref ? "Ref: " + ref + "\n" : "");
+      var emailBtn = document.getElementById("emailbtn");
+      emailBtn.href = "mailto:michael@magruder.co?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      emailBtn.addEventListener("click", function () {
+        if (typeof gtag === "function") {
+          gtag("event", "generate_lead", { event_category: "desk", event_label: ref || "direct_email" });
+        }
+      });
       function goPay() {
         var code = document.getElementById("paycode").value.trim().toUpperCase();
         var msg = document.getElementById("paymsg");
@@ -246,6 +267,9 @@
         var url = PAYMENT_CODES[code];
         if (!url) { msg.textContent = "I don't recognize that code yet. Email or call me and I'll sort it out right away."; return; }
         var tag = ((ref ? ref + "_" : "") + code).slice(0, 200);
+        if (typeof gtag === "function") {
+          gtag("event", "begin_checkout", { event_category: "desk_stripe", event_label: tag });
+        }
         window.open(url + (url.indexOf("?") === -1 ? "?" : "&") + "client_reference_id=" + encodeURIComponent(tag), "_blank", "noopener");
         msg.textContent = "Opening secure Stripe checkout.";
       }
