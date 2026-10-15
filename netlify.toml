@@ -51,3 +51,19 @@
   to = "/insights/context-is-the-next-culture?utm_source=linkedin&utm_medium=social_carousel&utm_campaign=context_culture_q4#brief"
   status = 302
 
+[[redirects]]
+  from = "/position"
+  to = "/ai-plan?utm_source=linkedin&utm_medium=social_carousel&utm_campaign=ai_position_q4"
+  status = 302
+
+[[redirects]]
+  from = "/plan"
+  to = "/ai-plan?utm_source=linkedin&utm_medium=first_comment&utm_campaign=ai_position_q4"
+  status = 302
+
+[[redirects]]
+  from = "/governance"
+  to = "/ai-plan?utm_source=direct&utm_medium=executive_referral&utm_campaign=ai_position_q4"
+  status = 302
+
+
