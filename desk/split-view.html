@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Synchronized Split View | Magruder &amp; Company Executive Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-app: #0f172a;
+    --bar-bg: #1e293b;
+    --bar-border: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-blue: #2563eb;
+    --accent-blue-hover: #1d4ed8;
+    --accent-teal: #0d9488;
+    --accent-amber: #d97706;
+    --border-subtle: #cbd5e1;
+    --surface-light: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  /* Control Header */
+  .control-header {
+    background-color: var(--bar-bg);
+    border-bottom: 1px solid var(--bar-border);
+    padding: 10px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 100;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e2e8f0;
+  }
+
+  .brand-badge {
+    font-size: 11px;
+    font-weight: 600;
+    background-color: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .controls-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--bar-border);
+    background-color: #334155;
+    color: #f1f5f9;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .btn:hover {
+    background-color: #475569;
+    border-color: #64748b;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-blue-hover);
+  }
+
+  .btn.active {
+    background-color: #0284c7;
+    border-color: #38bdf8;
+    color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+  }
+
+  .toggle-group {
+    display: flex;
+    align-items: center;
+    background-color: #0f172a;
+    border: 1px solid var(--bar-border);
+    border-radius: 6px;
+    padding: 3px;
+    gap: 4px;
+  }
+
+  .toggle-btn {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 4px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+
+  .toggle-btn.active {
+    background-color: #334155;
+    color: #ffffff;
+  }
+
+  .status-indicator {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 8px;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #10b981;
+    display: inline-block;
+  }
+
+  .scrubber-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0f172a;
+    border: 1px solid var(--bar-border);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+
+  .scrubber-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .scrubber-input {
+    width: 110px;
+    accent-color: var(--accent-blue);
+    cursor: pointer;
+  }
+
+  .scrubber-val {
+    font-size: 11px;
+    font-weight: 600;
+    color: #e2e8f0;
+    min-width: 32px;
+    text-align: right;
+  }
+
+  /* Subheader Jump Anchors */
+  .anchors-bar {
+    background-color: #162032;
+    border-bottom: 1px solid var(--bar-border);
+    padding: 6px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .anchors-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+    flex-shrink: 0;
+  }
+
+  .anchor-pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background-color: #273549;
+    color: #cbd5e1;
+    border: 1px solid #3b4c63;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .anchor-pill:hover {
+    background-color: #384c67;
+    color: #ffffff;
+    border-color: #60a5fa;
+  }
+
+  /* Split View Body */
+  .panes-wrapper {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: #0b0f19;
+  }
+
+  .pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    background-color: #ffffff;
+    position: relative;
+  }
+
+  .pane:first-child {
+    border-right: 2px solid #334155;
+  }
+
+  .pane-header {
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: #0f172a;
+    z-index: 10;
+  }
+
+  .pane-title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .pane-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .pane-badge-left {
+    background-color: #e2e8f0;
+    color: #334155;
+  }
+
+  .pane-badge-right {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+
+  .pane-select {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0f172a;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 4px 8px;
+    outline: none;
+    max-width: 280px;
+    cursor: pointer;
+  }
+
+  .pane-select:focus {
+    border-color: var(--accent-blue);
+  }
+
+  .pane-meta {
+    font-size: 11px;
+    color: #64748b;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pane-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .pane-link:hover {
+    text-decoration: underline;
+  }
+
+  .pane-frame-container {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .pane-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background-color: #ffffff;
+  }
+
+  /* Comparison Banner Drawer */
+  .diff-drawer {
+    background-color: #1e293b;
+    border-top: 1px solid var(--bar-border);
+    padding: 8px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 12px;
+    color: #cbd5e1;
+  }
+
+  .diff-summary-list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .diff-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .diff-item strong {
+    color: #f8fafc;
+  }
+
+  .diff-tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+
+  .tag-left {
+    background-color: rgba(148, 163, 184, 0.2);
+    color: #cbd5e1;
+  }
+
+  .tag-right {
+    background-color: rgba(37, 99, 235, 0.25);
+    color: #93c5fd;
+  }
+
+  /* Device frame mode sizing */
+  .panes-wrapper.mode-ipad-pro .pane {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  .panes-wrapper.mode-ipad .pane {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .panes-wrapper {
+      flex-direction: column;
+    }
+    .pane:first-child {
+      border-right: none;
+      border-bottom: 2px solid #334155;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Top Control Bar -->
+  <header class="control-header">
+    <div class="brand-group">
+      <span class="brand-title">Magruder &amp; Company</span>
+      <span class="brand-badge">Split View Studio</span>
+    </div>
+
+    <div class="controls-center">
+      <!-- Sync Scroll Toggle -->
+      <button id="btnSyncToggle" class="btn btn-primary active" title="Toggle Synchronized Scrolling">
+        <span id="syncStatusText">Sync Scroll: ON</span>
+      </button>
+
+      <!-- Scrubber Slider -->
+      <div class="scrubber-container">
+        <span class="scrubber-label">Scroll</span>
+        <input type="range" id="scrollScrubber" class="scrubber-input" min="0" max="100" value="0" step="0.5">
+        <span id="scrubberValue" class="scrubber-val">0%</span>
+      </div>
+
+      <!-- Swap Panes Button -->
+      <button id="btnSwap" class="btn" title="Swap Left and Right Panes">
+        Swap Panes
+      </button>
+
+      <!-- Reload Button -->
+      <button id="btnReload" class="btn" title="Reload Both Pages">
+        Reload
+      </button>
+
+      <!-- Viewport Presets -->
+      <div class="toggle-group">
+        <button class="toggle-btn active" data-mode="full" title="50/50 Full Screen Split">50 / 50</button>
+        <button class="toggle-btn" data-mode="ipad-pro" title="iPad Pro 1024px Width">iPad Pro</button>
+        <button class="toggle-btn" data-mode="ipad" title="iPad 768px Width">iPad</button>
+      </div>
+    </div>
+
+    <div class="status-indicator">
+      <span class="status-dot"></span>
+      <span id="syncStateNotice">Scrolls in Lockstep</span>
+    </div>
+  </header>
+
+  <!-- Quick Jump Anchors Bar -->
+  <nav class="anchors-bar">
+    <span class="anchors-title">Jump to Section:</span>
+    <button class="anchor-pill" data-pct="0">Top</button>
+    <button class="anchor-pill" data-pct="12">Hero Positioning</button>
+    <button class="anchor-pill" data-pct="24">The Core Challenge</button>
+    <button class="anchor-pill" data-pct="38">The Service &amp; Deliverables</button>
+    <button class="anchor-pill" data-pct="54">Hardening &amp; Pressure-Testing</button>
+    <button class="anchor-pill" data-pct="68">Process &amp; Weekly Cadence</button>
+    <button class="anchor-pill" data-pct="82">Commercial &amp; Engagement</button>
+    <button class="anchor-pill" data-pct="96">Contact Form &amp; LinkedIn</button>
+  </nav>
+
+  <!-- Side-by-Side Panes -->
+  <main class="panes-wrapper" id="panesWrapper">
+    <!-- Left Pane -->
+    <section class="pane" id="leftPane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <span class="pane-badge pane-badge-left">Left Pane</span>
+          <select id="leftSelect" class="pane-select">
+            <option value="index_v15.html" selected>Private Desk (v15 - Current Live /desk)</option>
+            <option value="ai_plan_public.html">Public AI Plan (v1 - Current Live /ai-plan)</option>
+            <option value="ai_plan_remediated.html">Public AI Plan (Remediated Candidate)</option>
+            <option value="index_v14.html">Private Desk (v14)</option>
+            <option value="index_v5.html">Private Desk (v5)</option>
+            <option value="index_v3.html">Private Desk (v3)</option>
+          </select>
+        </div>
+        <div class="pane-meta">
+          <span id="leftVoiceTag" class="diff-tag tag-left">Voice: 1st Person ("I")</span>
+          <a id="leftOpenTab" href="index_v15.html" target="_blank" class="pane-link" title="Open in new tab">Open &nearr;</a>
+        </div>
+      </div>
+      <div class="pane-frame-container">
+        <iframe id="leftFrame" class="pane-iframe" src="index_v15.html" title="Left Version Frame"></iframe>
+      </div>
+    </section>
+
+    <!-- Right Pane -->
+    <section class="pane" id="rightPane">
+      <div class="pane-header">
+        <div class="pane-title-group">
+          <span class="pane-badge pane-badge-right">Right Pane</span>
+          <select id="rightSelect" class="pane-select">
+            <option value="ai_plan_remediated.html" selected>Public AI Plan (Remediated Candidate)</option>
+            <option value="ai_plan_public.html">Public AI Plan (v1 - Current Live /ai-plan)</option>
+            <option value="index_v15.html">Private Desk (v15 - Current Live /desk)</option>
+            <option value="index_v14.html">Private Desk (v14)</option>
+            <option value="index_v5.html">Private Desk (v5)</option>
+            <option value="index_v3.html">Private Desk (v3)</option>
+          </select>
+        </div>
+        <div class="pane-meta">
+          <span id="rightVoiceTag" class="diff-tag tag-right">Voice: Institutional ("We")</span>
+          <a id="rightOpenTab" href="ai_plan_remediated.html" target="_blank" class="pane-link" title="Open in new tab">Open &nearr;</a>
+        </div>
+      </div>
+      <div class="pane-frame-container">
+        <iframe id="rightFrame" class="pane-iframe" src="ai_plan_remediated.html" title="Right Version Frame"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Key Differences Drawer -->
+  <footer class="diff-drawer">
+    <div class="diff-summary-list">
+      <div class="diff-item">
+        <strong>Voice:</strong>
+        <span class="diff-tag tag-left">Left: Private Practitioner ("I")</span>
+        <span>vs</span>
+        <span class="diff-tag tag-right">Right: Governed Advisory Firm ("We")</span>
+      </div>
+      <div class="diff-item">
+        <strong>Delivery:</strong>
+        <span>Strawman in days with weekly iterative hardening</span>
+      </div>
+      <div class="diff-item">
+        <strong>Inquiry Channel:</strong>
+        <span class="diff-tag tag-left">Left: Direct Deposit / Cell</span>
+        <span>vs</span>
+        <span class="diff-tag tag-right">Right: Netlify Inquiry Form + LinkedIn DM</span>
+      </div>
+    </div>
+    <div>
+      <span>Synchronized Dual-Viewport Rendering</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function() {
+  const leftFrame = document.getElementById('leftFrame');
+  const rightFrame = document.getElementById('rightFrame');
+  const leftSelect = document.getElementById('leftSelect');
+  const rightSelect = document.getElementById('rightSelect');
+  const leftOpenTab = document.getElementById('leftOpenTab');
+  const rightOpenTab = document.getElementById('rightOpenTab');
+  const leftVoiceTag = document.getElementById('leftVoiceTag');
+  const rightVoiceTag = document.getElementById('rightVoiceTag');
+  const btnSyncToggle = document.getElementById('btnSyncToggle');
+  const syncStatusText = document.getElementById('syncStatusText');
+  const syncStateNotice = document.getElementById('syncStateNotice');
+  const scrollScrubber = document.getElementById('scrollScrubber');
+  const scrubberValue = document.getElementById('scrubberValue');
+  const btnSwap = document.getElementById('btnSwap');
+  const btnReload = document.getElementById('btnReload');
+  const panesWrapper = document.getElementById('panesWrapper');
+  const modeButtons = document.querySelectorAll('.toggle-btn');
+  const anchorPills = document.querySelectorAll('.anchor-pill');
+
+  let syncEnabled = true;
+  let activeScroller = null;
+  let scrollTimeout = null;
+
+  function updateVoiceBadge(selectElement, badgeElement) {
+    const val = selectElement.value;
+    if (val.includes('ai_plan')) {
+      badgeElement.textContent = 'Voice: Institutional ("We")';
+      badgeElement.className = 'diff-tag tag-right';
+    } else {
+      badgeElement.textContent = 'Voice: 1st Person ("I")';
+      badgeElement.className = 'diff-tag tag-left';
+    }
+  }
+
+  // Handle Select Change
+  leftSelect.addEventListener('change', () => {
+    leftFrame.src = leftSelect.value;
+    leftOpenTab.href = leftSelect.value;
+    updateVoiceBadge(leftSelect, leftVoiceTag);
+  });
+
+  rightSelect.addEventListener('change', () => {
+    rightFrame.src = rightSelect.value;
+    rightOpenTab.href = rightSelect.value;
+    updateVoiceBadge(rightSelect, rightVoiceTag);
+  });
+
+  // Swap Panes
+  btnSwap.addEventListener('click', () => {
+    const tempSrc = leftSelect.value;
+    leftSelect.value = rightSelect.value;
+    rightSelect.value = tempSrc;
+
+    leftFrame.src = leftSelect.value;
+    rightFrame.src = rightSelect.value;
+
+    leftOpenTab.href = leftSelect.value;
+    rightOpenTab.href = rightSelect.value;
+
+    updateVoiceBadge(leftSelect, leftVoiceTag);
+    updateVoiceBadge(rightSelect, rightVoiceTag);
+  });
+
+  // Reload Panes
+  btnReload.addEventListener('click', () => {
+    leftFrame.contentWindow.location.reload();
+    rightFrame.contentWindow.location.reload();
+  });
+
+  // Toggle Sync
+  btnSyncToggle.addEventListener('click', () => {
+    syncEnabled = !syncEnabled;
+    if (syncEnabled) {
+      btnSyncToggle.classList.add('active', 'btn-primary');
+      syncStatusText.textContent = 'Sync Scroll: ON';
+      syncStateNotice.textContent = 'Scrolls in Lockstep';
+    } else {
+      btnSyncToggle.classList.remove('active', 'btn-primary');
+      syncStatusText.textContent = 'Sync Scroll: OFF';
+      syncStateNotice.textContent = 'Independent Scrolling';
+    }
+  });
+
+  // Viewport Presets
+  modeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const mode = btn.dataset.mode;
+      panesWrapper.className = 'panes-wrapper';
+      if (mode === 'ipad-pro') {
+        panesWrapper.classList.add('mode-ipad-pro');
+      } else if (mode === 'ipad') {
+        panesWrapper.classList.add('mode-ipad');
+      }
+    });
+  });
+
+  // Proportional Synchronized Scrolling Logic
+  function getScrollDimensions(win) {
+    const doc = win.document;
+    const body = doc.body;
+    const html = doc.documentElement;
+    const scrollHeight = Math.max(
+      body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight
+    );
+    const clientHeight = win.innerHeight || html.clientHeight;
+    const maxScroll = Math.max(0, scrollHeight - clientHeight);
+    const currentScroll = win.pageYOffset || html.scrollTop || body.scrollTop || 0;
+    return { currentScroll, maxScroll, ratio: maxScroll > 0 ? currentScroll / maxScroll : 0 };
+  }
+
+  function setScrollRatio(targetWin, ratio) {
+    if (!targetWin) return;
+    try {
+      const doc = targetWin.document;
+      const body = doc.body;
+      const html = doc.documentElement;
+      const scrollHeight = Math.max(
+        body.scrollHeight, body.offsetHeight,
+        html.clientHeight, html.scrollHeight, html.offsetHeight
+      );
+      const clientHeight = targetWin.innerHeight || html.clientHeight;
+      const maxScroll = Math.max(0, scrollHeight - clientHeight);
+      const targetTop = ratio * maxScroll;
+
+      targetWin.scrollTo({
+        top: targetTop,
+        behavior: 'auto'
+      });
+    } catch (e) {
+      // Cross-origin fallback or DOM error
+    }
+  }
+
+  function attachScrollListener(sourceFrame, targetFrame, side) {
+    try {
+      const win = sourceFrame.contentWindow;
+      if (!win) return;
+
+      win.addEventListener('scroll', () => {
+        if (!syncEnabled) return;
+        if (activeScroller && activeScroller !== side) return;
+
+        activeScroller = side;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          activeScroller = null;
+        }, 80);
+
+        const dims = getScrollDimensions(win);
+        setScrollRatio(targetFrame.contentWindow, dims.ratio);
+
+        // Update scrubber UI
+        const pct = Math.round(dims.ratio * 100);
+        scrollScrubber.value = pct;
+        scrubberValue.textContent = pct + '%';
+      }, { passive: true });
+    } catch (e) {
+      console.warn('Scroll listener attach failed on ' + side, e);
+    }
+  }
+
+  // Scrubber Input (User drags slider to scroll both frames)
+  scrollScrubber.addEventListener('input', (e) => {
+    const pct = parseFloat(e.target.value);
+    const ratio = pct / 100;
+    scrubberValue.textContent = Math.round(pct) + '%';
+
+    activeScroller = 'scrubber';
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      activeScroller = null;
+    }, 100);
+
+    setScrollRatio(leftFrame.contentWindow, ratio);
+    setScrollRatio(rightFrame.contentWindow, ratio);
+  });
+
+  // Jump Anchors
+  anchorPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const pct = parseFloat(pill.dataset.pct);
+      const ratio = pct / 100;
+      scrollScrubber.value = pct;
+      scrubberValue.textContent = Math.round(pct) + '%';
+
+      activeScroller = 'anchor';
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        activeScroller = null;
+      }, 150);
+
+      if (leftFrame.contentWindow) {
+        setScrollRatio(leftFrame.contentWindow, ratio);
+      }
+      if (rightFrame.contentWindow) {
+        setScrollRatio(rightFrame.contentWindow, ratio);
+      }
+    });
+  });
+
+  // Attach listeners on load
+  leftFrame.addEventListener('load', () => {
+    attachScrollListener(leftFrame, rightFrame, 'left');
+  });
+
+  rightFrame.addEventListener('load', () => {
+    attachScrollListener(rightFrame, leftFrame, 'right');
+  });
+
+  // Initial check
+  updateVoiceBadge(leftSelect, leftVoiceTag);
+  updateVoiceBadge(rightSelect, rightVoiceTag);
+})();
+</script>
+
+</body>
+</html>
