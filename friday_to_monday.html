@@ -14,7 +14,16 @@
   <meta property="og:image" content="https://magruder.co/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://magruder.co/friday-to-monday" />
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) with Internal Exclusion -->
+  <script>
+    if (window.location.search.includes('internal=true') || window.location.search.includes('internal=1')) {
+      localStorage.setItem('mco_internal_device', 'true');
+    }
+    if (localStorage.getItem('mco_internal_device') === 'true' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      window['ga-disable-G-QPMDYQ5YBL'] = true;
+      console.log('MCo Analytics: Internal testing mode active. GA4 tracking disabled.');
+    }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPMDYQ5YBL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -137,7 +146,7 @@
           <span>Starting from a blank page or stalled in committee? Hand off your strategic priorities by 5:00 PM Friday. We construct a tailored working straw man over the weekend so your leadership team has a concrete, board-aligned baseline to react to, frame in, and refine across the week.</span>
         </div>
         <div class="hero-pillar">
-          <strong>Path 2: The Hardening</strong>
+          <strong>Path 2: Pre-Board Hardening</strong>
           <span>Have an existing draft deck or proposal scheduled for delivery? Hand off your materials under mutual NDA by 5:00 PM Friday. We adversarial red-team the claims, close fiduciary gaps under Delaware Caremark oversight, and return a stress-tested revision prepared for executive and board review by Monday morning.</span>
         </div>
       </div>
@@ -185,7 +194,7 @@
         </div>
 
         <div class="panel-navy">
-          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy-dk); margin-bottom: 10px;">Turnaround Path 2: The Hardening</h3>
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy-dk); margin-bottom: 10px;">Turnaround Path 2: Pre-Board Hardening</h3>
           <p>For executive teams that already have a draft strategy deck, vendor investment proposal, or committee policy scheduled for an upcoming board or LP review. We take the draft apart over the weekend, stress-test every claim against institutional benchmarks, close fiduciary vulnerabilities, and return a hardened revision and board Q&amp;A defense brief by Monday at 8:00 AM.</p>
         </div>
       </section>
@@ -233,7 +242,7 @@
           </div>
           <div class="timing-row">
             <dt>Saturday &amp; Sunday</dt>
-            <dd>Intensive sprint execution: multi-model adversarial stress-testing, fiduciary alignment, Quality of Earnings validation, and narrative structuring.</dd>
+            <dd>Intensive sprint execution: multi-model adversarial stress-testing, fiduciary alignment, corporate governance gap analysis, and narrative structuring.</dd>
           </div>
           <div class="timing-row">
             <dt>Monday 8:00 AM CT</dt>
@@ -271,7 +280,7 @@
           </div>
           <div class="form-row">
             <label for="cf-context">Sprint Selection &amp; Context</label>
-            <textarea id="cf-context" name="context" rows="3" placeholder="Indicate whether you need a Monday Morning Straw Man (built from priorities) or Pre-Board Hardening (stress-testing an existing draft), and which plans are in scope."></textarea>
+            <textarea id="cf-context" name="context" rows="3" placeholder="Indicate whether you need Path 1: The Working Straw Man (built from priorities) or Path 2: Pre-Board Hardening (stress-testing an existing draft), and which plans are in scope."></textarea>
           </div>
           <button id="cf-submit-btn" type="submit" class="btn btn-orange" style="align-self: flex-start; margin-top: 4px;">Request Preparation Checklist &amp; NDA</button>
           <div id="cf-success-msg" class="form-msg">Thank you. Your inquiry has been received directly by managing principal Michael Magruder. We will respond promptly with the 1-page Preparation Checklist and mutual NDA.</div>

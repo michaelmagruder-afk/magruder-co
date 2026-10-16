@@ -14,7 +14,16 @@
   <meta property="og:image" content="https://magruder.co/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://magruder.co/friday-to-monday" />
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) with Internal Exclusion -->
+  <script>
+    if (window.location.search.includes('internal=true') || window.location.search.includes('internal=1')) {
+      localStorage.setItem('mco_internal_device', 'true');
+    }
+    if (localStorage.getItem('mco_internal_device') === 'true' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      window['ga-disable-G-QPMDYQ5YBL'] = true;
+      console.log('MCo Analytics: Internal testing mode active. GA4 tracking disabled.');
+    }
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPMDYQ5YBL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -127,9 +136,9 @@
 
   <header class="hero">
     <div class="wrap">
-      <div class="eyebrow">Magruder &amp; Company &middot; The 72-Hour Executive Turnaround</div>
+      <div class="eyebrow">Magruder &amp; Company &middot; The Weekend Executive Turnaround</div>
       <h1>Your Executive AI Position.<br>On your desk by Monday morning.</h1>
-      <p class="hero-sub">Hand off by Friday at 5:00 PM. Receive a structured working straw man or a hardened, board-defensible revision by Monday at 8:00 AM, <em>ready for your executive team to frame in, refine, and execute all week.</em></p>
+      <p class="hero-sub">Hand off by Friday at 5:00 PM. Receive a structured working straw man or a hardened revision prepared for executive and board review by Monday at 8:00 AM, <em>ready for your executive team to frame in, refine, and execute all week.</em></p>
       <p class="hero-lead">Enterprise AI is software. Executive AI is governance. Across most organizations, internal AI committees and IT leaders are not stalled because they lack technology. They are stalled because executive leadership has not established clear corporate stance, legal guardrails, and capital allocation boundaries. When the board and C-suite clearly define corporate policy, they provide the exact mandate technical teams need to build boldly without shouldering unhedged corporate liability.</p>
       <div class="hero-pillars">
         <div class="hero-pillar">
@@ -137,8 +146,8 @@
           <span>Starting from a blank page or stalled in committee? Hand off your strategic priorities by 5:00 PM Friday. We construct a tailored working straw man over the weekend so your leadership team has a concrete, board-aligned baseline to react to, frame in, and refine across the week.</span>
         </div>
         <div class="hero-pillar">
-          <strong>Path 2: The Hardening</strong>
-          <span>Have an existing draft deck or proposal scheduled for delivery? Hand off your materials under mutual NDA by 5:00 PM Friday. We adversarial red-team the claims, close fiduciary gaps under Delaware Caremark, and return a board-defensible revision and director Q&amp;A defense brief by Monday morning.</span>
+          <strong>Path 2: Pre-Board Hardening</strong>
+          <span>Have an existing draft deck or proposal scheduled for delivery? Hand off your materials under mutual NDA by 5:00 PM Friday. We adversarial red-team the claims, close fiduciary gaps under Delaware Caremark oversight, and return a stress-tested revision prepared for executive and board review by Monday morning.</span>
         </div>
       </div>
     </div>
@@ -185,7 +194,7 @@
         </div>
 
         <div class="panel-navy">
-          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy-dk); margin-bottom: 10px;">Turnaround Path 2: The Hardening</h3>
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy-dk); margin-bottom: 10px;">Turnaround Path 2: Pre-Board Hardening</h3>
           <p>For executive teams that already have a draft strategy deck, vendor investment proposal, or committee policy scheduled for an upcoming board or LP review. We take the draft apart over the weekend, stress-test every claim against institutional benchmarks, close fiduciary vulnerabilities, and return a hardened revision and board Q&amp;A defense brief by Monday at 8:00 AM.</p>
         </div>
       </section>
@@ -221,7 +230,7 @@
 
       <section id="cadence">
         <div class="label">Weekend Cadence</div>
-        <h2>72-hour operational timeline from hand-off to executive delivery</h2>
+        <h2>Operational timeline from Friday hand-off to Monday executive delivery</h2>
         <dl class="timing">
           <div class="timing-row">
             <dt>Friday 3:00 PM CT</dt>
@@ -229,11 +238,11 @@
           </div>
           <div class="timing-row">
             <dt>Friday 5:00 PM CT</dt>
-            <dd>Materials hand-off and sprint initiation. All client materials are handled under strict confidentiality in zero-training enterprise environments.</dd>
+            <dd>Materials hand-off and sprint initiation. Led directly by Michael Magruder. Client materials are strictly isolated in zero-training enterprise environments and never used for public or private model training.</dd>
           </div>
           <div class="timing-row">
             <dt>Saturday &amp; Sunday</dt>
-            <dd>Intensive sprint execution: multi-model adversarial stress-testing, fiduciary alignment, Quality of Earnings validation, and narrative structuring.</dd>
+            <dd>Intensive sprint execution: multi-model adversarial stress-testing, fiduciary alignment, corporate governance gap analysis, and narrative structuring.</dd>
           </div>
           <div class="timing-row">
             <dt>Monday 8:00 AM CT</dt>
@@ -250,6 +259,7 @@
         <div class="label">Initiate Your Sprint</div>
         <h2>Start your Friday-through-Monday sprint</h2>
         <p>Every engagement is led directly by managing principal Michael Magruder at the senior operating level. Clear, fixed-scope terms structured for immediate executive sign-off without lengthy procurement delays. All materials and conversations are held under strict confidentiality with pre-review bilateral NDA protection.</p>
+        <p><strong>Capacity &amp; Fiduciary Governance:</strong> Sprint capacity is strictly limited to two client engagements per weekend to maintain rigorous, partner-level execution. This advisory service provides operational and corporate governance instruments; it does not constitute formal legal advice. Client General Counsel and audit committees review all final instruments prior to formal board adoption.</p>
 
         <form id="sprint-form" name="friday-sprint-inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
           <input type="hidden" name="form-name" value="friday-sprint-inquiry" />
@@ -270,7 +280,7 @@
           </div>
           <div class="form-row">
             <label for="cf-context">Sprint Selection &amp; Context</label>
-            <textarea id="cf-context" name="context" rows="3" placeholder="Indicate whether you need a Monday Morning Straw Man (built from priorities) or Pre-Board Hardening (stress-testing an existing draft), and which plans are in scope."></textarea>
+            <textarea id="cf-context" name="context" rows="3" placeholder="Indicate whether you need Path 1: The Working Straw Man (built from priorities) or Path 2: Pre-Board Hardening (stress-testing an existing draft), and which plans are in scope."></textarea>
           </div>
           <button id="cf-submit-btn" type="submit" class="btn btn-orange" style="align-self: flex-start; margin-top: 4px;">Request Preparation Checklist &amp; NDA</button>
           <div id="cf-success-msg" class="form-msg">Thank you. Your inquiry has been received directly by managing principal Michael Magruder. We will respond promptly with the 1-page Preparation Checklist and mutual NDA.</div>
@@ -281,7 +291,7 @@
           <a id="linkedin-dm-btn" class="btn btn-outline" href="https://www.linkedin.com/in/michaeljmagruder" target="_blank" rel="noopener">Message Michael on LinkedIn</a>
         </div>
 
-        <p class="pass">Share this 72-hour sprint with an executive team, CEO, CFO, board director, or operating partner preparing for upcoming AI strategy reviews.</p>
+        <p class="pass">Share this weekend sprint with an executive team, CEO, CFO, board director, or operating partner preparing for upcoming AI strategy reviews.</p>
       </div>
 
     </div>
