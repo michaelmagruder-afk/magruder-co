@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Friday-through-Monday Executive AI Sprint · Magruder &amp; Company</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png" />
+  <meta name="description" content="Hand off your priorities or current draft by 5:00 PM Friday. Receive a structured working straw man or hardened, board-defensible Executive AI Position on your desk by Monday morning." />
+  <meta property="og:title" content="The Friday-through-Monday Executive AI Sprint · Magruder &amp; Company" />
+  <meta property="og:description" content="Executive AI Position, Operations, and Governance Plans. Structured working straw man or hardened revision on your desk by Monday morning." />
+  <meta property="og:url" content="https://magruder.co/friday-to-monday" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://magruder.co/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://magruder.co/friday-to-monday" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPMDYQ5YBL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QPMDYQ5YBL', {
+      page_title: 'Magruder & Company · The Friday-through-Monday Executive AI Sprint',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1E3455; --navy-dk: #131F33; --orange: #F86822; --orange-lt: #FEA96D;
+      --cream: #FAF8F5; --off-white: #F2EFE9; --slate: #3B4656; --line: #D6DDE8; --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Neue Haas Grotesk", "Helvetica Neue", Helvetica, Inter, Arial, sans-serif; background: var(--cream); color: var(--navy-dk); line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; }
+    .top-bar { background: var(--navy-dk); border-bottom: 1px solid rgba(255,255,255,0.12); padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; position: sticky; top: 0; z-index: 100; }
+    .top-brand { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+    .top-brand span { color: var(--orange); }
+    .top-nav { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .top-nav a { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.78); text-decoration: none; transition: color 0.15s ease; }
+    .top-nav a:hover { color: var(--orange-lt); }
+    .top-nav .nav-btn { color: var(--white); background: var(--orange); padding: 7px 14px; border-radius: 3px; font-weight: 700; }
+    .top-nav .nav-btn:hover { background: #d95a18; color: var(--white); }
+    .hero { background: var(--navy-dk); color: var(--white); padding: 72px 48px 64px; }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
+    .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(34px, 4.6vw, 50px); font-weight: 700; line-height: 1.14; margin-bottom: 18px; color: var(--white); }
+    .hero-sub { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.4vw, 24px); font-weight: 500; line-height: 1.42; color: rgba(255,255,255,0.95); margin-bottom: 22px; }
+    .hero-sub em { color: var(--orange-lt); font-style: italic; font-weight: 500; }
+    .hero-lead { font-size: 17.5px; color: rgba(255,255,255,0.86); line-height: 1.68; margin-bottom: 28px; }
+    .hero-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 24px; }
+    .hero-pillar { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-left: 3px solid var(--orange); border-radius: 4px; padding: 20px 22px; }
+    .hero-pillar strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; letter-spacing: 0.01em; color: var(--white); margin-bottom: 8px; line-height: 1.25; }
+    .hero-pillar span { font-size: 14.5px; color: rgba(255,255,255,0.82); line-height: 1.55; display: block; }
+    main { padding: 64px 48px 80px; }
+    .intro p { font-size: 17px; color: var(--slate); margin-bottom: 18px; }
+    .intro p:last-child { margin-bottom: 0; }
+    section { margin-top: 60px; }
+    .label { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+    h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; line-height: 1.25; color: var(--navy-dk); margin-bottom: 18px; }
+    section p { font-size: 16px; color: var(--slate); margin-bottom: 14px; }
+    section p:last-child { margin-bottom: 0; }
+    .timing { background: var(--white); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; margin-top: 20px; }
+    .timing-row { display: grid; grid-template-columns: 260px 1fr; border-bottom: 1px solid var(--line); }
+    .timing-row:last-child { border-bottom: none; }
+    .timing-row dt { padding: 18px 20px; font-weight: 700; color: var(--navy-dk); background: var(--off-white); font-size: 15px; }
+    .timing-row dd { padding: 18px 20px; color: var(--slate); font-size: 15.5px; }
+    ul.work { list-style: none; display: grid; gap: 12px; margin-top: 20px; }
+    ul.work li { background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--navy); padding: 16px 20px; border-radius: 4px; font-size: 15.5px; color: var(--slate); }
+    ul.work li strong { color: var(--navy-dk); display: block; margin-bottom: 4px; font-size: 16.5px; }
+    .panel { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--orange); padding: 28px 32px; border-radius: 4px; margin: 24px 0; }
+    .panel-navy { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--navy); padding: 28px 32px; border-radius: 4px; margin: 24px 0; }
+    .quiet { font-style: italic; color: var(--navy-dk) !important; }
+    .commercial { background: var(--navy-dk); color: var(--white); border-radius: 6px; padding: 44px 48px; margin-top: 64px; }
+    .commercial h2 { color: var(--white); }
+    .commercial p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 14px; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); padding: 28px 30px; border-radius: 4px; margin-top: 22px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-row { display: flex; flex-direction: column; gap: 6px; }
+    .form-row label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+    .form-optional { font-weight: 400; color: rgba(255,255,255,0.45); text-transform: lowercase; }
+    .form-row input, .form-row textarea { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 12px 14px; color: var(--white); font-family: inherit; font-size: 14.5px; line-height: 1.5; width: 100%; resize: vertical; }
+    .form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--orange); background: rgba(255,255,255,0.12); }
+    .form-row input::placeholder, .form-row textarea::placeholder { color: rgba(255,255,255,0.38); }
+    .form-msg { padding: 14px 18px; border-radius: 4px; background: rgba(248,104,34,0.14); border: 1px solid var(--orange); color: var(--white); font-size: 14.5px; display: none; line-height: 1.5; }
+    .linkedin-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 24px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); }
+    .linkedin-bar p { margin-bottom: 0 !important; font-size: 15px !important; color: rgba(255,255,255,0.88) !important; }
+    .btn { display: inline-block; padding: 14px 24px; border-radius: 4px; font-weight: 700; font-size: 15px; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit; }
+    .btn-orange { background: var(--orange); color: var(--white); }
+    .btn-orange:hover { background: #d95a18; }
+    .btn-outline { border-color: rgba(255,255,255,0.4); color: var(--white); background: transparent; }
+    .btn-outline:hover { border-color: var(--white); }
+    .pass { margin-top: 22px; font-size: 13.5px !important; color: rgba(255,255,255,0.65) !important; font-style: italic; }
+    footer { text-align: center; padding: 28px 20px 40px; font-size: 12px; color: #8A9BB0; }
+    footer a { color: #1E3455; text-decoration: none; font-weight: 600; }
+    @media (max-width: 720px) {
+      .top-bar, .hero { padding-left: 16px; padding-right: 16px; }
+      .hero { padding-top: 48px; padding-bottom: 44px; }
+      .hero-pillars, .form-grid { grid-template-columns: 1fr; }
+      main { padding: 44px 16px 56px; }
+      .timing-row { grid-template-columns: 1fr; }
+      .timing-row dt { padding-bottom: 6px; }
+      .timing-row dd { padding-top: 10px; }
+      .panel, .panel-navy, .contact-form { padding: 22px 20px; }
+      .commercial { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="https://magruder.co" class="top-brand">Magruder <span>&amp;</span> Company</a>
+    <nav class="top-nav">
+      <a href="#plans">The Three Plans</a>
+      <a href="#paths">Turnaround Paths</a>
+      <a href="#checklist">Preparation Checklist</a>
+      <a href="#cadence">Weekend Cadence</a>
+      <a href="https://magruder.co">Main Site</a>
+      <a href="#engage" class="nav-btn">Start a Conversation</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Magruder &amp; Company &middot; The 72-Hour Executive Turnaround</div>
+      <h1>Your Executive AI Position.<br>On your desk by Monday morning.</h1>
+      <p class="hero-sub">Hand off by Friday at 5:00 PM. Receive a structured working straw man or a hardened, board-defensible revision by Monday at 8:00 AM, <em>ready for your executive team to frame in, refine, and execute all week.</em></p>
+      <p class="hero-lead">Enterprise AI is software. Executive AI is governance. Across most organizations, internal AI committees and IT leaders are not stalled because they lack technology. They are stalled because executive leadership has not established clear corporate stance, legal guardrails, and capital allocation boundaries. When the board and C-suite clearly define corporate policy, they provide the exact mandate technical teams need to build boldly without shouldering unhedged corporate liability.</p>
+      <div class="hero-pillars">
+        <div class="hero-pillar">
+          <strong>Path 1: The Working Straw Man</strong>
+          <span>Starting from a blank page or stalled in committee? Hand off your strategic priorities by 5:00 PM Friday. We construct a tailored working straw man over the weekend so your leadership team has a concrete, board-aligned baseline to react to, frame in, and refine across the week.</span>
+        </div>
+        <div class="hero-pillar">
+          <strong>Path 2: The Hardening</strong>
+          <span>Have an existing draft deck or proposal scheduled for delivery? Hand off your materials under mutual NDA by 5:00 PM Friday. We adversarial red-team the claims, close fiduciary gaps under Delaware Caremark, and return a board-defensible revision and director Q&amp;A defense brief by Monday morning.</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <div class="intro">
+        <div class="panel-navy">
+          <strong>We do not overpromise that a permanent corporate policy is written overnight.</strong> We deliver an active working instrument: either a structured straw man to frame in and refine with your executive team across weekly working sessions, or a hardened, stress-tested revision of your existing draft so you walk into your next board or investment committee meeting prepared.
+        </div>
+      </div>
+
+      <section id="plans">
+        <div class="label">Modular Executive Suite</div>
+        <h2>One specific deliverable, or the complete executive suite</h2>
+        <p>We do not force a rigid, one-size-fits-all transformation engagement. We deliver an active working instrument covering one, two, or all three of these core corporate plans:</p>
+
+        <ul class="work">
+          <li>
+            <strong>1. The Executive AI Position Plan</strong>
+            Corporate stance, fiduciary boundaries, capital allocation hurdles, permitted versus prohibited use cases, and strategic red lines for the board, investors, and leadership team.
+          </li>
+          <li>
+            <strong>2. The Executive AI Operations Plan</strong>
+            Human-AI operating architecture, value stream mapping, team throughput metrics, and the formal corporate execution mandate that empowers the CIO and engineering teams.
+          </li>
+          <li>
+            <strong>3. The Executive AI Governance Plan</strong>
+            Delaware Caremark fiduciary oversight compliance, SEC risk disclosure posture, EU AI Act conformity, and board audit committee risk thresholds.
+          </li>
+        </ul>
+      </section>
+
+      <section id="paths">
+        <div class="label">The Two Weekend Turnaround Paths</div>
+        <h2>Designed around how executive committees actually work</h2>
+        <p>Instead of months of open-ended consulting discovery before you see a single page, we provide two immediate weekend turnarounds:</p>
+
+        <div class="panel">
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy-dk); margin-bottom: 10px;">Turnaround Path 1: The Working Straw Man</h3>
+          <p>For organizations where AI strategy is trapped in committee debate, fragmented across departments, or staring at a blank page. You hand off your top commercial objectives and organizational context by Friday at 5:00 PM. We build a structured, high-level operational baseline over the weekend. On Monday morning, your executive committee has a tangible instrument on the desk to react to, frame in, and refine all week.</p>
+        </div>
+
+        <div class="panel-navy">
+          <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--navy-dk); margin-bottom: 10px;">Turnaround Path 2: The Hardening</h3>
+          <p>For executive teams that already have a draft strategy deck, vendor investment proposal, or committee policy scheduled for an upcoming board or LP review. We take the draft apart over the weekend, stress-test every claim against institutional benchmarks, close fiduciary vulnerabilities, and return a hardened revision and board Q&amp;A defense brief by Monday at 8:00 AM.</p>
+        </div>
+      </section>
+
+      <section id="checklist">
+        <div class="label">Intake Protocol</div>
+        <h2>The 1-page preparation checklist: what we need to get started</h2>
+        <p>No lengthy RFP or 30-day procurement process is required. When you reach out before 3:00 PM CT on Friday, we immediately provide our 1-page Preparation Checklist and bilateral NDA covering the five items needed to initiate your sprint:</p>
+
+        <ul class="work">
+          <li>
+            <strong>1. Active Tooling &amp; Pilot Footprint</strong>
+            A brief summary of current AI software licenses, vendor pilots, and team-level tools currently in motion across the organization.
+          </li>
+          <li>
+            <strong>2. Core Leadership Circle</strong>
+            Names and functional disciplines of key executive sponsors (CEO, CFO, CIO, General Counsel, and Operating Unit Heads).
+          </li>
+          <li>
+            <strong>3. Top Strategic Priorities</strong>
+            The top 2 to 3 enterprise commercial objectives and EBITDA margin drivers for the upcoming fiscal year.
+          </li>
+          <li>
+            <strong>4. Fiduciary &amp; IP Boundaries</strong>
+            Any specific compliance jurisdictions, trade secret sensitivities, or customer data confidentiality constraints.
+          </li>
+          <li>
+            <strong>5. Existing Draft Materials (If Hardening)</strong>
+            The current board slide deck, committee memorandum, or strategy outline scheduled for delivery.
+          </li>
+        </ul>
+      </section>
+
+      <section id="cadence">
+        <div class="label">Weekend Cadence</div>
+        <h2>72-hour operational timeline from hand-off to executive delivery</h2>
+        <dl class="timing">
+          <div class="timing-row">
+            <dt>Friday 3:00 PM CT</dt>
+            <dd>Preparation Checklist and bilateral NDA exchange. Initial scoping alignment on whether you need a Straw Man (Path 1) or Hardening (Path 2).</dd>
+          </div>
+          <div class="timing-row">
+            <dt>Friday 5:00 PM CT</dt>
+            <dd>Materials hand-off and sprint initiation. All client materials are handled under strict confidentiality in zero-training enterprise environments.</dd>
+          </div>
+          <div class="timing-row">
+            <dt>Saturday &amp; Sunday</dt>
+            <dd>Intensive sprint execution: multi-model adversarial stress-testing, fiduciary alignment, Quality of Earnings validation, and narrative structuring.</dd>
+          </div>
+          <div class="timing-row">
+            <dt>Monday 8:00 AM CT</dt>
+            <dd>Delivery of your active working straw man or hardened revision to your executive desk, complete with executive summary and board defense brief.</dd>
+          </div>
+          <div class="timing-row">
+            <dt>Monday 9:00 AM onward</dt>
+            <dd>Executive committee review: your leadership team is primed, aligned, and ready to frame in or present with complete defensibility.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="commercial" id="engage">
+        <div class="label">Initiate Your Sprint</div>
+        <h2>Start your Friday-through-Monday sprint</h2>
+        <p>Every engagement is led directly by managing principal Michael Magruder at the senior operating level. Clear, fixed-scope terms structured for immediate executive sign-off without lengthy procurement delays. All materials and conversations are held under strict confidentiality with pre-review bilateral NDA protection.</p>
+
+        <form id="sprint-form" name="friday-sprint-inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
+          <input type="hidden" name="form-name" value="friday-sprint-inquiry" />
+          <p style="display:none"><input name="bot-field" /></p>
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-row">
+              <label for="cf-company">Company / Organization</label>
+              <input type="text" id="cf-company" name="company" placeholder="Your organization or fund" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Corporate Work Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="name@company.com" required />
+          </div>
+          <div class="form-row">
+            <label for="cf-context">Sprint Selection &amp; Context</label>
+            <textarea id="cf-context" name="context" rows="3" placeholder="Indicate whether you need a Monday Morning Straw Man (built from priorities) or Pre-Board Hardening (stress-testing an existing draft), and which plans are in scope."></textarea>
+          </div>
+          <button id="cf-submit-btn" type="submit" class="btn btn-orange" style="align-self: flex-start; margin-top: 4px;">Request Preparation Checklist &amp; NDA</button>
+          <div id="cf-success-msg" class="form-msg">Thank you. Your inquiry has been received directly by managing principal Michael Magruder. We will respond promptly with the 1-page Preparation Checklist and mutual NDA.</div>
+        </form>
+
+        <div class="linkedin-bar">
+          <p>Prefer to connect directly on LinkedIn? You can message managing principal Michael Magruder.</p>
+          <a id="linkedin-dm-btn" class="btn btn-outline" href="https://www.linkedin.com/in/michaeljmagruder" target="_blank" rel="noopener">Message Michael on LinkedIn</a>
+        </div>
+
+        <p class="pass">Share this 72-hour sprint with an executive team, CEO, CFO, board director, or operating partner preparing for upcoming AI strategy reviews.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>&copy; 2026 <a href="https://magruder.co">Magruder &amp; Company</a> &middot; Enterprise AI Position &amp; Governance Advisory &middot; Nashville, Tennessee</footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById("sprint-form");
+      var successMsg = document.getElementById("cf-success-msg");
+      var submitBtn = document.getElementById("cf-submit-btn");
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending..."; }
+
+          if (typeof gtag === "function") {
+            gtag("event", "generate_lead", {
+              event_category: "engagement",
+              event_label: "friday_sprint_contact_form"
+            });
+          }
+
+          var formData = new FormData(form);
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          })
+          .then(function () {
+            form.reset();
+            if (submitBtn) { submitBtn.style.display = "none"; }
+            if (successMsg) { successMsg.style.display = "block"; }
+          })
+          .catch(function () {
+            form.submit();
+          });
+        });
+      }
+
+      var liBtn = document.getElementById("linkedin-dm-btn");
+      if (liBtn) {
+        liBtn.addEventListener("click", function () {
+          if (typeof gtag === "function") {
+            gtag("event", "click", {
+              event_category: "outbound",
+              event_label: "friday_sprint_linkedin_dm"
+            });
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
