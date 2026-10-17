@@ -303,15 +303,20 @@
           }
 
           var formData = new FormData(form);
-          fetch("/", {
+          var postPath = window.location.pathname || "/ai-plan";
+          fetch(postPath, {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString()
           })
-          .then(function () {
-            form.reset();
-            if (submitBtn) { submitBtn.style.display = "none"; }
-            if (successMsg) { successMsg.style.display = "block"; }
+          .then(function (response) {
+            if (response.ok) {
+              form.reset();
+              if (submitBtn) { submitBtn.style.display = "none"; }
+              if (successMsg) { successMsg.style.display = "block"; }
+            } else {
+              form.submit();
+            }
           })
           .catch(function () {
             form.submit(); // Graceful fallback to standard POST if AJAX fails
