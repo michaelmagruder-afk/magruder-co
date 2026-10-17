@@ -46,10 +46,6 @@
   to = "/friday-to-monday.html"
   status = 200
 
-[[redirects]]
-  from = "/plan"
-  to = "/friday-to-monday.html"
-  status = 200
 
 [[redirects]]
   from = "/insights/context-is-the-next-culture-journal"
