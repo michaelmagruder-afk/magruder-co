@@ -53,6 +53,16 @@
   status = 301
 
 [[redirects]]
+  from = "/insights/the-record-is-not-the-memory-journal"
+  to = "/insights/the-record-is-not-the-memory#journal"
+  status = 301
+
+[[redirects]]
+  from = "/insights/the-five-crises-of-modern-enterprise-ai-governance-journal"
+  to = "/insights/the-five-crises-of-modern-enterprise-ai-governance#journal"
+  status = 301
+
+[[redirects]]
   from = "/brief"
   to = "/insights/context-is-the-next-culture?utm_source=linkedin&utm_medium=social_carousel&utm_campaign=context_culture_q4#brief"
   status = 302
